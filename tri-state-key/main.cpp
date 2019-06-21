@@ -80,7 +80,7 @@ int main() {
         }
 
         bool none = uevent.state.find("USB=0") != std::string::npos;
-        bool vibration = uevent.state.find("USB_HOST=0") != std::string::npos;
+        bool vibration = uevent.state.find("HOST=0") != std::string::npos;
         bool silent = uevent.state.find("null)=0") != std::string::npos;
 
         int keyCode;
