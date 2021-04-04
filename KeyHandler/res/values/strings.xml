@@ -5,6 +5,7 @@
 -->
 <resources>
     <!-- Alert slider -->
+    <string name="alert_slider_summary">Control the actions of each slider position</string>
     <string name="alert_slider_category_title">Alert slider</string>
     <string name="alert_slider_selection_dialog_title">Action</string>
     <string name="alert_slider_top_position">Top position</string>
