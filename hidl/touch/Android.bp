@@ -1,0 +1,19 @@
+cc_binary {
+    name: "vendor.lineage.touch@1.0-service.oplus",
+    defaults: ["hidl_defaults"],
+    init_rc: ["vendor.lineage.touch@1.0-service.oplus.rc"],
+    vintf_fragments: ["vendor.lineage.touch@1.0-service.oplus.xml"],
+    vendor: true,
+    relative_install_path: "hw",
+    srcs: [
+        "TouchscreenGesture.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libutils",
+        "vendor.lineage.touch@1.0",
+    ],
+    local_include_dirs: ["include"],
+}
