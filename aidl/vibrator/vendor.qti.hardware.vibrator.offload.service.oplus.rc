@@ -1,0 +1,4 @@
+service vendor.qti.vibrator /vendor/bin/hw/vendor.qti.hardware.vibrator.offload.service.oplus
+    class hal
+    user system
+    group system input
