@@ -1,0 +1,7 @@
+on init
+    chown system system /proc/wireless/enable_tx
+
+service vendor.powershare-hal-1-0 /vendor/bin/hw/vendor.lineage.powershare@1.0-service.oplus
+    class hal
+    user system
+    group system
