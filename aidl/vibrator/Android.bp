@@ -1,0 +1,84 @@
+Common_CFlags = ["-Wall"]
+Common_CFlags += ["-Werror"]
+
+cc_library_shared {
+    name: "vendor.qti.hardware.vibrator.impl",
+    vendor: true,
+    cflags: Common_CFlags,
+    srcs: [
+        "Vibrator.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "liblog",
+        "libqtivibratoreffect",
+        "libbinder_ndk",
+        "android.hardware.vibrator-V1-ndk_platform",
+    ],
+    export_include_dirs: ["include"]
+}
+
+cc_binary {
+    name: "vendor.qti.hardware.vibrator.service",
+    vendor: true,
+    relative_install_path: "hw",
+    init_rc: ["vendor.qti.hardware.vibrator.service.rc"],
+    vintf_fragments: [
+        "vendor.qti.hardware.vibrator.service.xml",
+    ],
+    cflags: Common_CFlags,
+    srcs: [
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "libbase",
+        "libbinder_ndk",
+        "android.hardware.vibrator-V1-ndk_platform",
+        "vendor.qti.hardware.vibrator.impl",
+    ],
+}
+
+cc_library_shared {
+    name: "vendor.qti.hardware.vibrator.offload.impl",
+    vendor: true,
+    cflags: Common_CFlags + ["-DTARGET_SUPPORTS_OFFLOAD"],
+    srcs: [
+        "Vibrator.cpp",
+        "VibratorOffload.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "liblog",
+        "libqtivibratoreffect",
+        "libqtivibratoreffectoffload",
+        "libbinder_ndk",
+        "android.hardware.vibrator-V1-ndk_platform",
+    ],
+    export_include_dirs: ["include"],
+}
+
+cc_binary {
+    name: "vendor.qti.hardware.vibrator.offload.service",
+    vendor: true,
+    relative_install_path: "hw",
+    init_rc: ["vendor.qti.hardware.vibrator.offload.service.rc"],
+    vintf_fragments: [
+        "vendor.qti.hardware.vibrator.offload.service.xml",
+    ],
+    cflags: Common_CFlags + ["-DTARGET_SUPPORTS_OFFLOAD"],
+    srcs: [
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "libbase",
+        "libbinder_ndk",
+        "android.hardware.vibrator-V1-ndk_platform",
+        "vendor.qti.hardware.vibrator.offload.impl",
+    ],
+}
