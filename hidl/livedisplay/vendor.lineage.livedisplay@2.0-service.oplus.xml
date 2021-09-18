@@ -3,5 +3,9 @@
         <name>vendor.lineage.livedisplay</name>
         <transport>hwbinder</transport>
         <version>2.0</version>
+       <interface>
+            <name>ISunlightEnhancement</name>
+            <instance>default</instance>
+        </interface>
     </hal>
 </manifest>
