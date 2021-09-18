@@ -21,6 +21,8 @@
 #include <hidl/HidlTransportSupport.h>
 #include <livedisplay/sdm/PictureAdjustment.h>
 
+#include "SunlightEnhancement.h"
+
 using ::android::OK;
 using ::android::sp;
 using ::android::status_t;
@@ -29,6 +31,8 @@ using ::android::hardware::joinRpcThreadpool;
 
 using ::vendor::lineage::livedisplay::V2_0::sdm::PictureAdjustment;
 using ::vendor::lineage::livedisplay::V2_0::sdm::SDMController;
+using ::vendor::lineage::livedisplay::V2_0::ISunlightEnhancement;
+using ::vendor::lineage::livedisplay::V2_0::implementation::SunlightEnhancement;
 
 int main() {
     status_t status = OK;
@@ -40,12 +44,20 @@ int main() {
     std::shared_ptr<SDMController> controller = std::make_shared<SDMController>();
 
     sp<PictureAdjustment> pa = new PictureAdjustment(controller);
+    sp<SunlightEnhancement> se = new SunlightEnhancement();
 
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
     status = pa->registerAsService();
     if (status != OK) {
         LOG(ERROR) << "Could not register service for LiveDisplay HAL PictureAdjustment Iface ("
+                   << status << ")";
+        goto shutdown;
+    }
+
+    status = se->registerAsService();
+    if (status != OK) {
+        LOG(ERROR) << "Could not register service for LiveDisplay HAL SunlightEnhancement Iface ("
                    << status << ")";
         goto shutdown;
     }
