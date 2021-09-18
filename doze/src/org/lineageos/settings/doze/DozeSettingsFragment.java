@@ -93,6 +93,16 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
             pickupSensorCategory.setDependency(Utils.ALWAYS_ON_DISPLAY);
             proximitySensorCategory.setDependency(Utils.ALWAYS_ON_DISPLAY);
         }
+
+        // Hide pickup sensor category if its sensor type is empty
+        if (getString(R.string.pickup_sensor_type).isEmpty()) {
+            getPreferenceScreen().removePreference(pickupSensorCategory);
+        }
+
+        // Hide proximity sensor category if its sensor type is empty
+        if (getString(R.string.pocket_sensor_type).isEmpty()) {
+            getPreferenceScreen().removePreference(proximitySensorCategory);
+        }
     }
 
     @Override

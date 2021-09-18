@@ -53,7 +53,8 @@ public class PickupSensor implements SensorEventListener {
         mContext = context;
         mPowerManager = mContext.getSystemService(PowerManager.class);
         mSensorManager = mContext.getSystemService(SensorManager.class);
-        mSensor = Utils.getSensor(mSensorManager, "oneplus.sensor.pickup");
+        mSensor = Utils.getSensor(mSensorManager,
+                context.getResources().getString(R.string.pickup_sensor_type));
         mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
         mExecutorService = Executors.newSingleThreadExecutor();
     }
@@ -90,6 +91,7 @@ public class PickupSensor implements SensorEventListener {
     }
 
     protected void enable() {
+        if (mSensor == null) return;
         if (DEBUG) Log.d(TAG, "Enabling");
         submit(() -> {
             mEntryTimestamp = SystemClock.elapsedRealtime();
@@ -99,6 +101,7 @@ public class PickupSensor implements SensorEventListener {
     }
 
     protected void disable() {
+        if (mSensor == null) return;
         if (DEBUG) Log.d(TAG, "Disabling");
         submit(() -> {
             mSensorManager.unregisterListener(this, mSensor);

@@ -46,7 +46,8 @@ public class PocketSensor implements SensorEventListener {
     public PocketSensor(Context context) {
         mContext = context;
         mSensorManager = mContext.getSystemService(SensorManager.class);
-        mSensor = Utils.getSensor(mSensorManager, "oneplus.sensor.pocket");
+        mSensor = Utils.getSensor(mSensorManager,
+                context.getResources().getString(R.string.pocket_sensor_type));
         mExecutorService = Executors.newSingleThreadExecutor();
     }
 
@@ -76,6 +77,7 @@ public class PocketSensor implements SensorEventListener {
     }
 
     protected void enable() {
+        if (mSensor == null) return;
         if (DEBUG) Log.d(TAG, "Enabling");
         submit(() -> {
             mEntryTimestamp = SystemClock.elapsedRealtime();
@@ -85,6 +87,7 @@ public class PocketSensor implements SensorEventListener {
     }
 
     protected void disable() {
+        if (mSensor == null) return;
         if (DEBUG) Log.d(TAG, "Disabling");
         submit(() -> {
             mSensorManager.unregisterListener(this, mSensor);
