@@ -13,9 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-cc_binary {
-    name: "tri-state-key_daemon",
-    init_rc: ["tri-state-key_daemon.rc"],
+cc_defaults {
+    name: "tri-state-key_defaults",
+    stem: "tri-state-key_daemon",
     srcs: [
         "main.cpp",
         "uevent_listener.cpp",
@@ -24,11 +24,24 @@ cc_binary {
         "-Wall",
         "-Werror",
     ],
-    vendor: true,
     shared_libs: [
         "libbase",
         "liblog",
         "libcutils",
         "libutils",
     ],
+}
+
+cc_binary {
+    name: "tri-state-key_daemon",
+    defaults: ["tri-state-key_defaults"],
+    init_rc: ["tri-state-key_daemon.rc"],
+    system_ext_specific: true,
+}
+
+cc_binary {
+    name: "tri-state-key_daemon.vendor",
+    defaults: ["tri-state-key_defaults"],
+    init_rc: ["vendor.tri-state-key_daemon.rc"],
+    vendor: true,
 }
