@@ -19,10 +19,9 @@
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
+#include <livedisplay/oplus/SunlightEnhancement.h>
 #include <livedisplay/sdm/PictureAdjustment.h>
 #include <vendor/lineage/livedisplay/2.1/IPictureAdjustment.h>
-
-#include "SunlightEnhancement.h"
 
 using ::android::OK;
 using ::android::sp;
