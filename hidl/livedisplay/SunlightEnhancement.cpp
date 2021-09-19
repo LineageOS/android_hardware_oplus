@@ -16,7 +16,7 @@
 
 #define LOG_TAG "SunlightEnhancementService"
 
-#include "SunlightEnhancement.h"
+#include <livedisplay/oplus/SunlightEnhancement.h>
 #include <android-base/logging.h>
 #include <fstream>
 
