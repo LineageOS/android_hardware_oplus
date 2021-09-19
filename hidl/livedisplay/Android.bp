@@ -12,6 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+filegroup {
+    name: "vendor.lineage.livedisplay@2.1-oplus-se",
+    srcs: ["SunlightEnhancement.cpp"],
+}
+
+cc_library_headers {
+    name: "vendor.lineage.livedisplay@2.1-oplus-headers",
+    vendor_available: true,
+    export_include_dirs: ["include"],
+}
+
 cc_binary {
     name: "vendor.lineage.livedisplay@2.1-service.oplus",
     defaults: ["hidl_defaults"],
@@ -21,7 +32,7 @@ cc_binary {
     srcs: [
         ":vendor.lineage.livedisplay@2.0-sdm-pa",
         ":vendor.lineage.livedisplay@2.0-sdm-utils",
-        "SunlightEnhancement.cpp",
+        ":vendor.lineage.livedisplay@2.1-oplus-se",
         "service.cpp",
     ],
     shared_libs: [
@@ -34,6 +45,7 @@ cc_binary {
     ],
     header_libs: [
         "vendor.lineage.livedisplay@2.0-sdm-headers",
+        "vendor.lineage.livedisplay@2.1-oplus-headers",
     ],
     proprietary: true,
 }
