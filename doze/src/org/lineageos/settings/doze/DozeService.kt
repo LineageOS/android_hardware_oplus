@@ -37,7 +37,7 @@ class DozeService : Service() {
         registerReceiver(screenStateReceiver, screenStateFilter)
     }
 
-    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         return START_STICKY
     }
 
@@ -49,7 +49,7 @@ class DozeService : Service() {
         pocketSensor.disable()
     }
 
-    override fun onBind(intent: Intent): IBinder? = null
+    override fun onBind(intent: Intent?): IBinder? = null
 
     private fun onDisplayOn() {
         if (Utils.isPickUpEnabled(this)) {
