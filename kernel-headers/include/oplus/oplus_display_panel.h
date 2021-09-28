@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The LineageOS Project
+ * Copyright (C) 2022-2024 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,3 +28,5 @@
 #define PANEL_IOCTL_SET_DIMLAYER_BL_EN _IOW(OPLUS_PANEL_IOCTL_BASE, 0x21, unsigned int)
 #define PANEL_IOCTL_GET_DIMLAYER_BL_EN _IOWR(OPLUS_PANEL_IOCTL_BASE, 0x22, unsigned int)
 #define PANEL_IOCTL_SET_FP_PRESS _IOW(OPLUS_PANEL_IOCTL_BASE, 0x29, unsigned int)
+#define PANEL_IOCTL_SET_CABC_STATUS _IOW(OPLUS_PANEL_IOCTL_BASE, 0x59, unsigned int)
+#define PANEL_IOCTL_GET_CABC_STATUS _IOWR(OPLUS_PANEL_IOCTL_BASE, 0x5A, unsigned int)
