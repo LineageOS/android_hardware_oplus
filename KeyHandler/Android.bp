@@ -2,10 +2,16 @@ android_app {
     name: "KeyHandler",
 
     srcs: ["src/**/*.kt"],
+    resource_dirs: ["res"],
 
     certificate: "platform",
     platform_apis: true,
     system_ext_specific: true,
+
+    static_libs: [
+        "org.lineageos.platform.internal",
+        "org.lineageos.settings.resources",
+    ],
 
     optimize: {
         proguard_flags_files: ["proguard.flags"],

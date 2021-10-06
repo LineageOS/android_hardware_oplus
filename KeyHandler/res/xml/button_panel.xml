@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2021 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/alert_slider_category_title">
+
+        <ListPreference
+            android:key="config_top_position"
+            android:dialogTitle="@string/alert_slider_selection_dialog_title"
+            android:title="@string/alert_slider_top_position"
+            android:summary="%s"
+            android:entries="@array/alert_slider_action_entries"
+            android:entryValues="@array/alert_slider_action_entry_values"
+            android:defaultValue="0" />
+
+        <ListPreference
+            android:key="config_middle_position"
+            android:dialogTitle="@string/alert_slider_selection_dialog_title"
+            android:title="@string/alert_slider_middle_position"
+            android:summary="%s"
+            android:entries="@array/alert_slider_action_entries"
+            android:entryValues="@array/alert_slider_action_entry_values"
+            android:defaultValue="1" />
+
+        <ListPreference
+            android:key="config_bottom_position"
+            android:dialogTitle="@string/alert_slider_selection_dialog_title"
+            android:title="@string/alert_slider_bottom_position"
+            android:summary="%s"
+            android:entries="@array/alert_slider_action_entries"
+            android:entryValues="@array/alert_slider_action_entry_values"
+            android:defaultValue="2" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
