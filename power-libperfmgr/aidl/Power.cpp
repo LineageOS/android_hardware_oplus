@@ -16,6 +16,8 @@
 
 #define LOG_TAG "powerhal-libperfmgr"
 
+#define DT2W_PATH "/proc/touchpanel/double_tap_enable"
+
 #include "Power.h"
 
 #include <android-base/file.h>
@@ -142,7 +144,8 @@ ndk::ScopedAStatus Power::setMode(Mode type, bool enabled) {
             }
             [[fallthrough]];
         case Mode::DOUBLE_TAP_TO_WAKE:
-            [[fallthrough]];
+            ::android::base::WriteStringToFile(enabled ? "1" : "0", DT2W_PATH);
+            break;
         case Mode::FIXED_PERFORMANCE:
             [[fallthrough]];
         case Mode::EXPENSIVE_RENDERING:
@@ -181,6 +184,9 @@ ndk::ScopedAStatus Power::isModeSupported(Mode type, bool *_aidl_return) {
     bool supported = HintManager::GetInstance()->IsHintSupported(toString(type));
     // LOW_POWER handled insides PowerHAL specifically
     if (type == Mode::LOW_POWER) {
+        supported = true;
+    }
+    if (type == Mode::DOUBLE_TAP_TO_WAKE) {
         supported = true;
     }
     LOG(INFO) << "Power mode " << toString(type) << " isModeSupported: " << supported;
