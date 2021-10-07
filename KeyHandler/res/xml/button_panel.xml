@@ -7,6 +7,12 @@
     <PreferenceCategory
         android:title="@string/alert_slider_category_title">
 
+        <SwitchPreference
+            android:key="config_mute_media"
+            android:title="@string/alert_slider_mute_media_title"
+            android:summary="@string/alert_slider_mute_media_summary"
+            android:defaultValue="0" />
+
         <ListPreference
             android:key="config_top_position"
             android:dialogTitle="@string/alert_slider_selection_dialog_title"
