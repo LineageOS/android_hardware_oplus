@@ -1,0 +1,9 @@
+service vendor.tri-state-key-calibrate /vendor/bin/tri-state-key-calibrate
+    class main
+    user system
+    group system
+    oneshot
+    disabled
+
+on post-fs-data
+    start vendor.tri-state-key-calibrate
