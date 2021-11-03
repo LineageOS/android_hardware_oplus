@@ -29,4 +29,16 @@ SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += \
     hardware/oplus/sepolicy/qti/public/common-um
 endif
 
+# Match the generic vendor policy selected by Qualcomm legacy-um.
+ifeq ($(SEPOLICY_PLATFORM),legacy-um)
+ifneq ($(TARGET_BOARD_PLATFORM),sdm710)
+BOARD_VENDOR_SEPOLICY_DIRS += hardware/oplus/sepolicy/qti/vendor/legacy-um/generic
+
+# Lahaina already defines the AIDL display config service.
+ifneq ($(if $(TARGET_SEPOLICY_DIR),$(TARGET_SEPOLICY_DIR),$(TARGET_BOARD_PLATFORM)),lahaina)
+BOARD_VENDOR_SEPOLICY_DIRS += hardware/oplus/sepolicy/qti/vendor/legacy-um/generic/displayconfig
+endif
+endif
+endif
+
 include device/lineage/sepolicy/libperfmgr/sepolicy.mk
