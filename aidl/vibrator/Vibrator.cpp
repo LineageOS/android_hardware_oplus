@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2018-2021, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -152,6 +153,7 @@ InputFFDevice::InputFFDevice()
             case APQ_CPU_SM8325P:
             case MSM_CPU_TARO:
             case MSM_CPU_YUPIK:
+            case MSM_CPU_KALAMA:
                 mSupportExternalControl = true;
                 break;
             default:
