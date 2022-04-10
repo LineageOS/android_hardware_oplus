@@ -58,10 +58,11 @@ class LedVibratorDevice {
 public:
     LedVibratorDevice();
     int on(int32_t timeoutMs);
+    int onWaveform(int waveformIndex);
     int off();
     bool mDetected;
-private:
     int write_value(const char *file, const char *value);
+    int write_value(const char *file, int value);
 };
 
 #ifdef TARGET_SUPPORTS_OFFLOAD
