@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The LineageOS Project
+ * Copyright (C) 2021-2022 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -28,8 +28,16 @@ class DozeService : Service() {
 
     override fun onCreate() {
         Log.d(TAG, "Creating service")
-        pickupSensor = PickupSensor(this, resources.getString(R.string.pickup_sensor_type))
-        pocketSensor = PocketSensor(this, resources.getString(R.string.pocket_sensor_type))
+        pickupSensor = PickupSensor(
+            this,
+            resources.getString(R.string.pickup_sensor_type),
+            resources.getFloat(R.dimen.pickup_sensor_value),
+        )
+        pocketSensor = PocketSensor(
+            this,
+            resources.getString(R.string.pocket_sensor_type),
+            resources.getFloat(R.dimen.pocket_sensor_value)
+        )
 
         val screenStateFilter = IntentFilter()
         screenStateFilter.addAction(Intent.ACTION_SCREEN_ON)
