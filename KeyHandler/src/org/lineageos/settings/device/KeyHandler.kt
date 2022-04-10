@@ -6,27 +6,36 @@
 package org.lineageos.settings.device
 
 import android.app.NotificationManager
-import android.app.Service
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.content.SharedPreferences
+import android.hardware.input.InputManager
 import android.media.AudioManager
 import android.media.AudioSystem
-import android.os.IBinder
-import android.os.UEventObserver
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.provider.Settings
+import android.view.InputDevice
 import android.view.KeyEvent
-import androidx.preference.PreferenceManager
+import com.android.internal.os.DeviceKeyHandler
 
-class KeyHandler : Service() {
-    private lateinit var audioManager: AudioManager
-    private lateinit var notificationManager: NotificationManager
-    private lateinit var vibrator: Vibrator
-    private lateinit var sharedPreferences: SharedPreferences
+import java.io.File
+
+class KeyHandler(context: Context) : DeviceKeyHandler {
+    private val audioManager = context.getSystemService(AudioManager::class.java)
+    private val inputManager = context.getSystemService(InputManager::class.java)
+    private val notificationManager = context.getSystemService(NotificationManager::class.java)
+    private val vibrator = context.getSystemService(Vibrator::class.java)
+
+    private val packageContext = context.createPackageContext(
+        KeyHandler::class.java.getPackage()!!.name, 0
+    )
+    private val sharedPreferences
+        get() = packageContext.getSharedPreferences(
+            packageContext.packageName + "_preferences",
+            Context.MODE_PRIVATE or Context.MODE_MULTI_PROCESS
+        )
 
     private var wasMuted = false
     private val broadcastReceiver = object : BroadcastReceiver() {
@@ -39,49 +48,30 @@ class KeyHandler : Service() {
         }
     }
 
-    private val alertSliderEventObserver = object : UEventObserver() {
-        private val lock = Any()
-
-        override fun onUEvent(event: UEvent) {
-            synchronized(lock) {
-                event.get("SWITCH_STATE")?.let {
-                    handleMode(it.toInt())
-                    return
-                }
-                event.get("STATE")?.let {
-                    val none = it.contains("USB=0")
-                    val vibration = it.contains("HOST=0")
-                    val silent = it.contains("null)=0")
-
-                    if (none && !vibration && !silent) {
-                        handleMode(POSITION_BOTTOM)
-                    } else if (!none && vibration && !silent) {
-                        handleMode(POSITION_MIDDLE)
-                    } else if (!none && !vibration && silent) {
-                        handleMode(POSITION_TOP)
-                    }
-
-                    return
-                }
-            }
-        }
-    }
-
-    override fun onCreate() {
-        audioManager = getSystemService(AudioManager::class.java)
-        notificationManager = getSystemService(NotificationManager::class.java)
-        vibrator = getSystemService(Vibrator::class.java)
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-
-        registerReceiver(
+    init {
+        context.registerReceiver(
             broadcastReceiver,
             IntentFilter(AudioManager.STREAM_MUTE_CHANGED_ACTION)
         )
-        alertSliderEventObserver.startObserving("tri-state-key")
-        alertSliderEventObserver.startObserving("tri_state_key")
     }
 
-    override fun onBind(intent: Intent?): IBinder? = null
+    override fun handleKeyEvent(event: KeyEvent): KeyEvent? {
+        if (event.action != KeyEvent.ACTION_DOWN) {
+            return event
+        }
+
+        if (inputManager.getInputDevice(event.deviceId).name != "oplus,hall_tri_state_key") {
+            return event
+        }
+
+        when (File("/proc/tristatekey/tri_state").readText().trim()) {
+            "1" -> handleMode(POSITION_TOP)
+            "2" -> handleMode(POSITION_MIDDLE)
+            "3" -> handleMode(POSITION_BOTTOM)
+        }
+
+        return null
+    }
 
     private fun vibrateIfNeeded(mode: Int) {
         when (mode) {
