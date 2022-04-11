@@ -7,6 +7,7 @@ cc_binary {
     relative_install_path: "hw",
     srcs: [
         "TouchscreenGesture.cpp",
+        "HighTouchPollingRate.cpp",
         "service.cpp",
     ],
     shared_libs: [
