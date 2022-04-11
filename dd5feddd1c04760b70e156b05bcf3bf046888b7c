@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efb19e0a_0731788c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-04-11T20:42:13Z",
+      "side": 1,
+      "message": "Pick https://github.com/LineageOS/android_hardware_oneplus/commit/cc88660e010f94e342988090061c7e4ca1f46a5d as well.",
+      "revId": "dd5feddd1c04760b70e156b05bcf3bf046888b7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
