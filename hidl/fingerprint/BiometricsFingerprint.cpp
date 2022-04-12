@@ -16,7 +16,18 @@
 
 #define LOG_TAG "android.hardware.biometrics.fingerprint@2.3-service.oplus"
 
+#include <android-base/file.h>
+
 #include "BiometricsFingerprint.h"
+
+using ::android::base::WriteStringToFile;
+
+namespace {
+
+constexpr const char* kDimlayerHbmPath = "/sys/kernel/oplus_display/dimlayer_hbm";
+constexpr const char* kNotifyFpPressPath = "/sys/kernel/oplus_display/notify_fppress";
+
+}  // anonymous namespace
 
 namespace android {
 namespace hardware {
@@ -79,10 +90,14 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t sensorID) {
 }
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t x, uint32_t y, float minor, float major) {
+    WriteStringToFile("1", kDimlayerHbmPath, true);
+    WriteStringToFile("1", kNotifyFpPressPath, true);
     return mOplusBiometricsFingerprint->onFingerDown(x, y, minor, major);
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
+    WriteStringToFile("0", kDimlayerHbmPath, true);
+    WriteStringToFile("0", kNotifyFpPressPath, true);
     return mOplusBiometricsFingerprint->onFingerUp();
 }
 
@@ -100,6 +115,8 @@ Return<void> BiometricsFingerprint::onAcquired(uint64_t deviceId,
 Return<void> BiometricsFingerprint::onAuthenticated(uint64_t deviceId, uint32_t fingerId,
                                                     uint32_t groupId,
                                                     const hidl_vec<uint8_t>& token) {
+    WriteStringToFile("0", kDimlayerHbmPath, true);
+    WriteStringToFile("0", kNotifyFpPressPath, true);
     return mClientCallback->onAuthenticated(deviceId, fingerId, groupId, token);
 }
 
