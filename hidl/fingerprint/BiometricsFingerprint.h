@@ -16,6 +16,7 @@
 
 #pragma once
 
+#include <android-base/properties.h>
 #include <android/hardware/biometrics/fingerprint/2.1/types.h>
 #include <android/hardware/biometrics/fingerprint/2.2/IBiometricsFingerprintClientCallback.h>
 #include <android/hardware/biometrics/fingerprint/2.3/IBiometricsFingerprint.h>
@@ -24,6 +25,7 @@
 #include <hidl/Status.h>
 #include <log/log.h>
 
+#include <oplus/oplus_display_panel.h>
 #include <vendor/oplus/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprint.h>
 
 namespace android {
@@ -34,6 +36,7 @@ namespace V2_3 {
 namespace implementation {
 
 using ::android::sp;
+using ::android::base::GetProperty;
 using ::android::hardware::hidl_string;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
@@ -105,8 +108,24 @@ class BiometricsFingerprint : public IBiometricsFingerprint,
                                   uint32_t resultLen) override;
 
   private:
+    bool isUdfps() {
+        // We need to rely on `persist.vendor.fingerprint.sensor_type` here because we can't get our
+        // sensorId from anywhere.
+        return GetProperty("persist.vendor.fingerprint.sensor_type", "") == "optical";
+    }
+
+    bool setDimlayerHbm(unsigned int value) {
+        return isUdfps() && ioctl(mOplusDisplayFd, PANEL_IOCTL_SET_DIMLAYER_HBM, &value);
+    }
+
+    bool setFpPress(unsigned int value) {
+        return isUdfps() && ioctl(mOplusDisplayFd, PANEL_IOCTL_SET_FP_PRESS, &value);
+    }
+
     sp<IOplusBiometricsFingerprint> mOplusBiometricsFingerprint;
     sp<V2_1::IBiometricsFingerprintClientCallback> mClientCallback;
+
+    int mOplusDisplayFd;
 };
 
 }  // namespace implementation
