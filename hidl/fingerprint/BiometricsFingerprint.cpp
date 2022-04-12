@@ -25,7 +25,8 @@ namespace fingerprint {
 namespace V2_3 {
 namespace implementation {
 
-BiometricsFingerprint::BiometricsFingerprint() {
+BiometricsFingerprint::BiometricsFingerprint()
+    : mOplusDisplayFd(open("/dev/oplus_display", O_RDWR)) {
     mOplusBiometricsFingerprint = IOplusBiometricsFingerprint::getService();
     mOplusBiometricsFingerprint->setHalCallback(this);
 }
@@ -37,6 +38,7 @@ Return<uint64_t> BiometricsFingerprint::setNotify(
 }
 
 Return<uint64_t> BiometricsFingerprint::preEnroll() {
+    setDimlayerHbm(1);
     return mOplusBiometricsFingerprint->preEnroll();
 }
 
@@ -46,6 +48,7 @@ Return<RequestStatus> BiometricsFingerprint::enroll(const hidl_array<uint8_t, 69
 }
 
 Return<RequestStatus> BiometricsFingerprint::postEnroll() {
+    setDimlayerHbm(0);
     return mOplusBiometricsFingerprint->postEnroll();
 }
 
@@ -54,6 +57,7 @@ Return<uint64_t> BiometricsFingerprint::getAuthenticatorId() {
 }
 
 Return<RequestStatus> BiometricsFingerprint::cancel() {
+    setDimlayerHbm(0);
     return mOplusBiometricsFingerprint->cancel();
 }
 
@@ -71,6 +75,7 @@ Return<RequestStatus> BiometricsFingerprint::setActiveGroup(uint32_t gid,
 }
 
 Return<RequestStatus> BiometricsFingerprint::authenticate(uint64_t operationId, uint32_t gid) {
+    setDimlayerHbm(1);
     return mOplusBiometricsFingerprint->authenticate(operationId, gid);
 }
 
@@ -79,10 +84,12 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t sensorID) {
 }
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t x, uint32_t y, float minor, float major) {
+    setFpPress(1);
     return mOplusBiometricsFingerprint->onFingerDown(x, y, minor, major);
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
+    setFpPress(0);
     return mOplusBiometricsFingerprint->onFingerUp();
 }
 
@@ -100,6 +107,10 @@ Return<void> BiometricsFingerprint::onAcquired(uint64_t deviceId,
 Return<void> BiometricsFingerprint::onAuthenticated(uint64_t deviceId, uint32_t fingerId,
                                                     uint32_t groupId,
                                                     const hidl_vec<uint8_t>& token) {
+    if (fingerId != 0) {
+        setDimlayerHbm(0);
+    }
+    setFpPress(0);
     return mClientCallback->onAuthenticated(deviceId, fingerId, groupId, token);
 }
 
