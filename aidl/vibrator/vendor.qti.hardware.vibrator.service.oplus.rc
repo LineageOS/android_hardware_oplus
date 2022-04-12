@@ -1,3 +1,8 @@
+on boot
+    chown system system /sys/class/leds/vibrator/rtp
+    chown system system /sys/class/leds/vibrator/vmax
+    chown system system /sys/class/leds/vibrator/waveform_index
+
 service vendor.qti.vibrator /vendor/bin/hw/vendor.qti.hardware.vibrator.service.oplus
     class hal
     user system
