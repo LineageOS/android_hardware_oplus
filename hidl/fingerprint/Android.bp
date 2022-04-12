@@ -1,3 +1,11 @@
+cc_library_static {
+    name: "libudfps_extension.oplus",
+    srcs: ["UdfpsExtension.cpp"],
+    include_dirs: [
+        "frameworks/native/services/surfaceflinger/CompositionEngine/include",
+    ],
+}
+
 cc_binary {
     name: "android.hardware.biometrics.fingerprint@2.3-service.oplus",
     defaults: ["hidl_defaults"],
