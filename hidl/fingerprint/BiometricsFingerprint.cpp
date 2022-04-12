@@ -18,6 +18,20 @@
 
 #include "BiometricsFingerprint.h"
 
+#include <oplus/oplus_display_panel.h>
+
+namespace {
+
+constexpr bool setDimlayerHbm(int fd, unsigned int value) {
+    return ioctl(fd, PANEL_IOCTL_SET_DIMLAYER_HBM, &value);
+}
+
+constexpr bool setFpPress(int fd, unsigned int value) {
+    return ioctl(fd, PANEL_IOCTL_SET_FP_PRESS, &value);
+}
+
+}  // anonymous namespace
+
 namespace android {
 namespace hardware {
 namespace biometrics {
@@ -25,7 +39,8 @@ namespace fingerprint {
 namespace V2_3 {
 namespace implementation {
 
-BiometricsFingerprint::BiometricsFingerprint() {
+BiometricsFingerprint::BiometricsFingerprint()
+    : mOplusDisplayFd(open("/dev/oplus_display", O_RDWR)) {
     mOplusBiometricsFingerprint = IOplusBiometricsFingerprint::getService();
     mOplusBiometricsFingerprint->setHalCallback(this);
 }
@@ -79,10 +94,14 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t sensorID) {
 }
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t x, uint32_t y, float minor, float major) {
+    setDimlayerHbm(mOplusDisplayFd, 1);
+    setFpPress(mOplusDisplayFd, 1);
     return mOplusBiometricsFingerprint->onFingerDown(x, y, minor, major);
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
+    setDimlayerHbm(mOplusDisplayFd, 0);
+    setFpPress(mOplusDisplayFd, 0);
     return mOplusBiometricsFingerprint->onFingerUp();
 }
 
@@ -100,6 +119,8 @@ Return<void> BiometricsFingerprint::onAcquired(uint64_t deviceId,
 Return<void> BiometricsFingerprint::onAuthenticated(uint64_t deviceId, uint32_t fingerId,
                                                     uint32_t groupId,
                                                     const hidl_vec<uint8_t>& token) {
+    setDimlayerHbm(mOplusDisplayFd, 0);
+    setFpPress(mOplusDisplayFd, 0);
     return mClientCallback->onAuthenticated(deviceId, fingerId, groupId, token);
 }
 

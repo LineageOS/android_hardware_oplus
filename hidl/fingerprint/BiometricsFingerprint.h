@@ -107,6 +107,8 @@ class BiometricsFingerprint : public IBiometricsFingerprint,
   private:
     sp<IOplusBiometricsFingerprint> mOplusBiometricsFingerprint;
     sp<V2_1::IBiometricsFingerprintClientCallback> mClientCallback;
+
+    int mOplusDisplayFd;
 };
 
 }  // namespace implementation

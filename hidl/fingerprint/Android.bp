@@ -18,4 +18,5 @@ cc_binary {
         "android.hardware.biometrics.fingerprint@2.3",
         "vendor.oplus.hardware.biometrics.fingerprint@2.1",
     ],
+    local_include_dirs: ["include"],
 }
