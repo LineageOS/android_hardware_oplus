@@ -24,6 +24,7 @@
 #include <hidl/Status.h>
 #include <log/log.h>
 
+#include <oplus/oplus_display_panel.h>
 #include <vendor/oplus/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprint.h>
 
 namespace android {
@@ -105,8 +106,18 @@ class BiometricsFingerprint : public IBiometricsFingerprint,
                                   uint32_t resultLen) override;
 
   private:
+    bool setDimlayerHbm(unsigned int value) {
+        return ioctl(mOplusDisplayFd, PANEL_IOCTL_SET_DIMLAYER_HBM, &value);
+    }
+
+    bool setFpPress(unsigned int value) {
+        return ioctl(mOplusDisplayFd, PANEL_IOCTL_SET_FP_PRESS, &value);
+    }
+
     sp<IOplusBiometricsFingerprint> mOplusBiometricsFingerprint;
     sp<V2_1::IBiometricsFingerprintClientCallback> mClientCallback;
+
+    int mOplusDisplayFd;
 };
 
 }  // namespace implementation

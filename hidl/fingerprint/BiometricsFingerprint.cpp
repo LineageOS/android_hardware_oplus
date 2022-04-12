@@ -25,7 +25,8 @@ namespace fingerprint {
 namespace V2_3 {
 namespace implementation {
 
-BiometricsFingerprint::BiometricsFingerprint() {
+BiometricsFingerprint::BiometricsFingerprint()
+    : mOplusDisplayFd(open("/dev/oplus_display", O_RDWR)) {
     mOplusBiometricsFingerprint = IOplusBiometricsFingerprint::getService();
     mOplusBiometricsFingerprint->setHalCallback(this);
 }
@@ -79,10 +80,14 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t sensorID) {
 }
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t x, uint32_t y, float minor, float major) {
+    setDimlayerHbm(1);
+    setFpPress(1);
     return mOplusBiometricsFingerprint->onFingerDown(x, y, minor, major);
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
+    setDimlayerHbm(0);
+    setFpPress(0);
     return mOplusBiometricsFingerprint->onFingerUp();
 }
 
@@ -100,6 +105,8 @@ Return<void> BiometricsFingerprint::onAcquired(uint64_t deviceId,
 Return<void> BiometricsFingerprint::onAuthenticated(uint64_t deviceId, uint32_t fingerId,
                                                     uint32_t groupId,
                                                     const hidl_vec<uint8_t>& token) {
+    setDimlayerHbm(0);
+    setFpPress(0);
     return mClientCallback->onAuthenticated(deviceId, fingerId, groupId, token);
 }
 
