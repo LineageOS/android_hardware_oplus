@@ -17,7 +17,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           android:sharedUserId="android.uid.system"
           package="org.lineageos.settings.device">
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
@@ -26,15 +25,6 @@
         android:theme="@style/Theme.SubSettingsBase"
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true">
-
-        <receiver
-            android:name="org.lineageos.settings.device.BootCompletedReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
 
         <provider
             android:name=".ConfigPanelSearchIndexablesProvider"
