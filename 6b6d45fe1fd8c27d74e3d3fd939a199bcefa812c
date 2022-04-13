@@ -22,6 +22,30 @@
       },
       "revId": "6b6d45fe1fd8c27d74e3d3fd939a199bcefa812c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d394c1b_26299a3f",
+        "filename": "KeyHandler/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-04-13T11:14:50Z",
+      "side": 0,
+      "message": "I\u0027ll let it be.",
+      "parentUuid": "1591f11b_0ab9bc68",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 38
+      },
+      "revId": "6b6d45fe1fd8c27d74e3d3fd939a199bcefa812c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
