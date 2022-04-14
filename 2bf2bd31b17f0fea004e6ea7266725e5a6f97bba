@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa332f5f_95854906",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-04-14T09:07:29Z",
+      "side": 1,
+      "message": "we don\u0027t use it, perhaps just leave on gerrit as a reference on something",
+      "revId": "2bf2bd31b17f0fea004e6ea7266725e5a6f97bba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
