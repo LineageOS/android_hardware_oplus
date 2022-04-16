@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a712f8c_7e316e8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-04-16T22:21:29Z",
+      "side": 1,
+      "message": "\u003e Patch Set 13: Code-Review-2\n\u003e \n\u003e let\u0027s skip that one for now\n\nWith https://github.com/luk1337/android_kernel_oneplus_sm8350/commit/0d979d0c39ed38d394bf65a165b4b5ca7d14b516 it\u0027s good enough i think.",
+      "revId": "fb4aeb0e5e8bc673996c7e3578b1782e05446d7b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
