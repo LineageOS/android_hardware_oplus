@@ -20,6 +20,10 @@
 #include <android-base/file.h>
 #include <android-base/strings.h>
 
+using ::android::base::ReadFileToString;
+using ::android::base::Trim;
+using ::android::base::WriteStringToFile;
+
 namespace {
 
 constexpr const char* kDcDimmingPath = "/sys/kernel/oplus_display/dimlayer_bl_en";
