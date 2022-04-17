@@ -16,9 +16,9 @@
 
 #define LOG_TAG "AntiFlickerService"
 
-#include <livedisplay/oplus/AntiFlicker.h>
 #include <android-base/file.h>
 #include <android-base/strings.h>
+#include <livedisplay/oplus/AntiFlicker.h>
 
 using ::android::base::ReadFileToString;
 using ::android::base::Trim;

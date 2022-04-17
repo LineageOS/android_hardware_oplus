@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-#include <livedisplay/oplus/SunlightEnhancement.h>
 #include <android-base/file.h>
 #include <android-base/strings.h>
+#include <livedisplay/oplus/SunlightEnhancement.h>
 
 using ::android::base::ReadFileToString;
 using ::android::base::Trim;
