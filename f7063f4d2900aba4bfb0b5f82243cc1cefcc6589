@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00c0b179_adee3e0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-04-18T12:20:15Z",
+      "side": 1,
+      "message": "I think this is a slightly better approach, if one wants to disable dimlayer hbm completely, they can set the path to /dev/null ^^",
+      "revId": "f7063f4d2900aba4bfb0b5f82243cc1cefcc6589",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
