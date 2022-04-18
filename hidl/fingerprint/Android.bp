@@ -8,7 +8,11 @@ cc_library_static {
 
 cc_binary {
     name: "android.hardware.biometrics.fingerprint@2.3-service.oplus",
-    defaults: ["hidl_defaults"],
+    defaults: [
+        "hidl_defaults",
+        "uses_oplus_dimlayer_bl_en_defaults",
+        "uses_oplus_dimlayer_hbm_defaults"
+    ],
     init_rc: ["android.hardware.biometrics.fingerprint@2.3-service.oplus.rc"],
     vintf_fragments: ["android.hardware.biometrics.fingerprint@2.3-service.oplus.xml"],
     vendor: true,

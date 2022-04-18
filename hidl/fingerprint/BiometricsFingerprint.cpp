@@ -26,7 +26,11 @@ using ::android::base::WriteStringToFile;
 
 namespace {
 
+#ifdef TARGET_USES_OPLUS_DIMLAYER_BL_EN
+constexpr const char* kDimlayerBlEnPath = "/sys/kernel/oplus_display/dimlayer_bl_en";
+#elif defined(TARGET_USES_OPLUS_DIMLAYER_HBM)
 constexpr const char* kDimlayerHbmPath = "/sys/kernel/oplus_display/dimlayer_hbm";
+#endif
 constexpr const char* kNotifyFpPressPath = "/sys/kernel/oplus_display/notify_fppress";
 
 }  // anonymous namespace
@@ -85,7 +89,11 @@ Return<RequestStatus> BiometricsFingerprint::setActiveGroup(uint32_t gid,
 }
 
 Return<RequestStatus> BiometricsFingerprint::authenticate(uint64_t operationId, uint32_t gid) {
+#ifdef TARGET_USES_OPLUS_DIMLAYER_BL_EN
+    WriteStringToFile("0", kDimlayerBlEnPath, true);
+#elif defined(TARGET_USES_OPLUS_DIMLAYER_HBM)
     WriteStringToFile("0", kDimlayerHbmPath, true);
+#endif
     WriteStringToFile("0", kNotifyFpPressPath, true);
     return mOplusBiometricsFingerprint->authenticate(operationId, gid);
 }
@@ -95,13 +103,21 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t sensorID) {
 }
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t x, uint32_t y, float minor, float major) {
+#ifdef TARGET_USES_OPLUS_DIMLAYER_BL_EN
+    WriteStringToFile("1", kDimlayerBlEnPath, true);
+#elif defined(TARGET_USES_OPLUS_DIMLAYER_HBM)
     WriteStringToFile("1", kDimlayerHbmPath, true);
+#endif
     WriteStringToFile("1", kNotifyFpPressPath, true);
     return mOplusBiometricsFingerprint->onFingerDown(x, y, minor, major);
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
+#ifdef TARGET_USES_OPLUS_DIMLAYER_BL_EN
+    WriteStringToFile("0", kDimlayerBlEnPath, true);
+#elif defined(TARGET_USES_OPLUS_DIMLAYER_HBM)
     WriteStringToFile("0", kDimlayerHbmPath, true);
+#endif
     WriteStringToFile("0", kNotifyFpPressPath, true);
     return mOplusBiometricsFingerprint->onFingerUp();
 }
