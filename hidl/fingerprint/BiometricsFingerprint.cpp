@@ -26,7 +26,7 @@ using ::android::base::WriteStringToFile;
 
 namespace {
 
-constexpr const char* kDimlayerHbmPath = "/sys/kernel/oplus_display/dimlayer_hbm";
+constexpr const char* kDimlayerHbmPath = DIMLAYER_HBM_PATH;
 constexpr const char* kNotifyFpPressPath = "/sys/kernel/oplus_display/notify_fppress";
 
 }  // anonymous namespace

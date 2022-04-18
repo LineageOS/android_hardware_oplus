@@ -1,3 +1,23 @@
+soong_config_module_type {
+    name: "oplus_fingerprint_hal_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "OPLUS_FINGERPRINT",
+    value_variables: ["DIMLAYER_HBM_PATH"],
+    properties: ["cppflags"],
+}
+
+oplus_fingerprint_hal_cc_defaults {
+    name: "oplus_fingerprint_hal_defaults",
+    soong_config_variables: {
+        DIMLAYER_HBM_PATH: {
+            cppflags: ["-DDIMLAYER_HBM_PATH=\"%s\""],
+            conditions_default: {
+                cppflags: ["-DDIMLAYER_HBM_PATH=\"/sys/kernel/oplus_display/dimlayer_hbm\""],
+            },
+        },
+    },
+}
+
 cc_library_static {
     name: "libudfps_extension.oplus",
     srcs: ["UdfpsExtension.cpp"],
@@ -8,7 +28,10 @@ cc_library_static {
 
 cc_binary {
     name: "android.hardware.biometrics.fingerprint@2.3-service.oplus",
-    defaults: ["hidl_defaults"],
+    defaults: [
+        "hidl_defaults",
+        "oplus_fingerprint_hal_defaults",
+    ],
     init_rc: ["android.hardware.biometrics.fingerprint@2.3-service.oplus.rc"],
     vintf_fragments: ["android.hardware.biometrics.fingerprint@2.3-service.oplus.xml"],
     vendor: true,
