@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "640e67c9_7282e9cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2022-05-12T12:43:34Z",
+      "side": 1,
+      "message": "GT master Edition uses focal touchpanel and the touch polling rate is increased when this kernel node is enabled.\n\nTested it with getevent -r -t -l and the rates were higher when enabled.",
+      "revId": "77129e86d4a9ef73f50c474283ad8fedaaa35beb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
