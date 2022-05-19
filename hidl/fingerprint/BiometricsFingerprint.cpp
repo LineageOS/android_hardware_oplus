@@ -116,6 +116,8 @@ Return<void> BiometricsFingerprint::onAuthenticated(uint64_t deviceId, uint32_t 
 
 Return<void> BiometricsFingerprint::onError(uint64_t deviceId, FingerprintError error,
                                             int32_t vendorCode) {
+    setDimlayerHbm(0);
+    setFpPress(0);
     return mClientCallback->onError(deviceId, error, vendorCode);
 }
 
