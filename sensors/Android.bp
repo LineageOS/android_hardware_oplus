@@ -31,5 +31,12 @@ cc_library_shared {
     cflags: [
         "-DLOG_TAG=\"sensors.oplus\"",
     ],
+    required: ["hals.conf"],
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "hals.conf",
+    src: "hals.conf",
     vendor: true,
 }
