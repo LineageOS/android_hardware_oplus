@@ -16,6 +16,24 @@
       "message": "Is this oneplus specific? Can\u0027t it go to device/qcom/sepolicy_vndr instead?",
       "revId": "a103050ad93e3bec5f039090fdaec70fb3d71f91",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "449bebf4_56bd2925",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-06-25T11:09:45Z",
+      "side": 1,
+      "message": "I guess it could go there.",
+      "parentUuid": "6382d90f_381c360c",
+      "revId": "a103050ad93e3bec5f039090fdaec70fb3d71f91",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
