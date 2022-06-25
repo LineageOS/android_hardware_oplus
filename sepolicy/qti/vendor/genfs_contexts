@@ -25,6 +25,8 @@ genfscon proc /oplusVersion    u:object_r:vendor_proc_oplus_version:s0
 
 # Vibrator
 genfscon sysfs /devices/platform/soc/88c000.i2c/i2c-6/6-005a/leds/vibrator    u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/platform/soc/a8c000.i2c/i2c-5/5-005a/leds/vibrator    u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/platform/soc/a8c000.i2c/i2c-6/6-005a/leds/vibrator    u:object_r:sysfs_vibrator:s0
 
 # Wakeup (https://lkml.org/lkml/2019/8/6/1275)
 genfscon sysfs /devices/0306_02.01.00/wakeup u:object_r:sysfs_wakeup:s0
