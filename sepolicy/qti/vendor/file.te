@@ -17,5 +17,8 @@ type vendor_proc_engineer, fs_type, proc_type;
 # Fingerprint
 type vendor_proc_fingerprint, fs_type, proc_type;
 
+# Sensors
+type vendor_sysfs_sensor_fb, fs_type, sysfs_type;
+
 # Versioning
 type vendor_proc_oplus_version, fs_type, proc_type;
