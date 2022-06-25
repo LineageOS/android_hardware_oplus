@@ -17,6 +17,9 @@ genfscon proc /oplus_rf    u:object_r:vendor_proc_engineer:s0
 # Fingerprint
 genfscon proc /fp_id    u:object_r:vendor_proc_fingerprint:s0
 
+# Sensors
+genfscon sysfs /devices/platform/soc/soc:sensor_fb    u:object_r:vendor_sysfs_sensor_fb:s0
+
 # Versioning
 genfscon proc /oplusVersion    u:object_r:vendor_proc_oplus_version:s0
 
