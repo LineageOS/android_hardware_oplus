@@ -34,6 +34,24 @@
       "parentUuid": "6382d90f_381c360c",
       "revId": "a103050ad93e3bec5f039090fdaec70fb3d71f91",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18216ccf_e69584d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29415
+      },
+      "writtenOn": "2022-06-27T16:45:14Z",
+      "side": 1,
+      "message": "Editing upstream repositories seems bad, wouldn\u0027t it be better to put in device/lineage/sepolicy/qcom/vendor?",
+      "parentUuid": "449bebf4_56bd2925",
+      "revId": "a103050ad93e3bec5f039090fdaec70fb3d71f91",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
