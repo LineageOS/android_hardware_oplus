@@ -3,9 +3,8 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
-cc_library {
+cc_defaults {
     name: "libgptutils.oplus",
-    cflags: ["-D_BSG_FRAMEWORK_KERNEL_HEADERS"],
     export_include_dirs: ["."],
     header_libs: ["generated_kernel_headers"],
     recovery_available: true,
@@ -19,4 +18,15 @@ cc_library {
         "recovery-ufs-bsg.cpp",
     ],
     vendor: true,
+}
+
+cc_library {
+    name: "libgptutils-sg.oplus",
+    defaults: ["libgptutils.oplus"],
+}
+
+cc_library {
+    name: "libgptutils-bsg.oplus",
+    defaults: ["libgptutils.oplus"],
+    cflags: ["-D_BSG_FRAMEWORK_KERNEL_HEADERS"],
 }
