@@ -27,6 +27,9 @@
 # Init
 /(odm|vendor/odm)/bin/init\.oplus\.sh    u:object_r:vendor_qti_init_shell_exec:s0
 
+# Logo
+/dev/block/platform/soc/1d84000\.ufshc/by-name/logo_[ab]    u:object_r:vendor_custom_ab_block_device:s0
+
 # MDM
 /dev/block/platform/soc/1d84000\.ufshc/by-name/mdm_oem_dycnvbk    u:object_r:vendor_modem_efs_partition_device:s0
 /dev/block/platform/soc/1d84000\.ufshc/by-name/mdm_oem_stanvbk    u:object_r:vendor_modem_efs_partition_device:s0
@@ -54,6 +57,12 @@
 # Sensors
 /(odm|vendor/odm)/bin/oplus_sensor_fb    u:object_r:vendor_sensors_exec:s0
 /dev/ssc_interactive                     u:object_r:ssc_interactive_device:s0
+
+# Spunvm
+/dev/block/platform/soc/1d84000\.ufshc/by-name/spunvm    u:object_r:vendor_efs_boot_dev:s0
+
+# Storsec
+/dev/block/platform/soc/1d84000\.ufshc/by-name/storsec_[ab]    u:object_r:vendor_custom_ab_block_device:s0
 
 # Touch
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.oplus    u:object_r:hal_lineage_touch_default_exec:s0
