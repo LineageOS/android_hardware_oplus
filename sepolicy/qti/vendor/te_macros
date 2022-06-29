@@ -1,0 +1,8 @@
+#####################################
+# rw_dir_file(domain, type)
+# Allow the specified domain to read directories and rw files
+# and symbolic links of the specified type.
+define(`rw_dir_file', `
+allow $1 $2:dir r_dir_perms;
+allow $1 $2:{ file lnk_file } rw_file_perms;
+')
