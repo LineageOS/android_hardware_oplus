@@ -8,9 +8,7 @@ allow hal_fingerprint_default fingerprint_device:chr_file rw_file_perms;
 allow hal_fingerprint_default graphics_device:chr_file rw_file_perms;
 allow hal_fingerprint_default tee_device:chr_file rw_file_perms;
 
-allow hal_fingerprint_default vendor_proc_display:dir r_dir_perms;
-allow hal_fingerprint_default vendor_proc_display:file rw_file_perms;
-
+rw_dir_file(hal_fingerprint_default, vendor_proc_display)
 r_dir_file(hal_fingerprint_default, vendor_proc_fingerprint)
 
 get_prop(hal_fingerprint_default, system_oplus_project_prop)
