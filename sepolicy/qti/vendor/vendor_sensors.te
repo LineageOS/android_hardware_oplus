@@ -1,5 +1,2 @@
-allow vendor_sensors vendor_persist_engineer_file:dir r_dir_perms;
-allow vendor_sensors vendor_persist_engineer_file:file rw_file_perms;
-
-allow vendor_sensors vendor_sysfs_sensor_fb:dir r_dir_perms;
-allow vendor_sensors vendor_sysfs_sensor_fb:file rw_file_perms;
+rw_dir_file(vendor_sensors, vendor_persist_engineer_file)
+rw_dir_file(vendor_sensors,vendor_sysfs_sensor_fb)
