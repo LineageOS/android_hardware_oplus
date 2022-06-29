@@ -1,2 +1,1 @@
-allow system_server vendor_proc_tri_state_key:dir r_dir_perms;
-allow system_server vendor_proc_tri_state_key:file rw_file_perms;
+rw_dir_file(system_server, vendor_proc_tri_state_key)
