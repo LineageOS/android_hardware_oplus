@@ -52,7 +52,7 @@
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oplusstanvbk_[ab]     u:object_r:vendor_modem_efs_partition_device:s0
 
 # Reserve
-/dev/block/platform/soc/1d84000\.ufshc/by-name/oplusreserve4    u:object_r:vendor_reserve_partition:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/oplusreserve[1-4]    u:object_r:vendor_reserve_partition:s0
 
 # Sensors
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.oplusSensor@1\.0-service    u:object_r:vendor_hal_oplusSensor_default_exec:s0
