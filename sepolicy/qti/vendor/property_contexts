@@ -11,6 +11,9 @@ vendor.modem_dump_action       u:object_r:vendor_modem_prop:s0
 # NFC
 vendor.oplus.nfc.fw.version    u:object_r:vendor_nfc_nq_prop:s0
 
+# Radio
+ro.vendor.oplus.radio.sar_regionmark    u:object_r:vendor_radio_prop:s0
+
 # RIL
 vendor.gsm.phoneserial         u:object_r:vendor_nw_exported_system_prop:s0
 vendor.gsm.serial              u:object_r:vendor_nw_exported_system_prop:s0

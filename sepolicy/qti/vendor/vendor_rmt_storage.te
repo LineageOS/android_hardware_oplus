@@ -1,4 +1,6 @@
 allow vendor_rmt_storage vendor_reserve_partition:blk_file rw_file_perms;
 
+get_prop(vendor_rmt_storage, vendor_radio_prop)
+
 rw_dir_file(vendor_rmt_storage, vendor_proc_engineer)
 r_dir_file(vendor_rmt_storage, vendor_proc_oplus_version)
