@@ -1,0 +1,20 @@
+type vendor_hal_oplusSensor_default, domain;
+hal_server_domain(vendor_hal_oplusSensor_default, vendor_hal_oplusSensor)
+
+type vendor_hal_oplusSensor_default_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(vendor_hal_oplusSensor_default)
+
+binder_call(vendor_hal_oplusSensor_client, vendor_hal_oplusSensor_server)
+binder_call(vendor_hal_oplusSensor_server, vendor_hal_oplusSensor_client)
+
+hal_attribute_hwservice(vendor_hal_oplusSensor, vendor_hal_oplusSensor_hwservice)
+
+allow vendor_hal_oplusSensor_default vendor_reserve_partition:blk_file r_file_perms;
+
+allow vendor_hal_oplusSensor_default mnt_vendor_file:dir search;
+
+r_dir_file(vendor_hal_oplusSensor_default, vendor_persist_engineer_file)
+r_dir_file(vendor_hal_oplusSensor_default, vendor_persist_sensors_file)
+r_dir_file(vendor_hal_oplusSensor_default, vendor_proc_oplus_version)
+rw_dir_file(vendor_hal_oplusSensor_default, vendor_proc_eng_cali_file)
+rw_dir_file(vendor_hal_oplusSensor_default, vendor_proc_oplus_als_file)
