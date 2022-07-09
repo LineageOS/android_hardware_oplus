@@ -1,0 +1,3 @@
+attribute vendor_hal_oplusSensor;
+attribute vendor_hal_oplusSensor_client;
+attribute vendor_hal_oplusSensor_server;
