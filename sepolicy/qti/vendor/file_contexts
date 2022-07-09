@@ -55,8 +55,9 @@
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oplusreserve4    u:object_r:vendor_reserve_partition:s0
 
 # Sensors
-/(odm|vendor/odm)/bin/oplus_sensor_fb    u:object_r:vendor_sensors_exec:s0
-/dev/ssc_interactive                     u:object_r:ssc_interactive_device:s0
+/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.oplusSensor@1\.0-service    u:object_r:vendor_hal_oplusSensor_default_exec:s0
+/(odm|vendor/odm)/bin/oplus_sensor_fb                                         u:object_r:vendor_sensors_exec:s0
+/dev/ssc_interactive                                                          u:object_r:ssc_interactive_device:s0
 
 # Spunvm
 /dev/block/platform/soc/1d84000\.ufshc/by-name/spunvm    u:object_r:vendor_efs_boot_dev:s0
