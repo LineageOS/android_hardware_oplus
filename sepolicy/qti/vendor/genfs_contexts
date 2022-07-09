@@ -20,6 +20,8 @@ genfscon proc /oplus_rf    u:object_r:vendor_proc_engineer:s0
 genfscon proc /fp_id    u:object_r:vendor_proc_fingerprint:s0
 
 # Sensors
+genfscon proc /sensor/als_cali                        u:object_r:vendor_proc_oplus_als_file:s0
+genfscon proc /sensor/pressure_cali                   u:object_r:vendor_proc_eng_cali_file:s0
 genfscon sysfs /devices/platform/soc/soc:sensor_fb    u:object_r:vendor_sysfs_sensor_fb:s0
 
 # Versioning
