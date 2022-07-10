@@ -21,6 +21,16 @@ cc_binary {
     header_libs: ["kernel_headers.oplus"],
 }
 
+cc_library {
+    name: "libshims_fingerprint.oplus",
+    srcs: ["BiometricsFingerprintShim.cpp"],
+    shared_libs: [
+        "libcutils",
+        "liblog",
+    ],
+    device_specific: true,
+}
+
 cc_library_static {
     name: "libudfps_extension.oplus",
     srcs: ["UdfpsExtension.cpp"],
