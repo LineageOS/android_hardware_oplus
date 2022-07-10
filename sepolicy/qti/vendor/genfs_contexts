@@ -88,9 +88,6 @@ genfscon sysfs /devices/platform/soc/soc:qcom,ipa_fws/wakeup u:object_r:sysfs_wa
 genfscon sysfs /devices/platform/soc/soc:qcom,ipa_uc/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,kgsl-hyp/subsys3/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,kgsl-hyp/wakeup u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/soc/soc:qcom,msm-audio-apr/soc:qcom,msm-audio-apr:qcom,q6core-audio/soc:qcom,msm-audio-apr:qcom,q6core-audio:bolero-cdc/rx-macro/rx_swr_ctrl/wakeup u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/soc/soc:qcom,msm-audio-apr/soc:qcom,msm-audio-apr:qcom,q6core-audio/soc:qcom,msm-audio-apr:qcom,q6core-audio:bolero-cdc/tx-macro/tx_swr_ctrl/wakeup u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/soc/soc:qcom,msm-audio-apr/soc:qcom,msm-audio-apr:qcom,q6core-audio/soc:qcom,msm-audio-apr:qcom,q6core-audio:bolero-cdc/wsa-macro/wsa_swr_ctrl/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,pmic_glink/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,pmic_glink_log/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,smp2p-adsp/wakeup u:object_r:sysfs_wakeup:s0
@@ -114,9 +111,7 @@ genfscon sysfs /devices/virtual/misc/msm_amrwbplus/wakeup u:object_r:sysfs_wakeu
 genfscon sysfs /devices/virtual/misc/msm_ape/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/misc/msm_evrc/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/misc/msm_g711alaw/wakeup u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/virtual/misc/msm_g711mlaw/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/misc/msm_mp3/wakeup u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/virtual/misc/msm_multi_aac/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/misc/msm_qcelp/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/misc/msm_wma/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/misc/msm_wmapro/wakeup u:object_r:sysfs_wakeup:s0
