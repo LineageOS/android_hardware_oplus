@@ -2,8 +2,9 @@
 /(vendor|system/vendor)/bin/tri-state-key-calibrate    u:object_r:tri-state-key-calibrate_exec:s0
 
 # Camera
-/mnt/vendor/persist/camera(/.*)?                     u:object_r:vendor_persist_camera_file:s0
-/mnt/vendor/persist/dual_camera_calibration(/.*)?    u:object_r:vendor_persist_camera_file:s0
+/mnt/vendor/persist/camera(/.*)?                       u:object_r:vendor_persist_camera_file:s0
+/mnt/vendor/persist/dual_camera_calibration(/.*)?      u:object_r:vendor_persist_camera_file:s0
+/(vendor|system/vendor)/lib64/libipebpsstriping\.so    u:object_r:same_process_hal_file:s0
 
 # Charging
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.powershare@1\.0-service\.oplus    u:object_r:hal_lineage_powershare_default_exec:s0
