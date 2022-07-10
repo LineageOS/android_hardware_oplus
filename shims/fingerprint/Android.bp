@@ -1,0 +1,9 @@
+cc_library {
+    name: "libshims_fingerprint.oplus",
+    srcs: ["properties.cpp"],
+    shared_libs: [
+        "libcutils",
+        "liblog",
+    ],
+    device_specific: true,
+}
