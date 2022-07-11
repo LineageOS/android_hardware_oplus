@@ -14,19 +14,9 @@
  * limitations under the License.
  */
 
-#include <android-base/file.h>
-#include <android-base/strings.h>
+#include <fcntl.h>
 #include <livedisplay/oplus/SunlightEnhancement.h>
-
-using ::android::base::ReadFileToString;
-using ::android::base::Trim;
-using ::android::base::WriteStringToFile;
-
-namespace {
-
-constexpr const char* kHbmPath = "/sys/kernel/oplus_display/hbm";
-
-}  // anonymous namespace
+#include <oplus/oplus_display_panel.h>
 
 namespace vendor {
 namespace lineage {
@@ -34,19 +24,16 @@ namespace livedisplay {
 namespace V2_1 {
 namespace implementation {
 
+SunlightEnhancement::SunlightEnhancement() : mOplusDisplayFd(open("/dev/oplus_display", O_RDWR)) {}
+
 Return<bool> SunlightEnhancement::isEnabled() {
-    std::string tmp;
-    int32_t contents = 0;
-
-    if (ReadFileToString(kHbmPath, &tmp)) {
-        contents = std::stoi(Trim(tmp));
-    }
-
-    return contents > 0;
+    unsigned int value;
+    return ioctl(mOplusDisplayFd, PANEL_IOCTL_GET_HBM, &value) == 0 && value > 0;
 }
 
 Return<bool> SunlightEnhancement::setEnabled(bool enabled) {
-    return WriteStringToFile(std::to_string(enabled), kHbmPath, true);
+    unsigned int value = enabled;
+    return ioctl(mOplusDisplayFd, PANEL_IOCTL_SET_HBM, &value) == 0;
 }
 
 }  // namespace implementation

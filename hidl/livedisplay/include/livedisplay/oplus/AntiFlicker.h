@@ -32,9 +32,14 @@ using ::android::hardware::Void;
 
 class AntiFlicker : public IAntiFlicker {
   public:
+    AntiFlicker();
+
     // Methods from ::vendor::lineage::livedisplay::V2_1::IAntiFlicker follow.
     Return<bool> isEnabled() override;
     Return<bool> setEnabled(bool enabled) override;
+
+  private:
+    int mOplusDisplayFd;
 };
 
 }  // namespace implementation
