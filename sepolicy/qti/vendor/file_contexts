@@ -31,6 +31,7 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.oplus    u:object_r:hal_fingerprint_default_exec:s0
 /dev/fingerprint_dev                                                                             u:object_r:fingerprint_device:s0
 /dev/goodix_fp                                                                                   u:object_r:fingerprint_device:s0
+/dev/jiiov_fp                                                                                    u:object_r:fingerprint_device:s0
 
 # Init
 /(odm|vendor/odm)/bin/init\.oplus\.sh          u:object_r:vendor_qti_init_shell_exec:s0
