@@ -32,9 +32,14 @@ using ::android::hardware::Void;
 
 class SunlightEnhancement : public ISunlightEnhancement {
   public:
+    SunlightEnhancement();
+
     // Methods from ::vendor::lineage::livedisplay::V2_0::ISunlightEnhancement follow.
     Return<bool> isEnabled() override;
     Return<bool> setEnabled(bool enabled) override;
+
+  private:
+    int mOplusDisplayFd;
 };
 
 }  // namespace implementation
