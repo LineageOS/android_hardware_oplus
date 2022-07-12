@@ -19,8 +19,7 @@
 #include <android-base/file.h>
 #include <android-base/strings.h>
 
-#include <touch/oplus/TouchscreenGesture.h>
-#include "touch/oplus/TouchscreenGestureConfig.h"
+#include <TouchscreenGestureConfig.h>
 
 using ::android::base::ReadFileToString;
 using ::android::base::Trim;

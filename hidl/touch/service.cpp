@@ -18,7 +18,7 @@
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
-#include <touch/oplus/TouchscreenGesture.h>
+#include "TouchscreenGesture.h"
 
 using android::sp;
 using android::hardware::configureRpcThreadpool;

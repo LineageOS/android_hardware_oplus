@@ -1,6 +1,26 @@
+soong_config_module_type {
+    name: "oplus_lineage_touch_hal_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "OPLUS_LINEAGE_TOUCH_HAL",
+    value_variables: ["INCLUDE_DIR"],
+    properties: ["include_dirs"],
+}
+
+oplus_lineage_touch_hal_cc_defaults {
+    name: "oplus_lineage_touch_hal_defaults",
+    soong_config_variables: {
+        INCLUDE_DIR: {
+            include_dirs: ["%s"],
+        },
+    },
+}
+
 cc_binary {
     name: "vendor.lineage.touch@1.0-service.oplus",
-    defaults: ["hidl_defaults"],
+    defaults: [
+        "hidl_defaults",
+        "oplus_lineage_touch_hal_defaults",
+    ],
     init_rc: ["vendor.lineage.touch@1.0-service.oplus.rc"],
     vintf_fragments: ["vendor.lineage.touch@1.0-service.oplus.xml"],
     vendor: true,
@@ -15,5 +35,4 @@ cc_binary {
         "libutils",
         "vendor.lineage.touch@1.0",
     ],
-    local_include_dirs: ["include"],
 }
