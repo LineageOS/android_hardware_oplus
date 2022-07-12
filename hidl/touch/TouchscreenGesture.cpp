@@ -20,7 +20,12 @@
 #include <android-base/strings.h>
 
 #include <touch/oplus/TouchscreenGesture.h>
+
+#if __has_include("touch/oplus/TouchscreenGestureConfigDevice.h")
+#include "touch/oplus/TouchscreenGestureConfigDevice.h"
+#else
 #include "touch/oplus/TouchscreenGestureConfig.h"
+#endif
 
 using ::android::base::ReadFileToString;
 using ::android::base::Trim;
