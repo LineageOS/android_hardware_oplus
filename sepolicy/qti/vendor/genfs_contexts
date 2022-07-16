@@ -58,6 +58,8 @@ genfscon sysfs /devices/platform/soc/9800000.qcom,npu/wakeup u:object_r:sysfs_wa
 genfscon sysfs /devices/platform/soc/984000.i2c/i2c-3/3-0028/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/98900000.qcom,turing/subsys4/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/98900000.qcom,turing/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/994000.i2c/i2c-5/5-003b/994000.i2c:op,wlchg_rx@3b:idt,p9415/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/994000.i2c/i2c-5/5-0066/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/998000.qcom,qup_uart/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/aab0000.qcom,venus/subsys10/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/aab0000.qcom,venus/wakeup u:object_r:sysfs_wakeup:s0
@@ -73,6 +75,8 @@ genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-03/c440000.q
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-04/c440000.qcom,spmi:qcom,pm8150l@4:qcom,power-on@800/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-08/c440000.qcom,spmi:qcom,pmxprairie@8:qcom,power-on@800/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:gpio_keys/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:oneplus_wlchg/power_supply/wireless/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:oneplus_wlchg/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:oplus,chg_gki/power_supply/battery/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:oplus,chg_gki/power_supply/usb/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:oplus,chg_gki/power_supply/wireless/wakeup u:object_r:sysfs_wakeup:s0
