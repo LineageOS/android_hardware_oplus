@@ -41,8 +41,7 @@ int main() {
     }
 
     if (gestureService->registerAsService() != android::OK) {
-        LOG(ERROR) << "Can't register TouchscreenGesture HAL service";
-        return 1;
+        LOG(WARNING) << "Can't register TouchscreenGesture HAL service";
     }
 
     joinRpcThreadpool();
