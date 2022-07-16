@@ -16,6 +16,24 @@
       "message": "Can confirm that it works on OP9 but does not restore high touch polling rate if we turn off \u0026 on the screen",
       "revId": "a39ee49e45548743dc9b3c125c199ca92689d912",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb10f21e_d3a4b44f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14218
+      },
+      "writtenOn": "2022-07-16T21:40:32Z",
+      "side": 1,
+      "message": "Is fixed with https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8350/+/334299",
+      "parentUuid": "95556f58_582bf891",
+      "revId": "a39ee49e45548743dc9b3c125c199ca92689d912",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
