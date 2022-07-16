@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95556f58_582bf891",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14218
+      },
+      "writtenOn": "2022-07-16T20:36:53Z",
+      "side": 1,
+      "message": "Can confirm that it works on OP9 but does not restore high touch polling rate if we turn off \u0026 on the screen",
+      "revId": "a39ee49e45548743dc9b3c125c199ca92689d912",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
