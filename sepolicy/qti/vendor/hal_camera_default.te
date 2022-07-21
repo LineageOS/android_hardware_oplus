@@ -1,3 +1,5 @@
+hal_attribute_hwservice(hal_camera, vendor_hal_camera_extension_hwservice)
+
 allow hal_camera_default vendor_hal_orms_hwservice:hwservice_manager find;
 
 allow hal_camera_default mnt_vendor_file:dir search;
