@@ -1,0 +1,1 @@
+add_service(vendor_hal_qteeconnector_qti, vendor_qms_service)
