@@ -485,6 +485,8 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es, const std
             ledVib.write_value(LED_DEVICE "/rtp", "0");
             break;
         case Effect::DOUBLE_CLICK:
+            ledVib.write_value(LED_DEVICE "/waveform_index", "1");
+            ledVib.write_value(LED_DEVICE "/vmax", "1600");
             ledVib.write_value(LED_DEVICE "/duration", "30");
             ledVib.write_value(LED_DEVICE "/state", "1");
             ledVib.write_value(LED_DEVICE "/activate", "1");
@@ -503,6 +505,8 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es, const std
             ledVib.write_value(LED_DEVICE "/rtp", "0");
             break;
         case Effect::HEAVY_CLICK:
+            ledVib.write_value(LED_DEVICE "/waveform_index", "1");
+            ledVib.write_value(LED_DEVICE "/vmax", "1600");
             ledVib.write_value(LED_DEVICE "/duration", "1");
             ledVib.write_value(LED_DEVICE "/state", "1");
             ledVib.write_value(LED_DEVICE "/activate", "1");
