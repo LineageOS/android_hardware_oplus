@@ -51,6 +51,24 @@
       "message": "I have no idea where I can find touch driver commits but this is very closely related to it anyways... So I\u0027ll just post here\n\nhttps://forum.xda-developers.com/t/rom-official-alioth-aliothin-12-1-lineageos-19-1.4418635/post-87076109\nI documented my findings there , if anyone has time to look into it would be nice...",
       "revId": "a39ee49e45548743dc9b3c125c199ca92689d912",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59ff33d4_95e65321",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-08-05T22:38:54Z",
+      "side": 1,
+      "message": "not sure why you\u0027re posting that under hw/oplus change tho.",
+      "parentUuid": "d35fe2d9_0c4ffed1",
+      "revId": "a39ee49e45548743dc9b3c125c199ca92689d912",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
