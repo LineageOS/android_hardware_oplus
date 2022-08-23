@@ -38,6 +38,7 @@ cc_binary {
         ":vendor.lineage.livedisplay@2.0-sdm-pa",
         ":vendor.lineage.livedisplay@2.0-sdm-utils",
         ":vendor.lineage.livedisplay@2.1-oplus-se",
+        ":vendor.lineage.livedisplay@2.1-oplus-af",
         "service.cpp",
     ],
     shared_libs: [
