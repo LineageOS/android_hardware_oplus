@@ -21,6 +21,8 @@ import android.view.KeyEvent
 import com.android.internal.os.DeviceKeyHandler
 
 import java.io.File
+import java.lang.Thread
+import java.util.concurrent.Executors
 
 class KeyHandler(context: Context) : DeviceKeyHandler {
     private val audioManager = context.getSystemService(AudioManager::class.java)
@@ -36,6 +38,8 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
             packageContext.packageName + "_preferences",
             Context.MODE_PRIVATE or Context.MODE_MULTI_PROCESS
         )
+
+    private val executorService = Executors.newSingleThreadExecutor()
 
     private var wasMuted = false
     private val broadcastReceiver = object : BroadcastReceiver() {
@@ -90,31 +94,43 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
             else -> return
         }
 
-        when (mode) {
-            AudioManager.RINGER_MODE_SILENT -> {
-                notificationManager.setZenMode(Settings.Global.ZEN_MODE_OFF, null, TAG)
-                audioManager.setRingerModeInternal(mode)
-                if (muteMedia) {
-                    audioManager.adjustVolume(AudioManager.ADJUST_MUTE, 0)
-                    wasMuted = true
+        executorService.submit {
+            when (mode) {
+                AudioManager.RINGER_MODE_SILENT -> {
+                    setZenMode(Settings.Global.ZEN_MODE_OFF)
+                    audioManager.setRingerModeInternal(mode)
+                    if (muteMedia) {
+                        audioManager.adjustVolume(AudioManager.ADJUST_MUTE, 0)
+                        wasMuted = true
+                    }
+                }
+                AudioManager.RINGER_MODE_VIBRATE, AudioManager.RINGER_MODE_NORMAL -> {
+                    setZenMode(Settings.Global.ZEN_MODE_OFF)
+                    audioManager.setRingerModeInternal(mode)
+                    if (muteMedia && wasMuted) {
+                        audioManager.adjustVolume(AudioManager.ADJUST_UNMUTE, 0)
+                    }
+                }
+                ZEN_PRIORITY_ONLY, ZEN_TOTAL_SILENCE, ZEN_ALARMS_ONLY -> {
+                    audioManager.setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL)
+                    setZenMode(mode - ZEN_OFFSET)
+                    if (muteMedia && wasMuted) {
+                        audioManager.adjustVolume(AudioManager.ADJUST_UNMUTE, 0)
+                    }
                 }
             }
-            AudioManager.RINGER_MODE_VIBRATE, AudioManager.RINGER_MODE_NORMAL -> {
-                notificationManager.setZenMode(Settings.Global.ZEN_MODE_OFF, null, TAG)
-                audioManager.setRingerModeInternal(mode)
-                if (muteMedia && wasMuted) {
-                    audioManager.adjustVolume(AudioManager.ADJUST_UNMUTE, 0)
-                }
-            }
-            ZEN_PRIORITY_ONLY, ZEN_TOTAL_SILENCE, ZEN_ALARMS_ONLY -> {
-                audioManager.setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL)
-                notificationManager.setZenMode(mode - ZEN_OFFSET, null, TAG)
-                if (muteMedia && wasMuted) {
-                    audioManager.adjustVolume(AudioManager.ADJUST_UNMUTE, 0)
-                }
-            }
+            vibrateIfNeeded(mode)
         }
-        vibrateIfNeeded(mode)
+    }
+
+    private fun setZenMode(zenMode: Int) {
+        // Set zen mode
+        notificationManager.setZenMode(zenMode, null, TAG)
+
+        // Wait until zen mode change is committed
+        while (notificationManager.getZenMode() != zenMode) {
+            Thread.sleep(10)
+        }
     }
 
     companion object {
