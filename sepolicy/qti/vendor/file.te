@@ -22,5 +22,8 @@ type vendor_proc_eng_cali_file, fs_type, proc_type;
 type vendor_proc_oplus_als_file, fs_type, proc_type;
 type vendor_sysfs_sensor_fb, fs_type, sysfs_type;
 
+# Ultrasound
+type vendor_proc_ultrasound, fs_type, proc_type;
+
 # Versioning
 type vendor_proc_oplus_version, fs_type, proc_type;
