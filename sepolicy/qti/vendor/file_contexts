@@ -73,6 +73,10 @@
 # Touch
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.oplus    u:object_r:hal_lineage_touch_default_exec:s0
 
+# Ultrasound
+/dev/audio_ultrasound     u:object_r:ultrasound_device:s0
+/dev/sensor_ultrasound    u:object_r:ultrasound_device:s0
+
 # Vibrator
 /(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.oplus    u:object_r:hal_vibrator_default_exec:s0
 
