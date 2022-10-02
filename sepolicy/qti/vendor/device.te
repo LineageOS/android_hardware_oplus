@@ -7,5 +7,8 @@ type vendor_reserve_partition, dev_type;
 # Sensors
 type ssc_interactive_device, dev_type;
 
+# Ultrasound
+type ultrasound_device, dev_type;
+
 # Wlchgmonitor
 type wlchg_device, dev_type;
