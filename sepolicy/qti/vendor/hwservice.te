@@ -1,5 +1,6 @@
 # Camera
 type vendor_hal_camera_extension_hwservice, hwservice_manager_type, protected_hwservice;
+type vendor_hal_cameraMDM_hwservice, hwservice_manager_type, protected_hwservice;
 
 # ORMS
 type vendor_hal_orms_hwservice, hwservice_manager_type, protected_hwservice;
