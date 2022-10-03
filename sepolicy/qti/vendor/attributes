@@ -1,1 +1,2 @@
+vendor_hal_attribute(cameraMDM)
 vendor_hal_attribute(oplusSensor)
