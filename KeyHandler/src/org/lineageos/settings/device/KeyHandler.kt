@@ -23,10 +23,10 @@ import java.io.File
 import java.util.concurrent.Executors
 
 class KeyHandler(context: Context) : DeviceKeyHandler {
-    private val audioManager = context.getSystemService(AudioManager::class.java)
-    private val inputManager = context.getSystemService(InputManager::class.java)
-    private val notificationManager = context.getSystemService(NotificationManager::class.java)
-    private val vibrator = context.getSystemService(Vibrator::class.java)
+    private val audioManager = context.getSystemService(AudioManager::class.java)!!
+    private val inputManager = context.getSystemService(InputManager::class.java)!!
+    private val notificationManager = context.getSystemService(NotificationManager::class.java)!!
+    private val vibrator = context.getSystemService(Vibrator::class.java)!!
 
     private val packageContext = context.createPackageContext(
         KeyHandler::class.java.getPackage()!!.name, 0
