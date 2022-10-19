@@ -98,7 +98,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
             when (mode) {
                 AudioManager.RINGER_MODE_SILENT -> {
                     setZenMode(Settings.Global.ZEN_MODE_OFF)
-                    audioManager.setRingerModeInternal(mode)
+                    audioManager.ringerModeInternal = mode
                     if (muteMedia) {
                         audioManager.adjustVolume(AudioManager.ADJUST_MUTE, 0)
                         wasMuted = true
@@ -106,13 +106,13 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
                 }
                 AudioManager.RINGER_MODE_VIBRATE, AudioManager.RINGER_MODE_NORMAL -> {
                     setZenMode(Settings.Global.ZEN_MODE_OFF)
-                    audioManager.setRingerModeInternal(mode)
+                    audioManager.ringerModeInternal = mode
                     if (muteMedia && wasMuted) {
                         audioManager.adjustVolume(AudioManager.ADJUST_UNMUTE, 0)
                     }
                 }
                 ZEN_PRIORITY_ONLY, ZEN_TOTAL_SILENCE, ZEN_ALARMS_ONLY -> {
-                    audioManager.setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL)
+                    audioManager.ringerModeInternal = AudioManager.RINGER_MODE_NORMAL
                     setZenMode(mode - ZEN_OFFSET)
                     if (muteMedia && wasMuted) {
                         audioManager.adjustVolume(AudioManager.ADJUST_UNMUTE, 0)
