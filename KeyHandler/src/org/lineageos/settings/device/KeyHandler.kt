@@ -44,7 +44,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
         override fun onReceive(context: Context, intent: Intent) {
             val stream = intent.getIntExtra(AudioManager.EXTRA_VOLUME_STREAM_TYPE, -1)
             val state = intent.getBooleanExtra(AudioManager.EXTRA_STREAM_VOLUME_MUTED, false)
-            if (stream == AudioSystem.STREAM_MUSIC && state == false) {
+            if (stream == AudioSystem.STREAM_MUSIC && !state) {
                 wasMuted = false
             }
         }
