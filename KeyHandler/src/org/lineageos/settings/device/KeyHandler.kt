@@ -16,12 +16,10 @@ import android.media.AudioSystem
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.provider.Settings
-import android.view.InputDevice
 import android.view.KeyEvent
 import com.android.internal.os.DeviceKeyHandler
 
 import java.io.File
-import java.lang.Thread
 import java.util.concurrent.Executors
 
 class KeyHandler(context: Context) : DeviceKeyHandler {
