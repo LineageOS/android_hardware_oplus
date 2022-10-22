@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65818ff1_ba55ed4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27025
+      },
+      "writtenOn": "2022-10-22T06:33:48Z",
+      "side": 1,
+      "message": "01-21 19:59:35.619  1142  1142 E (6)[1142:rmt_storage][    8.728493]@6 rmt_storage: ERR:oem_remote_storage_parse_partitions: Failed to open partition /dev/block/bootdevice/by-name/oem_dycnvbk err 13 (Permission denied). This is very bad!!!\n01-21 19:59:35.599  1142  1142 W rmt_storage: type\u003d1400 audit(0.0:19): avc: denied { read write } for name\u003d\"sda8\" dev\u003d\"tmpfs\" ino\u003d19673 scontext\u003du:r:vendor_rmt_storage:s0 tcontext\u003du:object_r:block_device:s0 tclass\u003dblk_file permissive\u003d0\n\nsolves the error/denial",
+      "revId": "6c683121242e6b976c8846a94c67ccb75df038da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
