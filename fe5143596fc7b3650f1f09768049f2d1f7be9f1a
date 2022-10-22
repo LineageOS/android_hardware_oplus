@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c59953de_0ad5d64b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27025
+      },
+      "writtenOn": "2022-10-22T06:37:53Z",
+      "side": 1,
+      "message": "10-21 22:09:50.063  1039  1039 I android.hardwar: type\u003d1400 audit(0.0:1061): avc: denied { search } for name\u003d\"touchpanel\" dev\u003d\"proc\" ino\u003d4026533040 scontext\u003du:r:hal_sensors_default:s0 tcontext\u003du:object_r:vendor_proc_display:s0 tclass\u003ddir permissive\u003d1\n10-21 22:09:50.063  1039  1039 I android.hardwar: type\u003d1400 audit(0.0:1062): avc: denied { read } for name\u003d\"event_num\" dev\u003d\"proc\" ino\u003d4026533065 scontext\u003du:r:hal_sensors_default:s0 tcontext\u003du:object_r:vendor_proc_display:s0 tclass\u003dfile permissive\u003d1\n10-21 22:09:50.063  1039  1039 I android.hardwar: type\u003d1400 audit(0.0:1063): avc: denied { open } for path\u003d\"/proc/touchpanel/event_num\" dev\u003d\"proc\" ino\u003d4026533065 scontext\u003du:r:hal_sensors_default:s0 tcontext\u003du:object_r:vendor_proc_display:s0 tclass\u003dfile permissive\u003d1\n10-21 22:09:50.073  1039  1039 I android.hardwar: type\u003d1400 audit(0.0:1064): avc: denied { write } for name\u003d\"fd_enable\" dev\u003d\"proc\" ino\u003d4026533064 scontext\u003du:r:hal_sensors_default:s0 tcontext\u003du:object_r:vendor_proc_display:s0 tclass\u003dfile permissive\u003d1",
+      "revId": "fe5143596fc7b3650f1f09768049f2d1f7be9f1a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
