@@ -9,6 +9,7 @@
     <string name="alert_slider_top_position">上部</string>
     <string name="alert_slider_middle_position">中央</string>
     <string name="alert_slider_bottom_position">下部</string>
+    <string name="alert_slider_mode_none">なし</string>
     <string name="alert_slider_mode_silent">サイレント</string>
     <string name="alert_slider_mode_normal">標準</string>
     <string name="alert_slider_mode_vibration">バイブ</string>

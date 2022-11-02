@@ -9,6 +9,7 @@
     <string name="alert_slider_top_position">Pozicioni i lartë</string>
     <string name="alert_slider_middle_position">Pozicioni i mesëm</string>
     <string name="alert_slider_bottom_position">Pozicioni i poshtëm</string>
+    <string name="alert_slider_mode_none">Asnjë</string>
     <string name="alert_slider_mode_silent">Pa zë</string>
     <string name="alert_slider_mode_normal">Normal</string>
     <string name="alert_slider_mode_vibration">Dridhje</string>

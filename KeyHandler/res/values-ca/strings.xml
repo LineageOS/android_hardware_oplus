@@ -9,6 +9,7 @@
     <string name="alert_slider_top_position">Posició superior</string>
     <string name="alert_slider_middle_position">Posició central</string>
     <string name="alert_slider_bottom_position">Posició inferior</string>
+    <string name="alert_slider_mode_none">Cap</string>
     <string name="alert_slider_mode_silent">Silenci</string>
     <string name="alert_slider_mode_normal">Normal</string>
     <string name="alert_slider_mode_vibration">Vibració</string>

@@ -9,6 +9,7 @@
     <string name="alert_slider_top_position">顶部位置</string>
     <string name="alert_slider_middle_position">中间位置</string>
     <string name="alert_slider_bottom_position">底部位置</string>
+    <string name="alert_slider_mode_none">无</string>
     <string name="alert_slider_mode_silent">静音</string>
     <string name="alert_slider_mode_normal">正常</string>
     <string name="alert_slider_mode_vibration">振动</string>

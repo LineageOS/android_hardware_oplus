@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2021 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="alert_slider_category_title">Schuifregelaar meldingen</string>
+    <string name="alert_slider_selection_dialog_title">Actie</string>
+    <string name="alert_slider_top_position">Bovenste positie</string>
+    <string name="alert_slider_middle_position">Middelste positie</string>
+    <string name="alert_slider_bottom_position">Onderste positie</string>
+    <string name="alert_slider_mode_silent">Stil</string>
+    <string name="alert_slider_mode_normal">Normaal</string>
+    <string name="alert_slider_mode_vibration">Trillen</string>
+    <string name="alert_slider_mode_dnd_priority_only">Alleen prioriteit</string>
+    <string name="alert_slider_mode_dnd_total_silence">Totale stilte</string>
+    <string name="alert_slider_mode_dnd_alarms_only">Alleen alarmen</string>
+    <string name="alert_slider_mute_media_title">Media dempen</string>
+    <string name="alert_slider_mute_media_summary">Media dempen bij overschakelen naar stil</string>
+</resources>

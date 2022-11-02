@@ -9,6 +9,7 @@
     <string name="alert_slider_top_position">Zgornji položaj</string>
     <string name="alert_slider_middle_position">Srednji položaj</string>
     <string name="alert_slider_bottom_position">Spodnji položaj</string>
+    <string name="alert_slider_mode_none">Brez</string>
     <string name="alert_slider_mode_silent">Tiho</string>
     <string name="alert_slider_mode_normal">Običajno</string>
     <string name="alert_slider_mode_vibration">Vibriranje</string>

@@ -9,6 +9,7 @@
     <string name="alert_slider_top_position">Sus</string>
     <string name="alert_slider_middle_position">Mijloc</string>
     <string name="alert_slider_bottom_position">Jos</string>
+    <string name="alert_slider_mode_none">Niciuna</string>
     <string name="alert_slider_mode_silent">Silențios</string>
     <string name="alert_slider_mode_normal">Normal</string>
     <string name="alert_slider_mode_vibration">Vibrație</string>

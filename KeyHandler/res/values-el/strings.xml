@@ -9,6 +9,7 @@
     <string name="alert_slider_top_position">Πάνω θέση</string>
     <string name="alert_slider_middle_position">Μεσαία θέση</string>
     <string name="alert_slider_bottom_position">Κάτω θέση</string>
+    <string name="alert_slider_mode_none">Τίποτα</string>
     <string name="alert_slider_mode_silent">Αθόρυβο</string>
     <string name="alert_slider_mode_normal">Κανονικό</string>
     <string name="alert_slider_mode_vibration">Δόνηση</string>
