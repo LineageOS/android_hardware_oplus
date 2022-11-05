@@ -34,6 +34,7 @@
 # Logo
 /dev/block/platform/soc/1d84000\.ufshc/by-name/logo_[ab]    u:object_r:vendor_custom_ab_block_device:s0
 /dev/block/platform/soc/1d84000\.ufshc/by-name/LOGO_[ab]    u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/logo_[ab]    u:object_r:vendor_custom_ab_block_device:s0
 
 # MDM
 /dev/block/platform/soc/1d84000\.ufshc/by-name/mdm_oem_dycnvbk    u:object_r:vendor_modem_efs_partition_device:s0
@@ -58,15 +59,20 @@
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oplus_sec_[ab]          u:object_r:vendor_custom_ab_block_device:s0
 /dev/block/platform/soc/1d84000\.ufshc/by-name/opproduct_[ab]          u:object_r:vendor_custom_ab_block_device:s0
 /dev/block/platform/soc/1d84000\.ufshc/by-name/splash_[ab]             u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/engineering_cdt_[ab]    u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/opproduct_[ab]          u:object_r:vendor_custom_ab_block_device:s0
 
 # RMT
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oem_dycnvbk           u:object_r:vendor_modem_efs_partition_device:s0
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oem_stanvbk           u:object_r:vendor_modem_efs_partition_device:s0
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oplusdycnvbk          u:object_r:vendor_modem_efs_partition_device:s0
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oplusstanvbk_[ab]     u:object_r:vendor_modem_efs_partition_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/oplusdycnvbk          u:object_r:vendor_modem_efs_partition_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/oplusstanvbk_[ab]     u:object_r:vendor_modem_efs_partition_device:s0
 
 # Reserve
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oplusreserve[1-4]    u:object_r:vendor_reserve_partition:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/oplusreserve[1-4]    u:object_r:vendor_reserve_partition:s0
 
 # Sensors
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.oplusSensor@1\.0-service    u:object_r:vendor_hal_oplusSensor_default_exec:s0
@@ -78,6 +84,7 @@
 
 # Storsec
 /dev/block/platform/soc/1d84000\.ufshc/by-name/storsec_[ab]    u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/storsec_[ab]    u:object_r:vendor_custom_ab_block_device:s0
 
 # TOF
 /(odm|vendor/odm)/bin/vl53l1_daemon_main    u:object_r:vl53l1_daemon_main_exec:s0
