@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63d5c025_bb037196",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2022-11-09T21:11:17Z",
+      "side": 1,
+      "message": "Needs https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8250/+/344024 too, or else the jump from 9 ms to 10ms and 10ms to 11ms will be inconsistent (10 ms would be stronger than both 9 ms and 11 ms).",
+      "revId": "51eb408f3cba14171143d810c11bb00699ed07e0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
