@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b178d6ce_0a95735c",
+        "filename": "aidl/vibrator/Vibrator.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-11-09T11:56:22Z",
+      "side": 1,
+      "message": "Maybe make a line break here to avoid \u003e100 chars and remove double spacing?",
+      "range": {
+        "startLine": 534,
+        "startChar": 37,
+        "endLine": 534,
+        "endChar": 39
+      },
+      "revId": "01ac2359ac28244e03c77b0acc6ebcb5c326b0c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
