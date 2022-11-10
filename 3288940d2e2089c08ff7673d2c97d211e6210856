@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66724d55_f3ded387",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29242
+      },
+      "writtenOn": "2022-11-10T05:29:48Z",
+      "side": 1,
+      "message": "Huge improvement over the previous effects.",
+      "revId": "3288940d2e2089c08ff7673d2c97d211e6210856",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
