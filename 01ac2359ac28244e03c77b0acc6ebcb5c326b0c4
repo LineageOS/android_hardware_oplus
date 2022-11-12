@@ -22,6 +22,30 @@
       },
       "revId": "01ac2359ac28244e03c77b0acc6ebcb5c326b0c4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2374d897_31c3762b",
+        "filename": "aidl/vibrator/Vibrator.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-11-12T11:35:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b178d6ce_0a95735c",
+      "range": {
+        "startLine": 534,
+        "startChar": 37,
+        "endLine": 534,
+        "endChar": 39
+      },
+      "revId": "01ac2359ac28244e03c77b0acc6ebcb5c326b0c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
