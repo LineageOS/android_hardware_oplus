@@ -16,6 +16,23 @@
       "message": "Works good on sm8350.",
       "revId": "12fcd01d96c811c819b31104274a40b57dbbdb14",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2719779_c573ec51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2022-11-14T23:56:50Z",
+      "side": 1,
+      "message": "I will let this sit until next Sunday (2022-11-20) for any last minute objections before I try to get someone to merge this change + the kernel change(s).",
+      "revId": "12fcd01d96c811c819b31104274a40b57dbbdb14",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
