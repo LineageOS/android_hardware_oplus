@@ -16,6 +16,24 @@
       "message": "Label the file",
       "revId": "517d137b92273ee1357c8a2d814d030fd5d618fd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be4ac8f3_0a4ebc61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-11-20T23:05:47Z",
+      "side": 1,
+      "message": "meh, not really worth it in this case.",
+      "parentUuid": "4c085e90_16354b5f",
+      "revId": "517d137b92273ee1357c8a2d814d030fd5d618fd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
