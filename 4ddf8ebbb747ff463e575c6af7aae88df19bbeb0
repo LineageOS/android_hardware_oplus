@@ -16,6 +16,24 @@
       "message": "Shouldn\u0027t the specific vendor file be labeled, instead of allowing kernel to read all vendor_file?",
       "revId": "4ddf8ebbb747ff463e575c6af7aae88df19bbeb0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "708681ab_07f4da58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-11-20T08:51:55Z",
+      "side": 1,
+      "message": "Doesn\u0027t really matter, as long as it\u0027s not user data, it\u0027s ok.",
+      "parentUuid": "2b0f1943_d7a32f87",
+      "revId": "4ddf8ebbb747ff463e575c6af7aae88df19bbeb0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
