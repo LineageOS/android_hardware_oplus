@@ -16,6 +16,23 @@
       "message": "I would expect that the code here should behave the same way it does on lineage-20.",
       "revId": "09ae87462f16fc22f08685ae98735ad38bdd847d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c641aafa_667e4197",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2022-11-21T07:25:01Z",
+      "side": 1,
+      "message": "I would assume so too.",
+      "revId": "09ae87462f16fc22f08685ae98735ad38bdd847d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
