@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2021 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="alert_slider_category_title">Alarmschieberegler</string>
+    <string name="alert_slider_selection_dialog_title">Aktion</string>
+    <string name="alert_slider_top_position">Obere Position</string>
+    <string name="alert_slider_middle_position">Mittlere Position</string>
+    <string name="alert_slider_bottom_position">Untere Position</string>
+    <string name="alert_slider_mode_none">Keine</string>
+    <string name="alert_slider_mode_silent">Lautlos</string>
+    <string name="alert_slider_mode_normal">Normal</string>
+    <string name="alert_slider_mode_vibration">Vibration</string>
+    <string name="alert_slider_mode_dnd_priority_only">Nur Priorität</string>
+    <string name="alert_slider_mode_dnd_total_silence">Völlige Stille</string>
+    <string name="alert_slider_mode_dnd_alarms_only">Nur Alarme</string>
+    <string name="alert_slider_mute_media_title">Medien stumm</string>
+</resources>

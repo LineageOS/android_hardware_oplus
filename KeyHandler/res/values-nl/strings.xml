@@ -9,6 +9,7 @@
     <string name="alert_slider_top_position">Bovenste positie</string>
     <string name="alert_slider_middle_position">Middelste positie</string>
     <string name="alert_slider_bottom_position">Onderste positie</string>
+    <string name="alert_slider_mode_none">Geen</string>
     <string name="alert_slider_mode_silent">Stil</string>
     <string name="alert_slider_mode_normal">Normaal</string>
     <string name="alert_slider_mode_vibration">Trillen</string>

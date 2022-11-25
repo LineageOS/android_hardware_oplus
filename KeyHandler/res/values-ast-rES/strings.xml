@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2021 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="alert_slider_selection_dialog_title">Aición</string>
+    <string name="alert_slider_top_position">Posición cimera</string>
+    <string name="alert_slider_middle_position">Posición central</string>
+    <string name="alert_slider_bottom_position">Posición baxera</string>
+    <string name="alert_slider_mode_silent">Silenciu</string>
+    <string name="alert_slider_mode_vibration">Vibración</string>
+    <string name="alert_slider_mode_dnd_total_silence">Silenciu total</string>
+</resources>
