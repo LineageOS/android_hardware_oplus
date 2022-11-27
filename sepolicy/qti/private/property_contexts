@@ -17,6 +17,7 @@ ro.oplus.image.my_engineering.type    u:object_r:exported_system_prop:s0
 oplus.fingerprint.    u:object_r:system_fingerprint_prop:s0
 oplus.goodix.fp       u:object_r:system_fingerprint_prop:s0
 oplus.optical.        u:object_r:system_fingerprint_prop:s0
+persist.sys.fp.       u:object_r:system_fingerprint_prop:s0
 
 # Logging
 persist.camera.assert.panic         u:object_r:exported_system_prop:s0
