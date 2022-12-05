@@ -33,7 +33,8 @@ Return<bool> AntiFlicker::isEnabled() {
 
 Return<bool> AntiFlicker::setEnabled(bool enabled) {
     unsigned int value = enabled;
-    return ioctl(mOplusDisplayFd, PANEL_IOCTL_SET_DIMLAYER_BL_EN, &value) == 0;
+    return isEnabled() == enabled ||
+           ioctl(mOplusDisplayFd, PANEL_IOCTL_SET_DIMLAYER_BL_EN, &value) == 0;
 }
 
 }  // namespace implementation
