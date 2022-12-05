@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c897cee_38643eec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-12-05T16:59:21Z",
+      "side": 1,
+      "message": "I can\u0027t repro this myself. Surely it happened me already, but maybe two or three times since I have the device.",
+      "revId": "bd2d84c295feeee30bf0aca038499a2ee6fdda67",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
