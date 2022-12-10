@@ -1,4 +1,5 @@
 # Camera
+ro.vendor.oplus.camera.        u:object_r:vendor_camera_prop:s0
 vendor.camera.vm.parameters    u:object_r:vendor_camera_prop:s0
 
 # Display
