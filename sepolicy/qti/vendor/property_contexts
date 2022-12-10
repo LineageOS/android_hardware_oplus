@@ -1,5 +1,6 @@
 # Camera
 vendor.camera.vm.parameters    u:object_r:vendor_camera_prop:s0
+ro.vendor.oplus.camera.        u:object_r:vendor_camera_prop:s0
 
 # Display
 vendor.dps.dump.composerpid    u:object_r:vendor_display_prop:s0
