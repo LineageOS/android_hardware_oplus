@@ -75,6 +75,10 @@
 # Storsec
 /dev/block/platform/soc/1d84000\.ufshc/by-name/storsec_[ab]    u:object_r:vendor_custom_ab_block_device:s0
 
+# TOF
+/(odm|vendor/odm)/bin/vl53l1_daemon_main    u:object_r:vl53l1_daemon_main_exec:s0
+/dev/stmvl53l1_ranging                      u:object_r:vendor_tof_device:s0
+
 # Touch
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.oplus    u:object_r:hal_lineage_touch_default_exec:s0
 
