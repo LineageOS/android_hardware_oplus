@@ -38,6 +38,7 @@ Return<uint64_t> BiometricsFingerprint::setNotify(
 }
 
 Return<uint64_t> BiometricsFingerprint::preEnroll() {
+    this->isEnrolling = true;
     setDimlayerHbm(1);
     return mOplusBiometricsFingerprint->preEnroll();
 }
@@ -48,6 +49,7 @@ Return<RequestStatus> BiometricsFingerprint::enroll(const hidl_array<uint8_t, 69
 }
 
 Return<RequestStatus> BiometricsFingerprint::postEnroll() {
+    this->isEnrolling = false;
     setDimlayerHbm(0);
     return mOplusBiometricsFingerprint->postEnroll();
 }
@@ -57,7 +59,9 @@ Return<uint64_t> BiometricsFingerprint::getAuthenticatorId() {
 }
 
 Return<RequestStatus> BiometricsFingerprint::cancel() {
-    setDimlayerHbm(0);
+    if (!this->isEnrolling) {
+        setDimlayerHbm(0);
+    }
     return mOplusBiometricsFingerprint->cancel();
 }
 
@@ -75,7 +79,8 @@ Return<RequestStatus> BiometricsFingerprint::setActiveGroup(uint32_t gid,
 }
 
 Return<RequestStatus> BiometricsFingerprint::authenticate(uint64_t operationId, uint32_t gid) {
-    setDimlayerHbm(1);
+    // In case postEnroll never got called for whatever reason, set isEnrolling to false.
+    this->isEnrolling = false;
     return mOplusBiometricsFingerprint->authenticate(operationId, gid);
 }
 
@@ -84,12 +89,18 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t sensorID) {
 }
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t x, uint32_t y, float minor, float major) {
+    if (!this->isEnrolling) {
+        setDimlayerHbm(1);
+    }
     setFpPress(1);
     return isUff() ? Void() : mOplusBiometricsFingerprint->onFingerDown(x, y, minor, major);
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
     setFpPress(0);
+    if (!this->isEnrolling) {
+        setDimlayerHbm(0);
+    }
     return isUff() ? Void() : mOplusBiometricsFingerprint->onFingerUp();
 }
 
@@ -116,8 +127,10 @@ Return<void> BiometricsFingerprint::onAuthenticated(uint64_t deviceId, uint32_t 
 
 Return<void> BiometricsFingerprint::onError(uint64_t deviceId, FingerprintError error,
                                             int32_t vendorCode) {
-    setDimlayerHbm(0);
     setFpPress(0);
+    if (!this->isEnrolling) {
+        setDimlayerHbm(0);
+    }
     return mClientCallback->onError(deviceId, error, vendorCode);
 }
 
