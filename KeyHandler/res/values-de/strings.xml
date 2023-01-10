@@ -17,4 +17,5 @@
     <string name="alert_slider_mode_dnd_total_silence">Völlige Stille</string>
     <string name="alert_slider_mode_dnd_alarms_only">Nur Alarme</string>
     <string name="alert_slider_mute_media_title">Medien stumm</string>
+    <string name="alert_slider_mute_media_summary">Bei Stummschaltung auch Medien stummschalten</string>
 </resources>
