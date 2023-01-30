@@ -4,7 +4,7 @@
 # Camera
 /mnt/vendor/persist/camera(/.*)?                                                  u:object_r:vendor_persist_camera_file:s0
 /mnt/vendor/persist/dual_camera_calibration(/.*)?                                 u:object_r:vendor_persist_camera_file:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oplus\.hardware\.cameraMDM@2\.0-service    u:object_r:vendor_hal_cameraMDM_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.oplus\.hardware\.cameraMDM@[1-2]\.0-service    u:object_r:vendor_hal_cameraMDM_default_exec:s0
 /(vendor|system/vendor)/lib64/libipebpsstriping\.so                               u:object_r:same_process_hal_file:s0
 
 # Charging
