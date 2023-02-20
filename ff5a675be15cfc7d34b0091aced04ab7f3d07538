@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b687126_30662ca8",
+        "filename": "sepolicy/qti/vendor/hal_graphics_composer_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-02-20T16:40:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a885853_96a66d97",
+      "revId": "ff5a675be15cfc7d34b0091aced04ab7f3d07538",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c45014e4_2bf174ad",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-02-20T16:23:26Z",
       "side": 1,
       "message": "r goes before v?",
+      "revId": "ff5a675be15cfc7d34b0091aced04ab7f3d07538",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13c7e9e1_b524335c",
+        "filename": "sepolicy/qti/vendor/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-02-20T16:40:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61e1d67d_541541ce",
       "revId": "ff5a675be15cfc7d34b0091aced04ab7f3d07538",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
