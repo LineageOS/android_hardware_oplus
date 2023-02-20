@@ -1,4 +1,5 @@
 # Camera
+vendor.oplus.hardware.cameraextension::ICameraExtensionService         u:object_r:vendor_hal_camera_extension_hwservice:s0
 vendor.oplus.hardware.cameraMDM::IOPlusCameraMDM                       u:object_r:vendor_hal_cameraMDM_hwservice:s0
 vendor.oplus.hardware.cammidasservice::IMIDASService                   u:object_r:hal_camera_hwservice:s0
 vendor.qti.hardware.camera.cameraextension::ICameraExtensionService    u:object_r:vendor_hal_camera_extension_hwservice:s0
