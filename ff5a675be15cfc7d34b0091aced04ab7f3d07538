@@ -53,6 +53,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b222f2b_e44695d3",
+        "filename": "sepolicy/qti/vendor/hwservice_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 18745
+      },
+      "writtenOn": "2023-02-22T00:01:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c45014e4_2bf174ad",
+      "revId": "ff5a675be15cfc7d34b0091aced04ab7f3d07538",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61e1d67d_541541ce",
