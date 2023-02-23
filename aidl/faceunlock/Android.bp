@@ -1,0 +1,22 @@
+//
+// Copyright (C) 2023 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "vendor.oplus.hardware.biometrics.face-service",
+    relative_install_path: "hw",
+    init_rc: ["vendor.oplus.hardware.biometrics.face-service.rc"],
+    vintf_fragments: ["vendor.oplus.hardware.biometrics.face-service.xml"],
+    srcs: [
+        "Face.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "android.hardware.biometrics.face-ndk_platform",
+    ],
+    vendor: true,
+}

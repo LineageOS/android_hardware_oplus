@@ -1,0 +1,18 @@
+service vendor.face-default /vendor/bin/hw/vendor.oplus.hardware.biometrics.face-service
+    class hal
+    user nobody
+    group nobody
+    shutdown critical
+
+on post-fs-data
+    mkdir /data/vendor_de 0770 system system
+    mkdir /data/vendor_de/0 0770 system system
+    mkdir /data/vendor_de/0/facedata 0770 system system
+    mkdir /data/vendor_de/0/faceunlock 0770 system system
+
+    mkdir /data/vendor_de 0770 system system
+    mkdir /data/vendor_de/0 0770 system system
+    mkdir /data/vendor_de/0/.faceauth 0770 system system
+    mkdir /data/vendor_de/0/.facedldata 0770 system system
+    mkdir /data/vendor_de/0/faceauth 0770 system system
+    mkdir /data/vendor_de/0/facedldata 0770 system system
