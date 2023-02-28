@@ -22,6 +22,30 @@
       },
       "revId": "0404742cf28347a505865dc94495ce91f0676145",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d45e5df1_307c5c4c",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 32372
+      },
+      "writtenOn": "2023-02-28T21:21:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "600aeddf_576cf7de",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 133
+      },
+      "revId": "0404742cf28347a505865dc94495ce91f0676145",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
