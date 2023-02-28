@@ -22,6 +22,30 @@
       },
       "revId": "c5e80e10729de154101dbf2ba1a3e11fea47a6c2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92a7aafc_700c2c53",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 32372
+      },
+      "writtenOn": "2023-02-28T21:24:11Z",
+      "side": 1,
+      "message": "Removed the conflicting lines. Will create a change for adding them to device/qcom/sepolicy_vndr-legacy-um/generic/vendor/lito/genfs_contexts.",
+      "parentUuid": "62ba9de0_0875b236",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 207
+      },
+      "revId": "c5e80e10729de154101dbf2ba1a3e11fea47a6c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
