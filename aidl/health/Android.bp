@@ -5,11 +5,11 @@
  */
 
 cc_binary {
-    name: "vendor.lineage.health-service.default",
+    name: "vendor.lineage.health-service.oplus",
     vendor: true,
     relative_install_path: "hw",
-    init_rc: ["vendor.lineage.health-service.default.rc"],
-    vintf_fragments: ["vendor.lineage.health-service.default.xml"],
+    init_rc: ["vendor.lineage.health-service.oplus.rc"],
+    vintf_fragments: ["vendor.lineage.health-service.oplus.xml"],
     srcs: [
         "service.cpp",
         "ChargingControl.cpp",
