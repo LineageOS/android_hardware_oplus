@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e835e5_4f476afb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2023-03-13T12:01:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69547abd_a77756c1",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 77
+      },
+      "revId": "c170806a13da6e9e27ab429ee31efb3ccfdef347",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd8cb0cd_7faef7e5",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-03-13T08:11:13Z",
       "side": 1,
       "message": "in Latin alphabet, e goes before r.",
+      "revId": "c170806a13da6e9e27ab429ee31efb3ccfdef347",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dad6fcc2_36fd4f5e",
+        "filename": "sepolicy/qti/vendor/file.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2023-03-13T12:01:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd8cb0cd_7faef7e5",
       "revId": "c170806a13da6e9e27ab429ee31efb3ccfdef347",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
