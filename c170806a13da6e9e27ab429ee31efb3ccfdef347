@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69547abd_a77756c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-03-13T11:38:35Z",
+      "side": 1,
+      "message": "\u003e72ch",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 77
+      },
+      "revId": "c170806a13da6e9e27ab429ee31efb3ccfdef347",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dd8cb0cd_7faef7e5",
         "filename": "sepolicy/qti/vendor/file.te",
         "patchSetId": 2
