@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc9264fd_cadf7ff9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-03-13T12:00:40Z",
+      "side": 1,
+      "message": "still over 72ch",
+      "revId": "4fc96d5e4e3e9ab393b1c0bb59a5e257c28c6019",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
