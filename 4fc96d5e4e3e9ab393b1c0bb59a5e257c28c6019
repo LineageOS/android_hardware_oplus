@@ -16,6 +16,24 @@
       "message": "still over 72ch",
       "revId": "4fc96d5e4e3e9ab393b1c0bb59a5e257c28c6019",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98438936_c02794a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2023-03-13T12:01:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc9264fd_cadf7ff9",
+      "revId": "4fc96d5e4e3e9ab393b1c0bb59a5e257c28c6019",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
