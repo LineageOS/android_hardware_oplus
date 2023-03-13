@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd8cb0cd_7faef7e5",
+        "filename": "sepolicy/qti/vendor/file.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-03-13T08:11:13Z",
+      "side": 1,
+      "message": "in Latin alphabet, e goes before r.",
+      "revId": "c170806a13da6e9e27ab429ee31efb3ccfdef347",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
