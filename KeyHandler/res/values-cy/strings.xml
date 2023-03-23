@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2021 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="alert_slider_category_title">Llithridd rhybuddion</string>
+    <string name="alert_slider_selection_dialog_title">Gweithred</string>
+    <string name="alert_slider_top_position">Lleoliad brig</string>
+    <string name="alert_slider_middle_position">Lleoliad canol</string>
+    <string name="alert_slider_bottom_position">Lleoliad gwaelod</string>
+    <string name="alert_slider_mode_none">Dim</string>
+    <string name="alert_slider_mode_silent">Distaw</string>
+    <string name="alert_slider_mode_normal">Arferol</string>
+    <string name="alert_slider_mode_vibration">Dirgryniad</string>
+    <string name="alert_slider_mode_dnd_priority_only">Blaenoriaeth yn unig</string>
+    <string name="alert_slider_mode_dnd_total_silence">Distawrwydd llwyr</string>
+    <string name="alert_slider_mode_dnd_alarms_only">Larymau yn unig</string>
+    <string name="alert_slider_mute_media_title">Tewi cyfryngau</string>
+    <string name="alert_slider_mute_media_summary">Tewi cyfryngau wrth newid i ddistaw</string>
+</resources>

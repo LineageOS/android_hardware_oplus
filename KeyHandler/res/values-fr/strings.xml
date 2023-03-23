@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2021 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="alert_slider_category_title">Curseur d\'alerte</string>
+    <string name="alert_slider_selection_dialog_title">Action</string>
+    <string name="alert_slider_top_position">En haut</string>
+    <string name="alert_slider_middle_position">Au milieu</string>
+    <string name="alert_slider_bottom_position">En bas</string>
+    <string name="alert_slider_mode_none">Aucun</string>
+    <string name="alert_slider_mode_silent">Silencieux</string>
+    <string name="alert_slider_mode_normal">Normal</string>
+    <string name="alert_slider_mode_vibration">Vibration</string>
+    <string name="alert_slider_mode_dnd_priority_only">Prioritaires uniquement</string>
+    <string name="alert_slider_mode_dnd_total_silence">Silence total</string>
+    <string name="alert_slider_mode_dnd_alarms_only">Alarmes uniquement</string>
+    <string name="alert_slider_mute_media_title">Couper le son du média</string>
+    <string name="alert_slider_mute_media_summary">Couper le son du média lors du passage en mode silencieux</string>
+</resources>
