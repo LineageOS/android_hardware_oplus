@@ -9,6 +9,7 @@
 /(vendor|system/vendor)/lib64/libipebpsstriping\.so                               u:object_r:same_process_hal_file:s0
 
 # Charging
+/sys/devices/platform/soc/4c90000.i2c/i2c-1/1-006b/iio:device[0-9](/.*?)          u:object_r:vendor_sysfs_battery_supply:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.powershare@1\.0-service\.oplus    u:object_r:hal_lineage_powershare_default_exec:s0
 
 # Display
