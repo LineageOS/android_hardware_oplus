@@ -1,5 +1,6 @@
 # Camera
 oplus.camera.    u:object_r:exported_system_prop:s0
+oppo.camera.     u:object_r:exported_system_prop:s0
 
 # Display
 persist.sys.display.iris.absent   u:object_r:system_oplus_iris_prop:s0
