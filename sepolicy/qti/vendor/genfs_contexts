@@ -36,6 +36,7 @@ genfscon proc /ultrasound    u:object_r:vendor_proc_ultrasound:s0
 
 # Versioning
 genfscon proc /oplusVersion    u:object_r:vendor_proc_oplus_version:s0
+genfscon proc /oppoVersion     u:object_r:vendor_proc_oplus_version:s0
 
 # Vibrator
 genfscon sysfs /devices/platform/soc/880000.i2c/i2c-5/5-005a/leds/vibrator    u:object_r:sysfs_vibrator:s0
