@@ -34,6 +34,24 @@
       "parentUuid": "9d8eb2ba_3e332a51",
       "revId": "5a7673861626bae26e873e738c3a7dae105ede84",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f251e12f_ea416b15",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-03-28T21:57:46Z",
+      "side": 0,
+      "message": "https://review.lineageos.org/c/LineageOS/android_device_qcom_sepolicy_vndr/+/352579",
+      "parentUuid": "ac1e695c_7e82c0f1",
+      "revId": "5a7673861626bae26e873e738c3a7dae105ede84",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
