@@ -30,6 +30,7 @@ genfscon sysfs /devices/platform/soc/soc:sensor_fb    u:object_r:vendor_sysfs_se
 
 # TOF
 genfscon sysfs /kernel/tof_control    u:object_r:vendor_sysfs_tof:s0
+genfscon sysfs /module/stmvl53l1      u:object_r:vendor_sysfs_tof:s0
 
 # Ultrasound
 genfscon proc /ultrasound    u:object_r:vendor_proc_ultrasound:s0
