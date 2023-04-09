@@ -11,4 +11,6 @@ allow vl53l1_daemon_main self:{
 
 allow vl53l1_daemon_main self:netlink_iscsi_socket { read write create bind };
 
+r_dir_file(vl53l1_daemon_main, vendor_persist_camera_file)
+r_dir_file(vl53l1_daemon_main, vendor_sysfs_tof)
 rw_dir_file(vl53l1_daemon_main, mnt_vendor_file)
