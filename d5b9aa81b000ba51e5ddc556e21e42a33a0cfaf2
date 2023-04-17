@@ -16,6 +16,24 @@
       "message": "move up.",
       "revId": "d5b9aa81b000ba51e5ddc556e21e42a33a0cfaf2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcfcd07b_546f71ce",
+        "filename": "sepolicy/qti/vendor/hal_camera_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 18745
+      },
+      "writtenOn": "2023-04-17T19:07:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "532db838_cb8f7089",
+      "revId": "d5b9aa81b000ba51e5ddc556e21e42a33a0cfaf2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
