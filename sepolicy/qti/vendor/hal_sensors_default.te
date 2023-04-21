@@ -1,6 +1,7 @@
 allow hal_sensors_default ssc_interactive_device:chr_file rw_file_perms;
 allow hal_sensors_default ultrasound_device:chr_file rw_file_perms;
 
+r_dir_file(hal_sensors_default, vendor_proc_eng_cali_file)
 r_dir_file(hal_sensors_default, vendor_proc_ultrasound)
 rw_dir_file(hal_sensors_default, vendor_persist_engineer_file)
 rw_dir_file(hal_sensors_default, vendor_proc_display)
