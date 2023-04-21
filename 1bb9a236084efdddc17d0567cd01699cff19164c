@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54310d79_28f14a40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2023-04-21T21:49:14Z",
+      "side": 1,
+      "message": "Cleans up sensor denials from dre sensors",
+      "revId": "1bb9a236084efdddc17d0567cd01699cff19164c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
