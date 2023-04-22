@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2021 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="alert_slider_category_title">Cursôr notifichis</string>
+    <string name="alert_slider_selection_dialog_title">Azion</string>
+    <string name="alert_slider_top_position">Posizion superiôr</string>
+    <string name="alert_slider_middle_position">Posizion centrâl</string>
+    <string name="alert_slider_bottom_position">Posizion inferiôr</string>
+    <string name="alert_slider_mode_none">Nissune</string>
+    <string name="alert_slider_mode_silent">Cidin</string>
+    <string name="alert_slider_mode_normal">Normâl</string>
+    <string name="alert_slider_mode_vibration">Vibrazion</string>
+    <string name="alert_slider_mode_dnd_priority_only">Dome prioritâts</string>
+    <string name="alert_slider_mode_dnd_total_silence">Cidin dal dut</string>
+    <string name="alert_slider_mode_dnd_alarms_only">Dome sveis</string>
+    <string name="alert_slider_mute_media_title">Cidine il multimedia</string>
+    <string name="alert_slider_mute_media_summary">Cidine i multimedia se tu passis ae modalitât cidine</string>
+</resources>
