@@ -16,6 +16,23 @@
       "message": "Cleans up sensor denials from dre sensors",
       "revId": "1bb9a236084efdddc17d0567cd01699cff19164c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d3dbcbc_17e194c5",
+        "filename": "sepolicy/qti/vendor/hal_sensors_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-04-23T06:44:36Z",
+      "side": 1,
+      "message": "eng goes before ultrasound, also add qti: to commit msg.",
+      "revId": "1bb9a236084efdddc17d0567cd01699cff19164c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
