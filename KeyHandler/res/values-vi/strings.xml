@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2021 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="alert_slider_category_title">Thanh trượt cảnh báo</string>
+    <string name="alert_slider_selection_dialog_title">Thao tác</string>
+    <string name="alert_slider_top_position">Vị trí trên cùng</string>
+    <string name="alert_slider_middle_position">Vị trí giữa</string>
+    <string name="alert_slider_bottom_position">Vị trí dưới cùng</string>
+    <string name="alert_slider_mode_none">Không có</string>
+    <string name="alert_slider_mode_silent">Im lặng</string>
+    <string name="alert_slider_mode_normal">Bình thường</string>
+    <string name="alert_slider_mode_vibration">Rung</string>
+    <string name="alert_slider_mode_dnd_priority_only">Chỉ ưu tiên</string>
+    <string name="alert_slider_mode_dnd_total_silence">Hoàn toàn im lặng</string>
+    <string name="alert_slider_mode_dnd_alarms_only">Chỉ báo thức</string>
+    <string name="alert_slider_mute_media_title">Tắt tiếng phương tiện</string>
+    <string name="alert_slider_mute_media_summary">Tắt tiếng phương tiện khi chuyển sang chế độ im lặng</string>
+</resources>

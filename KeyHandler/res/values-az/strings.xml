@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2021 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="alert_slider_category_title">Xəbərdarlıq diyircəyi</string>
+    <string name="alert_slider_selection_dialog_title">Hərəkət</string>
+    <string name="alert_slider_top_position">Üst mövqe</string>
+    <string name="alert_slider_middle_position">Orta mövqe</string>
+    <string name="alert_slider_bottom_position">Alt mövqe</string>
+    <string name="alert_slider_mode_none">Heç biri</string>
+    <string name="alert_slider_mode_silent">Səssiz</string>
+    <string name="alert_slider_mode_normal">Normal</string>
+    <string name="alert_slider_mode_vibration">Titrəmə</string>
+    <string name="alert_slider_mode_dnd_priority_only">Yalnız prioritet</string>
+    <string name="alert_slider_mode_dnd_total_silence">Tam səssizlik</string>
+    <string name="alert_slider_mode_dnd_alarms_only">Yalnız zəngli saatlar</string>
+    <string name="alert_slider_mute_media_title">Media səsi yoxdur</string>
+    <string name="alert_slider_mute_media_summary">Səssizə keçərkən medianı səssizə al</string>
+</resources>
