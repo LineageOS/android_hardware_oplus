@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2021 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="alert_slider_category_title">Alert slider</string>
+    <string name="alert_slider_selection_dialog_title">Acțiune</string>
+    <string name="alert_slider_top_position">Sus</string>
+    <string name="alert_slider_middle_position">Mijloc</string>
+    <string name="alert_slider_bottom_position">Jos</string>
+    <string name="alert_slider_mode_none">Niciuna</string>
+    <string name="alert_slider_mode_silent">Silențios</string>
+    <string name="alert_slider_mode_normal">Normal</string>
+    <string name="alert_slider_mode_vibration">Vibrație</string>
+    <string name="alert_slider_mode_dnd_priority_only">Numai cu prioritate</string>
+    <string name="alert_slider_mode_dnd_total_silence">Niciun sunet</string>
+    <string name="alert_slider_mode_dnd_alarms_only">Numai alarme</string>
+    <string name="alert_slider_mute_media_title">Fără sunet media</string>
+    <string name="alert_slider_mute_media_summary">Fără sunet media când se schimbă la silențios</string>
+</resources>
