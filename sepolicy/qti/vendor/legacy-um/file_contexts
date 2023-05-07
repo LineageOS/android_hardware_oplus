@@ -1,0 +1,3 @@
+# NFC
+/(vendor|system/vendor)/bin/hw/android\.hardware\.nfc@1\.2-service\.st    u:object_r:hal_nfc_default_exec:s0
+/dev/st21nfc                                                              u:object_r:nfc_device:s0
