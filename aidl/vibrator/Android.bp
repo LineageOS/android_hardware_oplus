@@ -1,8 +1,43 @@
 Common_CFlags = ["-Wall"]
 Common_CFlags += ["-Werror"]
 
+soong_config_module_type {
+    name: "oplus_lineage_vibrator_hal_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "OPLUS_LINEAGE_VIBRATOR_HAL",
+    value_variables: ["INCLUDE_DIR"],
+    bool_variables: ["USE_EFFECT_STREAM"],
+    properties: [
+        "cflags",
+        "include_dirs",
+        "shared_libs",
+    ],
+}
+
+oplus_lineage_vibrator_hal_cc_defaults {
+    name: "vibrator_effect_stream_defaults",
+    soong_config_variables: {
+        USE_EFFECT_STREAM: {
+            cflags: ["-DUSE_EFFECT_STREAM"],
+            shared_libs: ["liboplusvibratoreffect"],
+        },
+    },
+}
+
+oplus_lineage_vibrator_hal_cc_defaults {
+    name: "oplus_lineage_vibrator_effect_defaults",
+    soong_config_variables: {
+        INCLUDE_DIR: {
+            include_dirs: ["%s"],
+        },
+    },
+}
+
 cc_library_shared {
     name: "vendor.qti.hardware.vibrator.impl.oplus",
+    defaults: [
+        "vibrator_effect_stream_defaults",
+    ],
     vendor: true,
     cflags: Common_CFlags,
     srcs: [
@@ -12,7 +47,6 @@ cc_library_shared {
         "libcutils",
         "libutils",
         "liblog",
-        "libqtivibratoreffect",
         "libbinder_ndk",
         "android.hardware.vibrator-V1-ndk",
     ],
