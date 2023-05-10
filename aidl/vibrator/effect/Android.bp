@@ -1,0 +1,12 @@
+cc_library_shared {
+    name: "liboplusvibratoreffect",
+    vendor: true,
+    srcs: [
+        "effect.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+    ],
+    export_include_dirs: ["."]
+}
