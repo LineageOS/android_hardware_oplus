@@ -1,5 +1,6 @@
 cc_library_shared {
     name: "liboplusvibratoreffect",
+    defaults: ["oplus_lineage_vibrator_effect_defaults"],
     vendor: true,
     srcs: [
         "effect.cpp",
@@ -8,5 +9,4 @@ cc_library_shared {
         "libcutils",
         "libutils",
     ],
-    export_include_dirs: ["."]
 }

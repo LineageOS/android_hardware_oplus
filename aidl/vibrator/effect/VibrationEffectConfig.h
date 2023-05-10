@@ -27,20 +27,35 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "effect.h"
+/* ~170 HZ sine waveform */
+static const int8_t effect_0[] = {
+    17,  34,  50,  65,  79,  92,  103, 112, 119, 124,
+    127, 127, 126, 122, 116, 108, 98,  86,  73,  58,
+    42,  26,  9,   -8,  -25, -41, -57, -72, -85, -97,
+    -108, -116, -122, -126, -127, -127, -125, -120,
+    -113, -104, -93,  -80, -66, -51, -35, -18, -1,
+};
 
-#define ARRAY_SIZE(a) (sizeof(a) / sizeof(*(a)))
+static const int8_t effect_1[] = {
+    -1, -18, -35, -51, -66, -80, -93, -104, -113,
+    -120, -125, -127, -127, -126, -122, -116, -108,
+    -97, -85, -72, -57, -41, -25, -8, 9, 26, 42,
+    58, 73, 86, 98, 108, 116, 122, 126, 127, 127,
+    124, 119, 112, 103, 92, 79, 65, 50, 34, 17,
+};
 
-#include <VibrationEffectConfig.h>
+static const struct effect_stream effects[] = {
+    {
+        .effect_id = 0,
+        .data = effect_0,
+        .length = ARRAY_SIZE(effect_0),
+        .play_rate_hz = 8000,
+    },
 
-const struct effect_stream *get_effect_stream(uint32_t effect_id)
-{
-    int i;
-
-    for (i = 0; i < ARRAY_SIZE(effects); i++) {
-        if (effect_id == effects[i].effect_id)
-            return &effects[i];
-    }
-
-    return NULL;
-}
+    {
+        .effect_id = 1,
+        .data = effect_1,
+        .length = ARRAY_SIZE(effect_1),
+        .play_rate_hz = 8000,
+    },
+};
