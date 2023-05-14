@@ -31,7 +31,7 @@
 
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof(*(a)))
 
-#include "VibrationEffectConfig.h"
+#include <VibrationEffectConfig.h>
 
 const struct effect_stream *get_effect_stream(uint32_t effect_id)
 {
