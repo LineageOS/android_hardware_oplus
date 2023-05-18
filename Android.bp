@@ -1,3 +1,15 @@
+//
+// Copyright (C) 2022-2023 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
 soong_namespace {
     imports: ["hardware/qcom-caf/bootctrl"],
+}
+
+prebuilt_hidl_interfaces {
+    name: "hidl_oplus_cameraextension_interface",
+    interfaces: [
+        "vendor.oplus.hardware.cameraextension@1.0::ICameraExtensionService",
+    ],
 }
