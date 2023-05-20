@@ -16,6 +16,24 @@
       "message": "Won\u0027t this break existing shipped devices?",
       "revId": "fb1cb1db83e6675017f64da1af7474dd837b469d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3611a1f6_59ffad99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-05-20T14:45:12Z",
+      "side": 1,
+      "message": "No, I built lemonadep with these changes applied.",
+      "parentUuid": "827a8d49_2545a7ee",
+      "revId": "fb1cb1db83e6675017f64da1af7474dd837b469d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
