@@ -1,0 +1,6 @@
+# Camera
+vendor.oplus.hardware.cameraextension.ICameraExtensionService/default    u:object_r:hal_camera_service:s0
+vendor.oplus.hardware.cammidasservice.IMIDASService/default              u:object_r:hal_camera_service:s0
+
+# Fingerprint
+vendor.oplus.hardware.commondcs.ICommonDcsAidlHalService/default    u:object_r:hal_fingerprint_service:s0
