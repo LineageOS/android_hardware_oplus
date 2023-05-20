@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "827a8d49_2545a7ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-05-20T14:16:52Z",
+      "side": 1,
+      "message": "Won\u0027t this break existing shipped devices?",
+      "revId": "fb1cb1db83e6675017f64da1af7474dd837b469d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
