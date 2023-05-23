@@ -16,6 +16,24 @@
       "message": "Move above the define?",
       "revId": "478f00f3370995dee35503fc509d15de7f28cbcc",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6e23dca_1ed97664",
+        "filename": "aidl/vibrator/effect/effect.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-05-23T13:18:33Z",
+      "side": 1,
+      "message": "VibrationEffectConfig.h also needs ARRAY_SIZE so not sure if that would work",
+      "parentUuid": "201169d3_d0aa2a2b",
+      "revId": "478f00f3370995dee35503fc509d15de7f28cbcc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
