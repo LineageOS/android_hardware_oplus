@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "816d4c75_7639a820",
+        "filename": "aidl/vibrator/effect/effect.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-05-23T11:39:26Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be in the previous commit?",
+      "revId": "020cf0777bbf0afcbc7124b66c01f9bc2596f682",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
