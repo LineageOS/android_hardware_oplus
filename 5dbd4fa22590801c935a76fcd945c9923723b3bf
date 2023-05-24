@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e74ebd42_6a48fe69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-05-24T13:18:17Z",
+      "side": 1,
+      "message": "https://git.codelinaro.org/clo/la/platform/vendor/qcom-opensource/recovery-ext/-/blob/LA.VENDOR.1.0.r2-03900-WAIPIO.QSSI13.0/oem-recovery/gpt-utils.cpp?ref_type\u003dtags#L246",
+      "revId": "5dbd4fa22590801c935a76fcd945c9923723b3bf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
