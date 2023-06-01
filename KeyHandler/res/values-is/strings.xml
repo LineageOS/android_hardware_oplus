@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2021 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="alert_slider_category_title">Aðvaranasleði</string>
+    <string name="alert_slider_selection_dialog_title">Aðgerð</string>
+    <string name="alert_slider_top_position">Staða efst</string>
+    <string name="alert_slider_middle_position">Miðjustaða</string>
+    <string name="alert_slider_bottom_position">Staða neðst</string>
+    <string name="alert_slider_mode_none">Ekkert</string>
+    <string name="alert_slider_mode_silent">Hljóðlaust</string>
+    <string name="alert_slider_mode_normal">Venjulegt</string>
+    <string name="alert_slider_mode_vibration">Titringur</string>
+    <string name="alert_slider_mode_dnd_priority_only">Aðeins í forgangi</string>
+    <string name="alert_slider_mode_dnd_total_silence">Algjör þögn</string>
+    <string name="alert_slider_mode_dnd_alarms_only">Aðeins áminningar</string>
+    <string name="alert_slider_mute_media_title">Þagga niður margmiðlun</string>
+    <string name="alert_slider_mute_media_summary">Þagga niður efni þegar skipt er í hljóðlaust</string>
+</resources>
