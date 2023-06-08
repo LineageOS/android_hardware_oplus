@@ -58,9 +58,8 @@ int main() {
 
     status = se->registerAsService();
     if (status != OK) {
-        LOG(ERROR) << "Could not register service for LiveDisplay HAL SunlightEnhancement Iface ("
-                   << status << ")";
-        goto shutdown;
+        LOG(WARNING) << "Could not register service for LiveDisplay HAL SunlightEnhancement Iface ("
+                     << status << ")";
     }
 
     LOG(INFO) << "LiveDisplay HAL service is ready.";
