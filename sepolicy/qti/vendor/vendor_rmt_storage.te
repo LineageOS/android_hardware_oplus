@@ -1,4 +1,5 @@
 allow vendor_rmt_storage vendor_reserve_partition:blk_file rw_file_perms;
+allow vendor_rmt_storage vendor_sysfs_soc_sensitive:file r_file_perms;
 
 get_prop(vendor_rmt_storage, vendor_radio_prop)
 
