@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd92d178_cb59f8e6",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-07-06T14:43:04Z",
+      "side": 1,
+      "message": "not really camera?",
+      "revId": "aa1f5c3e1c954f215e48e4ed910e99c70a3ca440",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2d059e2_6c3ce6cb",
+        "filename": "sepolicy/qti/vendor/hal_camera_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-07-06T14:43:04Z",
+      "side": 1,
+      "message": "rw_dir_file",
+      "revId": "aa1f5c3e1c954f215e48e4ed910e99c70a3ca440",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c5e1bcd_729a826d",
+        "filename": "sepolicy/qti/vendor/rild.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-07-06T14:43:04Z",
+      "side": 1,
+      "message": "hal_client_domain?",
+      "revId": "aa1f5c3e1c954f215e48e4ed910e99c70a3ca440",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
