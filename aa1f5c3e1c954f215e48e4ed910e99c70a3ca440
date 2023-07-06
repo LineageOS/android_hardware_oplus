@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c475d79_51e3509f",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-07-06T14:46:34Z",
+      "side": 1,
+      "message": "salami / # ls /proc/boost_pool/\ncamera  camera_cpu  camera_low  camera_pid  camera_stat",
+      "parentUuid": "fd92d178_cb59f8e6",
+      "revId": "aa1f5c3e1c954f215e48e4ed910e99c70a3ca440",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d2d059e2_6c3ce6cb",
         "filename": "sepolicy/qti/vendor/hal_camera_default.te",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-06T14:43:04Z",
       "side": 1,
       "message": "rw_dir_file",
+      "revId": "aa1f5c3e1c954f215e48e4ed910e99c70a3ca440",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12054208_e1aca963",
+        "filename": "sepolicy/qti/vendor/hal_camera_default.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-07-06T14:46:34Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d2d059e2_6c3ce6cb",
       "revId": "aa1f5c3e1c954f215e48e4ed910e99c70a3ca440",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
@@ -48,6 +84,24 @@
       "writtenOn": "2023-07-06T14:43:04Z",
       "side": 1,
       "message": "hal_client_domain?",
+      "revId": "aa1f5c3e1c954f215e48e4ed910e99c70a3ca440",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b9fc0dc_1c283dcb",
+        "filename": "sepolicy/qti/vendor/rild.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-07-06T14:46:34Z",
+      "side": 1,
+      "message": "I\u0027ll check.",
+      "parentUuid": "7c5e1bcd_729a826d",
       "revId": "aa1f5c3e1c954f215e48e4ed910e99c70a3ca440",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
