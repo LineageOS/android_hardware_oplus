@@ -5,5 +5,14 @@ type vendor_hal_cameraMDM_hwservice, hwservice_manager_type, protected_hwservice
 # ORMS
 type vendor_hal_orms_hwservice, hwservice_manager_type, protected_hwservice;
 
+# OSENSE
+type vendor_hal_osense_client_hwservice, hwservice_manager_type, protected_hwservice;
+
+# Performance
+type vendor_hal_performance_hwservice, hwservice_manager_type, protected_hwservice;
+
+# Project
+type vendor_hal_project_hwservice, hwservice_manager_type, protected_hwservice;
+
 # Sensors
 type vendor_hal_oplusSensor_hwservice, hwservice_manager_type, protected_hwservice;
