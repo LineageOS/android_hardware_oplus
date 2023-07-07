@@ -2,8 +2,10 @@
 /(vendor|system/vendor)/bin/tri-state-key-calibrate    u:object_r:tri-state-key-calibrate_exec:s0
 
 # Camera
+/data/vendor/camera_update(/.*)?                                                  u:object_r:vendor_camera_update_data_file:s0
 /mnt/vendor/persist/camera(/.*)?                                                  u:object_r:vendor_persist_camera_file:s0
 /mnt/vendor/persist/dual_camera_calibration(/.*)?                                 u:object_r:vendor_persist_camera_file:s0
+/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.cammidasservice-V1-service      u:object_r:hal_oplus_cammidasservice_aidl_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oplus\.hardware\.cameraMDM@1\.0-service    u:object_r:vendor_hal_cameraMDM_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oplus\.hardware\.cameraMDM@2\.0-service    u:object_r:vendor_hal_cameraMDM_default_exec:s0
 /(vendor|system/vendor)/lib64/libipebpsstriping\.so                               u:object_r:same_process_hal_file:s0
@@ -23,8 +25,11 @@
 /mnt/vendor/persist/engineermode(/.*)?    u:object_r:vendor_persist_engineer_file:s0
 
 # Fingerprint
-/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.biometrics\.fingerprint@2\.1-service           u:object_r:hal_fingerprint_default_exec:s0
+/data/vendor/fingerprint(_ori)?(/.*)?                                                            u:object_r:fingerprint_vendor_data_file:s0
+/mnt/vendor/persist/fingerprint(/.*)?                                                            u:object_r:vendor_persist_fingerprint_file:s0
+/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.biometrics\.fingerprint@2\.1-service(_uff)?    u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.oplus    u:object_r:hal_fingerprint_default_exec:s0
+/dev/fingerprint_dev                                                                             u:object_r:fingerprint_device:s0
 /dev/goodix_fp                                                                                   u:object_r:fingerprint_device:s0
 
 # Init
@@ -59,6 +64,9 @@
 /dev/block/platform/soc/4804000\.ufshc/by-name/engineering_cdt_[ab]    u:object_r:vendor_custom_ab_block_device:s0
 /dev/block/platform/soc/4804000\.ufshc/by-name/opproduct_[ab]          u:object_r:vendor_custom_ab_block_device:s0
 
+# Performance
+/(odm|vendor/odm)/bin/hw/vendor-oplus-hardware-performance-V1-service    u:object_r:hal_oplus_performance_aidl_exec:s0
+
 # RMT
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oem_dycnvbk           u:object_r:vendor_modem_efs_partition_device:s0
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oem_stanvbk           u:object_r:vendor_modem_efs_partition_device:s0
@@ -68,8 +76,8 @@
 /dev/block/platform/soc/4804000\.ufshc/by-name/oplusstanvbk_[ab]     u:object_r:vendor_modem_efs_partition_device:s0
 
 # Reserve
-/dev/block/platform/soc/1d84000\.ufshc/by-name/oplusreserve[1-4]    u:object_r:vendor_reserve_partition:s0
-/dev/block/platform/soc/4804000\.ufshc/by-name/oplusreserve[1-4]    u:object_r:vendor_reserve_partition:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/oplusreserve[1-5]    u:object_r:vendor_reserve_partition:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/oplusreserve[1-5]    u:object_r:vendor_reserve_partition:s0
 
 # Sensors
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.oplusSensor@1\.0-service    u:object_r:vendor_hal_oplusSensor_default_exec:s0
