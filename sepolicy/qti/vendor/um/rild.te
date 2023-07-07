@@ -1,0 +1,3 @@
+allow rild vendor_qms_service:service_manager find;
+
+hal_client_domain(rild, vendor_hal_qms_qti)

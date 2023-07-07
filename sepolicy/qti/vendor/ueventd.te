@@ -1,0 +1,1 @@
+allow ueventd vendor_persist_display_file:dir search;
