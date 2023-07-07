@@ -1,6 +1,33 @@
 # Camera
 vendor.oplus.hardware.cameraextension.ICameraExtensionService/default    u:object_r:hal_camera_service:s0
-vendor.oplus.hardware.cammidasservice.IMIDASService/default              u:object_r:hal_camera_service:s0
+vendor.oplus.hardware.cammidasservice.IMIDASService/default              u:object_r:hal_oplus_cammidasservice_aidl_service:s0
+vendor.oplus.hardware.sendextcamcmd.ISendExtCamCmdService/default        u:object_r:hal_camera_service:s0
 
 # Fingerprint
 vendor.oplus.hardware.commondcs.ICommonDcsAidlHalService/default    u:object_r:hal_fingerprint_service:s0
+vendor.oplus.hardware.olc2.IOplusLogCore/default                    u:object_r:hal_fingerprint_service:s0
+
+# OSENSE
+vendor.oplus.hardware.osense.client.IOsenseAidlHalReporter/default    u:object_r:fwk_osense_aidl_service:s0
+
+# Performance
+vendor.oplus.hardware.performance.IPerformance/default    u:object_r:hal_oplus_performance_aidl_service:s0
+
+# Project
+vendor.oplus.hardware.stability.oplus_project.IOplusProject/default    u:object_r:hal_oplus_project_aidl_service:s0
+
+# RIL
+vendor.oplus.hardware.appradioaidl.IAppRadioStable/OplusAppRadio0       u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.appradioaidl.IAppRadioStable/OplusAppRadio1       u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.radioex.data.IOplusRadioExData/slot1              u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.radioex.data.IOplusRadioExData/slot2              u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.radioex.messaging.IOplusRadioExMessaging/slot1    u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.radioex.messaging.IOplusRadioExMessaging/slot2    u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.radioex.modem.IOplusRadioExModem/slot1            u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.radioex.modem.IOplusRadioExModem/slot2            u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.radioex.network.IOplusRadioExNetwork/slot1        u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.radioex.network.IOplusRadioExNetwork/slot2        u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.radioex.sim.IOplusRadioExSim/slot1                u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.radioex.sim.IOplusRadioExSim/slot2                u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.radioex.voice.IOplusRadioExVoice/slot1            u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.radioex.voice.IOplusRadioExVoice/slot2            u:object_r:hal_radio_service:s0

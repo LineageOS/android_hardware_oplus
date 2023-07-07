@@ -1,0 +1,3 @@
+allow rild vendor_qms_service:service_manager find;
+binder_call(rild, vendor_qms)
+binder_call(vendor_qms, rild)

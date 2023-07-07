@@ -2,18 +2,19 @@
 vendor.oplus.hardware.cameraextension::ICameraExtensionService         u:object_r:vendor_hal_camera_extension_hwservice:s0
 vendor.oplus.hardware.cameraMDM::IOPlusCameraMDM                       u:object_r:vendor_hal_cameraMDM_hwservice:s0
 vendor.oplus.hardware.cammidasservice::IMIDASService                   u:object_r:hal_camera_hwservice:s0
+vendor.oplus.hardware.sendextcamcmd::ISendExtCamCmdService             u:object_r:hal_camera_hwservice:s0
 vendor.qti.hardware.camera.cameraextension::ICameraExtensionService    u:object_r:vendor_hal_camera_extension_hwservice:s0
 
-# Display (CWB)
-vendor.oplus.hardware.cwb::ICwbService    u:object_r:hal_graphics_composer_hwservice:s0
-
-# Display (Pixelworks)
+# Display
+vendor.display.PanelChaplin::IPanelChaplin          u:object_r:hal_graphics_composer_hwservice:s0
+vendor.oplus.hardware.cwb::ICwbService              u:object_r:hal_graphics_composer_hwservice:s0
 vendor.pixelworks.hardware.display::IIris           u:object_r:hal_graphics_composer_hwservice:s0
 vendor.pixelworks.hardware.feature::IIrisFeature    u:object_r:hal_graphics_composer_hwservice:s0
 
 # Fingerprint
 vendor.oplus.hardware.biometrics.fingerprint::IBiometricsFingerprint    u:object_r:hal_fingerprint_hwservice:s0
 vendor.oplus.hardware.commondcs::ICommonDcsHalService                   u:object_r:hal_fingerprint_hwservice:s0
+vendor.oplus.hardware.touch::IOplusTouch                                u:object_r:hal_fingerprint_hwservice:s0
 
 # NFC
 vendor.nxp.eventprocessor::INxpEseEvtProcessor    u:object_r:hal_nfc_hwservice:s0
