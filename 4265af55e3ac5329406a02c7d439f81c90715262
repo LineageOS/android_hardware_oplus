@@ -16,6 +16,24 @@
       "message": "this was added for SM8150.",
       "revId": "4265af55e3ac5329406a02c7d439f81c90715262",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6444595f_fea3b834",
+        "filename": "sepolicy/qti/vendor/vendor_qti_init_shell.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-07-07T09:01:21Z",
+      "side": 0,
+      "message": "I know, but it breaks compilation on op11. Need to figure out what to do here.",
+      "parentUuid": "866b7378_9f490e2c",
+      "revId": "4265af55e3ac5329406a02c7d439f81c90715262",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
