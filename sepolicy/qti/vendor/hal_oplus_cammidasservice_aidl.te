@@ -1,0 +1,11 @@
+type hal_oplus_cammidasservice_aidl, domain;
+binder_use(hal_oplus_cammidasservice_aidl)
+
+hal_server_domain(hal_oplus_cammidasservice_aidl, vendor_hal_oplus_cammidasservice)
+
+type hal_oplus_cammidasservice_aidl_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oplus_cammidasservice_aidl)
+
+binder_call(vendor_hal_oplus_cammidasservice_client, vendor_hal_oplus_cammidasservice_server)
+
+hal_attribute_service(vendor_hal_oplus_cammidasservice, hal_oplus_cammidasservice_aidl_service)
