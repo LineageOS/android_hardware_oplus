@@ -1,3 +1,7 @@
+allow rild vendor_qms_service:service_manager find;
+binder_call(rild, vendor_qms)
+binder_call(vendor_qms, rild)
+
 allow rild mnt_vendor_file:dir search;
 
 allow rild vendor_proc_display:file r_file_perms;
