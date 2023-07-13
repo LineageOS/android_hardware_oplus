@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e98f8183_d07a9f71",
+        "filename": "sepolicy/qti/vendor/service_contexts",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-07-13T22:08:51Z",
+      "side": 1,
+      "message": "Replace with?\n\nvendor.oplus.hardware.appradioaidl.*    u:object_r:hal_radio_service:s0\nvendor.oplus.hardware.radioex.*         u:object_r:hal_radio_service:s0",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 103
+      },
+      "revId": "b9a3846999e2896a615c2a4f403ef308759523ed",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
