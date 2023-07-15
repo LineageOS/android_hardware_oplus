@@ -16,6 +16,24 @@
       "message": "4 spaces between path and type",
       "revId": "d0f1530a13c2e34fd0ffe1c0e06ca477655c003a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "925a6063_35cfa005",
+        "filename": "sepolicy/qti/vendor/legacy-um/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-07-15T15:02:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21a97678_1e4c18be",
+      "revId": "d0f1530a13c2e34fd0ffe1c0e06ca477655c003a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
