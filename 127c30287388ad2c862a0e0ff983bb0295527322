@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6f33342_8cf55319",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-07-15T15:01:22Z",
+      "side": 1,
+      "message": "I think we omit \"xxx:\" when adding new things.",
+      "revId": "127c30287388ad2c862a0e0ff983bb0295527322",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
