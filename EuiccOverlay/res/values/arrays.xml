@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2023 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <integer-array name="non_removable_euicc_slots">
+        <item>1</item>
+    </integer-array>
+</resources>
