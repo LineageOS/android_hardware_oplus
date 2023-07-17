@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2023 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Alert Slider -->
+    <color name="alert_slider_notification_background">@android:color/system_neutral1_800</color>
+    <color name="alert_slider_icon_color">@android:color/system_neutral1_50</color>
+    <color name="alert_slider_text_color">@android:color/white</color>
+</resources>
