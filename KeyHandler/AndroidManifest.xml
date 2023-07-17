@@ -19,6 +19,8 @@
           package="org.lineageos.settings.device">
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <protected-broadcast android:name="org.lineageos.settings.UPDATE_SETTINGS" />
+
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/device_settings_app_name"
@@ -53,5 +55,13 @@
             android:name=".KeyHandler"
             android:permission="KeyHandlerService"
             android:exported="false" />
+
+        <service
+            android:name=".AlertSliderPlugin"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.android.systemui.action.PLUGIN_OVERLAY" />
+            </intent-filter>
+        </service>
     </application>
 </manifest>
