@@ -7,6 +7,15 @@
     <PreferenceCategory
         android:title="@string/alert_slider_category_title">
 
+        <ListPreference
+            android:key="config_notifications"
+            android:dialogTitle="@string/alert_slider_notification_dialog_title"
+            android:title="@string/alert_slider_notification_title"
+            android:summary="%s"
+            android:entries="@array/alert_slider_notification_entries"
+            android:entryValues="@array/alert_slider_notification_entry_values"
+            android:defaultValue="2" />
+
         <SwitchPreference
             android:key="config_mute_media"
             android:title="@string/alert_slider_mute_media_title"
