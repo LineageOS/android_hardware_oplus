@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019 CypherOS
+    Copyright (C) 2014-2020 Paranoid Android
+    Copyright (C) 2023 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/alert_slider_dialog"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:clipToPadding="false"
+    android:paddingBottom="@dimen/alert_slider_container_padding"
+    android:paddingLeft="@dimen/alert_slider_container_padding"
+    android:paddingRight="@dimen/alert_slider_container_padding"
+    android:paddingTop="@dimen/alert_slider_container_padding"
+    android:theme="@style/alert_slider_theme">
+
+    <LinearLayout
+        android:id="@+id/alert_slider_view"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/alert_slider_dialog_height"
+        android:layout_gravity="center|right"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/alert_slider_padding"
+        android:translationZ="@dimen/alert_slider_elevation">
+
+        <FrameLayout
+            android:layout_width="@dimen/alert_slider_dialog_width"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:id="@+id/alert_slider_icon"
+                android:layout_width="@dimen/alert_slider_icon_size"
+                android:layout_height="@dimen/alert_slider_icon_size"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/alert_slider_margin" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/alert_slider_text"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:fontFamily="@*android:string/config_headlineFontFamilyMedium"
+            android:gravity="center_vertical"
+            android:textColor="@color/alert_slider_text_color"
+            android:textSize="@dimen/alert_slider_text_size" />
+    </LinearLayout>
+</LinearLayout>
