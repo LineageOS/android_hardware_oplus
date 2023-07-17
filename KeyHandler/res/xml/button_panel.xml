@@ -40,5 +40,11 @@
             android:entryValues="@array/alert_slider_action_entry_values"
             android:defaultValue="2" />
 
+        <SwitchPreferenceCompat
+            android:key="config_show_dialog"
+            android:title="@string/alert_slider_notification_dialog_title"
+            android:summary="@string/alert_slider_notification_dialog_summary"
+            android:defaultValue="true" />
+
     </PreferenceCategory>
 </PreferenceScreen>
