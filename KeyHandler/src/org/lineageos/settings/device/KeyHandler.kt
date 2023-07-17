@@ -23,7 +23,7 @@ import com.android.internal.os.DeviceKeyHandler
 import java.io.File
 import java.util.concurrent.Executors
 
-class KeyHandler(context: Context) : DeviceKeyHandler {
+class KeyHandler(private val context: Context) : DeviceKeyHandler {
     private val audioManager = context.getSystemService(AudioManager::class.java)!!
     private val notificationManager = context.getSystemService(NotificationManager::class.java)!!
     private val vibrator = context.getSystemService(Vibrator::class.java)!!
@@ -32,6 +32,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
 
     private val resolver = context.contentResolver
 
+    @Volatile private var displayNotification = 2
     @Volatile private var topMode = AudioManager.RINGER_MODE_SILENT
     @Volatile private var middleMode = AudioManager.RINGER_MODE_VIBRATE
     @Volatile private var bottomMode = AudioManager.RINGER_MODE_NORMAL
@@ -66,6 +67,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
         }
 
         listOf(
+            ALERT_SLIDER_NOTIFICATION,
             ALERT_SLIDER_TOP_KEY,
             ALERT_SLIDER_MIDDLE_KEY,
             ALERT_SLIDER_BOTTOM_KEY,
@@ -108,6 +110,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
     }
 
     private fun loadSettings() {
+        displayNotification = getInt(ALERT_SLIDER_NOTIFICATION, 2)
         topMode = getInt(ALERT_SLIDER_TOP_KEY, AudioManager.RINGER_MODE_SILENT)
         middleMode = getInt(ALERT_SLIDER_MIDDLE_KEY, AudioManager.RINGER_MODE_VIBRATE)
         bottomMode = getInt(ALERT_SLIDER_BOTTOM_KEY, AudioManager.RINGER_MODE_NORMAL)
@@ -172,6 +175,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
             if (vibrate) {
                 vibrateIfNeeded(mode)
             }
+            sendNotification(position, mode, displayNotification)
         }
     }
 
@@ -185,15 +189,24 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
         }
     }
 
+    private fun sendNotification(position: Int, mode: Int, display: Int) {
+        context.sendBroadcast(Intent(CHANGED_ACTION).apply {
+            putExtra("position", position)
+            putExtra("mode", mode)
+            putExtra("display", display)
+        })
+    }
+
     companion object {
         private const val TAG = "KeyHandler"
 
         // Slider key positions
-        private const val POSITION_TOP = 1
-        private const val POSITION_MIDDLE = 2
-        private const val POSITION_BOTTOM = 3
+        const val POSITION_TOP = 1
+        const val POSITION_MIDDLE = 2
+        const val POSITION_BOTTOM = 3
 
         // Preference keys
+        private const val ALERT_SLIDER_NOTIFICATION = "config_notifications"
         private const val ALERT_SLIDER_TOP_KEY = "config_top_position"
         private const val ALERT_SLIDER_MIDDLE_KEY = "config_middle_position"
         private const val ALERT_SLIDER_BOTTOM_KEY = "config_bottom_position"
@@ -201,9 +214,9 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
 
         // ZEN constants
         private const val ZEN_OFFSET = 2
-        private const val ZEN_PRIORITY_ONLY = 3
-        private const val ZEN_TOTAL_SILENCE = 4
-        private const val ZEN_ALARMS_ONLY = 5
+        const val ZEN_PRIORITY_ONLY = 3
+        const val ZEN_TOTAL_SILENCE = 4
+        const val ZEN_ALARMS_ONLY = 5
 
         // Vibration attributes
         private val HARDWARE_FEEDBACK_VIBRATION_ATTRIBUTES =
@@ -212,5 +225,8 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
         // Vibration effects
         private val MODE_NORMAL_EFFECT = VibrationEffect.get(VibrationEffect.EFFECT_HEAVY_CLICK)
         private val MODE_VIBRATION_EFFECT = VibrationEffect.get(VibrationEffect.EFFECT_DOUBLE_CLICK)
+
+        // Intent actions
+        const val CHANGED_ACTION = "org.lineageos.settings.UPDATE_SETTINGS"
     }
 }
