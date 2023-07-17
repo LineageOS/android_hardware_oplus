@@ -19,4 +19,10 @@
     <string name="alert_slider_mode_dnd_alarms_only">Alarms only</string>
     <string name="alert_slider_mute_media_title">Mute media</string>
     <string name="alert_slider_mute_media_summary">Mute media when switching to silent</string>
+    <string name="alert_slider_notification_title">Notification type</string>
+    <string name="alert_slider_notification_dialog_title">Notification</string>
+    <string name="alert_slider_notification_off">Off</string>
+    <string name="alert_slider_notification_left">Display on left</string>
+    <string name="alert_slider_notification_right">Display on right</string>
+    <string name="alert_slider_title">The slider</string>
 </resources>
