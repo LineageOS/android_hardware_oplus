@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019 CypherOS
+    Copyright (C) 2014-2020 Paranoid Android
+    Copyright (C) 2023 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <corners
+                android:bottomLeftRadius="@dimen/alert_slider_corner_radius"
+                android:bottomRightRadius="@dimen/alert_slider_corner_radius"
+                android:topLeftRadius="@dimen/alert_slider_corner_radius"
+                android:topRightRadius="@dimen/alert_slider_directional_radius" />
+            <solid android:color="@color/alert_slider_notification_background" />
+        </shape>
+    </item>
+</layer-list>
