@@ -19,4 +19,6 @@
     <string name="alert_slider_mode_dnd_alarms_only">Alarms only</string>
     <string name="alert_slider_mute_media_title">Mute media</string>
     <string name="alert_slider_mute_media_summary">Mute media when switching to silent</string>
+    <string name="alert_slider_notification_dialog_title">Show slider dialog</string>
+    <string name="alert_slider_notification_dialog_summary">Display a dialog when the alert slider position changes</string>
 </resources>

@@ -21,7 +21,7 @@ import com.android.internal.os.DeviceKeyHandler
 import java.io.File
 import java.util.concurrent.Executors
 
-class KeyHandler(context: Context) : DeviceKeyHandler {
+class KeyHandler(private val context: Context) : DeviceKeyHandler {
     private val audioManager = context.getSystemService(AudioManager::class.java)!!
     private val notificationManager = context.getSystemService(NotificationManager::class.java)!!
     private val vibrator = context.getSystemService(Vibrator::class.java)!!
@@ -51,7 +51,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
                         }
                     }
 
-                    Intent.ACTION_BOOT_COMPLETED -> populateKeyState(false)
+                    Intent.ACTION_BOOT_COMPLETED -> populateKeyState(true)
                 }
             }
         }
@@ -77,16 +77,16 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
             return event
         }
 
-        populateKeyState(true)
+        populateKeyState(false)
 
         return null
     }
 
-    private fun populateKeyState(vibrate: Boolean) {
+    private fun populateKeyState(firstRun: Boolean) {
         when (File("/proc/tristatekey/tri_state").readText().trim()) {
-            "1" -> handleMode(POSITION_TOP, vibrate)
-            "2" -> handleMode(POSITION_MIDDLE, vibrate)
-            "3" -> handleMode(POSITION_BOTTOM, vibrate)
+            "1" -> handleMode(POSITION_TOP, firstRun)
+            "2" -> handleMode(POSITION_MIDDLE, firstRun)
+            "3" -> handleMode(POSITION_BOTTOM, firstRun)
         }
     }
 
@@ -99,8 +99,9 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
         }
     }
 
-    private fun handleMode(position: Int, vibrate: Boolean) {
+    private fun handleMode(position: Int, firstRun: Boolean) {
         val muteMedia = sharedPreferences.getBoolean(MUTE_MEDIA_WITH_SILENT, false)
+        val showDialog = sharedPreferences.getBoolean(SHOW_DIALOG, true)
 
         val mode =
             when (position) {
@@ -141,7 +142,8 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
                 }
             }
 
-            if (vibrate) {
+            if (!firstRun) {
+                if (showDialog) sendNotification(position, mode)
                 vibrateIfNeeded(mode)
             }
         }
@@ -157,25 +159,38 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
         }
     }
 
+    private fun sendNotification(position: Int, mode: Int) {
+        context.sendBroadcast(
+            Intent(CHANGED_ACTION).apply {
+                putExtra("position", position)
+                putExtra("mode", mode)
+            }
+        )
+    }
+
     companion object {
         private const val TAG = "KeyHandler"
 
+        // Intent actions
+        const val CHANGED_ACTION = "org.lineageos.settings.UPDATE_SETTINGS"
+
         // Slider key positions
-        private const val POSITION_TOP = 1
-        private const val POSITION_MIDDLE = 2
-        private const val POSITION_BOTTOM = 3
+        const val POSITION_TOP = 1
+        const val POSITION_MIDDLE = 2
+        const val POSITION_BOTTOM = 3
 
         // Preference keys
         private const val ALERT_SLIDER_TOP_KEY = "config_top_position"
         private const val ALERT_SLIDER_MIDDLE_KEY = "config_middle_position"
         private const val ALERT_SLIDER_BOTTOM_KEY = "config_bottom_position"
         private const val MUTE_MEDIA_WITH_SILENT = "config_mute_media"
+        private const val SHOW_DIALOG = "config_show_dialog"
 
         // ZEN constants
         private const val ZEN_OFFSET = 2
-        private const val ZEN_PRIORITY_ONLY = 3
-        private const val ZEN_TOTAL_SILENCE = 4
-        private const val ZEN_ALARMS_ONLY = 5
+        const val ZEN_PRIORITY_ONLY = 3
+        const val ZEN_TOTAL_SILENCE = 4
+        const val ZEN_ALARMS_ONLY = 5
 
         // Vibration attributes
         private val HARDWARE_FEEDBACK_VIBRATION_ATTRIBUTES =
