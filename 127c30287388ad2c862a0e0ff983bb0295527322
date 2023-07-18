@@ -16,6 +16,24 @@
       "message": "I think we omit \"xxx:\" when adding new things.",
       "revId": "127c30287388ad2c862a0e0ff983bb0295527322",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79e39df2_f0bc412d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-07-18T09:25:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6f33342_8cf55319",
+      "revId": "127c30287388ad2c862a0e0ff983bb0295527322",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
