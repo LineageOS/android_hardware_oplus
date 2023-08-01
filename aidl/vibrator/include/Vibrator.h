@@ -65,38 +65,11 @@ public:
     int write_value(const char *file, int value);
 };
 
-#ifdef TARGET_SUPPORTS_OFFLOAD
-class OffloadGlinkConnection {
-public:
-    int GlinkOpen(std::string& dev);
-    int GlinkClose();
-    int GlinkPoll();
-    int GlinkRead(uint8_t *data, size_t size);
-    int GlinkWrite(uint8_t *buf, size_t buflen);
-private:
-    std::string dev_name;
-    int fd;
-};
-
-class PatternOffload {
-public:
-    PatternOffload();
-    void SSREventListener(void);
-    void SendPatterns();
-private:
-    OffloadGlinkConnection GlinkCh;
-    int initChannel();
-    int sendData(uint8_t *data, int len);
-};
-#endif
-
 class Vibrator : public BnVibrator {
 public:
     class InputFFDevice ff;
     class LedVibratorDevice ledVib;
-#ifdef TARGET_SUPPORTS_OFFLOAD
-    class PatternOffload Offload;
-#endif
+
     ndk::ScopedAStatus getCapabilities(int32_t* _aidl_return) override;
     ndk::ScopedAStatus off() override;
     ndk::ScopedAStatus on(int32_t timeoutMs,
