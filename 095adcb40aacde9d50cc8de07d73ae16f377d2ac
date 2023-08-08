@@ -1,0 +1,288 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65ebd86c_32fb4f9d",
+        "filename": "KeyHandler/res/drawable/alert_slider_bottom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "SPDX everywhere pls and reformat all xmls",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7bd47dd_c07f9ade",
+        "filename": "KeyHandler/res/values/colors.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "what does taht mean?",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daa706f2_6f6537ae",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderDialog.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "val",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1e05d3b_865d4855",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderDialog.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "over 100ch",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7aee8018_8e66ba40",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderDialog.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "could be merged into single when ()",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 9
+      },
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5120b8e6_34998db1",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderDialog.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "type not necessary, also inline pls",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7a227f9_809eefb1",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderDialog.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "type not necessary, also inline pls",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "037e7d9f_4ba83fa0",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderPlugin.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "lateinit",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e212fd23_18571a92",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderPlugin.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "lateinit",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71e54200_0b41c3c2",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderPlugin.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "remove space at the end",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "540b2079_888823b1",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderPlugin.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "`\u003d AlertSliderDialog(context)` wouldn\u0027t work here?",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50c14ecd_d5ea33fe",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderPlugin.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "we don\u0027t need `return` with when()",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 9
+      },
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cc7eaef_6e3b6695",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderPlugin.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "add L at the end to make it long",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e7f0455_29c0251e",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "just use `private val` in constructor",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa5c4178_a2d8fa67",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "not need for newline above",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "837c0625_014fe193",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-08T11:35:31Z",
+      "side": 1,
+      "message": "// Intent actions",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
