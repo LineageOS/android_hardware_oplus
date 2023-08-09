@@ -135,7 +135,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
         notificationManager.setZenMode(zenMode, null, TAG)
 
         // Wait until zen mode change is committed
-        while (notificationManager.getZenMode() != zenMode) {
+        while (notificationManager.zenMode != zenMode) {
             Thread.sleep(10)
         }
     }
