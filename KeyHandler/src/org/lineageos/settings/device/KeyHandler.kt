@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2022 The LineageOS Project
+ * Copyright (C) 2021-2023 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -135,7 +135,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
         notificationManager.setZenMode(zenMode, null, TAG)
 
         // Wait until zen mode change is committed
-        while (notificationManager.getZenMode() != zenMode) {
+        while (notificationManager.zenMode != zenMode) {
             Thread.sleep(10)
         }
     }
