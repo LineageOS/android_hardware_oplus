@@ -53,6 +53,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c4c48d_295276c3",
+        "filename": "KeyHandler/res/values/colors.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-09T20:46:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7bd47dd_c07f9ade",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "daa706f2_6f6537ae",
@@ -101,6 +119,24 @@
       "writtenOn": "2023-08-08T11:35:31Z",
       "side": 1,
       "message": "over 100ch",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f81daf05_b6102993",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderDialog.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-09T20:46:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1e05d3b_865d4855",
       "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
@@ -340,6 +376,24 @@
       "writtenOn": "2023-08-08T11:35:31Z",
       "side": 1,
       "message": "`\u003d AlertSliderDialog(context)` wouldn\u0027t work here?",
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48f59e8f_e3190df1",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderPlugin.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-08-09T20:46:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "540b2079_888823b1",
       "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
