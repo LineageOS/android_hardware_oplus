@@ -128,6 +128,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "974f506c_a5726b21",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderDialog.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 18745
+      },
+      "writtenOn": "2023-08-09T20:03:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7aee8018_8e66ba40",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 9
+      },
+      "revId": "095adcb40aacde9d50cc8de07d73ae16f377d2ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5120b8e6_34998db1",
