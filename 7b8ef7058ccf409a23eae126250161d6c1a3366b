@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77417d15_a29afedb",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderPlugin.kt",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-08-10T09:36:37Z",
+      "side": 1,
+      "message": "Why is this the only file without Lineage copyright?",
+      "revId": "7b8ef7058ccf409a23eae126250161d6c1a3366b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
