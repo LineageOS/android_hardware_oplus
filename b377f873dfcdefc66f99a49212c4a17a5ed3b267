@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6198a377_b7cb8eaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-08-10T09:58:29Z",
+      "side": 1,
+      "message": "Looks quite nice from what I can see in discord. Can\u0027t test at the moment, since I am on vacations.",
+      "revId": "b377f873dfcdefc66f99a49212c4a17a5ed3b267",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
