@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2023 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Position for the physical switch, used to align middle position
+         notication dialog -->
+    <dimen name="config_alert_slider_physical_position">200dp</dimen>
+</resources>
