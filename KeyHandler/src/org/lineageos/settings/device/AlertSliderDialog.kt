@@ -60,13 +60,21 @@ class AlertSliderDialog(context: Context) : Dialog(context, R.style.alert_slider
                 Gravity.TOP or Gravity.RIGHT
             }
 
-            x = context.resources.displayMetrics.widthPixels / 100
+            x = context.resources.getDimension(
+                R.dimen.alert_slider_notification_padding
+            ).toInt()
             y = context.resources.getDimension(
-                com.android.internal.R.dimen.status_bar_height
+                R.dimen.config_alert_slider_physical_position
             ).toInt()
 
-            val step = context.resources.displayMetrics.heightPixels / 10
-            y += step * position
+            val shift = context.resources.getDimension(
+                R.dimen.alert_slider_notification_shift
+            ).toInt()
+            when (position) {
+                KeyHandler.POSITION_TOP -> y -= shift
+                KeyHandler.POSITION_BOTTOM -> y += shift
+                else -> {}
+            }
         }
 
         frameView.setBackgroundResource(when (position) {
