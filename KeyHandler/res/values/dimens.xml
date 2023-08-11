@@ -16,4 +16,6 @@
     <dimen name="alert_slider_text_size">11sp</dimen>
     <dimen name="alert_slider_directional_radius">4dp</dimen>
     <dimen name="alert_slider_corner_radius">28dp</dimen>
+    <dimen name="alert_slider_window_position_x">8dp</dimen>
+    <dimen name="alert_slider_window_position_y">200dp</dimen>
 </resources>
