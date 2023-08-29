@@ -13,6 +13,8 @@ allow vendor_hal_oplusSensor_default vendor_reserve_partition:blk_file r_file_pe
 
 allow vendor_hal_oplusSensor_default mnt_vendor_file:dir search;
 
+allow vendor_hal_oplusSensor_default block_device:dir search;
+
 r_dir_file(vendor_hal_oplusSensor_default, vendor_persist_engineer_file)
 r_dir_file(vendor_hal_oplusSensor_default, vendor_persist_sensors_file)
 r_dir_file(vendor_hal_oplusSensor_default, vendor_proc_oplus_version)
