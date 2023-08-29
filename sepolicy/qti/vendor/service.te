@@ -40,6 +40,9 @@ type hal_oplus_pogo_keyboard_aidl_service, hal_service_type, service_manager_typ
 # Project
 type hal_oplus_project_aidl_service, hal_service_type, service_manager_type;
 
+# Sensor
+type hal_oplusSensor_aidl_service, hal_service_type, service_manager_type;
+
 # Subsys
 type hal_subsys_service, hal_service_type, service_manager_type;
 
