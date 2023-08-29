@@ -9,6 +9,7 @@ binder_call(vendor_hal_oplusSensor_server, vendor_hal_oplusSensor_client)
 
 hal_attribute_hwservice(vendor_hal_oplusSensor, vendor_hal_oplusSensor_hwservice)
 
+allow vendor_hal_oplusSensor_default block_device:dir search;
 allow vendor_hal_oplusSensor_default vendor_reserve_partition:blk_file r_file_perms;
 
 allow vendor_hal_oplusSensor_default mnt_vendor_file:dir search;
