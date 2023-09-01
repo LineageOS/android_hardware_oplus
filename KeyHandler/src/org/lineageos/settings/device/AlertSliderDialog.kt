@@ -13,6 +13,7 @@ import android.graphics.Color
 import android.graphics.PixelFormat
 import android.graphics.drawable.ColorDrawable
 import android.media.AudioManager
+import android.util.DisplayUtils
 import android.view.Gravity
 import android.view.ViewGroup
 import android.view.Window
@@ -60,12 +61,14 @@ class AlertSliderDialog(context: Context) : Dialog(context, R.style.alert_slider
                 Gravity.TOP or Gravity.RIGHT
             }
 
+            val scaleFactor = DisplayUtils.getScaleFactor(context)
+
             x = context.resources.getDimension(
                 R.dimen.alert_slider_notification_padding
             ).toInt()
-            y = context.resources.getDimension(
+            y = (context.resources.getDimension(
                 R.dimen.config_alert_slider_physical_position
-            ).toInt()
+            ) * scaleFactor).toInt()
 
             val shift = context.resources.getDimension(
                 R.dimen.alert_slider_notification_shift
