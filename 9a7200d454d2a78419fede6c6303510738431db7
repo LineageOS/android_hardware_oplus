@@ -16,6 +16,24 @@
       "message": "i don\u0027t want configuration.",
       "revId": "9a7200d454d2a78419fede6c6303510738431db7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "885f1a5e_05772776",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-09-01T13:13:13Z",
+      "side": 1,
+      "message": "It looks bad without configuration. What\u0027s the problem with it?",
+      "parentUuid": "599bc0dd_25993772",
+      "revId": "9a7200d454d2a78419fede6c6303510738431db7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
