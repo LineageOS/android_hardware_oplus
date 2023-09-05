@@ -49,6 +49,7 @@ genfscon proc /oplusVersion    u:object_r:vendor_proc_oplus_version:s0
 genfscon proc /oppoVersion     u:object_r:vendor_proc_oplus_version:s0
 
 # Vibrator
+genfscon sysfs /devices/platform/soc/5300.qcom,vibrator/leds/vibrator         u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/soc/880000.i2c/i2c-5/5-005a/leds/vibrator    u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/soc/88c000.i2c/i2c-6/6-005a/leds/vibrator    u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/soc/89c000.i2c/i2c-2/2-005a/leds/vibrator    u:object_r:sysfs_vibrator:s0
