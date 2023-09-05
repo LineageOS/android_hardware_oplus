@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa96c38f_26a4d9e7",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/AlertSliderDialog.kt",
+        "patchSetId": 34
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-09-05T17:05:30Z",
+      "side": 1,
+      "message": "no logging going on here",
+      "revId": "6015decd22f4c6d555de13811f4ea9fd955f1535",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
