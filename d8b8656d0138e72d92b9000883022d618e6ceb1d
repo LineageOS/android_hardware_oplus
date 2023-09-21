@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cd93445_aaff4dd8",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 19
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2023-09-21T17:49:51Z",
+      "side": 1,
+      "message": "This was dropped in the recent kernel imports",
+      "revId": "d8b8656d0138e72d92b9000883022d618e6ceb1d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
