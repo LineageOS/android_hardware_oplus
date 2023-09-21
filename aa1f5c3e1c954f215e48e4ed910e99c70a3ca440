@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a4a7bf3_bcfde2a1",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2023-09-21T17:56:38Z",
+      "side": 1,
+      "message": "Could you please recheck with the recent kernel imports?",
+      "parentUuid": "c703c8af_209b31f6",
+      "revId": "aa1f5c3e1c954f215e48e4ed910e99c70a3ca440",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d2d059e2_6c3ce6cb",
         "filename": "sepolicy/qti/vendor/hal_camera_default.te",
         "patchSetId": 1
