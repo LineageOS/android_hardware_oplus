@@ -158,6 +158,24 @@
       "parentUuid": "7c5e1bcd_729a826d",
       "revId": "aa1f5c3e1c954f215e48e4ed910e99c70a3ca440",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abf5ef16_c9a61dc6",
+        "filename": "sepolicy/qti/vendor/rild.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-09-22T10:46:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b9fc0dc_1c283dcb",
+      "revId": "aa1f5c3e1c954f215e48e4ed910e99c70a3ca440",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
