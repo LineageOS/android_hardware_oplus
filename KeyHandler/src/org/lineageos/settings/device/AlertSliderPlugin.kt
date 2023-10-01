@@ -11,15 +11,18 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.hardware.display.AmbientDisplayConfiguration
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.os.UserHandle
 import android.view.View
 import com.android.systemui.plugins.OverlayPlugin
 import com.android.systemui.plugins.annotations.Requires
 
 @Requires(target = OverlayPlugin::class, version = OverlayPlugin.VERSION)
 class AlertSliderPlugin : OverlayPlugin {
+    private lateinit var ambientConfig: AmbientDisplayConfiguration
     private lateinit var pluginContext: Context
     private lateinit var handler: NotificationHandler
     private val dialogLock = Any()
@@ -56,6 +59,7 @@ class AlertSliderPlugin : OverlayPlugin {
     }
 
     override fun onCreate(context: Context, plugin: Context) {
+        ambientConfig = AmbientDisplayConfiguration(context)
         pluginContext = plugin
         handler = NotificationHandler(plugin)
 
@@ -89,6 +93,7 @@ class AlertSliderPlugin : OverlayPlugin {
                         // Show/hide dialog
                         if (value) {
                             handleResetTimeout()
+                            launchDozePulse()
                             dialog.show()
                         } else {
                             dialog.dismiss()
@@ -128,6 +133,7 @@ class AlertSliderPlugin : OverlayPlugin {
         private fun handleUpdate(info: NotificationInfo) {
             synchronized (dialogLock) {
                 handleResetTimeout()
+                launchDozePulse()
                 dialog.setState(info.position, info.mode)
             }
         }
@@ -145,10 +151,19 @@ class AlertSliderPlugin : OverlayPlugin {
                 currUIMode = uiMode
             }
         }
+
+        private fun launchDozePulse() {
+            if (!ambientConfig.pulseOnNotificationEnabled(UserHandle.USER_CURRENT))
+                return
+            context.sendBroadcastAsUser(Intent(DOZE_INTENT), UserHandle.CURRENT)
+        }
     }
 
     companion object {
         private const val TAG = "AlertSliderPlugin"
+
+        // Intent
+        private const val DOZE_INTENT = "com.android.systemui.doze.pulse"
 
         // Handler
         private const val MSG_DIALOG_SHOW = 1
