@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48d0148f_4d22ada4",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-10-09T16:10:08Z",
+      "side": 1,
+      "message": "Stick to 1",
+      "range": {
+        "startLine": 112,
+        "startChar": 48,
+        "endLine": 112,
+        "endChar": 54
+      },
+      "revId": "b5a9c0d8fa9047cbda673cd7049c61f0bfa8cfa2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
