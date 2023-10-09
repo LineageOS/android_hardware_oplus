@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb87c1a0_5bea1e52",
+        "filename": "sepolicy/qti/vendor/um/vendor_agmservice_qti.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-10-09T22:22:30Z",
+      "side": 1,
+      "message": "This doesn\u0027t even compile.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 61
+      },
+      "revId": "f71af7f5b7afce101bebab5de4dc85be513af695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2303f498_84b0cc1b",
+        "filename": "sepolicy/qti/vendor/um/vendor_agmservice_qti.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-10-09T22:22:30Z",
+      "side": 1,
+      "message": "https://github.com/LineageOS/android_hardware_oplus/blob/lineage-20/sepolicy/qti/vendor/hal_oplus_performance_aidl.te#L13C43-L14C1",
+      "revId": "f71af7f5b7afce101bebab5de4dc85be513af695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
