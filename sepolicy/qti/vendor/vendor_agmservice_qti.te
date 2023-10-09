@@ -1,0 +1,2 @@
+allow vendor_agmservice_qti hal_oplus_performance_aidl:binder call;
+allow vendor_agmservice_qti hal_oplus_performance_aidl_service:service_manager find;

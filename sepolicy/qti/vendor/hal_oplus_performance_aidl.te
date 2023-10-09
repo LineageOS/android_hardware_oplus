@@ -11,5 +11,6 @@ binder_call(vendor_hal_oplus_performance_client, vendor_hal_oplus_performance_se
 hal_attribute_service(vendor_hal_oplus_performance, hal_oplus_performance_aidl_service)
 
 allow vendor_hal_oplus_performance_client hal_oplus_performance_aidl_service:service_manager find;
+allow vendor_hal_oplus_performance_aidl vendor_agmservice_qti:service_manager find;
 
 r_dir_file(hal_oplus_performance_aidl, proc_version)

@@ -21,6 +21,9 @@
 /(odm|vendor/odm)/bin/hw/vendor\.pixelworks\.hardware\.display\.iris-service           u:object_r:hal_graphics_composer_default_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.pixelworks\.hardware\.feature\.irisfeature-service    u:object_r:hal_graphics_composer_default_exec:s0
 
+# DRM (WideVine)
+/odm/bin/hw/android\.hardware\.drm@1\.4-service.widevine                           u:object_r:vendor_hal_drm_widevine_exec:s0
+
 # Engineering
 /mnt/vendor/persist/engineermode(/.*)?    u:object_r:vendor_persist_engineer_file:s0
 
