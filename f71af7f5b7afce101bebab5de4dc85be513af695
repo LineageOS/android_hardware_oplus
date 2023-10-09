@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32403db3_87fa5242",
+        "filename": "sepolicy/qti/vendor/um/bootanim.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2023-10-09T22:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99bc92d4_445c2969",
+      "revId": "f71af7f5b7afce101bebab5de4dc85be513af695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb87c1a0_5bea1e52",
@@ -79,6 +97,30 @@
       "side": 1,
       "message": "It misses a comma between the two domains.",
       "parentUuid": "01924eb5_c6d51f2d",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 61
+      },
+      "revId": "f71af7f5b7afce101bebab5de4dc85be513af695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6fedd1c_d56453a6",
+        "filename": "sepolicy/qti/vendor/um/vendor_agmservice_qti.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2023-10-09T22:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0580a5eb_3f589497",
       "range": {
         "startLine": 3,
         "startChar": 0,
