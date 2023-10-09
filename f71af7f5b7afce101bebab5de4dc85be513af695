@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "01924eb5_c6d51f2d",
+        "filename": "sepolicy/qti/vendor/um/vendor_agmservice_qti.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2023-10-09T22:47:09Z",
+      "side": 1,
+      "message": "\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n[100% 157/157] Install: out/target/product/ovaltine/fake_packages/selinux_policy-timestamp\n\n#### build completed successfully (59 seconds) ####\n\n\n  /src/lost/hardware/oplus on  @8c801217 *1 !2 ─────────────────────────────────── took  59s with pppig@gentoolinux\n❯ mka selinux_policy\n\numm, compiles for me",
+      "parentUuid": "eb87c1a0_5bea1e52",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 61
+      },
+      "revId": "f71af7f5b7afce101bebab5de4dc85be513af695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2303f498_84b0cc1b",
         "filename": "sepolicy/qti/vendor/um/vendor_agmservice_qti.te",
         "patchSetId": 6
@@ -37,6 +61,24 @@
       "writtenOn": "2023-10-09T22:22:30Z",
       "side": 1,
       "message": "https://github.com/LineageOS/android_hardware_oplus/blob/lineage-20/sepolicy/qti/vendor/hal_oplus_performance_aidl.te#L13C43-L14C1",
+      "revId": "f71af7f5b7afce101bebab5de4dc85be513af695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16375202_ff61c8a0",
+        "filename": "sepolicy/qti/vendor/um/vendor_agmservice_qti.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2023-10-09T22:47:09Z",
+      "side": 1,
+      "message": "Ok, so the macro should include this, let me try again",
+      "parentUuid": "2303f498_84b0cc1b",
       "revId": "f71af7f5b7afce101bebab5de4dc85be513af695",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
