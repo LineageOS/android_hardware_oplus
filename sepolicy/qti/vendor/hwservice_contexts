@@ -1,3 +1,6 @@
+# Audio
+vendor.oplus.hardware.bluetooth_audio_extend::IBluetoothAudioProvidersFactory    u:object_r:hal_audio_hwservice:s0
+
 # Camera
 vendor.oplus.hardware.cameraextension::ICameraExtensionService         u:object_r:vendor_hal_camera_extension_hwservice:s0
 vendor.oplus.hardware.cameraMDM::IOPlusCameraMDM                       u:object_r:vendor_hal_cameraMDM_hwservice:s0
