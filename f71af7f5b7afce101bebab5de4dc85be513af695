@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "99bc92d4_445c2969",
+        "filename": "sepolicy/qti/vendor/um/bootanim.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-10-09T22:47:49Z",
+      "side": 1,
+      "message": "skip",
+      "revId": "f71af7f5b7afce101bebab5de4dc85be513af695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb87c1a0_5bea1e52",
         "filename": "sepolicy/qti/vendor/um/vendor_agmservice_qti.te",
         "patchSetId": 6
