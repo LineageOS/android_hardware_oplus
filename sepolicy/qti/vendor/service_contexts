@@ -6,6 +6,7 @@ vendor.oplus.hardware.sendextcamcmd.ISendExtCamCmdService/default        u:objec
 # Fingerprint
 vendor.oplus.hardware.commondcs.ICommonDcsAidlHalService/default    u:object_r:hal_fingerprint_service:s0
 vendor.oplus.hardware.olc2.IOplusLogCore/default                    u:object_r:hal_fingerprint_service:s0
+vendor.oplus.hardware.touch.IOplusTouch/default                     u:object_r:hal_fingerprint_service:s0
 
 # OSENSE
 vendor.oplus.hardware.osense.client.IOsenseAidlHalReporter/default    u:object_r:fwk_osense_aidl_service:s0
