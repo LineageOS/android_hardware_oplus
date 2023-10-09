@@ -1,0 +1,3 @@
+hal_client_domain(vendor_agmservice_qti, vendor_hal_oplus_performance)
+
+binder_call(vendor_agmservice_qti, hal_oplus_performance_aidl)

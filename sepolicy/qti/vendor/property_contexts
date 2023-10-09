@@ -2,6 +2,7 @@
 ro.vendor.oplus.camera.        u:object_r:vendor_camera_prop:s0
 vendor.camera.vm.parameters    u:object_r:vendor_camera_prop:s0
 vendor.oplus.camera.           u:object_r:vendor_camera_prop:s0
+vendor.oppo.camera.            u:object_r:vendor_camera_prop:s0
 
 # Display
 vendor.dps.dump.composerpid    u:object_r:vendor_display_prop:s0
@@ -20,7 +21,8 @@ vendor.modem_dump_action       u:object_r:vendor_modem_prop:s0
 vendor.oplus.nfc.fw.version    u:object_r:vendor_nfc_nq_prop:s0
 
 # Radio
-ro.vendor.oplus.radio.sar_regionmark    u:object_r:vendor_radio_prop:s0
+persist.vendor.oplus.radio.    u:object_r:vendor_radio_prop:s0
+ro.vendor.oplus.radio.         u:object_r:vendor_radio_prop:s0
 
 # RIL
 vendor.gsm.phoneserial         u:object_r:vendor_nw_exported_system_prop:s0
