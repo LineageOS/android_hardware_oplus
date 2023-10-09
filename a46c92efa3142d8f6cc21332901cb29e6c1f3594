@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05789cf7_f132729d",
+        "filename": "sepolicy/qti/private/property_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-10-09T19:04:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da20d122_2c939b92",
+      "revId": "a46c92efa3142d8f6cc21332901cb29e6c1f3594",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7ea562e_cc7426ac",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-10-09T18:51:23Z",
       "side": 1,
       "message": "1, not 1+.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 100
+      },
+      "revId": "a46c92efa3142d8f6cc21332901cb29e6c1f3594",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "731279f1_dc2118e8",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-10-09T19:04:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7ea562e_cc7426ac",
       "range": {
         "startLine": 112,
         "startChar": 0,
