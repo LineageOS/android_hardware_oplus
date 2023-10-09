@@ -1,0 +1,1 @@
+dontaudit bootanim vendor_hal_qspmhal_hwservice:hwservice_manager find;
