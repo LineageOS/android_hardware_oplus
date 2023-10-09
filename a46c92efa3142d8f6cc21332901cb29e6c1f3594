@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da20d122_2c939b92",
+        "filename": "sepolicy/qti/private/property_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-10-09T18:51:06Z",
+      "side": 1,
+      "message": "separate change pls",
+      "revId": "a46c92efa3142d8f6cc21332901cb29e6c1f3594",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
