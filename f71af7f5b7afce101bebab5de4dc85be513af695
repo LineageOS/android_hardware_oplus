@@ -164,6 +164,24 @@
       "parentUuid": "2303f498_84b0cc1b",
       "revId": "f71af7f5b7afce101bebab5de4dc85be513af695",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aa17a39_5e679956",
+        "filename": "sepolicy/qti/vendor/um/vendor_agmservice_qti.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2023-10-10T02:52:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16375202_ff61c8a0",
+      "revId": "f71af7f5b7afce101bebab5de4dc85be513af695",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
