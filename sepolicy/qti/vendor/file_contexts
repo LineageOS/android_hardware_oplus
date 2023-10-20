@@ -52,7 +52,7 @@
 /(odm|vendor/odm)/bin/hw/vendor\.nxp\.hardware\.nfc@1\.2-service            u:object_r:hal_nfc_default_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.qti\.esepowermanager@1\.1-service          u:object_r:vendor_hal_esepowermanager_qti_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service           u:object_r:hal_secure_element_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.nfc_snxxx@1\.2-service    u:object_r:hal_nfc_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.nfc-service\.nxp          u:object_r:hal_nfc_default_exec:s0
 /dev/pn553                                                                  u:object_r:nfc_device:s0
 
 # Partitions
