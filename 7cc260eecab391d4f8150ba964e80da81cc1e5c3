@@ -16,6 +16,24 @@
       "message": "We have to do something about this one. In lineage-21 we are going to have split sm8450 and sm8550 sepolicy_vndr repos and vendor_agmservice_qti is not a thing for kalama.",
       "revId": "7cc260eecab391d4f8150ba964e80da81cc1e5c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab5abbc6_36147f79",
+        "filename": "sepolicy/qti/vendor/um/vendor_agmservice_qti.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-10-26T10:37:20Z",
+      "side": 0,
+      "message": "We will handle it lineage-21 branch.",
+      "parentUuid": "28be1190_60276fd3",
+      "revId": "7cc260eecab391d4f8150ba964e80da81cc1e5c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
