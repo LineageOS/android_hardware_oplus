@@ -1,0 +1,12 @@
+;; new_objects - a collection of types that have been introduced that have no
+;;   analogue in older policy.  Thus, we do not need to map these types to
+;;   previous ones.  Add here to pass checkapi tests.
+(type new_objects)
+(typeattribute new_objects)
+(typeattributeset new_objects
+  ( new_objects
+    system_fingerprint_prop
+    system_oplus_iris_prop
+    system_oplus_project_prop
+    system_oplus_touch_prop
+    vendor_persist_engineer_file))
