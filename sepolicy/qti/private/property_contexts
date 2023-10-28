@@ -8,6 +8,8 @@ persist.sys.bt.a2dp.pendingtime    u:object_r:exported_system_prop:s0
 oplus.camera.                    u:object_r:exported_system_prop:s0
 oppo.camera.                     u:object_r:exported_system_prop:s0
 persist.sys.camera.lao.enable    u:object_r:exported_system_prop:s0
+ro.hardware.chipname             u:object_r:exported_system_prop:s0
+ro.oppo.market.                  u:object_r:exported_system_prop:s0
 
 # Display
 persist.sys.display.iris.absent    u:object_r:system_oplus_iris_prop:s0
@@ -40,6 +42,7 @@ sys.oplus.high.performance    u:object_r:exported_system_prop:s0
 
 # Radio
 ro.build.display.full_id    u:object_r:exported_system_prop:s0
+ro.build.oplus_nv_id        u:object_r:exported_system_prop:s0
 ro.sys.reserve.integrate    u:object_r:exported_system_prop:s0
 sys.oplus_boot_mode         u:object_r:exported_system_prop:s0
 
