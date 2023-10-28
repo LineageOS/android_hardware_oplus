@@ -7,7 +7,16 @@ persist.sys.bt.a2dp.pendingtime    u:object_r:exported_system_prop:s0
 # Camera
 oplus.camera.                    u:object_r:exported_system_prop:s0
 oppo.camera.                     u:object_r:exported_system_prop:s0
+persist.camera.aec.stats.dump    u:object_r:exported_system_prop:s0
+persist.camera.draw.             u:object_r:exported_system_prop:s0
+persist.camera.manual.           u:object_r:exported_system_prop:s0
+persist.camera.set.              u:object_r:exported_system_prop:s0
+persist.camera.stats.af.debug    u:object_r:exported_system_prop:s0
 persist.sys.camera.lao.enable    u:object_r:exported_system_prop:s0
+ro.build.oplus_nv_id             u:object_r:exported_system_prop:s0
+ro.camera.req.fmq.size           u:object_r:exported_system_prop:s0
+ro.hardware.chipname             u:object_r:exported_system_prop:s0
+ro.oppo.market.                  u:object_r:exported_system_prop:s0
 
 # Display
 persist.sys.display.iris.absent    u:object_r:system_oplus_iris_prop:s0
@@ -28,6 +37,9 @@ persist.sys.debuglog.config         u:object_r:exported_system_prop:s0
 persist.sys.log.ae                  u:object_r:exported_system_prop:s0
 persist.sys.log.af                  u:object_r:exported_system_prop:s0
 persist.sys.log.awb                 u:object_r:exported_system_prop:s0
+
+# Media
+service.sf.present_timestamp    u:object_r:exported_system_prop:s0
 
 # Modem
 persist.sys.enable_modem_dump    u:object_r:exported_system_prop:s0
