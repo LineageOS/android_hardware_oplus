@@ -73,8 +73,8 @@ genfscon sysfs /devices/platform/soc/aab0000.qcom,venus/subsys10/wakeup u:object
 genfscon sysfs /devices/platform/soc/aab0000.qcom,venus/subsys9/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/abb0000.qcom,cvpss/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a80000.i2c/i2c-6/6-0028/wakeup u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a90000.i2c/i2c-7/7-004b/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a80000.i2c/i2c-8/8-0028/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a90000.i2c/i2c-7/7-004b/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a90000.i2c/i2c-9/9-004b/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/b0000000.qcom,cnss-qca6390/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/b0000000.qcom,cnss-qca6490/subsys10/wakeup u:object_r:sysfs_wakeup:s0
