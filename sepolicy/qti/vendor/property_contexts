@@ -9,6 +9,7 @@ vendor.dps.dump.composerpid    u:object_r:vendor_display_prop:s0
 
 # Fingerprint
 persist.vendor.fingerprint.    u:object_r:vendor_fingerprint_prop:s0
+persist.vendor.side.fp.near.feature.support     u:object_r:vendor_fingerprint_prop:s0
 vendor.fingerprint.            u:object_r:vendor_fingerprint_prop:s0
 
 # Media
