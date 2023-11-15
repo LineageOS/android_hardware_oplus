@@ -132,7 +132,7 @@ int main(void) {
     ALOGI("Starting polling loop");
 
     // Polling loop
-    while (ALooper_pollAll(-1, NULL, NULL, NULL) == 0) {
+    while (ALooper_pollOnce(-1, NULL, NULL, NULL) == 0) {
         int eventCount = 0;
         ASensorEvent sensorEvent;
         while (ASensorEventQueue_getEvents(eventQueue, &sensorEvent, 1) > 0) {
