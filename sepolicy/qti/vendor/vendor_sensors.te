@@ -1,3 +1,4 @@
 rw_dir_file(vendor_sensors, vendor_persist_engineer_file)
 rw_dir_file(vendor_sensors, vendor_proc_eng_cali_file)
+rw_dir_file(vendor_sensors, vendor_proc_oplus_version)
 rw_dir_file(vendor_sensors, vendor_sysfs_sensor_fb)
