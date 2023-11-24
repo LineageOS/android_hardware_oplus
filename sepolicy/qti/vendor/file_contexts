@@ -25,6 +25,7 @@
 /mnt/vendor/persist/engineermode(/.*)?    u:object_r:vendor_persist_engineer_file:s0
 
 # Fingerprint
+/data/vendor/fingerprint(/.*)?                                                                   u:object_r:fingerprint_vendor_data_file:s0
 /data/vendor/fingerprint(_ori)?(/.*)?                                                            u:object_r:fingerprint_vendor_data_file:s0
 /mnt/vendor/persist/fingerprint(/.*)?                                                            u:object_r:vendor_persist_fingerprint_file:s0
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.biometrics\.fingerprint@2\.1-service(_uff)?    u:object_r:hal_fingerprint_default_exec:s0
