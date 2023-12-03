@@ -1,6 +1,9 @@
 type hal_oplus_cammidasservice_aidl, domain;
 binder_use(hal_oplus_cammidasservice_aidl)
 
+allow hal_oplus_cammidasservice_aidl fwk_stats_service:service_manager find;
+binder_call(hal_oplus_cammidasservice_aidl, system_server)
+
 hal_server_domain(hal_oplus_cammidasservice_aidl, vendor_hal_oplus_cammidasservice)
 
 type hal_oplus_cammidasservice_aidl_exec, exec_type, vendor_file_type, file_type;
