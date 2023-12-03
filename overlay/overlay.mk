@@ -5,7 +5,8 @@
 #
 
 PRODUCT_PACKAGES += \
-    FrameworksResOPlus
+    FrameworksResOPlus \
+    SettingsProviderResOPlus
 
 PRODUCT_PACKAGES += \
     FrameworksResCommon \
