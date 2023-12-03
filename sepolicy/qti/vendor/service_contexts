@@ -21,17 +21,9 @@ vendor.oplus.hardware.performance.IPerformance/default    u:object_r:hal_oplus_p
 vendor.oplus.hardware.stability.oplus_project.IOplusProject/default    u:object_r:hal_oplus_project_aidl_service:s0
 
 # RIL
-vendor.oplus.hardware.appradioaidl.IAppRadioStable/OplusAppRadio0       u:object_r:hal_radio_service:s0
-vendor.oplus.hardware.appradioaidl.IAppRadioStable/OplusAppRadio1       u:object_r:hal_radio_service:s0
-vendor.oplus.hardware.radioex.data.IOplusRadioExData/slot1              u:object_r:hal_radio_service:s0
-vendor.oplus.hardware.radioex.data.IOplusRadioExData/slot2              u:object_r:hal_radio_service:s0
-vendor.oplus.hardware.radioex.messaging.IOplusRadioExMessaging/slot1    u:object_r:hal_radio_service:s0
-vendor.oplus.hardware.radioex.messaging.IOplusRadioExMessaging/slot2    u:object_r:hal_radio_service:s0
-vendor.oplus.hardware.radioex.modem.IOplusRadioExModem/slot1            u:object_r:hal_radio_service:s0
-vendor.oplus.hardware.radioex.modem.IOplusRadioExModem/slot2            u:object_r:hal_radio_service:s0
-vendor.oplus.hardware.radioex.network.IOplusRadioExNetwork/slot1        u:object_r:hal_radio_service:s0
-vendor.oplus.hardware.radioex.network.IOplusRadioExNetwork/slot2        u:object_r:hal_radio_service:s0
-vendor.oplus.hardware.radioex.sim.IOplusRadioExSim/slot1                u:object_r:hal_radio_service:s0
-vendor.oplus.hardware.radioex.sim.IOplusRadioExSim/slot2                u:object_r:hal_radio_service:s0
-vendor.oplus.hardware.radioex.voice.IOplusRadioExVoice/slot1            u:object_r:hal_radio_service:s0
-vendor.oplus.hardware.radioex.voice.IOplusRadioExVoice/slot2            u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.appradioaidl.IAppRadioStable/OplusAppRadio0    u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.appradioaidl.IAppRadioStable/OplusAppRadio1    u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.ims.IImsStable/OplusImsRadio0                  u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.ims.IImsStable/OplusImsRadio1                  u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.radio.IRadioStable/OplusRadio0                 u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.radio.IRadioStable/OplusRadio1                 u:object_r:hal_radio_service:s0
