@@ -5,7 +5,8 @@
 #
 
 PRODUCT_PACKAGES += \
-    FrameworksResGeneric
+    FrameworksResGeneric \
+    SettingsProviderResGeneric
 
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
