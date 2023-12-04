@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1f7d7aa_c14f5782",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-12-04T16:17:28Z",
+      "side": 1,
+      "message": "I don\u0027t think this is a QSSI overlay.",
+      "revId": "56fff6dd51cace586af7cdb09891e3c98d6a46a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
