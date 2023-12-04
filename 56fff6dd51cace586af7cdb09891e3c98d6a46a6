@@ -34,6 +34,24 @@
       "parentUuid": "d1f7d7aa_c14f5782",
       "revId": "56fff6dd51cace586af7cdb09891e3c98d6a46a6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03ae3c30_e481f780",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-12-04T16:48:15Z",
+      "side": 1,
+      "message": "Sure, but what I mean is that I don\u0027t see this config overlayed in QSSI. And if we\u0027re subverting the goal of these overlays, we\u0027d better rename them.",
+      "parentUuid": "6adcf855_2e6eb4dd",
+      "revId": "56fff6dd51cace586af7cdb09891e3c98d6a46a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
