@@ -52,6 +52,24 @@
       "parentUuid": "6adcf855_2e6eb4dd",
       "revId": "56fff6dd51cace586af7cdb09891e3c98d6a46a6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "014ce854_9949ed33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-12-04T16:49:31Z",
+      "side": 1,
+      "message": "so you want us to introduce another folder and also move euicc overlay there?",
+      "parentUuid": "03ae3c30_e481f780",
+      "revId": "56fff6dd51cace586af7cdb09891e3c98d6a46a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
