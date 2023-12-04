@@ -16,6 +16,24 @@
       "message": "I don\u0027t think this is a QSSI overlay.",
       "revId": "56fff6dd51cace586af7cdb09891e3c98d6a46a6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6adcf855_2e6eb4dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-12-04T16:25:45Z",
+      "side": 1,
+      "message": "If QSSI declares config_automatic_brightness_available, it might as well enable it by default.",
+      "parentUuid": "d1f7d7aa_c14f5782",
+      "revId": "56fff6dd51cace586af7cdb09891e3c98d6a46a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
