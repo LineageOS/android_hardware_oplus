@@ -70,6 +70,23 @@
       "parentUuid": "03ae3c30_e481f780",
       "revId": "56fff6dd51cace586af7cdb09891e3c98d6a46a6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9bbc578_b9d24eca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-12-08T06:03:24Z",
+      "side": 1,
+      "message": "it would be cleaner... :)",
+      "revId": "56fff6dd51cace586af7cdb09891e3c98d6a46a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
