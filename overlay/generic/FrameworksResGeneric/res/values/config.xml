@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2023 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+
+    <!-- List of comma separated package names for which we the system will not show crash, ANR,
+         etc. dialogs. -->
+    <string translatable="false" name="config_appsNotReportingCrashes">com.google.android.euicc</string>
+
+</resources>
