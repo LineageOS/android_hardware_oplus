@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e7fe0ce_ce92e8d5",
+        "filename": "overlay/generic/FrameworksResGeneric/res/values/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-12-11T14:15:20Z",
+      "side": 1,
+      "message": "LineageOS",
+      "revId": "1e2a76c601c05049377ea018b30610d3662dd797",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
