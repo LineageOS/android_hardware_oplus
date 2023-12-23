@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 2019 CypherOS
     SPDX-FileCopyrightText: 2014-2020 Paranoid Android
     SPDX-FileCopyrightText: 2023 The LineageOS Project
+    SPDX-FileCopyrightText: 2023 Yet Another AOSP Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">

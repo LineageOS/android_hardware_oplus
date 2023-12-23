@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 2019 CypherOS
     SPDX-FileCopyrightText: 2014-2020 Paranoid Android
     SPDX-FileCopyrightText: 2023 The LineageOS Project
+    SPDX-FileCopyrightText: 2023 Yet Another AOSP Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -19,7 +20,7 @@
 
     <LinearLayout
         android:id="@+id/alert_slider_view"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/alert_slider_dialog_width"
         android:layout_height="@dimen/alert_slider_dialog_height"
         android:layout_gravity="center|right"
         android:orientation="horizontal"
@@ -27,7 +28,7 @@
         android:translationZ="@dimen/alert_slider_elevation">
 
         <FrameLayout
-            android:layout_width="@dimen/alert_slider_dialog_width"
+            android:layout_width="@dimen/alert_slider_dialog_icon_width"
             android:layout_height="fill_parent">
 
             <ImageView
@@ -40,11 +41,16 @@
 
         <TextView
             android:id="@+id/alert_slider_text"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:fontFamily="@*android:string/config_headlineFontFamilyMedium"
             android:gravity="center_vertical"
             android:textColor="@color/alert_slider_text_color"
-            android:textSize="@dimen/alert_slider_text_size" />
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="8sp"
+            android:autoSizeMaxTextSize="@dimen/alert_slider_text_size"
+            android:scrollHorizontally="true"
+            android:ellipsize="marquee"
+            android:lines="1" />
     </LinearLayout>
 </LinearLayout>
