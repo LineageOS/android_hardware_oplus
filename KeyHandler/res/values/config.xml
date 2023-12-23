@@ -8,4 +8,7 @@
          to the top of the device and is used to align middle position
          notification dialog -->
     <item name="alert_slider_dialog_y" type="fraction">25%</item>
+
+    <!-- Whether to show alert slider on the left side-->
+    <item name="alert_slider_dialog_left" type="bool">false</item>
 </resources>
