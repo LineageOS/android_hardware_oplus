@@ -8,6 +8,9 @@
 
 package org.lineageos.settings.device
 
+import android.animation.Animator
+import android.animation.PropertyValuesHolder
+import android.animation.ValueAnimator
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
@@ -19,6 +22,7 @@ import android.view.Surface
 import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
+import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -37,6 +41,9 @@ class AlertSliderDialog(private val context: Context) :
     private val length: Int
     private val xPos: Int
     private val yPos: Int
+
+    private var isAnimating = false
+    private var animator = ValueAnimator()
 
     init {
         window?.let {
@@ -107,24 +114,73 @@ class AlertSliderDialog(private val context: Context) :
         }
     }
 
+    @Synchronized
     fun setState(position: Int, ringerMode: Int) {
-        window?.let {
-            it.attributes =
-                it.attributes.apply {
-                    val delta =
-                        length *
-                            when (position) {
-                                KeyHandler.POSITION_TOP -> -1
-                                KeyHandler.POSITION_BOTTOM -> 1
-                                else -> 0 // KeyHandler.POSITION_MIDDLE
-                            }
-
-                    if (isLandscape) x = xPos + delta else y = yPos + delta
+        val delta =
+            length *
+                when (position) {
+                    KeyHandler.POSITION_TOP -> -1
+                    KeyHandler.POSITION_BOTTOM -> 1
+                    else -> 0 // KeyHandler.POSITION_MIDDLE
                 }
+
+        var endX = xPos
+        var endY = yPos
+        if (isLandscape) endX += delta else endY += delta
+
+        if (isShowing) {
+            animatePosition(endX, endY, position, ringerMode)
+        } else {
+            applyUiMode(ringerMode)
+            applyPositionAndBackground(endX, endY, position)
+        }
+    }
+
+    @Synchronized
+    private fun animatePosition(endX: Int, endY: Int, position: Int, ringerMode: Int) {
+        if (isAnimating) animator.cancel()
+        animator = ValueAnimator()
+        animator.duration = 100
+        animator.interpolator = OvershootInterpolator()
+
+        window?.let {
+            animator.setValues(
+                PropertyValuesHolder.ofInt("x", it.attributes.x, endX),
+                PropertyValuesHolder.ofInt("y", it.attributes.y, endY),
+            )
         }
 
-        frameView.setBackgroundResource(backgroundFor(rotation, position, flip))
+        animator.addUpdateListener { animation ->
+            window?.let {
+                it.attributes =
+                    it.attributes.apply {
+                        x = animation.getAnimatedValue("x") as Int
+                        y = animation.getAnimatedValue("y") as Int
+                    }
+            }
+        }
 
+        animator.addListener(
+            object : Animator.AnimatorListener {
+                override fun onAnimationStart(animation: Animator) {
+                    isAnimating = true
+                    applyUiMode(ringerMode)
+                }
+
+                override fun onAnimationEnd(animation: Animator) {
+                    applyPositionAndBackground(endX, endY, position)
+                    isAnimating = false
+                }
+
+                override fun onAnimationCancel(animation: Animator) {}
+
+                override fun onAnimationRepeat(animation: Animator) {}
+            }
+        )
+        animator.start()
+    }
+
+    private fun applyUiMode(ringerMode: Int) {
         iconView.setImageResource(
             when (ringerMode) {
                 AudioManager.RINGER_MODE_SILENT -> R.drawable.ic_volume_ringer_mute
@@ -149,6 +205,17 @@ class AlertSliderDialog(private val context: Context) :
             }
         )
         textView.setTextColor(context.getColor(R.color.alert_slider_text_color))
+    }
+
+    private fun applyPositionAndBackground(endX: Int, endY: Int, position: Int) {
+        window?.let {
+            it.attributes =
+                it.attributes.apply {
+                    x = endX
+                    y = endY
+                }
+        }
+        frameView.setBackgroundResource(backgroundFor(rotation, position, flip))
     }
 
     private fun backgroundFor(rotation: Int, position: Int, flip: Boolean): Int {
