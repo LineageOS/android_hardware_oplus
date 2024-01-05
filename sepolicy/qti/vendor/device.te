@@ -1,6 +1,9 @@
 # Fingerprint
 type fingerprint_device, dev_type;
 
+# IR
+type oplus_consumer_ir_device, dev_type;
+
 # Reserve
 type vendor_reserve_partition, dev_type;
 
