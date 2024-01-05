@@ -1,0 +1,19 @@
+cc_binary {
+    name: "android.hardware.ir-service.oplus",
+    relative_install_path: "hw",
+    init_rc: ["android.hardware.ir-service.oplus.rc"],
+    device_specific: true,
+    vintf_fragments: ["android.hardware.ir-service.xml"],
+
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "libcutils",
+        "liblog",
+        "libutils",
+        "android.hardware.ir-V1-ndk",
+        "libhardware"
+    ],
+
+    srcs: ["main.cpp"],
+}
