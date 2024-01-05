@@ -1,0 +1,8 @@
+on boot
+    chmod 0666 /dev/oplus_consumer_ir
+
+service vendor.ir-default /odm/bin/hw/android.hardware.ir-service.oplus
+    class hal
+    user system
+    group system
+    interface aidl android.hardware.ir.IConsumerIr/default
