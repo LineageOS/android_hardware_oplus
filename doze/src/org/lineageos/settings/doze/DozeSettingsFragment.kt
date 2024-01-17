@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The LineageOS Project
+ * Copyright (C) 2021-2024 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -16,7 +16,7 @@ import androidx.preference.*
 import com.android.settingslib.widget.MainSwitchPreference
 import com.android.settingslib.widget.OnMainSwitchChangeListener
 
-class DozeSettingsFragment : PreferenceFragment(), Preference.OnPreferenceChangeListener,
+class DozeSettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChangeListener,
     OnMainSwitchChangeListener {
     private lateinit var alwaysOnDisplayPreference: SwitchPreference
     private lateinit var switchBar: MainSwitchPreference
@@ -27,7 +27,7 @@ class DozeSettingsFragment : PreferenceFragment(), Preference.OnPreferenceChange
     private val handler = Handler(Looper.getMainLooper())
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        addPreferencesFromResource(R.xml.doze_settings)
+        setPreferencesFromResource(R.xml.doze_settings, rootKey)
 
         val prefs = activity.getSharedPreferences("doze_settings", Activity.MODE_PRIVATE)!!
         if (savedInstanceState == null && !prefs.getBoolean("first_help_shown", false)) {

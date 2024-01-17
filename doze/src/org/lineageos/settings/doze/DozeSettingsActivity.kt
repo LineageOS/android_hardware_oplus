@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2022 The LineageOS Project
+ * Copyright (C) 2021-2024 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -12,7 +12,7 @@ import com.android.settingslib.widget.R
 class DozeSettingsActivity : CollapsingToolbarBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        fragmentManager
+        supportFragmentManager
             .beginTransaction()
             .replace(R.id.content_frame, DozeSettingsFragment(), TAG)
             .commit()
