@@ -12,7 +12,7 @@ import com.android.settingslib.widget.R
 class DozeSettingsActivity : CollapsingToolbarBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        fragmentManager
+        supportFragmentManager
             .beginTransaction()
             .replace(R.id.content_frame, DozeSettingsFragment(), TAG)
             .commit()
