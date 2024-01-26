@@ -4,7 +4,11 @@
 //
 
 soong_namespace {
-    imports: ["hardware/qcom-caf/bootctrl"],
+    imports: [
+        "hardware/google/interfaces",
+        "hardware/google/pixel",
+        "hardware/qcom-caf/bootctrl",
+    ],
 }
 
 prebuilt_hidl_interfaces {
