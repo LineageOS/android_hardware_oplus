@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72f01c8d_f0d38060",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-01-26T11:25:01Z",
+      "side": 1,
+      "message": "https://github.com/LineageOS/android_device_xiaomi_sdm660-common/commit/43ad8dd9e1b7a69d93b6e875dadb025af485a539",
+      "revId": "fbbffa4545c7d1b2a6f7b7be65c5809748abaff3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
