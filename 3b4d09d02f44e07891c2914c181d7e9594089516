@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5a852c0_d37eb1bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2024-01-30T12:43:27Z",
+      "side": 1,
+      "message": "well nevermind that, changing clkgate_enable at the wrong time crashes the system",
+      "revId": "3b4d09d02f44e07891c2914c181d7e9594089516",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
