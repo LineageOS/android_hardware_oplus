@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b436ed1_c20d3afd",
+        "filename": "sepolicy/qti/vendor/hal_power_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-01-30T11:58:33Z",
+      "side": 1,
+      "message": "i think we can drop this comment.",
+      "revId": "9f57de87d131b2e881a9b3416af3a55f5d87bacf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
