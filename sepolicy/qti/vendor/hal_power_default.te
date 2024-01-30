@@ -1,1 +1,8 @@
 rw_dir_file(hal_power_default, vendor_proc_display)
+
+# For perfmgr
+rw_dir_file(hal_power_default, proc_sched)
+rw_dir_file(hal_power_default, sysfs_devices_system_cpu)
+rw_dir_file(hal_power_default, vendor_sysfs_devfreq)
+rw_dir_file(hal_power_default, vendor_sysfs_graphics)
+rw_dir_file(hal_power_default, vendor_sysfs_kgsl)
