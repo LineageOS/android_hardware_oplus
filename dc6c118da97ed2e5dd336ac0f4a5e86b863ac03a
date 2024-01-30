@@ -16,6 +16,41 @@
       "message": "bruno? 2 cents please? :)",
       "revId": "dc6c118da97ed2e5dd336ac0f4a5e86b863ac03a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c7b4e61_6826dd56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-01-30T12:10:29Z",
+      "side": 1,
+      "message": "I think we need someone with MTK to move truly common code out of qti.",
+      "parentUuid": "271f6007_8761cf98",
+      "revId": "dc6c118da97ed2e5dd336ac0f4a5e86b863ac03a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0578d828_c4620cbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-01-30T12:10:29Z",
+      "side": 1,
+      "message": "Comment removed by: Łukasz Patron; Reason: .",
+      "revId": "dc6c118da97ed2e5dd336ac0f4a5e86b863ac03a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
