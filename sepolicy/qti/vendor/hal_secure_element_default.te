@@ -1,0 +1,1 @@
+allow hal_secure_element_default nfc_device:chr_file { getattr };
