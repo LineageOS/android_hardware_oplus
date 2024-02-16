@@ -102,7 +102,18 @@
 /dev/stmvl53l1_ranging                      u:object_r:vendor_tof_device:s0
 
 # Touch
+/(odm|vendor/odm)/bin/hw/vendor-oplus-hardware-touch-V1-service              u:object_r:hal_oplus_touch_aidl_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor-oplus-hardware-touch-V2-service              u:object_r:hal_oplus_touch_aidl_exec:s0
+/(odm|vendor/odm)/bin/touchDaemon                                            u:object_r:hal_oplus_touchdaemon_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.oplus    u:object_r:hal_lineage_touch_default_exec:s0
+/data/vendor/touch(/.*)?                                                     u:object_r:vendor_persist_oplus_touch_file:s0
+/data/vendor/touchconfig(/.*)?                                               u:object_r:vendor_persist_oplus_touch_file:s0
+/dev/socket/hidl2touchdaemon_client                                          u:object_r:oplus_touchdaemon_socket:s0
+/dev/socket/hidl2touchdaemon_server                                          u:object_r:oplus_touchdaemon_socket:s0
+/dev/tcm_hbp0                                                                u:object_r:oplus_touchdaemon_device:s0
+/dev/tcm1                                                                    u:object_r:oplus_touchdaemon_device:s0
+/dev/tp_misc(/.*)?                                                           u:object_r:oplus_touchdaemon_device:s0
+/dev/tp_misc1                                                                u:object_r:oplus_touchdaemon_device:s0
 
 # Ultrasound
 /dev/audio_ultrasound     u:object_r:ultrasound_device:s0

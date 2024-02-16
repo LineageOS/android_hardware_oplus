@@ -6,7 +6,6 @@ vendor.oplus.hardware.sendextcamcmd.ISendExtCamCmdService/default        u:objec
 # Fingerprint
 vendor.oplus.hardware.commondcs.ICommonDcsAidlHalService/default    u:object_r:hal_fingerprint_service:s0
 vendor.oplus.hardware.olc2.IOplusLogCore/default                    u:object_r:hal_fingerprint_service:s0
-vendor.oplus.hardware.touch.IOplusTouch/default                     u:object_r:hal_fingerprint_service:s0
 
 # NFC
 vendor.nxp.nxpnfc_aidl.INxpNfc/default    u:object_r:hal_nfc_service:s0
@@ -27,3 +26,6 @@ vendor.oplus.hardware.ims.IImsStable/OplusImsRadio0                  u:object_r:
 vendor.oplus.hardware.ims.IImsStable/OplusImsRadio1                  u:object_r:hal_radio_service:s0
 vendor.oplus.hardware.radio.IRadioStable/OplusRadio0                 u:object_r:hal_radio_service:s0
 vendor.oplus.hardware.radio.IRadioStable/OplusRadio1                 u:object_r:hal_radio_service:s0
+
+# Touch
+vendor.oplus.hardware.touch.IOplusTouch/default    u:object_r:hal_oplus_touch_aidl_service:s0
