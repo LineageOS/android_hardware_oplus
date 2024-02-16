@@ -1,1 +1,2 @@
+rw_dir_file(system_server, proc_bus_input)
 rw_dir_file(system_server, vendor_proc_tri_state_key)

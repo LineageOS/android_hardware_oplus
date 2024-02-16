@@ -21,6 +21,14 @@ type vendor_proc_fingerprint, fs_type, proc_type;
 # Graphics
 type vendor_sysfs_sde_crtc, fs_type, sysfs_type;
 
+# Input
+type proc_bus_input, fs_type, proc_type;
+
+# OPlus touch
+type oplus_touchdaemon_device, dev_type;
+type vendor_persist_oplus_touch_file, file_type, data_file_type;
+type vendor_proc_oplus_touch, fs_type, proc_type;
+
 # Sensors
 type vendor_proc_eng_cali_file, fs_type, proc_type;
 type vendor_proc_oplus_als_file, fs_type, proc_type;

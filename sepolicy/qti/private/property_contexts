@@ -31,6 +31,9 @@ persist.sys.log.awb                 u:object_r:exported_system_prop:s0
 # Modem
 persist.sys.enable_modem_dump    u:object_r:exported_system_prop:s0
 
+# OPlus touch
+persist.sys.tpic.    u:object_r:system_oplus_touch_prop:s0
+
 # Performance
 sys.oplus.high.performance    u:object_r:exported_system_prop:s0
 
