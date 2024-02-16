@@ -1,0 +1,22 @@
+type hal_oplus_touch_aidl, domain;
+binder_use(hal_oplus_touch_aidl)
+vndbinder_use(hal_oplus_touch_aidl)
+
+hal_server_domain(hal_oplus_touch_aidl, vendor_hal_oplus_touch)
+hal_client_domain(hal_oplus_touch_aidl, vendor_hal_oplus_touchdaemon)
+
+type hal_oplus_touch_aidl_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oplus_touch_aidl)
+
+binder_call(vendor_hal_oplus_touch_client, vendor_hal_oplus_touch_server)
+
+hal_attribute_service(vendor_hal_oplus_touch, hal_oplus_touch_aidl_service)
+
+allow hal_oplus_touch_aidl hal_oplus_touchdaemon:binder call;
+
+allow hal_oplus_touch_aidl touchDeamonBinder_service:service_manager find;
+
+unix_socket_send(hal_oplus_touch_aidl, oplus_touchdaemon, hal_oplus_touchdaemon)
+
+rw_dir_file(hal_oplus_touch_aidl, oplus_touchdaemon_device)
+rw_dir_file(hal_oplus_touch_aidl, vendor_proc_display)

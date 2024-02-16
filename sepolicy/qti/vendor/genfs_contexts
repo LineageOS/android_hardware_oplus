@@ -17,6 +17,7 @@ genfscon sysfs /devices/virtual/oplus_chg                                 u:obje
 
 # Display
 genfscon proc /devinfo/lcd              u:object_r:vendor_proc_display:s0
+genfscon proc /devinfo/tp               u:object_r:vendor_proc_display:s0
 genfscon proc /touchpanel               u:object_r:vendor_proc_display:s0
 genfscon sysfs /kernel/oplus_display    u:object_r:vendor_sysfs_graphics:s0
 
@@ -41,6 +42,10 @@ genfscon sysfs /devices/platform/soc/soc:sensor_fb    u:object_r:vendor_sysfs_se
 # TOF
 genfscon sysfs /kernel/tof_control    u:object_r:vendor_sysfs_tof:s0
 genfscon sysfs /module/stmvl53l1      u:object_r:vendor_sysfs_tof:s0
+
+# Touch
+genfscon proc /bus/input/devices    u:object_r:proc_bus_input:s0
+genfscon proc /shell-temp           u:object_r:vendor_proc_oplus_touch:s0
 
 # Ultrasound
 genfscon proc /ultrasound    u:object_r:vendor_proc_ultrasound:s0
