@@ -1,10 +1,14 @@
 allow hal_fingerprint_default self:netlink_socket create_socket_perms_no_ioctl;
 
 binder_call(hal_fingerprint_default, hal_fingerprint_default)
+binder_call(hal_fingerprint_default, hal_oplus_touch_aidl)
 
 hal_client_domain(hal_fingerprint_default, vendor_hal_oplus_performance)
+hal_client_domain(hal_fingerprint_default, vendor_hal_oplus_touch)
+hal_client_domain(hal_fingerprint_default, vendor_hal_oplus_touchdaemon)
 
 allow hal_fingerprint_default fwk_osense_aidl_service:service_manager find;
+allow hal_fingerprint_default hal_oplus_touch_aidl_service:service_manager find;
 allow hal_fingerprint_default vendor_hal_orms_hwservice:hwservice_manager find;
 allow hal_fingerprint_default vendor_hal_osense_hwservice:hwservice_manager find;
 
