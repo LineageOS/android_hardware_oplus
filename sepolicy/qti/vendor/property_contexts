@@ -31,3 +31,8 @@ ro.vendor.oplus.radio.         u:object_r:vendor_radio_prop:s0
 # RIL
 vendor.gsm.phoneserial    u:object_r:vendor_nw_exported_system_prop:s0
 vendor.gsm.serial         u:object_r:vendor_nw_exported_system_prop:s0
+
+# Touch
+vendor.oplus.touch.          u:object_r:vendor_oplus_touch_prop:s0
+vendor.oplus.touchDaemon.    u:object_r:vendor_oplus_touch_prop:s0
+vendor.touchdaemon.          u:object_r:vendor_oplus_touch_prop:s0
