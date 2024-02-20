@@ -24,6 +24,9 @@ genfscon proc /oplus_rf    u:object_r:vendor_proc_engineer:s0
 # Fingerprint
 genfscon proc /fp_id    u:object_r:vendor_proc_fingerprint:s0
 
+# Graphics
+genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-    u:object_r:vendor_sysfs_sde_crtc:s0
+
 # Perfmgr
 genfscon proc /sys/kernel/sched_energy_aware                         u:object_r:proc_sched:s0
 genfscon sysfs /devices/platform/soc/1d84000.ufshc/clkgate_enable    u:object_r:vendor_sysfs_scsi_host:s0
