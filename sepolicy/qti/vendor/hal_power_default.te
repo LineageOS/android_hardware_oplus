@@ -8,3 +8,6 @@ rw_dir_file(hal_power_default, vendor_sysfs_graphics)
 rw_dir_file(hal_power_default, vendor_sysfs_kgsl)
 rw_dir_file(hal_power_default, vendor_sysfs_scsi_host)
 rw_dir_file(hal_power_default, vendor_sysfs_sde_crtc)
+
+# To get/set powerhal state property
+set_prop(hal_power_default, vendor_power_prop)
