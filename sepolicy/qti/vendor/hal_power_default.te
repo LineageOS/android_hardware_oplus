@@ -8,3 +8,5 @@ rw_dir_file(hal_power_default, vendor_sysfs_graphics)
 rw_dir_file(hal_power_default, vendor_sysfs_kgsl)
 rw_dir_file(hal_power_default, vendor_sysfs_scsi_host)
 rw_dir_file(hal_power_default, vendor_sysfs_sde_crtc)
+
+set_prop(hal_power_default, vendor_powerhal_prop)
