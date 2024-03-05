@@ -46,6 +46,30 @@
       },
       "revId": "48af579e06095f5d22cb067784f003c4d79caf32",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9222a874_d60c81b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2024-03-05T22:14:25Z",
+      "side": 1,
+      "message": "not really. the changes are correct in principle, but they do not solve said issue, at least not on hotdog",
+      "parentUuid": "a307bd1d_4fb1d409",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "48af579e06095f5d22cb067784f003c4d79caf32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
