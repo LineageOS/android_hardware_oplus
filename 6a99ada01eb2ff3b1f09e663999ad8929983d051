@@ -16,6 +16,24 @@
       "message": "why\u0027d you undo this? all the others are aligned",
       "revId": "6a99ada01eb2ff3b1f09e663999ad8929983d051",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d456b9e_c84f7f72",
+        "filename": "sepolicy/qti/vendor/property_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-03-05T22:03:59Z",
+      "side": 1,
+      "message": "the code style is \"longest in group\"+4.",
+      "parentUuid": "0bec85e4_fd2a9624",
+      "revId": "6a99ada01eb2ff3b1f09e663999ad8929983d051",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
