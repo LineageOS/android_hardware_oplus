@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8649307d_c8ed6d39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2024-03-05T12:52:27Z",
+      "side": 1,
+      "message": "Perhaps it\u0027s better to add it to common dt?",
+      "revId": "afba7ffc1d8cfac001567394632f3ba5e79734c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
