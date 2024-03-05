@@ -70,6 +70,30 @@
       },
       "revId": "48af579e06095f5d22cb067784f003c4d79caf32",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "006d8b93_684aab9f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-03-05T22:18:25Z",
+      "side": 1,
+      "message": "I removed it from commit msg since it didn\u0027t make sense for me.",
+      "parentUuid": "9222a874_d60c81b7",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "48af579e06095f5d22cb067784f003c4d79caf32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
