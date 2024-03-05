@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bec85e4_fd2a9624",
+        "filename": "sepolicy/qti/vendor/property_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2024-03-05T22:02:53Z",
+      "side": 1,
+      "message": "why\u0027d you undo this? all the others are aligned",
+      "revId": "6a99ada01eb2ff3b1f09e663999ad8929983d051",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
