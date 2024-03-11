@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2022 The LineageOS Project
+ * Copyright (C) 2021-2024 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -19,10 +19,10 @@ import java.util.concurrent.Executors
 class PickupSensor(
     private val context: Context, sensorType: String, private val sensorValue: Float
 ) : SensorEventListener {
-    private val powerManager = context.getSystemService(PowerManager::class.java)
+    private val powerManager = context.getSystemService(PowerManager::class.java)!!
     private val wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG)
 
-    private val sensorManager = context.getSystemService(SensorManager::class.java)
+    private val sensorManager = context.getSystemService(SensorManager::class.java)!!
     private val sensor = Utils.getSensor(sensorManager, sensorType)
 
     private val executorService = Executors.newSingleThreadExecutor()
