@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The LineageOS Project
+ * Copyright (C) 2021-2024 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -78,26 +78,26 @@ object Utils {
         return AmbientDisplayConfiguration(context).alwaysOnAvailable()
     }
 
-    private fun isGestureEnabled(context: Context?, gesture: String?): Boolean {
+    private fun isGestureEnabled(context: Context, gesture: String?): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(gesture, false)
     }
 
-    fun isPickUpEnabled(context: Context?): Boolean {
+    fun isPickUpEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getString(GESTURE_PICK_UP_KEY, "0") != "0"
     }
 
-    fun isPickUpSetToWake(context: Context?): Boolean {
+    fun isPickUpSetToWake(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getString(GESTURE_PICK_UP_KEY, "0") == "2"
     }
 
-    fun isPocketEnabled(context: Context?): Boolean {
+    fun isPocketEnabled(context: Context): Boolean {
         return isGestureEnabled(context, GESTURE_POCKET_KEY)
     }
 
-    private fun areGesturesEnabled(context: Context?): Boolean {
+    private fun areGesturesEnabled(context: Context): Boolean {
         return isPickUpEnabled(context) || isPocketEnabled(context)
     }
 
