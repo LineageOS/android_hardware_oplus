@@ -1,0 +1,25 @@
+type hal_oplus_sensor_aidl, domain;
+binder_use(hal_oplus_sensor_aidl)
+
+hal_server_domain(hal_oplus_sensor_aidl, vendor_hal_oplus_sensor)
+
+type hal_oplus_sensor_aidl_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oplus_sensor_aidl)
+
+binder_call(vendor_hal_oplus_sensor_client, vendor_hal_oplus_sensor_server)
+
+hal_attribute_service(vendor_hal_oplus_sensor, hal_oplus_sensor_aidl_service)
+
+allow vendor_hal_oplus_sensor_client hal_oplus_sensor_aidl_service:service_manager find;
+
+allow hal_oplus_sensor_aidl block_device:dir search;
+allow hal_oplus_sensor_aidl vendor_reserve_partition:blk_file r_file_perms;
+
+allow hal_oplus_sensor_aidl mnt_vendor_file:dir search;
+
+r_dir_file(hal_oplus_sensor_aidl, vendor_persist_camera_file)
+r_dir_file(hal_oplus_sensor_aidl, vendor_persist_engineer_file)
+r_dir_file(hal_oplus_sensor_aidl, vendor_persist_sensors_file)
+r_dir_file(hal_oplus_sensor_aidl, vendor_proc_oplus_version)
+rw_dir_file(hal_oplus_sensor_aidl, vendor_proc_eng_cali_file)
+rw_dir_file(hal_oplus_sensor_aidl, vendor_proc_oplus_als_file)

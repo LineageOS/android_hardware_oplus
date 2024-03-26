@@ -27,3 +27,6 @@ vendor.oplus.hardware.ims.IImsStable/OplusImsRadio0                  u:object_r:
 vendor.oplus.hardware.ims.IImsStable/OplusImsRadio1                  u:object_r:hal_radio_service:s0
 vendor.oplus.hardware.radio.IRadioStable/OplusRadio0                 u:object_r:hal_radio_service:s0
 vendor.oplus.hardware.radio.IRadioStable/OplusRadio1                 u:object_r:hal_radio_service:s0
+
+# Sensors
+vendor.oplus.hardware.oplusSensor.ISensorFeature/default    u:object_r:hal_oplus_sensor_aidl_service:s0
