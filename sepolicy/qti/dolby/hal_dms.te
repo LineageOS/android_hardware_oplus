@@ -1,0 +1,20 @@
+type hal_dms_hwservice, hwservice_manager_type, protected_hwservice;
+
+type hal_dms_default, domain;
+hal_server_domain(hal_dms_default, hal_dms)
+
+type hal_dms_default_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_dms_default)
+
+hal_attribute_hwservice(hal_dms, hal_dms_hwservice)
+
+binder_call(hal_dms_client, hal_dms_server)
+binder_call(hal_dms_server, hal_dms_client)
+
+hal_client_domain(hal_audio_default, hal_dms)
+hal_client_domain(mediacodec, hal_dms)
+
+allow hal_dms_default vendor_data_file:dir rw_dir_perms;
+allow hal_dms_default vendor_data_file:file create_file_perms;
+
+set_prop(hal_dms_default, vendor_audio_prop)

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2023-24 Paranoid Android
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+
+    <!-- Whether stereo widening levels are supported -->
+    <bool name="dolby_stereo_widening_supported">true</bool>
+
+</resources>
