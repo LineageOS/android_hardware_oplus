@@ -4,5 +4,6 @@ hal_client_domain(hal_power_default, vendor_hal_oplus_touch)
 allow hal_power_default hal_oplus_touch_aidl_service:service_manager find;
 binder_call(hal_power_default, hal_oplus_touch_aidl);
 
+rw_dir_file(hal_power_default, proc)
 rw_dir_file(hal_power_default, vendor_proc_display)
 rw_dir_file(hal_power_default, vendor_sysfs_sde_crtc)
