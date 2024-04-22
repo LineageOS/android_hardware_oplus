@@ -114,9 +114,11 @@ class BiometricsFingerprint : public IBiometricsFingerprint,
         return GetProperty("persist.vendor.fingerprint.sensor_type", "") == "optical";
     }
 
+#ifndef NO_DIMLAYER_HBM
     bool setDimlayerHbm(unsigned int value) {
         return isUdfps() && ioctl(mOplusDisplayFd, PANEL_IOCTL_SET_DIMLAYER_HBM, &value) == 0;
     }
+#endif
 
     bool setFpPress(unsigned int value) {
         return isUdfps() && ioctl(mOplusDisplayFd, PANEL_IOCTL_SET_FP_PRESS, &value) == 0;
