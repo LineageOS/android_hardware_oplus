@@ -25,6 +25,8 @@
 
 #include <log/log.h>
 
+#include <oplus/oplus_ir_core.h>
+
 using ::aidl::android::hardware::ir::ConsumerIrFreqRange;
 
 namespace aidl::android::hardware::ir {
@@ -37,6 +39,7 @@ class ConsumerIr : public BnConsumerIr {
     ::ndk::ScopedAStatus transmit(int32_t in_carrierFreqHz,
                                   const std::vector<int32_t>& in_pattern) override;
     consumerir_device_t *mDevice = nullptr;
+    int mOplusConsumerIrFd;
 };
 
 ConsumerIr::ConsumerIr() {
@@ -80,8 +83,22 @@ ConsumerIr::ConsumerIr() {
 
 ::ndk::ScopedAStatus ConsumerIr::transmit(int32_t in_carrierFreqHz,
                                           const std::vector<int32_t>& in_pattern) {
-    if (in_carrierFreqHz > 0) {
+
+    // Calculate the size of the pattern_params structure
+    size_t param_size = sizeof(pattern_params) + in_pattern.size() * sizeof(int32_t);
+    pattern_params* params = (pattern_params*)malloc(param_size);
+
+    params->carrier_freq = in_carrierFreqHz;
+    params->size = in_pattern.size();
+    memcpy(params->pattern, in_pattern.data(), in_pattern.size() * sizeof(int32_t));
+
+    int mOplusConsumerIrFd = open("/dev/oplus_consumer_ir", O_RDWR);
+
+    if (in_carrierFreqHz > 0 || mOplusConsumerIrFd > 0 || params) {
         mDevice->transmit(mDevice, in_carrierFreqHz, in_pattern.data(), in_pattern.size());
+        ioctl(mOplusConsumerIrFd, IR_SEND_PATTERN, params);
+        close(mOplusConsumerIrFd);
+        free(params);
         return ::ndk::ScopedAStatus::ok();
     } else {
         return ::ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
