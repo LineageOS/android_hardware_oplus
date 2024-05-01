@@ -16,4 +16,6 @@ cc_binary {
     ],
 
     srcs: ["main.cpp"],
+
+    header_libs: ["kernel_headers.oplus"],
 }
