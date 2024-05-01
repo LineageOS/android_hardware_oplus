@@ -17,6 +17,7 @@
 #include <aidl/android/hardware/ir/BnConsumerIr.h>
 #include <aidl/android/hardware/ir/ConsumerIrFreqRange.h>
 #include <android-base/logging.h>
+#include <android-base/unique_fd.h>
 #include <android/binder_interface_utils.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
@@ -24,6 +25,8 @@
 #include <numeric>
 
 #include <log/log.h>
+
+#include <oplus/oplus_ir_core.h>
 
 using ::aidl::android::hardware::ir::ConsumerIrFreqRange;
 
@@ -80,12 +83,36 @@ ConsumerIr::ConsumerIr() {
 
 ::ndk::ScopedAStatus ConsumerIr::transmit(int32_t in_carrierFreqHz,
                                           const std::vector<int32_t>& in_pattern) {
-    if (in_carrierFreqHz > 0) {
-        mDevice->transmit(mDevice, in_carrierFreqHz, in_pattern.data(), in_pattern.size());
-        return ::ndk::ScopedAStatus::ok();
-    } else {
+    if (in_carrierFreqHz <= 0 || in_carrierFreqHz > 40000) {
+        ALOGE("Invalid carrier frequency: %d Hz", in_carrierFreqHz);
         return ::ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
+
+    ::android::base::unique_fd oplusConsumerIrFd(open("/dev/oplus_consumer_ir", O_RDWR));
+    if (!oplusConsumerIrFd.ok()) {
+        ALOGE("Failed to open /dev/oplus_consumer_ir: %s", strerror(errno));
+        return ::ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+    }
+
+    size_t paramsSize = sizeof(struct pattern_params) + in_pattern.size() * sizeof(int32_t);
+    auto params = std::unique_ptr<struct pattern_params, decltype(&free)>(
+        static_cast<pattern_params*>(malloc(paramsSize)), free
+    );
+    if (!params) {
+        ALOGE("Failed to allocate memory for IR params");
+        return ::ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+    }
+
+    params->carrier_freq = in_carrierFreqHz;
+    params->size = in_pattern.size();
+    memcpy(params->pattern, in_pattern.data(), in_pattern.size() * sizeof(int32_t));
+
+    mDevice->transmit(mDevice, in_carrierFreqHz, in_pattern.data(), in_pattern.size());
+    int result = ioctl(oplusConsumerIrFd, IR_SEND_PATTERN, params.get());
+
+    return result < 0 ?
+        ::ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION) :
+        ::ndk::ScopedAStatus::ok();
 }
 
 }  // namespace aidl::android::hardware::ir
