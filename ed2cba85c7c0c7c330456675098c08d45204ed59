@@ -34,6 +34,24 @@
       "parentUuid": "74ba6820_833556d8",
       "revId": "ed2cba85c7c0c7c330456675098c08d45204ed59",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5c8ec70_25ecf615",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-05-06T12:49:22Z",
+      "side": 1,
+      "message": "how about we split this into two changes:\n\n1. \"sepolicy: qti: Label oplus_mms node\" - just `genfscon sysfs /devices/platform/soc/soc:oplus,mms_gauge/oplus_mms        u:object_r:vendor_sysfs_usb_supply:s0`\n2. \"sepolicy: qti: Label SM1234 wakeup nodes\" - similar to I482a657cb6edfcef92d52981ce2cbe3a0e174a5f",
+      "parentUuid": "8507476d_d27abd2c",
+      "revId": "ed2cba85c7c0c7c330456675098c08d45204ed59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
