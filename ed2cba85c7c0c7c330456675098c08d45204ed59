@@ -16,6 +16,24 @@
       "message": "were there no non-mms related wakeup nodes to label?",
       "revId": "ed2cba85c7c0c7c330456675098c08d45204ed59",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8507476d_d27abd2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32811
+      },
+      "writtenOn": "2024-05-06T12:45:59Z",
+      "side": 1,
+      "message": "genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a90000.spi/spi_master/spi0/spi0.0/synaptics_tcm_hbp.0/wakeup u:object_r:sysfs_wakeup:s0\n\nfor touch/daemon\n\ngenfscon sysfs /devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/soc:qcom,pmic_glink:qcom,battery_charger:oplus,pm8350_charger:oplus,mms_wired/oplus_mms/wired/usb/wakeup u:object_r:sysfs_wakeup:s0\ngenfscon sysfs /devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/soc:qcom,pmic_glink:qcom,battery_charger:oplus,pm8350_charger:oplus,mms_wired/oplus_mms/wired/wakeup u:object_r:sysfs_wakeup:s0\n\nand these two mms nodes are also there for sm8350(?), should i add these too?",
+      "parentUuid": "74ba6820_833556d8",
+      "revId": "ed2cba85c7c0c7c330456675098c08d45204ed59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

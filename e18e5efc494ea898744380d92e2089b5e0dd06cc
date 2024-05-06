@@ -41,6 +41,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d64197f_82692e8e",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 32811
+      },
+      "writtenOn": "2024-05-06T12:45:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "bf93b80e_33994a36",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 111
+      },
+      "revId": "e18e5efc494ea898744380d92e2089b5e0dd06cc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "177da58d_2e4dfc2b",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-05-06T11:50:44Z",
       "side": 1,
       "message": "pretty sure that\u0027s not all?\n\n```\nfor i in $(realpath /sys/class/wakeup/*); do if ! echo \"$(ls -dZ $i)\" | grep -q sysfs_wakeup; then echo genfscon sysfs $(echo $i | sed -e \u0027s|/sys||g\u0027 -e \u0027s|wakeup/wakeup.|wakeup|g\u0027 -e \u0027s|wakeup[0-9]*|wakeup|g\u0027) u:object_r:sysfs_wakeup:s0; fi; done | sort -u\n```\n\nwill give you all nodes that you have to label",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 112
+      },
+      "revId": "e18e5efc494ea898744380d92e2089b5e0dd06cc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4ca487b_29796f6e",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 32811
+      },
+      "writtenOn": "2024-05-06T12:45:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "177da58d_2e4dfc2b",
       "range": {
         "startLine": 134,
         "startChar": 0,
