@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bc82d95_d15f446f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33715
+      },
+      "writtenOn": "2024-05-08T10:39:53Z",
+      "side": 1,
+      "message": "recompiled and ran script few times and caught all wakeup nodes.",
+      "revId": "c84ff87609d1949b3a093082b2746154e05871cf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
