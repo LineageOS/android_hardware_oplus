@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0f5598b_7608d7fd",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 32811
+      },
+      "writtenOn": "2024-05-09T10:09:49Z",
+      "side": 1,
+      "message": "odm/etc/init/init.touchDaemon.rc\n3:    socket hidl2touchdaemon_client dgram 0660 root inet\n4:    socket hidl2touchdaemon_server dgram 0660 root inet\n\nodm/etc/init/vendor-oplus-hardware-touch-V2-service.rc\n7:    socket hidl2touchdaemon_client dgram 0660 root inet\n8:    socket hidl2touchdaemon_server dgram 0660 root inet",
+      "parentUuid": "179e37b3_cc06e501",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 115
+      },
+      "revId": "69f991b6c8e82de10191136fe34ec2578354f025",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e60593fa_184a84ac",
         "filename": "sepolicy/qti/vendor/vendor_init.te",
         "patchSetId": 2
