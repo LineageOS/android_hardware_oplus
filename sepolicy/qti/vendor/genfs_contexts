@@ -65,7 +65,11 @@ genfscon sysfs /devices/platform/soc/18800000.qcom,icnss/wakeup u:object_r:sysfs
 genfscon sysfs /devices/platform/soc/1c00000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/1101_00.01.00/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/1c10000.qcom,pcie/pci0002:00/0002:00:00.0/0002:01:00.0/0306_02.01.00_EFS/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/4a80000.i2c/i2c-3/3-0028/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/4a88000.i2c/i2c-4/4-004e/tcpc/type_c_port0/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/4a88000.i2c/i2c-4/4-004e/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/4a88000.spi/spi_master/spi0/spi0.1/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/4c88000.i2c/i2c-6/6-005d/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/4c90000.i2c/i2c-2/2-0028/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/8300000.qcom,turing/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/884000.i2c/i2c-12/12-0028/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/884000.i2c/i2c-5/5-0028/wakeup u:object_r:sysfs_wakeup:s0
