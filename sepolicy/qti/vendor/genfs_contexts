@@ -67,7 +67,10 @@ genfscon sysfs /devices/platform/soc/1c10000.qcom,pcie/pci0002:00/0002:00:00.0/0
 genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-00/1c40000.qcom,spmi:qcom,pm6125@0:qcom,power-on@800/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/4a80000.i2c/i2c-3/3-0028/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/4a84000.qcom,qup_uart/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/4a88000.i2c/i2c-4/4-004e/tcpc/type_c_port0/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/4a88000.spi/spi_master/spi0/spi0.1/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/4c88000.i2c/i2c-6/6-005d/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/4c90000.i2c/i2c-2/2-0028/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/5800000.qcom,ipa/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/5ab0000.qcom,venus/subsys5/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/5ab0000.qcom,venus/wakeup u:object_r:sysfs_wakeup:s0
