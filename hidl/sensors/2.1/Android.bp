@@ -33,6 +33,7 @@ cc_binary {
     init_rc: ["android.hardware.sensors@2.1-service-multihal.rc"],
     vintf_fragments: ["android.hardware.sensors@2.1-multihal.xml"],
     header_libs: [
+        "android.hardware.sensors@2.X-multihal.header.oplus",
         "android.hardware.sensors@2.X-shared-utils",
     ],
     shared_libs: [
@@ -49,6 +50,11 @@ cc_binary {
     ],
     static_libs: [
         "android.hardware.sensors@1.0-convert",
-        "android.hardware.sensors@2.X-multihal",
     ],
+}
+
+cc_library_headers {
+    name: "android.hardware.sensors@2.X-multihal.header.oplus",
+    vendor_available: true,
+    export_include_dirs: ["include"],
 }
