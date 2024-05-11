@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c895242b_9a56a0f4",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-05-11T18:58:15Z",
+      "side": 1,
+      "message": "no mdm_oem_dycnvbk, mdm_oem_stanvbk, mdmddr?",
+      "revId": "6bf305f43821d53018a2f3aed2157adedc2c1324",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
