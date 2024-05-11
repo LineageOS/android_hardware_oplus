@@ -34,6 +34,24 @@
       "parentUuid": "c895242b_9a56a0f4",
       "revId": "6bf305f43821d53018a2f3aed2157adedc2c1324",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d3a84c5_6acd423d",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-05-11T19:37:43Z",
+      "side": 1,
+      "message": "k, leave it as is.",
+      "parentUuid": "946eccba_5ec464dc",
+      "revId": "6bf305f43821d53018a2f3aed2157adedc2c1324",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
