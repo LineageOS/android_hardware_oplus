@@ -16,6 +16,24 @@
       "message": "What device are you working on btw?",
       "revId": "67fda57ebc78e1477e212997396514ee2cfab3d9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e1af65c_0312fd28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32811
+      },
+      "writtenOn": "2024-05-12T14:27:24Z",
+      "side": 1,
+      "message": "OnePlus 12R\n\nthis is also needed by OnePlus 11R",
+      "parentUuid": "563673bc_f506672f",
+      "revId": "67fda57ebc78e1477e212997396514ee2cfab3d9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
