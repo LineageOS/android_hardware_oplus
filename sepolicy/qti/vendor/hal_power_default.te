@@ -1,12 +1,4 @@
 allow hal_power_default vendor_latency_device:chr_file rw_file_perms;
 
-rw_dir_file(hal_power_default, proc_sched)
-rw_dir_file(hal_power_default, sysfs_devices_system_cpu)
 rw_dir_file(hal_power_default, vendor_proc_display)
-rw_dir_file(hal_power_default, vendor_sysfs_devfreq)
-rw_dir_file(hal_power_default, vendor_sysfs_graphics)
-rw_dir_file(hal_power_default, vendor_sysfs_kgsl)
-rw_dir_file(hal_power_default, vendor_sysfs_scsi_host)
 rw_dir_file(hal_power_default, vendor_sysfs_sde_crtc)
-
-set_prop(hal_power_default, vendor_powerhal_prop)
