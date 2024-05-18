@@ -67,9 +67,6 @@
 # Performance
 /(odm|vendor/odm)/bin/hw/vendor-oplus-hardware-performance-V1-service    u:object_r:hal_oplus_performance_aidl_exec:s0
 
-# Perfmgr
-/(vendor|system/vendor)/bin/hw/android\.hardware\.power-service\.oplus-libperfmgr    u:object_r:hal_power_default_exec:s0
-
 # Project
 /(odm|vendor/odm)/bin/hw/vendor.oplus.hardware.stability.oplus_project-V1-service    u:object_r:hal_oplus_project_aidl_exec:s0
 
