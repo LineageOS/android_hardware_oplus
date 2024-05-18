@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d3595b5_8d4dd015",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-05-18T09:26:53Z",
+      "side": 1,
+      "message": "Whatever oplus devices that build right now are going to fail.",
+      "revId": "f54285ebab4051a5371b4e7eb0641ed7c19abeec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
