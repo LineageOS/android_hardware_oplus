@@ -52,6 +52,24 @@
       "parentUuid": "34323ec6_426d289b",
       "revId": "2261dc17ae2303a08721bdadc06622b739267f16",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "127ced0b_1e662616",
+        "filename": "sepolicy/qti/vendor/hal_power_default.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-05-18T10:34:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "292d87ba_32269891",
+      "revId": "2261dc17ae2303a08721bdadc06622b739267f16",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
