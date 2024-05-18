@@ -16,6 +16,24 @@
       "message": "Why was this kept?",
       "revId": "2261dc17ae2303a08721bdadc06622b739267f16",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34323ec6_426d289b",
+        "filename": "sepolicy/qti/vendor/hal_power_default.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-05-18T10:30:27Z",
+      "side": 1,
+      "message": "cause there\u0027s no such rule in common.",
+      "parentUuid": "a989154b_2cbdf0e2",
+      "revId": "2261dc17ae2303a08721bdadc06622b739267f16",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
