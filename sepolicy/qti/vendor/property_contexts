@@ -21,9 +21,6 @@ vendor.modem_dump_action    u:object_r:vendor_modem_prop:s0
 # NFC
 vendor.oplus.nfc.fw.version    u:object_r:vendor_nfc_nq_prop:s0
 
-# Power
-vendor.powerhal.    u:object_r:vendor_powerhal_prop:s0
-
 # Radio
 persist.vendor.oplus.radio.    u:object_r:vendor_radio_prop:s0
 ro.vendor.oplus.radio.         u:object_r:vendor_radio_prop:s0
