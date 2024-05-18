@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2022-2023 The LineageOS Project
+# Copyright (C) 2022-2024 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -28,3 +28,5 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += \
     hardware/oplus/sepolicy/qti/public/common-um
 endif
+
+include device/lineage/sepolicy/libperfmgr/sepolicy.mk
