@@ -8,4 +8,4 @@ PRODUCT_PACKAGES += \
     libqti-perfd-client
 
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    hardware/qcom-caf/common/libqti-perfd-client
