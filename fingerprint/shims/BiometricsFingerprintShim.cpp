@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The LineageOS Project
+ * Copyright (C) 2022-2024 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,4 +36,21 @@ extern "C" int __system_property_get(const char* __name, char* __value) {
     }
 
     return __system_property_get_orig(__name, __value);
+}
+
+extern "C" int property_get(const char* key, char* value, const char* default_value) {
+    static auto property_get_orig =
+            reinterpret_cast<typeof(property_get)*>(dlsym(RTLD_NEXT, "property_get"));
+
+    if (strcmp(key, "ro.boot.vbmeta.device_state") == 0) {
+        ALOGV("Returning unlocked for ro.boot.vbmeta.device_state");
+        return strlen(strcpy(value, "unlocked"));
+    }
+
+    if (strcmp(key, "ro.boot.verifiedbootstate") == 0) {
+        ALOGV("Returning orange for ro.boot.verifiedbootstate");
+        return strlen(strcpy(value, "orange"));
+    }
+
+    return property_get_orig(key, value, default_value);
 }
