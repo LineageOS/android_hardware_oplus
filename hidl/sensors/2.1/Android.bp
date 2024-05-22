@@ -18,10 +18,28 @@ package {
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
+soong_config_module_type {
+    name: "oplus_sensors_hal_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "OPLUS_SENSORS_HAL",
+    bool_variables: ["ENABLE_CUSTOM_FLAGS"],
+    properties: ["cflags"],
+}
+
+oplus_sensors_hal_cc_defaults {
+    name: "oplus_sensors_hal_defaults",
+    soong_config_variables: {
+        ENABLE_CUSTOM_FLAGS: {
+            cflags: ["-DCUSTOM_FLAGS"],
+        },
+    },
+}
+
 cc_binary {
     name: "android.hardware.sensors@2.1-service.oplus-multihal",
     defaults: [
         "hidl_defaults",
+        "oplus_sensors_hal_defaults",
     ],
     vendor: true,
     relative_install_path: "hw",
