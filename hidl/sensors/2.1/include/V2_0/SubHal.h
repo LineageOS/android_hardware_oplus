@@ -110,7 +110,9 @@ class ISensorsSubHal : public ISensors {
         return Result::INVALID_OPERATION;
     }
 
+#ifdef CUSTOM_FLAGS
     virtual Return<void> setCustomFlag(int32_t flag, int32_t status) = 0;
+#endif
 
     /**
      * Method defined in ::android::hidl::base::V1_0::IBase.
