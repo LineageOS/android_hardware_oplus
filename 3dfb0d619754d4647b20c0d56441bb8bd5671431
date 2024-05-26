@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba430c61_6e72affb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18745
+      },
+      "writtenOn": "2024-05-26T14:00:31Z",
+      "side": 1,
+      "message": "Works on N20. Should work on N30 as well, since it uses jiiov_fp too",
+      "revId": "3dfb0d619754d4647b20c0d56441bb8bd5671431",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
