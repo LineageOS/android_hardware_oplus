@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0efe631b_5685cdf0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18745
+      },
+      "writtenOn": "2024-05-26T14:01:39Z",
+      "side": 1,
+      "message": "Works fine, but will check N30 partitions just in case",
+      "revId": "6bf305f43821d53018a2f3aed2157adedc2c1324",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c895242b_9a56a0f4",
