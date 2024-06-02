@@ -1,0 +1,25 @@
+aidl_interface {
+    name: "vendor.oplus.hardware.touch",
+    vendor_available: true,
+    srcs: [
+        "vendor/oplus/hardware/touch/*.aidl",
+    ],
+    frozen: true,
+    stability: "vintf",
+    owner: "oplus",
+    backend: {
+        cpp: {
+            enabled: false,
+        },
+        java: {
+            enabled: false,
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+
+}
