@@ -1,0 +1,17 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_static {
+    name: "libperfmgr-ext-oplus",
+    defaults: ["android.hardware.power-ndk_shared"],
+    vendor: true,
+    srcs: [
+        "power-mode.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+    ],
+    whole_static_libs: ["vendor.oplus.hardware.touch-V2-ndk"],
+}
