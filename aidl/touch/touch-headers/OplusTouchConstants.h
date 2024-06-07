@@ -9,6 +9,9 @@
 static constexpr int DEFAULT_TP_IC_ID = 0;
 static constexpr int SUB_DISPLAY_TP_IC_ID = 1;
 
+// Features
+static constexpr int DOUBLE_TAP_GESTURE = 1 << 1;
+
 // Node IDs
 static constexpr int DOUBLE_TAP_ENABLE_NODE = 1;
 static constexpr int DOUBLE_TAP_INDEP_NODE = 21;
