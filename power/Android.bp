@@ -1,0 +1,26 @@
+//
+// SPDX-FileCopyrightText: 2024-2025 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_static {
+    name: "power-ext-oplus",
+    defaults: ["android.hardware.power-ndk_shared"],
+    vendor: true,
+    srcs: [
+        "power-mode.cpp",
+    ],
+    cppflags: select(soong_config_variable("power_libperfmgr", "mode_extension_lib"), {
+        any: ["-DLIBPERFMGR_EXT"],
+        default: [],
+    }),
+    header_libs: [
+        "vendor.oplus.hardware.touch-headers",
+    ],
+    shared_libs: [
+        "libbase",
+    ],
+    whole_static_libs: [
+        "vendor.oplus.hardware.touch-V2-ndk",
+    ],
+}
