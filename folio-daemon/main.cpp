@@ -104,8 +104,9 @@ int main(void) {
      */
     while (true) {
         time_t now = time(NULL);
-        hallSensor = ASensorManager_getDefaultSensor(sensorManager,
-                                                     SENSOR_TYPE);
+        hallSensor = ASensorManager_getDefaultSensorEx(sensorManager,
+                                                       SENSOR_TYPE,
+                                                       true);
         if (hallSensor != nullptr) {
             hallMinDelay = ASensor_getMinDelay(hallSensor);
             break;
