@@ -1,1 +1,7 @@
+hal_client_domain(hal_lineage_touch_default, vendor_hal_oplus_touch)
+binder_call(hal_lineage_touch_default, hal_oplus_touch_aidl)
+
+allow hal_lineage_touch_default hal_oplus_touch_aidl_service:service_manager find;
+allow hal_lineage_touch_default servicemanager:binder call;
+
 rw_dir_file(hal_lineage_touch_default, vendor_proc_display)
