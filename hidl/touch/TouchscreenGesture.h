@@ -16,6 +16,9 @@
 
 #pragma once
 
+#ifdef ENABLE_OPLUSTOUCH
+#include <aidl/vendor/oplus/hardware/touch/IOplusTouch.h>
+#endif
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
 #include <vendor/lineage/touch/1.0/ITouchscreenGesture.h>
@@ -27,12 +30,18 @@ namespace touch {
 namespace V1_0 {
 namespace implementation {
 
+#ifdef ENABLE_OPLUSTOUCH
+using ::aidl::vendor::oplus::hardware::touch::IOplusTouch;
+#endif
 using ::android::hardware::Return;
 using ::android::hardware::Void;
 using ::vendor::lineage::touch::V1_0::Gesture;
 
 class TouchscreenGesture : public ITouchscreenGesture {
   public:
+#ifdef ENABLE_OPLUSTOUCH
+    TouchscreenGesture();
+#endif
     // Methods from ::vendor::lineage::touch::V1_0::ITouchscreenGesture follow.
     Return<void> getSupportedGestures(getSupportedGestures_cb resultCb) override;
     Return<bool> setGestureEnabled(const Gesture& gesture, bool enabled) override;
@@ -89,6 +98,9 @@ class TouchscreenGesture : public ITouchscreenGesture {
         return ((1 << head) | ... | (1 << tail));
     }
     static const int kSupportedGestures;
+#ifdef ENABLE_OPLUSTOUCH
+    std::shared_ptr<IOplusTouch> mOplusTouch;
+#endif
 };
 
 }  // namespace implementation
