@@ -20,12 +20,21 @@
 
 #include <android-base/file.h>
 
+#ifdef ENABLE_OPLUSTOUCH
+#include <android-base/logging.h>
+#include <android/binder_manager.h>
+#endif
+
+#ifndef ENABLE_OPLUSTOUCH
 using ::android::base::ReadFileToString;
 using ::android::base::WriteStringToFile;
+#endif
 
 namespace {
 
+#ifndef ENABLE_OPLUSTOUCH
 constexpr const char* kGameSwitchEnablePath = "/proc/touchpanel/game_switch_enable";
+#endif
 
 }  // anonymous namespace
 
@@ -37,11 +46,37 @@ namespace implementation {
 
 Return<bool> HighTouchPollingRate::isEnabled() {
     std::string value;
+#ifdef ENABLE_OPLUSTOUCH
+    // Connect to IOplusTouch
+    const std::string instance = std::string() + IOplusTouch::descriptor + "/default";
+    mTouchService = IOplusTouch::fromBinder(
+            ndk::SpAIBinder(AServiceManager_waitForService(instance.c_str())));
+
+    // Read current value
+    mTouchService->touchReadNodeFile(0, 26, &value);
+
+    return value[0] != '0';
+#else
     return ReadFileToString(kGameSwitchEnablePath, &value) && value[0] != '0';
+#endif
 }
 
 Return<bool> HighTouchPollingRate::setEnabled(bool enabled) {
+#ifdef ENABLE_OPLUSTOUCH
+    int result;
+
+    // Connect to IOplusTouch
+    const std::string instance = std::string() + IOplusTouch::descriptor + "/default";
+    mTouchService = IOplusTouch::fromBinder(
+            ndk::SpAIBinder(AServiceManager_waitForService(instance.c_str())));
+
+    // Always keep gestures enabled
+    mTouchService->touchWriteNodeFile(0, 26, enabled ? "1" : "0", &result);
+
+    return true;
+#else
     return WriteStringToFile(enabled ? "1" : "0", kGameSwitchEnablePath, true);
+#endif
 }
 
 }  // namespace implementation
