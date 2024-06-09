@@ -16,6 +16,9 @@
 
 #pragma once
 
+#ifdef ENABLE_OPLUSTOUCH
+#include <aidl/vendor/oplus/hardware/touch/IOplusTouch.h>
+#endif
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
 #include <vendor/lineage/touch/1.0/ITouchscreenGesture.h>
@@ -27,6 +30,9 @@ namespace touch {
 namespace V1_0 {
 namespace implementation {
 
+#ifdef ENABLE_OPLUSTOUCH
+using ::aidl::vendor::oplus::hardware::touch::IOplusTouch;
+#endif
 using ::android::hardware::Return;
 using ::android::hardware::Void;
 using ::vendor::lineage::touch::V1_0::Gesture;
