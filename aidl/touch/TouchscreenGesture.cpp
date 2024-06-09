@@ -10,6 +10,9 @@
 
 #include <TouchscreenGestureConfig.h>
 
+#ifdef USE_OPLUSTOUCH
+#include <android/binder_manager.h>
+#else
 using ::android::base::ReadFileToString;
 using ::android::base::Trim;
 using ::android::base::WriteStringToFile;
@@ -19,6 +22,7 @@ namespace {
 constexpr const char* kGestureEnableIndepPath = "/proc/touchpanel/double_tap_enable_indep";
 
 }  // anonymous namespace
+#endif
 
 namespace aidl {
 namespace vendor {
@@ -39,13 +43,25 @@ ndk::ScopedAStatus TouchscreenGesture::getSupportedGestures(std::vector<Gesture>
 }
 
 ndk::ScopedAStatus TouchscreenGesture::setGestureEnabled(const Gesture& gesture, bool enabled) {
+    std::string tmp;
     int contents = 0;
+#ifdef USE_OPLUSTOUCH
+    int result;
 
-    if (std::string tmp; ReadFileToString(kGestureEnableIndepPath, &tmp)) {
+    // Connect to IOplusTouch
+    const std::string instance = std::string() + IOplusTouch::descriptor + "/default";
+    std::shared_ptr<IOplusTouch> oplusTouch = IOplusTouch::fromBinder(
+            ndk::SpAIBinder(AServiceManager_waitForService(instance.c_str())));
+
+    oplusTouch->touchReadNodeFile(0, 21, &tmp);
+    contents = std::stoi(tmp, nullptr, 16);
+#else
+    if (ReadFileToString(kGestureEnableIndepPath, &tmp)) {
         contents = std::stoi(Trim(tmp), nullptr, 16);
     } else {
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
+#endif
 
     if (enabled) {
         contents |= (1 << (gesture.keycode - kGestureStartKey));
@@ -53,9 +69,14 @@ ndk::ScopedAStatus TouchscreenGesture::setGestureEnabled(const Gesture& gesture,
         contents &= ~(1 << (gesture.keycode - kGestureStartKey));
     }
 
+#ifdef USE_OPLUSTOUCH
+    oplusTouch->touchWriteNodeFile(0, 1, "1", &result);
+    oplusTouch->touchWriteNodeFile(0, 21, std::to_string(contents), &result);
+#else
     if (!WriteStringToFile(std::to_string(contents), kGestureEnableIndepPath, true)) {
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
+#endif
 
     return ndk::ScopedAStatus::ok();
 }

@@ -10,7 +10,7 @@ init_daemon_domain(hal_oplus_touch_aidl)
 
 binder_call(vendor_hal_oplus_touch_client, vendor_hal_oplus_touch_server)
 
-hal_attribute_service(vendor_hal_oplus_touch, hal_oplus_touch_aidl_service)
+add_service(hal_oplus_touch_aidl, hal_oplus_touch_aidl_service)
 
 allow hal_oplus_touch_aidl hal_oplus_touchdaemon:binder call;
 

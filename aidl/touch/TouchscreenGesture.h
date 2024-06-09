@@ -6,12 +6,19 @@
 #pragma once
 
 #include <aidl/vendor/lineage/touch/BnTouchscreenGesture.h>
+#ifdef USE_OPLUSTOUCH
+#include <aidl/vendor/oplus/hardware/touch/IOplusTouch.h>
+#endif
 #include <map>
 
 namespace aidl {
 namespace vendor {
 namespace lineage {
 namespace touch {
+
+#ifdef USE_OPLUSTOUCH
+using ::aidl::vendor::oplus::hardware::touch::IOplusTouch;
+#endif
 
 class TouchscreenGesture : public BnTouchscreenGesture {
   public:
