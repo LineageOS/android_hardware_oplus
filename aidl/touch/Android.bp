@@ -26,7 +26,10 @@ cc_binary {
         "libbinder_ndk",
         "libutils",
         "vendor.lineage.touch-V1-ndk",
-    ],
+    ] + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "USE_OPLUSTOUCH"), {
+        "true": ["vendor.oplus.hardware.touch-V2-ndk"],
+        default: [],
+    }),
     include_dirs: select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "INCLUDE_DIR"), {
         any @ flag_val: [flag_val],
         default: [],
@@ -37,5 +40,8 @@ cc_binary {
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_TG"), {
         "false": ["-DENABLE_TG=false"],
         default: ["-DENABLE_TG=true"],
+    }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "USE_OPLUSTOUCH"), {
+        "true": ["-DUSE_OPLUSTOUCH=true"],
+        default: ["-DUSE_OPLUSTOUCH=false"],
     }),
 }
