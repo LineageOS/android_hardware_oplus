@@ -15,9 +15,19 @@ cc_binary {
         "libhidlbase",
         "libutils",
         "vendor.lineage.touch@1.0",
-    ],
+    ] + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_OPLUSTOUCH"), {
+        "true": [
+            "libbinder_ndk",
+            "vendor.oplus.hardware.touch-V2-ndk",
+        ],
+        default: [],
+    }),
     include_dirs: select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "INCLUDE_DIR"), {
         any @ flag_val: [flag_val],
+        default: [],
+    }),
+    cflags: select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_OPLUSTOUCH"), {
+        "true": ["-DENABLE_OPLUSTOUCH=true"],
         default: [],
     }),
 }
