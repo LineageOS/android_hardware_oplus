@@ -20,12 +20,16 @@ cc_binary {
         "TouchscreenGesture.cpp",
         "service.cpp",
     ],
+    header_libs: [
+        "vendor.oplus.hardware.touch-headers",
+    ],
     shared_libs: [
         "libbase",
         "liblog",
         "libbinder_ndk",
         "libutils",
         "vendor.lineage.touch-V1-ndk",
+        "vendor.oplus.hardware.touch-V2-ndk",
     ],
     include_dirs: select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "INCLUDE_DIR"), {
         any @ flag_val: [flag_val],
@@ -37,6 +41,9 @@ cc_binary {
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_TG"), {
         "false": ["-DENABLE_TG=false"],
         default: ["-DENABLE_TG=true"],
+    }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "USE_OPLUSTOUCH"), {
+        "true": ["-DUSE_OPLUSTOUCH=true"],
+        default: ["-DUSE_OPLUSTOUCH=false"],
     }),
 }
 
