@@ -25,6 +25,9 @@ namespace vendor {
 namespace lineage {
 namespace touch {
 
+TouchscreenGesture::TouchscreenGesture(std::shared_ptr<IOplusTouch> oplusTouch)
+    : mOplusTouch(std::move(oplusTouch)) {}
+
 ndk::ScopedAStatus TouchscreenGesture::getSupportedGestures(std::vector<Gesture>* _aidl_return) {
     std::vector<Gesture> gestures;
 
@@ -39,9 +42,13 @@ ndk::ScopedAStatus TouchscreenGesture::getSupportedGestures(std::vector<Gesture>
 }
 
 ndk::ScopedAStatus TouchscreenGesture::setGestureEnabled(const Gesture& gesture, bool enabled) {
+    std::string tmp;
     int contents = 0;
 
-    if (std::string tmp; ReadFileToString(kGestureEnableIndepPath, &tmp)) {
+    if (mOplusTouch) {
+        mOplusTouch->touchReadNodeFile(0, 21, &tmp);
+        contents = std::stoi(tmp, nullptr, 16);
+    } else if (ReadFileToString(kGestureEnableIndepPath, &tmp)) {
         contents = std::stoi(Trim(tmp), nullptr, 16);
     } else {
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
@@ -53,7 +60,10 @@ ndk::ScopedAStatus TouchscreenGesture::setGestureEnabled(const Gesture& gesture,
         contents &= ~(1 << (gesture.keycode - kGestureStartKey));
     }
 
-    if (!WriteStringToFile(std::to_string(contents), kGestureEnableIndepPath, true)) {
+    if (mOplusTouch) {
+        mOplusTouch->touchWriteNodeFileOneWay(0, 1, "1");
+        mOplusTouch->touchWriteNodeFileOneWay(0, 21, std::to_string(contents));
+    } else if (!WriteStringToFile(std::to_string(contents), kGestureEnableIndepPath, true)) {
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
 
