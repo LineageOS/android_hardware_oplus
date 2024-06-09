@@ -1,0 +1,13 @@
+type hal_lineage_touch_oplus, domain;
+hal_server_domain(hal_lineage_touch_oplus, hal_lineage_touch)
+
+type hal_lineage_touch_oplus_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_lineage_touch_oplus)
+
+hal_client_domain(hal_lineage_touch_oplus, vendor_hal_oplus_touch)
+binder_call(hal_lineage_touch_oplus, hal_oplus_touch_aidl)
+
+allow hal_lineage_touch_oplus hal_oplus_touch_aidl_service:service_manager find;
+allow hal_lineage_touch_oplus servicemanager:binder call;
+
+rw_dir_file(hal_lineage_touch_oplus, vendor_proc_display)
