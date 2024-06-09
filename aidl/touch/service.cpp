@@ -14,13 +14,21 @@
 
 using aidl::vendor::lineage::touch::HighTouchPollingRate;
 using aidl::vendor::lineage::touch::TouchscreenGesture;
+using aidl::vendor::oplus::hardware::touch::IOplusTouch;
 
 int main() {
     ABinderProcess_setThreadPoolMaxThreadCount(0);
+
+    const std::string instance = std::string() + IOplusTouch::descriptor + "/default";
+    std::shared_ptr<IOplusTouch> oplusTouch =
+            USE_OPLUSTOUCH ? IOplusTouch::fromBinder(ndk::SpAIBinder(
+                                     AServiceManager_waitForService(instance.c_str())))
+                           : nullptr;
+
     std::shared_ptr<HighTouchPollingRate> htpr =
-            ENABLE_HTPR ? ndk::SharedRefBase::make<HighTouchPollingRate>() : nullptr;
+            ENABLE_HTPR ? ndk::SharedRefBase::make<HighTouchPollingRate>(oplusTouch) : nullptr;
     std::shared_ptr<TouchscreenGesture> tg =
-            ENABLE_TG ? ndk::SharedRefBase::make<TouchscreenGesture>() : nullptr;
+            ENABLE_TG ? ndk::SharedRefBase::make<TouchscreenGesture>(oplusTouch) : nullptr;
 
     if (htpr) {
         const std::string instance = std::string(HighTouchPollingRate::descriptor) + "/default";

@@ -10,6 +10,8 @@
 #include <android-base/file.h>
 #include <android-base/logging.h>
 
+#include <OplusTouchConstants.h>
+
 using ::android::base::ReadFileToString;
 using ::android::base::WriteStringToFile;
 
@@ -24,9 +26,15 @@ namespace vendor {
 namespace lineage {
 namespace touch {
 
+HighTouchPollingRate::HighTouchPollingRate(std::shared_ptr<IOplusTouch> oplusTouch)
+    : mOplusTouch(std::move(oplusTouch)) {}
+
 ndk::ScopedAStatus HighTouchPollingRate::getEnabled(bool* _aidl_return) {
     std::string value;
-    if (!ReadFileToString(kGameSwitchEnablePath, &value)) {
+
+    if (mOplusTouch) {
+        mOplusTouch->touchReadNodeFile(DEFAULT_TP_IC_ID, GAME_SWITCH_ENABLE_NODE, &value);
+    } else if (!ReadFileToString(kGameSwitchEnablePath, &value)) {
         LOG(ERROR) << "Failed to read current HighTouchPollingRate state";
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
@@ -36,7 +44,10 @@ ndk::ScopedAStatus HighTouchPollingRate::getEnabled(bool* _aidl_return) {
 }
 
 ndk::ScopedAStatus HighTouchPollingRate::setEnabled(bool enable) {
-    if (!WriteStringToFile(enable ? "1" : "0", kGameSwitchEnablePath, true)) {
+    if (mOplusTouch) {
+        mOplusTouch->touchWriteNodeFileOneWay(DEFAULT_TP_IC_ID, GAME_SWITCH_ENABLE_NODE,
+                                              enable ? "1" : "0");
+    } else if (!WriteStringToFile(enable ? "1" : "0", kGameSwitchEnablePath, true)) {
         LOG(ERROR) << "Failed to write HighTouchPollingRate state";
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
