@@ -20,6 +20,11 @@
 
 #include <android-base/file.h>
 
+#ifdef ENABLE_OPLUSTOUCH
+#include <android/binder_manager.h>
+#endif
+
+#ifndef ENABLE_OPLUSTOUCH
 using ::android::base::ReadFileToString;
 using ::android::base::WriteStringToFile;
 
@@ -28,6 +33,7 @@ namespace {
 constexpr const char* kGameSwitchEnablePath = "/proc/touchpanel/game_switch_enable";
 
 }  // anonymous namespace
+#endif
 
 namespace vendor {
 namespace lineage {
@@ -35,13 +41,38 @@ namespace touch {
 namespace V1_0 {
 namespace implementation {
 
+#ifdef ENABLE_OPLUSTOUCH
+HighTouchPollingRate::HighTouchPollingRate() {
+    // Connect to IOplusTouch
+    const std::string instance = std::string() + IOplusTouch::descriptor + "/default";
+    mOplusTouch = IOplusTouch::fromBinder(
+            ndk::SpAIBinder(AServiceManager_waitForService(instance.c_str())));
+}
+#endif
+
 Return<bool> HighTouchPollingRate::isEnabled() {
     std::string value;
+#ifdef ENABLE_OPLUSTOUCH
+    // Read current value
+    mOplusTouch->touchReadNodeFile(0, 26, &value);
+
+    return value[0] != '0';
+#else
     return ReadFileToString(kGameSwitchEnablePath, &value) && value[0] != '0';
+#endif
 }
 
 Return<bool> HighTouchPollingRate::setEnabled(bool enabled) {
+#ifdef ENABLE_OPLUSTOUCH
+    int result;
+
+    // Always keep gestures enabled
+    mOplusTouch->touchWriteNodeFile(0, 26, enabled ? "1" : "0", &result);
+
+    return true;
+#else
     return WriteStringToFile(enabled ? "1" : "0", kGameSwitchEnablePath, true);
+#endif
 }
 
 }  // namespace implementation
