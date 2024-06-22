@@ -45,6 +45,7 @@ typedef V2_0::implementation::ISensorsSubHal*(SensorsHalGetSubHalFunc)(uint32_t*
 typedef V2_1::implementation::ISensorsSubHal*(SensorsHalGetSubHalV2_1Func)(uint32_t*);
 
 static constexpr int32_t kBitsAfterSubHalIndex = 24;
+static constexpr int SENSOR_TYPE_QTI_WISE_LIGHT = 33171103;
 
 /**
  * Set the subhal index as first byte of sensor handle and return this modified version.
@@ -493,6 +494,10 @@ void HalProxy::initializeSensorList() {
                     ALOGV("Loaded sensor: %s", sensor.name.c_str());
                     sensor.sensorHandle = setSubHalIndex(sensor.sensorHandle, subHalIndex);
                     setDirectChannelFlags(&sensor, mSubHalList[subHalIndex]);
+                    if (static_cast<int>(sensor.type) == SENSOR_TYPE_QTI_WISE_LIGHT) {
+                        sensor.type = SensorType::LIGHT;
+                        ALOGV("Replaced QTI Light sensor with standard light sensor");
+                    }
                     mSensors[sensor.sensorHandle] = sensor;
                 }
             }
