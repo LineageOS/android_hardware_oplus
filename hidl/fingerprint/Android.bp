@@ -19,6 +19,7 @@ cc_binary {
         "vendor.oplus.hardware.biometrics.fingerprint@2.1",
     ],
     header_libs: ["kernel_headers.oplus"],
+    required: ["qwerty.kl"],
 }
 
 cc_library {
@@ -40,4 +41,10 @@ cc_library_static {
     header_libs: [
         "generated_kernel_headers",
     ],
+}
+
+prebuilt_usr_keylayout {
+    name: "qwerty.kl",
+    src: "qwerty.kl",
+    vendor: true,
 }
