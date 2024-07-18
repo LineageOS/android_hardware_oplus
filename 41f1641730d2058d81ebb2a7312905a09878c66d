@@ -16,6 +16,24 @@
       "message": "what file does it want to read?",
       "revId": "41f1641730d2058d81ebb2a7312905a09878c66d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d2ba413_36482b7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26672
+      },
+      "writtenOn": "2024-07-18T16:54:31Z",
+      "side": 1,
+      "message": "/proc/devinfo/lcd",
+      "parentUuid": "48fad9ed_0f2cb4c7",
+      "revId": "41f1641730d2058d81ebb2a7312905a09878c66d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
