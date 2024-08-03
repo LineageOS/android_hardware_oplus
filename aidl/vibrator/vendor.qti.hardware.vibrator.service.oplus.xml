@@ -28,6 +28,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 <manifest version="1.0" type="device">
     <hal format="aidl">
         <name>android.hardware.vibrator</name>
+        <version>2</version>
         <fqname>IVibrator/default</fqname>
     </hal>
 </manifest>
