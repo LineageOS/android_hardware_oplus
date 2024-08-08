@@ -33,3 +33,6 @@ vendor.gsm.serial         u:object_r:vendor_nw_exported_system_prop:s0
 vendor.oplus.touch.          u:object_r:vendor_oplus_touch_prop:s0
 vendor.oplus.touchDaemon.    u:object_r:vendor_oplus_touch_prop:s0
 vendor.touchdaemon.          u:object_r:vendor_oplus_touch_prop:s0
+
+# Widevine
+vendor.wvm.disable_l1    u:object_r:vendor_wvmkiller_prop:s0
