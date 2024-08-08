@@ -1,0 +1,9 @@
+type vendor_wvmkiller, domain;
+type vendor_wvmkiller_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(vendor_wvmkiller)
+
+hal_client_domain(vendor_wvmkiller, hal_drm)
+
+get_prop(vendor_wvmkiller, hwservicemanager_prop)
+set_prop(vendor_wvmkiller, vendor_wvmkiller_prop)
