@@ -125,6 +125,7 @@
 
 # Widevine
 /(odm|vendor/odm)/bin/hw/android\.hardware\.drm@1\.[0-4]+-service\.widevine    u:object_r:vendor_hal_drm_widevine_exec:s0
+/(vendor|system/vendor)/bin/wvmkiller                                          u:object_r:vendor_wvmkiller_exec:s0
 
 # Wlchgmonitor
 /(odm|vendor/odm)/bin/wlchgmonitor    u:object_r:wlchgmonitor_exec:s0

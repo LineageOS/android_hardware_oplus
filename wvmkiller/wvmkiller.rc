@@ -1,0 +1,9 @@
+on property:vendor.wvm.disable_l1=1
+    export FORCE_LEVEL3_OEMCRYPTO yes
+    restart vendor.drm-widevine-hal-1-3
+
+service vendor.wvmkiller /vendor/bin/wvmkiller
+    class late_start
+    user system
+    group system
+    oneshot
