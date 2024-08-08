@@ -1,0 +1,13 @@
+cc_binary {
+    name: "wvmkiller",
+    defaults: ["hidl_defaults"],
+    init_rc: ["wvmkiller.rc"],
+    vendor: true,
+    srcs: ["main.cpp"],
+    shared_libs: [
+        "android.hardware.drm@1.0",
+        "libbase",
+        "libhidlbase",
+        "libutils",
+    ],
+}
