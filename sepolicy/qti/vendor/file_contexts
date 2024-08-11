@@ -1,21 +1,21 @@
 # Alert Slider
-/(vendor|system/vendor)/bin/tri-state-key-calibrate    u:object_r:tri-state-key-calibrate_exec:s0
+/vendor/bin/tri-state-key-calibrate    u:object_r:tri-state-key-calibrate_exec:s0
 
 # Camera
-/data/vendor/camera_update(/.*)?                                                  u:object_r:vendor_camera_update_data_file:s0
-/mnt/vendor/persist/camera(/.*)?                                                  u:object_r:vendor_persist_camera_file:s0
-/mnt/vendor/persist/dual_camera_calibration(/.*)?                                 u:object_r:vendor_persist_camera_file:s0
-/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.cammidasservice-V1-service      u:object_r:hal_oplus_cammidasservice_aidl_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oplus\.hardware\.cameraMDM@1\.0-service    u:object_r:vendor_hal_cameraMDM_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oplus\.hardware\.cameraMDM@2\.0-service    u:object_r:vendor_hal_cameraMDM_default_exec:s0
-/(vendor|system/vendor)/lib64/libipebpsstriping\.so                               u:object_r:same_process_hal_file:s0
+/data/vendor/camera_update(/.*)?                                                u:object_r:vendor_camera_update_data_file:s0
+/mnt/vendor/persist/camera(/.*)?                                                u:object_r:vendor_persist_camera_file:s0
+/mnt/vendor/persist/dual_camera_calibration(/.*)?                               u:object_r:vendor_persist_camera_file:s0
+/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.cammidasservice-V1-service    u:object_r:hal_oplus_cammidasservice_aidl_exec:s0
+/vendor/bin/hw/vendor\.oplus\.hardware\.cameraMDM@1\.0-service                  u:object_r:vendor_hal_cameraMDM_default_exec:s0
+/vendor/bin/hw/vendor\.oplus\.hardware\.cameraMDM@2\.0-service                  u:object_r:vendor_hal_cameraMDM_default_exec:s0
+/vendor/lib64/libipebpsstriping\.so                                             u:object_r:same_process_hal_file:s0
 
 # Charging
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.powershare@1\.0-service\.oplus    u:object_r:hal_lineage_powershare_default_exec:s0
+/vendor/bin/hw/vendor\.lineage\.powershare@1\.0-service\.oplus    u:object_r:hal_lineage_powershare_default_exec:s0
 
 # Display
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.oplus    u:object_r:hal_lineage_livedisplay_qti_exec:s0
-/dev/oplus_display                                                                 u:object_r:graphics_device:s0
+/vendor/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.oplus    u:object_r:hal_lineage_livedisplay_qti_exec:s0
+/dev/oplus_display                                                 u:object_r:graphics_device:s0
 
 # Display (Pixelworks)
 /(odm|vendor/odm)/bin/hw/vendor\.pixelworks\.hardware\.display\.iris-service           u:object_r:hal_graphics_composer_default_exec:s0
@@ -28,7 +28,7 @@
 /data/vendor/fingerprint(_ori)?(/.*)?                                                            u:object_r:fingerprint_vendor_data_file:s0
 /mnt/vendor/persist/fingerprint(/.*)?                                                            u:object_r:vendor_persist_fingerprint_file:s0
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.biometrics\.fingerprint@2\.1-service(_uff)?    u:object_r:hal_fingerprint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.oplus    u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.oplus                    u:object_r:hal_fingerprint_default_exec:s0
 /dev/fingerprint_dev                                                                             u:object_r:fingerprint_device:s0
 /dev/goodix_fp                                                                                   u:object_r:fingerprint_device:s0
 
@@ -53,7 +53,7 @@
 /(odm|vendor/odm)/bin/hw/vendor\.nxp\.hardware\.nfc@1\.2-service      u:object_r:hal_nfc_default_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.qti\.esepowermanager@1\.1-service    u:object_r:vendor_hal_esepowermanager_qti_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service     u:object_r:hal_secure_element_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.nfc-service\.nxp    u:object_r:hal_nfc_default_exec:s0
+/vendor/bin/hw/android\.hardware\.nfc-service\.nxp                    u:object_r:hal_nfc_default_exec:s0
 /dev/pn553                                                            u:object_r:nfc_device:s0
 
 # Partitions
@@ -103,29 +103,29 @@
 /dev/stmvl53l1_ranging                      u:object_r:vendor_tof_device:s0
 
 # Touch
-/(odm|vendor/odm)/bin/hw/vendor-oplus-hardware-touch-V1-service              u:object_r:hal_oplus_touch_aidl_exec:s0
-/(odm|vendor/odm)/bin/hw/vendor-oplus-hardware-touch-V2-service              u:object_r:hal_oplus_touch_aidl_exec:s0
-/(odm|vendor/odm)/bin/touchDaemon                                            u:object_r:hal_oplus_touchdaemon_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.oplus    u:object_r:hal_lineage_touch_default_exec:s0
-/data/vendor/touch(/.*)?                                                     u:object_r:vendor_persist_oplus_touch_file:s0
-/data/vendor/touchconfig(/.*)?                                               u:object_r:vendor_persist_oplus_touch_file:s0
-/dev/socket/hidl2touchdaemon_client                                          u:object_r:oplus_touchdaemon_socket:s0
-/dev/socket/hidl2touchdaemon_server                                          u:object_r:oplus_touchdaemon_socket:s0
-/dev/tcm_hbp0                                                                u:object_r:oplus_touchdaemon_device:s0
-/dev/tcm1                                                                    u:object_r:oplus_touchdaemon_device:s0
-/dev/tp_misc(/.*)?                                                           u:object_r:oplus_touchdaemon_device:s0
-/dev/tp_misc1                                                                u:object_r:oplus_touchdaemon_device:s0
+/(odm|vendor/odm)/bin/hw/vendor-oplus-hardware-touch-V1-service    u:object_r:hal_oplus_touch_aidl_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor-oplus-hardware-touch-V2-service    u:object_r:hal_oplus_touch_aidl_exec:s0
+/(odm|vendor/odm)/bin/touchDaemon                                  u:object_r:hal_oplus_touchdaemon_exec:s0
+/vendor/bin/hw/vendor\.lineage\.touch@1\.0-service\.oplus          u:object_r:hal_lineage_touch_default_exec:s0
+/data/vendor/touch(/.*)?                                           u:object_r:vendor_persist_oplus_touch_file:s0
+/data/vendor/touchconfig(/.*)?                                     u:object_r:vendor_persist_oplus_touch_file:s0
+/dev/socket/hidl2touchdaemon_client                                u:object_r:oplus_touchdaemon_socket:s0
+/dev/socket/hidl2touchdaemon_server                                u:object_r:oplus_touchdaemon_socket:s0
+/dev/tcm_hbp0                                                      u:object_r:oplus_touchdaemon_device:s0
+/dev/tcm1                                                          u:object_r:oplus_touchdaemon_device:s0
+/dev/tp_misc(/.*)?                                                 u:object_r:oplus_touchdaemon_device:s0
+/dev/tp_misc1                                                      u:object_r:oplus_touchdaemon_device:s0
 
 # Ultrasound
 /dev/audio_ultrasound     u:object_r:ultrasound_device:s0
 /dev/sensor_ultrasound    u:object_r:ultrasound_device:s0
 
 # Vibrator
-/(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.oplus    u:object_r:hal_vibrator_default_exec:s0
+/vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.oplus    u:object_r:hal_vibrator_default_exec:s0
 
 # Widevine
 /(odm|vendor/odm)/bin/hw/android\.hardware\.drm@1\.[0-4]+-service\.widevine    u:object_r:vendor_hal_drm_widevine_exec:s0
-/(vendor|system/vendor)/bin/wvmkiller                                          u:object_r:vendor_wvmkiller_exec:s0
+/vendor/bin/wvmkiller                                                          u:object_r:vendor_wvmkiller_exec:s0
 
 # Wlchgmonitor
 /(odm|vendor/odm)/bin/wlchgmonitor    u:object_r:wlchgmonitor_exec:s0
