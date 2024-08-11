@@ -49,12 +49,12 @@
 /dev/block/platform/soc/4804000\.ufshc/by-name/mdm1oemnvbktmp     u:object_r:vendor_modem_efs_partition_device:s0
 
 # NFC
-/(odm|vendor/odm)/bin/hw/android\.hardware\.nfc@1\.2-service                u:object_r:hal_nfc_default_exec:s0
-/(odm|vendor/odm)/bin/hw/vendor\.nxp\.hardware\.nfc@1\.2-service            u:object_r:hal_nfc_default_exec:s0
-/(odm|vendor/odm)/bin/hw/vendor\.qti\.esepowermanager@1\.1-service          u:object_r:vendor_hal_esepowermanager_qti_exec:s0
-/(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service           u:object_r:hal_secure_element_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.nfc-service\.nxp          u:object_r:hal_nfc_default_exec:s0
-/dev/pn553                                                                  u:object_r:nfc_device:s0
+/(odm|vendor/odm)/bin/hw/android\.hardware\.nfc@1\.2-service          u:object_r:hal_nfc_default_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.nxp\.hardware\.nfc@1\.2-service      u:object_r:hal_nfc_default_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.qti\.esepowermanager@1\.1-service    u:object_r:vendor_hal_esepowermanager_qti_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service     u:object_r:hal_secure_element_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.nfc-service\.nxp    u:object_r:hal_nfc_default_exec:s0
+/dev/pn553                                                            u:object_r:nfc_device:s0
 
 # Partitions
 /dev/block/platform/soc/1d84000\.ufshc/by-name/engineering_cdt_[ab]    u:object_r:vendor_custom_ab_block_device:s0
@@ -75,12 +75,12 @@
 /(odm|vendor/odm)/bin/hw/vendor.oplus.hardware.stability.oplus_project-V1-service    u:object_r:hal_oplus_project_aidl_exec:s0
 
 # RMT
-/dev/block/platform/soc/1d84000\.ufshc/by-name/oem_dycnvbk           u:object_r:vendor_modem_efs_partition_device:s0
-/dev/block/platform/soc/1d84000\.ufshc/by-name/oem_stanvbk           u:object_r:vendor_modem_efs_partition_device:s0
-/dev/block/platform/soc/1d84000\.ufshc/by-name/oplusdycnvbk          u:object_r:vendor_modem_efs_partition_device:s0
-/dev/block/platform/soc/1d84000\.ufshc/by-name/oplusstanvbk_[ab]     u:object_r:vendor_modem_efs_partition_device:s0
-/dev/block/platform/soc/4804000\.ufshc/by-name/oplusdycnvbk          u:object_r:vendor_modem_efs_partition_device:s0
-/dev/block/platform/soc/4804000\.ufshc/by-name/oplusstanvbk_[ab]     u:object_r:vendor_modem_efs_partition_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/oem_dycnvbk          u:object_r:vendor_modem_efs_partition_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/oem_stanvbk          u:object_r:vendor_modem_efs_partition_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/oplusdycnvbk         u:object_r:vendor_modem_efs_partition_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/oplusstanvbk_[ab]    u:object_r:vendor_modem_efs_partition_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/oplusdycnvbk         u:object_r:vendor_modem_efs_partition_device:s0
+/dev/block/platform/soc/4804000\.ufshc/by-name/oplusstanvbk_[ab]    u:object_r:vendor_modem_efs_partition_device:s0
 
 # Reserve
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oplusreserve[1-5]    u:object_r:vendor_reserve_partition:s0
