@@ -34,6 +34,24 @@
       "parentUuid": "d1badd43_d8047817",
       "revId": "4c37ab7678f3efea2d9ab5f54c57871eb5c19e00",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2d25b49_095f1955",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2024-08-14T08:24:25Z",
+      "side": 1,
+      "message": "This only happens on the first run. After the reboot, this problem does not occur.",
+      "parentUuid": "9284af64_60e1f356",
+      "revId": "4c37ab7678f3efea2d9ab5f54c57871eb5c19e00",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
