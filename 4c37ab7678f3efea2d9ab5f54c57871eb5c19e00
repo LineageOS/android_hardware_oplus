@@ -16,6 +16,24 @@
       "message": "There is an error during the clean installation and the first boot:\nhttps://paste.crdroid.net/Zqe5ZM",
       "revId": "4c37ab7678f3efea2d9ab5f54c57871eb5c19e00",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9284af64_60e1f356",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-08-14T08:20:46Z",
+      "side": 1,
+      "message": "then you can try to delay it somehow. See proprietary/odm/etc/init/android.hardware.drm@1.3-service.widevine.rc for one potential idea.",
+      "parentUuid": "d1badd43_d8047817",
+      "revId": "4c37ab7678f3efea2d9ab5f54c57871eb5c19e00",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
