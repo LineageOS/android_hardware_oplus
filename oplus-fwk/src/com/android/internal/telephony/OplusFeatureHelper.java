@@ -1,0 +1,51 @@
+/*
+ * Copyright (C) 2024 The LineageOS Project
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+package com.android.internal.telephony;
+
+import android.util.Log;
+import com.oplus.content.OplusFeatureConfigManager;
+import java.util.List;
+
+public class OplusFeatureHelper {
+    private static final String TAG = "OplusFeatureHelper";
+
+    private static OplusFeatureHelper sInstance = null;
+
+    public static OplusFeatureHelper getInstance() {
+        if (sInstance == null) {
+            sInstance = new OplusFeatureHelper();
+        }
+        return sInstance;
+    }
+
+    public boolean hasFeature(String featureName) {
+        Log.d(TAG, "hasFeature, feature=" + featureName);
+        return false;
+    }
+
+    public boolean enableFeature(String featureName) {
+        Log.d(TAG, "enableFeature, feature=" + featureName);
+        return true;
+    }
+
+    public boolean disableFeature(String featureName) {
+        Log.d(TAG, "disableFeature, feature=" + featureName);
+        return true;
+    }
+
+    public void notifyFeaturesUpdate(String action, String actionValue) {}
+
+    public boolean registerFeatureObserver(List<String> features, FeatureObserver observer) {
+        return true;
+    }
+
+    public boolean unregisterFeatureObserver(FeatureObserver observer) {
+        return true;
+    }
+
+    public static class FeatureObserver implements OplusFeatureConfigManager.OnFeatureObserver {
+    }
+}
