@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9df9da59_8dcca3a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-08-22T17:41:54Z",
+      "side": 1,
+      "message": "@tangalbert919@gmail.com can you check against A14 blobs on sm8350?",
+      "revId": "f1e50ece36136407475f241c0c610b049991b799",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
