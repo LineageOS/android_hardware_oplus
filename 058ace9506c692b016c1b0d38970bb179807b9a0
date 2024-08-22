@@ -70,6 +70,24 @@
       "parentUuid": "176187d0_c525c711",
       "revId": "058ace9506c692b016c1b0d38970bb179807b9a0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02d6758c_f63a42d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28158
+      },
+      "writtenOn": "2024-08-22T20:55:37Z",
+      "side": 1,
+      "message": "Used it before with a more \"complete\" oplus fwk implementation, had random crashes while making calls (around 30-45% chance) didn\u0027t look much into it, may have logs.",
+      "parentUuid": "c7d981fb_511f15e6",
+      "revId": "058ace9506c692b016c1b0d38970bb179807b9a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
