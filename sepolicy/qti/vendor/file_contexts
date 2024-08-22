@@ -10,9 +10,6 @@
 /vendor/bin/hw/vendor\.oplus\.hardware\.cameraMDM@2\.0-service                  u:object_r:vendor_hal_cameraMDM_default_exec:s0
 /vendor/lib64/libipebpsstriping\.so                                             u:object_r:same_process_hal_file:s0
 
-# Charging
-/vendor/bin/hw/vendor\.lineage\.powershare@1\.0-service\.oplus    u:object_r:hal_lineage_powershare_default_exec:s0
-
 # Display
 /vendor/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.oplus    u:object_r:hal_lineage_livedisplay_qti_exec:s0
 /dev/oplus_display                                                 u:object_r:graphics_device:s0
