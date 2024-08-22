@@ -58,6 +58,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e42266d3_9af46a15",
+        "filename": "oplus-fwk/src/com/android/internal/telephony/OplusFeatureHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-08-22T02:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83270180_f5a9b481",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 9
+      },
+      "revId": "9f69447c0a54bafd400444fe4434871371f16eaf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "adb72669_e8ee6e78",
@@ -71,6 +95,24 @@
       "writtenOn": "2024-08-21T19:28:42Z",
       "side": 1,
       "message": "`default void onFeatureUpdate(List\u003cString\u003e features) {}`",
+      "revId": "9f69447c0a54bafd400444fe4434871371f16eaf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a404565_31a67c5d",
+        "filename": "oplus-fwk/src/com/oplus/content/OplusFeatureConfigManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-08-22T02:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adb72669_e8ee6e78",
       "revId": "9f69447c0a54bafd400444fe4434871371f16eaf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
