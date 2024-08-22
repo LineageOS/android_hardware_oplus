@@ -34,6 +34,24 @@
       "parentUuid": "a2cfcd89_35868f11",
       "revId": "058ace9506c692b016c1b0d38970bb179807b9a0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "176187d0_c525c711",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28158
+      },
+      "writtenOn": "2024-08-22T19:47:07Z",
+      "side": 1,
+      "message": "why do we need stock IMS in the first place? needs extra proprietary code (this commit) and doesn\u0027t even work as well as the cleaner alternatives.",
+      "parentUuid": "4caae113_33cf1767",
+      "revId": "058ace9506c692b016c1b0d38970bb179807b9a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
