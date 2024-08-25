@@ -2,3 +2,27 @@ hidl_package_root {
     name: "vendor.oplus",
     path: "hardware/oplus/interfaces/oplus",
 }
+
+aidl_interface {
+    name: "vendor.oplus.hardware.osense.client",
+    vendor_available: true,
+    local_include_dir: "aidl",
+    srcs: ["aidl/vendor/oplus/hardware/osense/client/*.aidl"],
+    stability: "vintf",
+    owner: "oplus",
+
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            sdk_version: "module_current",
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+}
