@@ -18,6 +18,70 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3ecf1da_bb205f8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2024-08-25T16:17:38Z",
+      "side": 1,
+      "message": "https://gist.github.com/PIPIPIG233666/7b63ab35a96952ba252c0743c4f013da",
+      "parentUuid": "d8902f6f_ffc477f9",
+      "revId": "01aaa60dae5a201586bc8bc212bd031639f4f4fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eee50a2d_0e4b6452",
+        "filename": "sepolicy/qti/private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2024-08-25T16:17:38Z",
+      "side": 1,
+      "message": "Those are also QCOM ones",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "01aaa60dae5a201586bc8bc212bd031639f4f4fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63b9ff4f_435c2592",
+        "filename": "sepolicy/qti/private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2024-08-25T16:17:38Z",
+      "side": 1,
+      "message": "This is bt/wifi",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "01aaa60dae5a201586bc8bc212bd031639f4f4fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c628c154_bbd9ebdd",
@@ -31,6 +95,24 @@
       "writtenOn": "2024-08-25T15:57:31Z",
       "side": 1,
       "message": "At least this is not oplus specific",
+      "revId": "01aaa60dae5a201586bc8bc212bd031639f4f4fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cd3b49d_e38e67cb",
+        "filename": "sepolicy/qti/private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2024-08-25T16:17:38Z",
+      "side": 1,
+      "message": "Yeah",
+      "parentUuid": "c628c154_bbd9ebdd",
       "revId": "01aaa60dae5a201586bc8bc212bd031639f4f4fa",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
