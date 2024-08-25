@@ -108,6 +108,11 @@ class BiometricsFingerprint : public IBiometricsFingerprint,
                                   uint32_t resultLen) override;
 
   private:
+    bool isUFFVersion() {
+        std::string fingerprintVersion = GetProperty("persist.vendor.fingerprint.version", "");
+        return fingerprintVersion.find("UFF") != std::string::npos;
+    }
+
     bool isUdfps() {
         // We need to rely on `persist.vendor.fingerprint.sensor_type` here because we can't get our
         // sensorId from anywhere.
