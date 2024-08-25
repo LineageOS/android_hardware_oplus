@@ -17,6 +17,7 @@
 #pragma once
 
 #include <android-base/properties.h>
+#include <android-base/strings.h>
 #include <android/hardware/biometrics/fingerprint/2.1/types.h>
 #include <android/hardware/biometrics/fingerprint/2.2/IBiometricsFingerprintClientCallback.h>
 #include <android/hardware/biometrics/fingerprint/2.3/IBiometricsFingerprint.h>
@@ -112,6 +113,11 @@ class BiometricsFingerprint : public IBiometricsFingerprint,
         // We need to rely on `persist.vendor.fingerprint.sensor_type` here because we can't get our
         // sensorId from anywhere.
         return GetProperty("persist.vendor.fingerprint.sensor_type", "") == "optical";
+    }
+
+    bool isUff() {
+        return android::base::StartsWith(GetProperty("persist.vendor.fingerprint.version", ""),
+                                         "UFF ");
     }
 
     bool setDimlayerHbm(unsigned int value) {
