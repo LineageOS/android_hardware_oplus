@@ -83,14 +83,25 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t sensorID) {
     return mOplusBiometricsFingerprint->isUdfps(sensorID);
 }
 
-Return<void> BiometricsFingerprint::onFingerDown(uint32_t x, uint32_t y, float minor, float major) {
+Return<void> BiometricsFingerprint::onFingerDown([[maybe_unused]] uint32_t x, 
+                                                 [[maybe_unused]] uint32_t y, 
+                                                 [[maybe_unused]] float minor, 
+                                                 [[maybe_unused]] float major) {
     setFpPress(1);
+#ifndef UFF_FINGERPRINT
     return mOplusBiometricsFingerprint->onFingerDown(x, y, minor, major);
+#else
+    return Void();
+#endif
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
     setFpPress(0);
+#ifndef UFF_FINGERPRINT
     return mOplusBiometricsFingerprint->onFingerUp();
+#else
+    return Void();
+#endif
 }
 
 Return<void> BiometricsFingerprint::onEnrollResult(uint64_t deviceId, uint32_t fingerId,
