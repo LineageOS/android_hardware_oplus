@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8902f6f_ffc477f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-08-25T15:54:24Z",
+      "side": 1,
+      "message": "can you tell me what blobs read each of the props added here?",
+      "revId": "01aaa60dae5a201586bc8bc212bd031639f4f4fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
