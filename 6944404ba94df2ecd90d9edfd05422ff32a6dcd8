@@ -46,6 +46,30 @@
       },
       "revId": "6944404ba94df2ecd90d9edfd05422ff32a6dcd8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a639326_7c4524d7",
+        "filename": "vintf/device_framework_matrix.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-08-26T22:38:23Z",
+      "side": 1,
+      "message": "btw can\u0027t we just not set the version for aidl hals?",
+      "parentUuid": "26141673_45753347",
+      "range": {
+        "startLine": 122,
+        "startChar": 17,
+        "endLine": 122,
+        "endChar": 18
+      },
+      "revId": "6944404ba94df2ecd90d9edfd05422ff32a6dcd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
