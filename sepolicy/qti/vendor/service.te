@@ -17,6 +17,9 @@ type hal_oplus_cwb_aidl_service, hal_service_type, service_manager_type;
 # Display
 type hal_oplus_displaycolor_aidl_service, hal_service_type, service_manager_type;
 
+# eSIM
+type hal_oplus_esim_aidl_service, hal_service_type, service_manager_type;
+
 # Iris
 type hal_display_iris_aidl_service, hal_service_type, service_manager_type;
 
