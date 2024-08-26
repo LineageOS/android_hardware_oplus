@@ -12,6 +12,9 @@ vendor.oppo.camera.            u:object_r:vendor_camera_prop:s0
 # Display
 vendor.dps.dump.composerpid    u:object_r:vendor_display_prop:s0
 
+# eSIM
+ro.vendor.oplus.esim.support    u:object_r:vendor_oplus_esim_prop:s0
+
 # Fingerprint
 persist.vendor.fingerprint.                    u:object_r:vendor_fingerprint_prop:s0
 persist.vendor.side.fp.near.feature.support    u:object_r:vendor_fingerprint_prop:s0
