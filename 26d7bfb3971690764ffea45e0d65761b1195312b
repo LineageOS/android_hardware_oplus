@@ -22,6 +22,30 @@
       },
       "revId": "26d7bfb3971690764ffea45e0d65761b1195312b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c3478f0_c5cfefc9",
+        "filename": "config/device_framework_matrix.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-08-26T22:14:21Z",
+      "side": 1,
+      "message": "eh, if pixelworks is here, nxpnfc can be too.",
+      "parentUuid": "9c9817b2_464e594b",
+      "range": {
+        "startLine": 4,
+        "startChar": 17,
+        "endLine": 4,
+        "endChar": 20
+      },
+      "revId": "26d7bfb3971690764ffea45e0d65761b1195312b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
