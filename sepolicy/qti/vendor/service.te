@@ -4,6 +4,9 @@ type hal_oplus_cammidasservice_aidl_service, hal_service_type, service_manager_t
 # CommonsDcs
 type hal_oplus_commondcs_aidl_service, hal_service_type, service_manager_type;
 
+# eSIM
+type hal_oplus_esim_aidl_service, hal_service_type, service_manager_type;
+
 # OSENSE
 type hal_oplus_osense_aidl_service, hal_service_type, service_manager_type;
 
