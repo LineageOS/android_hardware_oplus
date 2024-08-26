@@ -24,6 +24,9 @@ vendor.oplus.hardware.displaypanelfeature.IDisplayPanelFeature/default   u:objec
 # Display (Pixelworks)
 vendor.pixelworks.hardware.display.IIris/default    u:object_r:hal_display_iris_aidl_service:s0
 
+# eSIM
+vendor.oplus.hardware.esim.IOplusEsim/default    u:object_r:hal_oplus_esim_aidl_service:s0
+
 # OLC
 vendor.oplus.hardware.olc2.IOplusLogCore/default    u:object_r:hal_oplus_olc_aidl_service:s0
 
