@@ -88,6 +88,23 @@
       "parentUuid": "c7d981fb_511f15e6",
       "revId": "058ace9506c692b016c1b0d38970bb179807b9a0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f7b6a73_b73d603c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26672
+      },
+      "writtenOn": "2024-08-26T09:22:17Z",
+      "side": 1,
+      "message": "tested on sm6375 with a14 blobs. all fine",
+      "revId": "058ace9506c692b016c1b0d38970bb179807b9a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
