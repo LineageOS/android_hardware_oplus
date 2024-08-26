@@ -11,7 +11,7 @@ vendor.oplus.hardware.olc2.IOplusLogCore/default                    u:object_r:h
 vendor.nxp.nxpnfc_aidl.INxpNfc/default    u:object_r:hal_nfc_service:s0
 
 # OSENSE
-vendor.oplus.hardware.osense.client.IOsenseAidlHalReporter/default    u:object_r:fwk_osense_aidl_service:s0
+vendor.oplus.hardware.osense.client.IOsenseAidlHalReporter/default    u:object_r:hal_oplus_osense_aidl_service:s0
 
 # Performance
 vendor.oplus.hardware.performance.IPerformance/default    u:object_r:hal_oplus_performance_aidl_service:s0
