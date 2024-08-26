@@ -17,6 +17,9 @@ vendor.oplus.hardware.cwb::ICwbService              u:object_r:hal_graphics_comp
 vendor.pixelworks.hardware.display::IIris           u:object_r:hal_graphics_composer_hwservice:s0
 vendor.pixelworks.hardware.feature::IIrisFeature    u:object_r:hal_graphics_composer_hwservice:s0
 
+# eSIM
+vendor.oplus.hardware.esim::IOplusEsim    u:object_r:vendor_hal_esim_hwservice:s0
+
 # Fingerprint
 vendor.oplus.hardware.biometrics.fingerprint::IBiometricsFingerprint    u:object_r:hal_fingerprint_hwservice:s0
 
