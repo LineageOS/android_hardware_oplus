@@ -2,9 +2,9 @@ hal_attribute_hwservice(hal_camera, vendor_hal_camera_extension_hwservice)
 
 hal_client_domain(hal_camera_default, vendor_hal_cameraMDM)
 hal_client_domain(hal_camera_default, vendor_hal_oplus_cammidasservice)
+hal_client_domain(hal_camera_default, vendor_hal_oplus_osense)
 hal_client_domain(hal_camera_default, vendor_hal_oplus_performance)
 
-allow hal_camera_default fwk_osense_aidl_service:service_manager find;
 allow hal_camera_default vendor_hal_orms_hwservice:hwservice_manager find;
 allow hal_camera_default vendor_hal_osense_hwservice:hwservice_manager find;
 

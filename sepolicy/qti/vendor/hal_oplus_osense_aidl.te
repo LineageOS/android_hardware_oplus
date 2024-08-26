@@ -1,0 +1,13 @@
+type hal_oplus_osense_aidl, domain;
+binder_use(hal_oplus_osense_aidl)
+
+hal_server_domain(hal_oplus_osense_aidl, vendor_hal_oplus_osense)
+
+type hal_oplus_osense_aidl_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oplus_osense_aidl)
+
+binder_call(vendor_hal_oplus_osense_client, vendor_hal_oplus_osense_server)
+
+hal_attribute_service(vendor_hal_oplus_osense, hal_oplus_osense_aidl_service)
+
+allow vendor_hal_oplus_osense_client hal_oplus_osense_aidl_service:service_manager find;
