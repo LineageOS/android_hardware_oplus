@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1a2f042_54934e0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28158
+      },
+      "writtenOn": "2024-08-26T09:29:53Z",
+      "side": 1,
+      "message": "one thing to note, devices which ship without oplus touch stack would have to import it from other devices to make this work. Should be a relatively simple drop-in but without it there will be breakage.",
+      "revId": "afc76361395f8130c36655672af9f1cad64e6f99",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
