@@ -27,6 +27,9 @@ type proc_bus_input, fs_type, proc_type;
 # Performance
 type vendor_proc_oplus_scheduler, fs_type, proc_type;
 
+# Reserve
+type oplus_reserve_radio_file, file_type;
+
 # Sensors
 type vendor_proc_eng_cali_file, fs_type, proc_type;
 type vendor_proc_oplus_als_file, fs_type, proc_type;
