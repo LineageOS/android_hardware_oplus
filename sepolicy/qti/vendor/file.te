@@ -35,6 +35,9 @@ type vendor_proc_oplus_ctp, fs_type, proc_type;
 type vendor_proc_oplus_scheduler, fs_type, proc_type;
 type vendor_sysfs_cb, fs_type, sysfs_type;
 
+# Reserve
+type oplus_reserve_radio_file, file_type;
+
 # Sensors
 type vendor_proc_eng_cali_file, fs_type, proc_type;
 type vendor_proc_oplus_als_file, fs_type, proc_type;
