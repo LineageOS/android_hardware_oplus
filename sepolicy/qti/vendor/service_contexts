@@ -23,6 +23,9 @@ vendor.oplus.hardware.cwb.ICwbService/default    u:object_r:hal_oplus_cwb_aidl_s
 # Display
 vendor.oplus.hardware.displaycolorfeature.IDisplayColorFeature/default   u:object_r:hal_oplus_displaycolor_aidl_service:s0
 
+# eSIM
+vendor.oplus.hardware.esim.IOplusEsim/default    u:object_r:hal_oplus_esim_aidl_service:s0
+
 # Iris
 vendor.pixelworks.hardware.display.IIris/default    u:object_r:hal_display_iris_aidl_service:s0
 
