@@ -7,6 +7,9 @@ vendor.oplus.hardware.sendextcamcmd.ISendExtCamCmdService/default        u:objec
 # CommonDcs
 vendor.oplus.hardware.commondcs.ICommonDcsAidlHalService/default    u:object_r:hal_oplus_commondcs_aidl_service:s0
 
+# eSIM
+vendor.oplus.hardware.esim.IOplusEsim/default    u:object_r:hal_oplus_esim_aidl_service:s0
+
 # Fingerprint
 vendor.oplus.hardware.olc2.IOplusLogCore/default                    u:object_r:hal_fingerprint_service:s0
 

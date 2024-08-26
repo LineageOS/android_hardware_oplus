@@ -1,4 +1,5 @@
 allow rild mnt_vendor_file:dir search;
+rw_dir_file(rild, oplus_reserve_radio_file)
 
 allow rild vendor_proc_display:file r_file_perms;
 
