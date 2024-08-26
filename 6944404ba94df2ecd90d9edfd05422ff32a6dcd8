@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45c10da6_17d31cc4",
+        "filename": "vintf/device_framework_matrix.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-08-26T22:31:35Z",
+      "side": 1,
+      "message": "1-2, might be better I guess",
+      "range": {
+        "startLine": 122,
+        "startChar": 17,
+        "endLine": 122,
+        "endChar": 18
+      },
+      "revId": "6944404ba94df2ecd90d9edfd05422ff32a6dcd8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
