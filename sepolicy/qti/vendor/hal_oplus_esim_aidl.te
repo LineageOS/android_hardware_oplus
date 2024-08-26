@@ -1,0 +1,22 @@
+type hal_oplus_esim_aidl, domain;
+binder_use(hal_oplus_esim_aidl)
+
+type hal_oplus_esim_aidl_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oplus_esim_aidl)
+
+add_service(hal_oplus_esim_aidl, hal_oplus_esim_aidl_service)
+
+allow hal_oplus_esim_aidl esim_det_device:chr_file rw_file_perms;
+allow hal_oplus_esim_aidl esim_en_device:chr_file rw_file_perms;
+allow hal_oplus_esim_aidl esim_gpio_device:chr_file rw_file_perms;
+
+allow hal_oplus_esim_aidl mnt_vendor_file:dir search;
+rw_dir_file(hal_oplus_esim_aidl, oplus_reserve_radio_file)
+
+allow hal_oplus_esim_aidl block_device:dir search;
+allow hal_oplus_esim_aidl vendor_reserve_partition:blk_file {read write open};
+
+allow hal_oplus_esim_aidl self:qipcrtr_socket create_socket_perms_no_ioctl;
+
+set_prop(hal_oplus_esim_aidl, vendor_oplus_esim_prop)
+set_prop(hal_oplus_esim_aidl, vendor_radio_prop)
