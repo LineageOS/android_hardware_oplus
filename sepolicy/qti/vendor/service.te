@@ -2,7 +2,7 @@
 type hal_oplus_cammidasservice_aidl_service, hal_service_type, service_manager_type;
 
 # OSENSE
-type fwk_osense_aidl_service, hal_service_type, service_manager_type;
+type hal_oplus_osense_aidl_service, hal_service_type, service_manager_type;
 
 # Performance
 type hal_oplus_performance_aidl_service, hal_service_type, service_manager_type;
