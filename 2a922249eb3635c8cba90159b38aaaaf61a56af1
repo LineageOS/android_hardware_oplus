@@ -16,6 +16,24 @@
       "message": "```suggestion\ngenfscon proc /oplus_scheduler    u:object_r:vendor_proc_oplus_scheduler:s0\n```",
       "revId": "2a922249eb3635c8cba90159b38aaaaf61a56af1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48062541_386efe30",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2024-08-26T12:25:11Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "31657471_3e2da02a",
+      "revId": "2a922249eb3635c8cba90159b38aaaaf61a56af1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
