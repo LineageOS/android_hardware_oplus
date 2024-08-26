@@ -37,6 +37,12 @@
 # Engineering
 /mnt/vendor/persist/engineermode(/.*)?    u:object_r:vendor_persist_engineer_file:s0
 
+# eSIM
+/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.esim@1\.0-service    u:object_r:hal_oplus_esim_aidl_exec:s0
+/dev/esim-det                                                          u:object_r:esim_det_device:s0
+/dev/esim-en                                                           u:object_r:esim_en_device:s0
+/dev/esim-gpio                                                         u:object_r:esim_gpio_device:s0
+
 # Fingerprint
 /data/vendor/fingerprint(_ori)?(/.*)?                                                            u:object_r:fingerprint_vendor_data_file:s0
 /mnt/vendor/persist/fingerprint(/.*)?                                                            u:object_r:vendor_persist_fingerprint_file:s0
@@ -102,6 +108,7 @@
 # Reserve
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oplusreserve[1-5]    u:object_r:vendor_reserve_partition:s0
 /dev/block/platform/soc/4804000\.ufshc/by-name/oplusreserve[1-5]    u:object_r:vendor_reserve_partition:s0
+/mnt/vendor/oplusreserve/radio(/.*)?                                u:object_r:oplus_reserve_radio_file:s0
 
 # Secure Element
 /(odm|vendor/odm)/bin/hw/android\.hardware\.secure_element-service\.qti    u:object_r:hal_secure_element_default_exec:s0
