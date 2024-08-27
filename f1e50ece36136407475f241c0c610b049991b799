@@ -34,6 +34,24 @@
       "parentUuid": "9df9da59_8dcca3a1",
       "revId": "f1e50ece36136407475f241c0c610b049991b799",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b900bbd9_aa55d187",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18745
+      },
+      "writtenOn": "2024-08-27T19:45:54Z",
+      "side": 1,
+      "message": "Works fine on A14 sm8350",
+      "parentUuid": "6a2d01a3_20c53f12",
+      "revId": "f1e50ece36136407475f241c0c610b049991b799",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
