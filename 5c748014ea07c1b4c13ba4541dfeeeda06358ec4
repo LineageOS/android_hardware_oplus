@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bebe81fd_e652f7f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-08-27T00:50:37Z",
+      "side": 1,
+      "message": "Waiting for confirmation regarding sm8450.",
+      "revId": "5c748014ea07c1b4c13ba4541dfeeeda06358ec4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
