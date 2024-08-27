@@ -34,6 +34,23 @@
       "parentUuid": "b79f3233_de7a9fda",
       "revId": "2860df15815b931319671faa005c3e774852798a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee069ed9_e7551dbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2024-08-27T05:14:27Z",
+      "side": 1,
+      "message": "ERROR: files are incompatible: The following instances are in the device manifest but not specified in framework compatibility matrix: \n    vendor.oplus.hardware.subsys_interface.subsys_radio.ISubsysRadio/slot1 (@1)\n    vendor.oplus.hardware.subsys_interface.subsys_radio.ISubsysRadio/slot2 (@1)",
+      "revId": "2860df15815b931319671faa005c3e774852798a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

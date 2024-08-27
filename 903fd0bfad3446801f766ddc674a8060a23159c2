@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de7a8044_a1524101",
+        "filename": "config/device_framework_matrix.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2024-08-27T05:14:27Z",
+      "side": 1,
+      "message": "theres aidl on 8450\n\n    \u003chal format\u003d\"aidl\"\u003e\n        \u003cname\u003evendor.oplus.hardware.subsys_interface.subsys_radio\u003c/name\u003e\n        \u003cversion\u003e1\u003c/version\u003e\n        \u003cfqname\u003eISubsysRadio/slot1\u003c/fqname\u003e\n        \u003cfqname\u003eISubsysRadio/slot2\u003c/fqname\u003e\n    \u003c/hal\u003e",
+      "range": {
+        "startLine": 84,
+        "startChar": 3,
+        "endLine": 92,
+        "endChar": 10
+      },
+      "revId": "903fd0bfad3446801f766ddc674a8060a23159c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
