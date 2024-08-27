@@ -51,6 +51,63 @@
       "message": "ERROR: files are incompatible: The following instances are in the device manifest but not specified in framework compatibility matrix: \n    vendor.oplus.hardware.subsys_interface.subsys_radio.ISubsysRadio/slot1 (@1)\n    vendor.oplus.hardware.subsys_interface.subsys_radio.ISubsysRadio/slot2 (@1)",
       "revId": "2860df15815b931319671faa005c3e774852798a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd280e06_c740f269",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2024-08-27T05:23:29Z",
+      "side": 1,
+      "message": "ok somehow comment was still on ps2 but now should correct",
+      "revId": "2860df15815b931319671faa005c3e774852798a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54271f60_d49d0f27",
+        "filename": "vintf/device_framework_matrix.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2024-08-27T05:23:29Z",
+      "side": 1,
+      "message": "```suggestion\n        \u003cversion\u003e1-2\u003c/version\u003e\n```",
+      "range": {
+        "startLine": 147,
+        "startChar": 8,
+        "endLine": 147,
+        "endChar": 28
+      },
+      "revId": "2860df15815b931319671faa005c3e774852798a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc7fc3ff_1bf2c5e3",
+        "filename": "vintf/device_framework_matrix.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2024-08-27T05:23:29Z",
+      "side": 1,
+      "message": "```suggestion\n    \u003c/hal\u003e\n    \u003chal format\u003d\"aidl\"\u003e\n        \u003cname\u003evendor.oplus.hardware.subsys_interface.subsys_radio\u003c/name\u003e\n        \u003cversion\u003e1\u003c/version\u003e\n        \u003cinterface\u003e\n            \u003cname\u003eISubsysRadio\u003c/name\u003e\n            \u003cinstance\u003eslot1\u003c/instance\u003e\n            \u003cinstance\u003eslot2\u003c/instance\u003e\n        \u003c/interface\u003e\n    \u003c/hal\u003e\n```",
+      "revId": "2860df15815b931319671faa005c3e774852798a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
