@@ -16,6 +16,23 @@
       "message": "Waiting for confirmation regarding sm8450.",
       "revId": "644861bd210c4dec156071c56c3803f6421231bc",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0904c1f_d9cdb9e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2024-08-27T19:21:02Z",
+      "side": 1,
+      "message": "works gr8 on ovaltine, no more crashes even in apps that are on oplus whitelist",
+      "revId": "644861bd210c4dec156071c56c3803f6421231bc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
