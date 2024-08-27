@@ -70,6 +70,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d3f946e_81c6302b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-08-27T06:35:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee069ed9_e7551dbc",
+      "revId": "2860df15815b931319671faa005c3e774852798a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54271f60_d49d0f27",
@@ -93,6 +111,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e6fe0c7_e16b3360",
+        "filename": "vintf/device_framework_matrix.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-08-27T06:35:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54271f60_d49d0f27",
+      "range": {
+        "startLine": 147,
+        "startChar": 8,
+        "endLine": 147,
+        "endChar": 28
+      },
+      "revId": "2860df15815b931319671faa005c3e774852798a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc7fc3ff_1bf2c5e3",
@@ -106,6 +148,24 @@
       "writtenOn": "2024-08-27T05:23:29Z",
       "side": 1,
       "message": "```suggestion\n    \u003c/hal\u003e\n    \u003chal format\u003d\"aidl\"\u003e\n        \u003cname\u003evendor.oplus.hardware.subsys_interface.subsys_radio\u003c/name\u003e\n        \u003cversion\u003e1\u003c/version\u003e\n        \u003cinterface\u003e\n            \u003cname\u003eISubsysRadio\u003c/name\u003e\n            \u003cinstance\u003eslot1\u003c/instance\u003e\n            \u003cinstance\u003eslot2\u003c/instance\u003e\n        \u003c/interface\u003e\n    \u003c/hal\u003e\n```",
+      "revId": "2860df15815b931319671faa005c3e774852798a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7063382c_252ac8d4",
+        "filename": "vintf/device_framework_matrix.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-08-27T06:35:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc7fc3ff_1bf2c5e3",
       "revId": "2860df15815b931319671faa005c3e774852798a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
