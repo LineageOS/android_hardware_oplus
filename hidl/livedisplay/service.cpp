@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019-2021 The LineageOS Project
+ * Copyright (C) 2019-2024 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
+#include <livedisplay/oplus/AntiFlicker.h>
 #include <livedisplay/oplus/SunlightEnhancement.h>
 #include <livedisplay/sdm/PictureAdjustment.h>
 #include <vendor/lineage/livedisplay/2.1/IPictureAdjustment.h>
@@ -31,8 +32,10 @@ using ::android::hardware::joinRpcThreadpool;
 
 using ::vendor::lineage::livedisplay::V2_0::sdm::PictureAdjustment;
 using ::vendor::lineage::livedisplay::V2_0::sdm::SDMController;
+using ::vendor::lineage::livedisplay::V2_1::IAntiFlicker;
 using ::vendor::lineage::livedisplay::V2_1::IPictureAdjustment;
 using ::vendor::lineage::livedisplay::V2_1::ISunlightEnhancement;
+using ::vendor::lineage::livedisplay::V2_1::implementation::AntiFlicker;
 using ::vendor::lineage::livedisplay::V2_1::implementation::SunlightEnhancement;
 
 int main() {
@@ -44,10 +47,18 @@ int main() {
 
     std::shared_ptr<SDMController> controller = std::make_shared<SDMController>();
 
+    sp<AntiFlicker> af = new AntiFlicker();
     sp<PictureAdjustment> pa = new PictureAdjustment(controller);
     sp<SunlightEnhancement> se = new SunlightEnhancement();
 
     configureRpcThreadpool(1, true /*callerWillJoin*/);
+
+    status = af->registerAsService();
+    if (status != OK) {
+        LOG(ERROR) << "Could not register service for LiveDisplay HAL AntiFlicker Iface (" << status
+                   << ")";
+        goto shutdown;
+    }
 
     status = pa->registerAsService();
     if (status != OK) {
