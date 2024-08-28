@@ -16,7 +16,7 @@ soong_config_module_type {
     name: "oplus_lineage_livedisplay_hal_cc_defaults",
     module_type: "cc_defaults",
     config_namespace: "OPLUS_LINEAGE_LIVEDISPLAY_HAL",
-    variables: ["ENABLE_AB", "ENABLE_AF", "ENABLE_PA", "ENABLE_SE"],
+    variables: ["ENABLE_AB", "ENABLE_AF", "ENABLE_DM", "ENABLE_PA", "ENABLE_SE"],
     properties: ["cflags", "vintf_fragments"],
 }
 
@@ -27,6 +27,11 @@ soong_config_string_variable {
 
 soong_config_string_variable {
     name: "ENABLE_AF",
+    values: ["true", "false"],
+}
+
+soong_config_string_variable {
+    name: "ENABLE_DM",
     values: ["true", "false"],
 }
 
@@ -68,6 +73,20 @@ oplus_lineage_livedisplay_hal_cc_defaults {
             },
             conditions_default: {
                 cflags: ["-DENABLE_AF=false"],
+                vintf_fragments: [],
+            },
+        },
+        ENABLE_DM: {
+            true: {
+                cflags: ["-DENABLE_DM=true"],
+                vintf_fragments: ["vendor.lineage.livedisplay@2.1-service.oplus-dm.xml"],
+            },
+            false: {
+                cflags: ["-DENABLE_DM=false"],
+                vintf_fragments: [],
+            },
+            conditions_default: {
+                cflags: ["-DENABLE_DM=false"],
                 vintf_fragments: [],
             },
         },
@@ -113,6 +132,11 @@ filegroup {
 }
 
 filegroup {
+    name: "vendor.lineage.livedisplay@2.1-oplus-dm",
+    srcs: ["DisplayModes.cpp"],
+}
+
+filegroup {
     name: "vendor.lineage.livedisplay@2.1-oplus-se",
     srcs: ["SunlightEnhancement.cpp"],
 }
@@ -136,6 +160,7 @@ cc_binary {
         ":vendor.lineage.livedisplay@2.0-sdm-utils",
         ":vendor.lineage.livedisplay@2.1-oplus-ab",
         ":vendor.lineage.livedisplay@2.1-oplus-af",
+        ":vendor.lineage.livedisplay@2.1-oplus-dm",
         ":vendor.lineage.livedisplay@2.1-oplus-se",
         "service.cpp",
     ],
