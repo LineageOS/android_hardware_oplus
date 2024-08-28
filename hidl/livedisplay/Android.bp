@@ -12,6 +12,77 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+soong_config_module_type {
+    name: "oplus_lineage_livedisplay_hal_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "OPLUS_LINEAGE_LIVEDISPLAY_HAL",
+    variables: ["ENABLE_AF", "ENABLE_PA", "ENABLE_SE"],
+    properties: ["cflags", "vintf_fragments"],
+}
+
+soong_config_string_variable {
+    name: "ENABLE_AF",
+    values: ["true", "false"],
+}
+
+soong_config_string_variable {
+    name: "ENABLE_PA",
+    values: ["true", "false"],
+}
+
+soong_config_string_variable {
+    name: "ENABLE_SE",
+    values: ["true", "false"],
+}
+
+oplus_lineage_livedisplay_hal_cc_defaults {
+    name: "oplus_lineage_livedisplay_hal_defaults",
+    soong_config_variables: {
+        ENABLE_AF: {
+            true: {
+                cflags: ["-DENABLE_AF=true"],
+                vintf_fragments: ["vendor.lineage.livedisplay@2.1-service.oplus-af.xml"],
+            },
+            false: {
+                cflags: ["-DENABLE_AF=false"],
+                vintf_fragments: [],
+            },
+            conditions_default: {
+                cflags: ["-DENABLE_AF=false"],
+                vintf_fragments: [],
+            },
+        },
+        ENABLE_PA: {
+            true: {
+                cflags: ["-DENABLE_PA=true"],
+                vintf_fragments: ["vendor.lineage.livedisplay@2.1-service.oplus-pa.xml"],
+            },
+            false: {
+                cflags: ["-DENABLE_PA=false"],
+                vintf_fragments: [],
+            },
+            conditions_default: {
+                cflags: ["-DENABLE_PA=true"],
+                vintf_fragments: ["vendor.lineage.livedisplay@2.1-service.oplus-pa.xml"],
+            },
+        },
+        ENABLE_SE: {
+            true: {
+                cflags: ["-DENABLE_SE=true"],
+                vintf_fragments: ["vendor.lineage.livedisplay@2.1-service.oplus-se.xml"],
+            },
+            false: {
+                cflags: ["-DENABLE_SE=false"],
+                vintf_fragments: [],
+            },
+            conditions_default: {
+                cflags: ["-DENABLE_SE=true"],
+                vintf_fragments: ["vendor.lineage.livedisplay@2.1-service.oplus-se.xml"],
+            },
+        },
+    },
+}
+
 filegroup {
     name: "vendor.lineage.livedisplay@2.1-oplus-af",
     srcs: ["AntiFlicker.cpp"],
@@ -30,9 +101,11 @@ cc_library_headers {
 
 cc_binary {
     name: "vendor.lineage.livedisplay@2.1-service.oplus",
-    defaults: ["hidl_defaults"],
+    defaults: [
+        "hidl_defaults",
+        "oplus_lineage_livedisplay_hal_defaults",
+    ],
     init_rc: ["vendor.lineage.livedisplay@2.1-service.oplus.rc"],
-    vintf_fragments: ["vendor.lineage.livedisplay@2.1-service.oplus.xml"],
     relative_install_path: "hw",
     srcs: [
         ":vendor.lineage.livedisplay@2.0-sdm-pa",
