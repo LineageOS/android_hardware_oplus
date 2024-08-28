@@ -21,6 +21,7 @@
 #include <hidl/HidlTransportSupport.h>
 #include <livedisplay/oplus/AdaptiveBacklight.h>
 #include <livedisplay/oplus/AntiFlicker.h>
+#include <livedisplay/oplus/DisplayModes.h>
 #include <livedisplay/oplus/SunlightEnhancement.h>
 #include <livedisplay/sdm/PictureAdjustment.h>
 #include <vendor/lineage/livedisplay/2.1/IPictureAdjustment.h>
@@ -35,10 +36,12 @@ using ::vendor::lineage::livedisplay::V2_0::sdm::PictureAdjustment;
 using ::vendor::lineage::livedisplay::V2_0::sdm::SDMController;
 using ::vendor::lineage::livedisplay::V2_1::IAdaptiveBacklight;
 using ::vendor::lineage::livedisplay::V2_1::IAntiFlicker;
+using ::vendor::lineage::livedisplay::V2_1::IDisplayModes;
 using ::vendor::lineage::livedisplay::V2_1::IPictureAdjustment;
 using ::vendor::lineage::livedisplay::V2_1::ISunlightEnhancement;
 using ::vendor::lineage::livedisplay::V2_1::implementation::AdaptiveBacklight;
 using ::vendor::lineage::livedisplay::V2_1::implementation::AntiFlicker;
+using ::vendor::lineage::livedisplay::V2_1::implementation::DisplayModes;
 using ::vendor::lineage::livedisplay::V2_1::implementation::SunlightEnhancement;
 
 int main() {
@@ -49,10 +52,11 @@ int main() {
     LOG(INFO) << "LiveDisplay HAL service is starting.";
 
     std::shared_ptr<SDMController> controller =
-            ENABLE_PA ? std::make_shared<SDMController>() : nullptr;
+            ENABLE_DM || ENABLE_PA ? std::make_shared<SDMController>() : nullptr;
 
     sp<AdaptiveBacklight> ab = ENABLE_AB ? new AdaptiveBacklight() : nullptr;
     sp<AntiFlicker> af = ENABLE_AF ? new AntiFlicker() : nullptr;
+    sp<DisplayModes> dm = ENABLE_DM ? new DisplayModes(controller) : nullptr;
     sp<PictureAdjustment> pa = ENABLE_PA ? new PictureAdjustment(controller) : nullptr;
     sp<SunlightEnhancement> se = ENABLE_SE ? new SunlightEnhancement() : nullptr;
 
@@ -71,6 +75,15 @@ int main() {
         status = af->registerAsService();
         if (status != OK) {
             LOG(ERROR) << "Could not register service for LiveDisplay HAL AntiFlicker Iface ("
+                       << status << ")";
+            goto shutdown;
+        }
+    }
+
+    if (dm) {
+        status = dm->registerAsService();
+        if (status != OK) {
+            LOG(ERROR) << "Could not register service for LiveDisplay HAL DisplayModes Iface ("
                        << status << ")";
             goto shutdown;
         }
