@@ -45,33 +45,41 @@ int main() {
 
     LOG(INFO) << "LiveDisplay HAL service is starting.";
 
-    std::shared_ptr<SDMController> controller = std::make_shared<SDMController>();
+    std::shared_ptr<SDMController> controller =
+            ENABLE_PA ? std::make_shared<SDMController>() : nullptr;
 
-    sp<AntiFlicker> af = new AntiFlicker();
-    sp<PictureAdjustment> pa = new PictureAdjustment(controller);
-    sp<SunlightEnhancement> se = new SunlightEnhancement();
+    sp<AntiFlicker> af = ENABLE_AF ? new AntiFlicker() : nullptr;
+    sp<PictureAdjustment> pa = ENABLE_PA ? new PictureAdjustment(controller) : nullptr;
+    sp<SunlightEnhancement> se = ENABLE_SE ? new SunlightEnhancement() : nullptr;
 
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
-    status = af->registerAsService();
-    if (status != OK) {
-        LOG(ERROR) << "Could not register service for LiveDisplay HAL AntiFlicker Iface (" << status
-                   << ")";
-        goto shutdown;
+    if (af) {
+        status = af->registerAsService();
+        if (status != OK) {
+            LOG(ERROR) << "Could not register service for LiveDisplay HAL AntiFlicker Iface ("
+                       << status << ")";
+            goto shutdown;
+        }
     }
 
-    status = pa->registerAsService();
-    if (status != OK) {
-        LOG(ERROR) << "Could not register service for LiveDisplay HAL PictureAdjustment Iface ("
-                   << status << ")";
-        goto shutdown;
+    if (pa) {
+        status = pa->registerAsService();
+        if (status != OK) {
+            LOG(ERROR) << "Could not register service for LiveDisplay HAL PictureAdjustment Iface ("
+                       << status << ")";
+            goto shutdown;
+        }
     }
 
-    status = se->registerAsService();
-    if (status != OK) {
-        LOG(ERROR) << "Could not register service for LiveDisplay HAL SunlightEnhancement Iface ("
-                   << status << ")";
-        goto shutdown;
+    if (se) {
+        status = se->registerAsService();
+        if (status != OK) {
+            LOG(ERROR)
+                    << "Could not register service for LiveDisplay HAL SunlightEnhancement Iface ("
+                    << status << ")";
+            goto shutdown;
+        }
     }
 
     LOG(INFO) << "LiveDisplay HAL service is ready.";
