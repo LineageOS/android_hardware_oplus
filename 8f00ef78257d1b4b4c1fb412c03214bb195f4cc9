@@ -70,6 +70,24 @@
       "parentUuid": "2b6b4fa1_8a2a0566",
       "revId": "8f00ef78257d1b4b4c1fb412c03214bb195f4cc9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "339eaf3e_c1c58e5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2024-08-29T15:47:15Z",
+      "side": 1,
+      "message": "sadge indeed, @pjgowtham@gmail.com has tried reversing it and no progress so far",
+      "parentUuid": "8ca0f574_c5f39ae2",
+      "revId": "8f00ef78257d1b4b4c1fb412c03214bb195f4cc9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
