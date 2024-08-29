@@ -52,6 +52,24 @@
       "parentUuid": "1f1a4a8d_815dcb7c",
       "revId": "8f00ef78257d1b4b4c1fb412c03214bb195f4cc9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ca0f574_c5f39ae2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-08-29T15:17:18Z",
+      "side": 1,
+      "message": "Sad... Out of curiosity, anyone managed to use the new uff fingerpring aidl HAL?",
+      "parentUuid": "2b6b4fa1_8a2a0566",
+      "revId": "8f00ef78257d1b4b4c1fb412c03214bb195f4cc9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
