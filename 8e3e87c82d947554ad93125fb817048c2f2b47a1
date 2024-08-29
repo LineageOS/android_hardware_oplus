@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "982867c4_87a707d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2024-08-29T13:03:59Z",
+      "side": 1,
+      "message": "I think that\u0027s everything that\u0027s still relevant",
+      "revId": "8e3e87c82d947554ad93125fb817048c2f2b47a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
