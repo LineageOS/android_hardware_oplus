@@ -16,6 +16,24 @@
       "message": "@bgcngm@gmail.com does this affect you in any way?",
       "revId": "8f00ef78257d1b4b4c1fb412c03214bb195f4cc9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f1a4a8d_815dcb7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-08-29T07:39:58Z",
+      "side": 1,
+      "message": "Probably it will allow me to get rid of this hax: https://github.com/LineageOS/android_device_oneplus_sm8550-common/commit/e2dfbe95106c8d5f9883c42289450f3dca9e7b8f. I will try to check tonight.",
+      "parentUuid": "12014db7_a9eb1eaa",
+      "revId": "8f00ef78257d1b4b4c1fb412c03214bb195f4cc9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
