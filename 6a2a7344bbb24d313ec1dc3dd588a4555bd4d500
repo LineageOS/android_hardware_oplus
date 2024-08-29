@@ -54,6 +54,23 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f89f03d_96126f4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2024-08-29T02:37:14Z",
+      "side": 1,
+      "message": "https://gist.github.com/pjgowtham/47eab7a24456d1d244850a150ab5c8fe",
+      "revId": "6a2a7344bbb24d313ec1dc3dd588a4555bd4d500",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "146d2ddc_6f2f1278",
