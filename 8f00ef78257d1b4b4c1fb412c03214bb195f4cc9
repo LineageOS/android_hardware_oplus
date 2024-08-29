@@ -156,6 +156,23 @@
       "message": "Nope, stock doesn\u0027t run FactoryTest",
       "revId": "8f00ef78257d1b4b4c1fb412c03214bb195f4cc9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77f95052_498953bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-08-29T21:53:55Z",
+      "side": 1,
+      "message": "@pjgowtham@gmail.com pls verify current patchset.",
+      "revId": "8f00ef78257d1b4b4c1fb412c03214bb195f4cc9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
