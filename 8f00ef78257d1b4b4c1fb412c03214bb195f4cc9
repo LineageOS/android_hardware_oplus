@@ -88,6 +88,23 @@
       "parentUuid": "8ca0f574_c5f39ae2",
       "revId": "8f00ef78257d1b4b4c1fb412c03214bb195f4cc9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4afdf2c_457db428",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2024-08-29T16:18:25Z",
+      "side": 1,
+      "message": "Ziti - OnePlus Nord CE 3 still ships with hidl on the latest stock. I also haven\u0027t spent much time with aidl ones from salami.",
+      "revId": "8f00ef78257d1b4b4c1fb412c03214bb195f4cc9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
