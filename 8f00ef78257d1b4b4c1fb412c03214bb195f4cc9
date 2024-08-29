@@ -139,6 +139,23 @@
       "message": "i got some random thoughts: so FactoryTest is the thing that triggers hbm rw, does stock also run with FactoryTest enabled at all time?",
       "revId": "8f00ef78257d1b4b4c1fb412c03214bb195f4cc9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23513eb7_a705b8a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2024-08-29T16:56:13Z",
+      "side": 1,
+      "message": "Nope, stock doesn\u0027t run FactoryTest",
+      "revId": "8f00ef78257d1b4b4c1fb412c03214bb195f4cc9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
