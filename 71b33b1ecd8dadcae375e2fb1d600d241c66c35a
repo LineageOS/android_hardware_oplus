@@ -50,6 +50,24 @@
       "message": "Might we also add oplusSensor AIDL\n\n    \u003chal format\u003d\"aidl\" optional\u003d\"true\"\u003e\n        \u003cname\u003evendor.oplus.hardware.oplusSensor\u003c/name\u003e\n        \u003cinterface\u003e\n            \u003cname\u003eISensorFeature\u003c/name\u003e\n            \u003cinstance\u003edefault\u003c/instance\u003e\n        \u003c/interface\u003e\n    \u003c/hal\u003e",
       "revId": "71b33b1ecd8dadcae375e2fb1d600d241c66c35a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30a27a75_32234cfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-08-29T09:15:23Z",
+      "side": 1,
+      "message": "you can amend this change, just make sure to add \u003cversion\u003e1\u003c/version\u003e",
+      "parentUuid": "c6075c8b_fc050e02",
+      "revId": "71b33b1ecd8dadcae375e2fb1d600d241c66c35a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
