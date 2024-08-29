@@ -122,6 +122,23 @@
       "message": "I mean yes it will flicker because the composer handles HBM as it should. Atleast the fingerprint HAL won\u0027t try to access the HBM node along with it.\n\nI was able to add the HBM mode property to composer but with no good ways to operate it like stock does. But we use prebuilt composer anyways, maybe it\u0027s not useful.\n\nhttps://github.com/pjgowtham/android_hardware_qcom_display/commit/f1bfd99a2ae365fd80538d12468e38ac46f236d4",
       "revId": "8f00ef78257d1b4b4c1fb412c03214bb195f4cc9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d36c6c9_0d2f8af0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2024-08-29T16:48:39Z",
+      "side": 1,
+      "message": "i got some random thoughts: so FactoryTest is the thing that triggers hbm rw, does stock also run with FactoryTest enabled at all time?",
+      "revId": "8f00ef78257d1b4b4c1fb412c03214bb195f4cc9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
