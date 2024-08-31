@@ -16,6 +16,24 @@
       "message": "The better way could be device defining TARGET_HAS_UFF_UDFPS and compile out functions causing issue. The current implementation checks for prop everytime fingerprint is pressed, for all devices.",
       "revId": "0dee4e5a877388eeacff09caeb74996a3fc59b88",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "499f8c0c_787af8c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-08-31T10:35:17Z",
+      "side": 1,
+      "message": "we are already dong the same for isUdfps() and this code doesn\u0027t have to be super high perf anyway.",
+      "parentUuid": "2feb5883_e7133837",
+      "revId": "0dee4e5a877388eeacff09caeb74996a3fc59b88",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
