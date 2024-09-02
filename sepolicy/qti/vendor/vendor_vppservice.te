@@ -1,0 +1,1 @@
+allow vendor_vppservice vendor_display_prop:file read;
