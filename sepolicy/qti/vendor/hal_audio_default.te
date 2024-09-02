@@ -1,4 +1,6 @@
 allow hal_audio_default ultrasound_device:chr_file rw_file_perms;
 
+rw_dir_file(hal_audio_default, vendor_sysfs_usb_supply)
+
 get_prop(hal_audio_default, boot_status_prop)
 get_prop(hal_audio_default, vendor_audio_debug_prop)

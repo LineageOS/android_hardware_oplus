@@ -1,11 +1,26 @@
 # Camera
 type hal_oplus_cammidasservice_aidl_service, hal_service_type, service_manager_type;
 
+# Commcenter
+type hal_oplus_commcenter_aidl_service, hal_service_type, service_manager_type;
+
 # CommonsDcs
 type hal_oplus_commondcs_aidl_service, hal_service_type, service_manager_type;
 
+# CWB
+type hal_oplus_cwb_aidl_service, hal_service_type, service_manager_type;
+
+# Display
+type hal_oplus_displaycolor_aidl_service, hal_service_type, service_manager_type;
+
 # eSIM
 type hal_oplus_esim_aidl_service, hal_service_type, service_manager_type;
+
+# Iris
+type hal_display_iris_aidl_service, hal_service_type, service_manager_type;
+
+# Olc
+type hal_oplus_olc_aidl_service, hal_service_type, service_manager_type;
 
 # OSENSE
 type hal_oplus_osense_aidl_service, hal_service_type, service_manager_type;
