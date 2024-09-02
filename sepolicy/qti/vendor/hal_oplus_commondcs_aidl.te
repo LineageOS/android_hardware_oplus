@@ -9,3 +9,5 @@ init_daemon_domain(hal_oplus_commondcs_aidl)
 binder_call(vendor_hal_oplus_commondcs_client, vendor_hal_oplus_commondcs_server)
 
 hal_attribute_service(vendor_hal_oplus_commondcs, hal_oplus_commondcs_aidl_service)
+
+allow vendor_hal_oplus_commondcs_client hal_oplus_commondcs_aidl_service:service_manager find;
