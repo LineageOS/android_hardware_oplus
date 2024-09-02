@@ -1,1 +1,5 @@
 rw_dir_file(tee, vendor_persist_fingerprint_file)
+
+allow tee vendor_gpt_block_device:blk_file read;
+allow tee vendor_xbl_block_device:blk_file read;
+allow tee boot_block_device:blk_file read;
