@@ -1,0 +1,1 @@
+allow vendor_hal_usb_qti vendor_sysfs_wireless:dir search;
