@@ -1,7 +1,10 @@
+allow rild hal_oplus_commcenter_aidl_service:service_manager find;
+
 allow rild mnt_vendor_file:dir search;
 
 allow rild vendor_proc_display:file r_file_perms;
 
 r_dir_file(rild, vendor_proc_engineer)
 
+get_prop(rild, boot_status_prop)
 set_prop(rild, vendor_nw_exported_system_prop)
