@@ -11,4 +11,5 @@ binder_call(vendor_hal_oplus_performance_client, vendor_hal_oplus_performance_se
 hal_attribute_service(vendor_hal_oplus_performance, hal_oplus_performance_aidl_service)
 
 r_dir_file(hal_oplus_performance_aidl, proc_version)
+rw_dir_file(hal_oplus_performance_aidl, vendor_proc_oplus_ctp)
 rw_dir_file(hal_oplus_performance_aidl, vendor_proc_oplus_scheduler)
