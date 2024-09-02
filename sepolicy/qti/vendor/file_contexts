@@ -6,9 +6,11 @@
 /mnt/vendor/persist/camera(/.*)?                                                u:object_r:vendor_persist_camera_file:s0
 /mnt/vendor/persist/dual_camera_calibration(/.*)?                               u:object_r:vendor_persist_camera_file:s0
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.cammidasservice-V1-service    u:object_r:hal_oplus_cammidasservice_aidl_exec:s0
+/odm/lib64/libcreatebin\.so                                                     u:object_r:same_process_hal_file:s0
 /vendor/bin/hw/vendor\.oplus\.hardware\.cameraMDM@1\.0-service                  u:object_r:vendor_hal_cameraMDM_default_exec:s0
 /vendor/bin/hw/vendor\.oplus\.hardware\.cameraMDM@2\.0-service                  u:object_r:vendor_hal_cameraMDM_default_exec:s0
 /vendor/lib64/libipebpsstriping\.so                                             u:object_r:same_process_hal_file:s0
+/vendor/lib64/libc++\.so                                                        u:object_r:same_process_hal_file:s0
 
 # Charging
 /vendor/bin/hw/vendor\.lineage\.powershare@1\.0-service\.oplus    u:object_r:hal_lineage_powershare_default_exec:s0
@@ -19,10 +21,13 @@
 # Display
 /vendor/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.oplus    u:object_r:hal_lineage_livedisplay_qti_exec:s0
 /dev/oplus_display                                                 u:object_r:graphics_device:s0
+/vendor/lib64/libubwcp\.so                                         u:object_r:same_process_hal_file:s0
+/vendor/lib64/hw/android.hardware.graphics.mapper@4\.0-impl-qti-display\.so    u:object_r:same_process_hal_file:s0
 
 # Display (Pixelworks)
 /(odm|vendor/odm)/bin/hw/vendor\.pixelworks\.hardware\.display\.iris-service           u:object_r:hal_graphics_composer_default_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.pixelworks\.hardware\.feature\.irisfeature-service    u:object_r:hal_graphics_composer_default_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.pixelworks\.hardware\.feature\.irisfeature            u:object_r:hal_graphics_composer_default_exec:s0
 
 # Engineering
 /mnt/vendor/persist/engineermode(/.*)?    u:object_r:vendor_persist_engineer_file:s0
@@ -36,6 +41,9 @@
 /dev/goodix_fp                                                                                   u:object_r:fingerprint_device:s0
 /dev/jiiov_fp                                                                                    u:object_r:fingerprint_device:s0
 /dev/silead_fp                                                                                   u:object_r:fingerprint_device:s0
+
+# Graphics
+/vendor/lib64/libllvm-qgl\.so            u:object_r:same_process_hal_file:s0
 
 # Init
 /(odm|vendor/odm)/bin/init\.oplus\.sh          u:object_r:vendor_qti_init_shell_exec:s0
@@ -56,6 +64,9 @@
 /dev/block/platform/soc/1d84000\.ufshc/by-name/mdm1oemnvbktmp     u:object_r:vendor_modem_efs_partition_device:s0
 /dev/block/platform/soc/1d84000\.ufshc/by-name/mdmddr             u:object_r:vendor_efs_boot_dev:s0
 /dev/block/platform/soc/4804000\.ufshc/by-name/mdm1oemnvbktmp     u:object_r:vendor_modem_efs_partition_device:s0
+
+# Media
+/sys/devices/soc0/subset_parts    u:object_r:vendor_sysfs_mediacodec:s0
 
 # NFC
 /dev/pn553    u:object_r:nfc_device:s0

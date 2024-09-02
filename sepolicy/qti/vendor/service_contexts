@@ -4,11 +4,23 @@ vendor.oplus.hardware.cameraextension.ICameraExtensionService/default    u:objec
 vendor.oplus.hardware.cammidasservice.IMIDASService/default              u:object_r:hal_oplus_cammidasservice_aidl_service:s0
 vendor.oplus.hardware.sendextcamcmd.ISendExtCamCmdService/default        u:object_r:hal_camera_service:s0
 
+# Commcenter
+vendor.oplus.hardware.communicationcenter.IDmtpService/default    u:object_r:hal_oplus_commcenter_aidl_service:s0
+
 # CommonDcs
 vendor.oplus.hardware.commondcs.ICommonDcsAidlHalService/default    u:object_r:hal_oplus_commondcs_aidl_service:s0
 
+# CWB
+vendor.oplus.hardware.cwb.ICwbService/default    u:object_r:hal_oplus_cwb_aidl_service:s0
+
+# Display
+vendor.oplus.hardware.displaycolorfeature.IDisplayColorFeature/default   u:object_r:hal_oplus_displaycolor_aidl_service:s0
+
 # Fingerprint
 vendor.oplus.hardware.olc2.IOplusLogCore/default                    u:object_r:hal_fingerprint_service:s0
+
+# Iris
+vendor.pixelworks.hardware.display.IIris/default    u:object_r:hal_display_iris_aidl_service:s0
 
 # OSENSE
 vendor.oplus.hardware.osense.client.IOsenseAidlHalReporter/default    u:object_r:hal_oplus_osense_aidl_service:s0
@@ -26,6 +38,9 @@ vendor.oplus.hardware.ims.IImsStable/OplusImsRadio0                  u:object_r:
 vendor.oplus.hardware.ims.IImsStable/OplusImsRadio1                  u:object_r:hal_radio_service:s0
 vendor.oplus.hardware.radio.IRadioStable/OplusRadio0                 u:object_r:hal_radio_service:s0
 vendor.oplus.hardware.radio.IRadioStable/OplusRadio1                 u:object_r:hal_radio_service:s0
+
+# Sensor
+android.frameworks.sensorservice.ISensorManager/default    u:object_r:fwk_sensor_service:s0
 
 # Touch
 vendor.oplus.hardware.touch.IOplusTouch/default    u:object_r:hal_oplus_touch_aidl_service:s0

@@ -1,0 +1,8 @@
+allow init hal_graphics_mapper_hwservice:hwservice_manager find;
+
+allow init vendor_sysfs_usb_supply:file w_file_perms;
+allow init vendor_sysfs_wireless:file w_file_perms;
+
+allow init self:netlink_kobject_uevent_socket read;
+
+allow init same_process_hal_file:file execute;
