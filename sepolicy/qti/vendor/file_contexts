@@ -6,6 +6,7 @@
 /mnt/vendor/persist/camera(/.*)?                                                u:object_r:vendor_persist_camera_file:s0
 /mnt/vendor/persist/dual_camera_calibration(/.*)?                               u:object_r:vendor_persist_camera_file:s0
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.cammidasservice-V1-service    u:object_r:hal_oplus_cammidasservice_aidl_exec:s0
+/odm/lib64/libcreatebin\.so                                                     u:object_r:same_process_hal_file:s0
 /vendor/bin/hw/vendor\.oplus\.hardware\.cameraMDM@1\.0-service                  u:object_r:vendor_hal_cameraMDM_default_exec:s0
 /vendor/bin/hw/vendor\.oplus\.hardware\.cameraMDM@2\.0-service                  u:object_r:vendor_hal_cameraMDM_default_exec:s0
 /vendor/lib64/libipebpsstriping\.so                                             u:object_r:same_process_hal_file:s0
@@ -23,6 +24,7 @@
 # Display (Pixelworks)
 /(odm|vendor/odm)/bin/hw/vendor\.pixelworks\.hardware\.display\.iris-service           u:object_r:hal_graphics_composer_default_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.pixelworks\.hardware\.feature\.irisfeature-service    u:object_r:hal_graphics_composer_default_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.pixelworks\.hardware\.feature\.irisfeature            u:object_r:hal_graphics_composer_default_exec:s0
 
 # Engineering
 /mnt/vendor/persist/engineermode(/.*)?    u:object_r:vendor_persist_engineer_file:s0
@@ -56,6 +58,9 @@
 /dev/block/platform/soc/1d84000\.ufshc/by-name/mdm1oemnvbktmp     u:object_r:vendor_modem_efs_partition_device:s0
 /dev/block/platform/soc/1d84000\.ufshc/by-name/mdmddr             u:object_r:vendor_efs_boot_dev:s0
 /dev/block/platform/soc/4804000\.ufshc/by-name/mdm1oemnvbktmp     u:object_r:vendor_modem_efs_partition_device:s0
+
+# Media
+/sys/devices/soc0/subset_parts    u:object_r:vendor_sysfs_mediacodec:s0
 
 # NFC
 /dev/pn553    u:object_r:nfc_device:s0
@@ -94,7 +99,8 @@
 /dev/block/platform/soc/4804000\.ufshc/by-name/oplusreserve[1-5]    u:object_r:vendor_reserve_partition:s0
 
 # Secure Element
-/(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service    u:object_r:hal_secure_element_default_exec:s0
+/(odm|vendor/odm)/bin/hw/android\.hardware\.secure_element-service\.qti    u:object_r:hal_secure_element_default_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service          u:object_r:hal_secure_element_default_exec:s0
 
 # Sensors
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.oplusSensor@1\.0-service    u:object_r:vendor_hal_oplusSensor_default_exec:s0
