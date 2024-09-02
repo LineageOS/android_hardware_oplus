@@ -1,1 +1,3 @@
+allow tee vendor_gpt_block_device:blk_file read;
+
 rw_dir_file(tee, vendor_persist_fingerprint_file)
