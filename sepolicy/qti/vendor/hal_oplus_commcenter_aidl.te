@@ -1,0 +1,15 @@
+type hal_oplus_commcenter_aidl, domain;
+binder_use(hal_oplus_commcenter_aidl)
+
+hal_server_domain(hal_oplus_commcenter_aidl, vendor_hal_oplus_commcenter)
+
+type hal_oplus_commcenter_aidl_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oplus_commcenter_aidl)
+
+binder_call(vendor_hal_oplus_commcenter_client, vendor_hal_oplus_commcenter_server)
+
+hal_attribute_service(vendor_hal_oplus_commcenter, hal_oplus_commcenter_aidl_service)
+
+binder_call(hal_oplus_commcenter_aidl, rild)
+
+allow vendor_hal_oplus_commcenter_client hal_oplus_commcenter_aidl_service:service_manager find;
