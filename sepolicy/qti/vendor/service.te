@@ -1,8 +1,28 @@
 # Camera
+type hal_oplus_aon_aidl_service, hal_service_type, service_manager_type;
 type hal_oplus_cammidasservice_aidl_service, hal_service_type, service_manager_type;
+
+# Charging
+type hal_oplus_charger_aidl_service, hal_service_type, service_manager_type;
+
+# Communication Center
+type hal_oplus_commcenter_aidl_service, hal_service_type, service_manager_type;
 
 # CommonsDcs
 type hal_oplus_commondcs_aidl_service, hal_service_type, service_manager_type;
+
+# CWB
+type hal_oplus_cwb_aidl_service, hal_service_type, service_manager_type;
+
+# Display
+type hal_oplus_displaycolor_aidl_service, hal_service_type, service_manager_type;
+type hal_oplus_displaypanel_aidl_service, hal_service_type, service_manager_type;
+
+# Display (Pixelworks)
+type hal_display_iris_aidl_service, hal_service_type, service_manager_type;
+
+# OLC
+type hal_oplus_olc_aidl_service, hal_service_type, service_manager_type;
 
 # OSENSE
 type hal_oplus_osense_aidl_service, hal_service_type, service_manager_type;

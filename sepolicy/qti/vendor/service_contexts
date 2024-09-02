@@ -1,14 +1,31 @@
 # Camera
+vendor.oplus.hardware.camera.aon.IAONService/default                     u:object_r:hal_oplus_aon_aidl_service:s0
 vendor.oplus.hardware.camera_rfi.ICameraRfiService/default               u:object_r:hal_camera_service:s0
 vendor.oplus.hardware.cameraextension.ICameraExtensionService/default    u:object_r:hal_camera_service:s0
 vendor.oplus.hardware.cammidasservice.IMIDASService/default              u:object_r:hal_oplus_cammidasservice_aidl_service:s0
 vendor.oplus.hardware.sendextcamcmd.ISendExtCamCmdService/default        u:object_r:hal_camera_service:s0
 
+# Charging
+vendor.oplus.hardware.charger.ICharger/default    u:object_r:hal_oplus_charger_aidl_service:s0
+
+# Communication Center
+vendor.oplus.hardware.communicationcenter.IDmtpService/default    u:object_r:hal_oplus_commcenter_aidl_service:s0
+
 # CommonDcs
 vendor.oplus.hardware.commondcs.ICommonDcsAidlHalService/default    u:object_r:hal_oplus_commondcs_aidl_service:s0
 
-# Fingerprint
-vendor.oplus.hardware.olc2.IOplusLogCore/default                    u:object_r:hal_fingerprint_service:s0
+# CWB
+vendor.oplus.hardware.cwb.ICwbService/default    u:object_r:hal_oplus_cwb_aidl_service:s0
+
+# Display
+vendor.oplus.hardware.displaycolorfeature.IDisplayColorFeature/default   u:object_r:hal_oplus_displaycolor_aidl_service:s0
+vendor.oplus.hardware.displaypanelfeature.IDisplayPanelFeature/default   u:object_r:hal_oplus_displaypanel_aidl_service:s0
+
+# Display (Pixelworks)
+vendor.pixelworks.hardware.display.IIris/default    u:object_r:hal_display_iris_aidl_service:s0
+
+# OLC
+vendor.oplus.hardware.olc2.IOplusLogCore/default    u:object_r:hal_oplus_olc_aidl_service:s0
 
 # OSENSE
 vendor.oplus.hardware.osense.client.IOsenseAidlHalReporter/default    u:object_r:hal_oplus_osense_aidl_service:s0
