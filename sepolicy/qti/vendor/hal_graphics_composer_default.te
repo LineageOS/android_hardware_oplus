@@ -1,5 +1,11 @@
 binder_call(hal_graphics_composer_default, hal_graphics_composer_default)
 
+allow hal_graphics_composer_default fwk_sensor_service:service_manager find;
+allow hal_graphics_composer_default hal_display_iris_aidl_service:service_manager { find add };
+
+allow hal_graphics_composer_default hal_oplus_cwb_aidl_service:service_manager add;
+allow hal_graphics_composer_default hal_oplus_displaycolor_aidl_service:service_manager add;
+
 allow hal_graphics_composer_default vendor_proc_display:file r_file_perms;
 
 set_prop(hal_graphics_composer_default, system_oplus_iris_prop)
