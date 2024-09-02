@@ -3,6 +3,7 @@ ro.vendor.oplus.audiodriver.operator    u:object_r:vendor_audio_debug_prop:s0
 ro.vendor.oplus.regionmark              u:object_r:vendor_audio_debug_prop:s0
 
 # Camera
+ro.vendor.camera.res.          u:object_r:vendor_camera_prop:s0
 ro.vendor.oplus.camera.        u:object_r:vendor_camera_prop:s0
 vendor.camera.vm.parameters    u:object_r:vendor_camera_prop:s0
 vendor.oplus.camera.           u:object_r:vendor_camera_prop:s0
@@ -28,6 +29,7 @@ vendor.modem_dump_action    u:object_r:vendor_modem_prop:s0
 vendor.oplus.nfc.fw.version    u:object_r:vendor_nfc_nq_prop:s0
 
 # Radio
+odm.ril.radio.status.          u:object_r:vendor_radio_prop:s0
 persist.vendor.oplus.radio.    u:object_r:vendor_radio_prop:s0
 ro.vendor.oplus.radio.         u:object_r:vendor_radio_prop:s0
 vendor.oplus.radio.            u:object_r:vendor_radio_prop:s0
