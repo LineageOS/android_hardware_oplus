@@ -1,0 +1,9 @@
+type hal_oplus_displaypanelfeature_aidl, domain;
+binder_use(hal_oplus_displaypanelfeature_aidl)
+
+type hal_oplus_displaypanelfeature_aidl_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oplus_displaypanelfeature_aidl)
+
+hal_server_domain(hal_oplus_displaypanelfeature_aidl, vendor_hal_oplus_displaypanelfeature)
+
+hal_attribute_service(vendor_hal_oplus_displaypanelfeature, hal_oplus_displaypanel_aidl_service)
