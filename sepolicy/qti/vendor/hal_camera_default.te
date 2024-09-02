@@ -2,9 +2,16 @@ hal_attribute_hwservice(hal_camera, vendor_hal_camera_extension_hwservice)
 
 hal_client_domain(hal_camera_default, vendor_hal_cameraMDM)
 hal_client_domain(hal_camera_default, vendor_hal_oplus_cammidasservice)
+hal_client_domain(hal_camera_default, vendor_hal_oplus_charger)
+hal_client_domain(hal_camera_default, vendor_hal_oplus_commondcs)
 hal_client_domain(hal_camera_default, vendor_hal_oplus_osense)
 hal_client_domain(hal_camera_default, vendor_hal_oplus_performance)
 
+add_service(hal_camera_default, hal_oplus_aon_aidl_service)
+
+allow hal_camera_default self:capability ipc_lock;
+
+allow hal_camera_default hal_oplus_olc_aidl_service:service_manager find;
 allow hal_camera_default hal_oplus_urcc_aidl_service:service_manager find;
 
 allow hal_camera_default vendor_hal_orms_hwservice:hwservice_manager find;
@@ -26,6 +33,8 @@ allow hal_camera_default vendor_persist_camera_file:file create_file_perms;
 r_dir_file(hal_camera_default, input_device)
 r_dir_file(hal_camera_default, proc_version)
 r_dir_file(hal_camera_default, vendor_proc_oplus_version)
+r_dir_file(hal_camera_default, vendor_sysfs_usb_supply)
+rw_dir_file(hal_camera_default, vendor_proc_camera)
 rw_dir_file(hal_camera_default, vendor_sysfs_tof)
 
 set_prop(hal_camera_default, vendor_camera_prop)
