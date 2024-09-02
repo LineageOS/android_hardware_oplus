@@ -1,0 +1,22 @@
+type hal_oplus_charger_aidl, domain;
+binder_use(hal_oplus_charger_aidl)
+
+type hal_oplus_charger_aidl_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oplus_charger_aidl)
+
+binder_call(vendor_hal_oplus_charger_client, vendor_hal_oplus_charger_server)
+
+hal_server_domain(hal_oplus_charger_aidl, vendor_hal_oplus_charger)
+
+hal_attribute_service(vendor_hal_oplus_charger, hal_oplus_charger_aidl_service)
+
+allow hal_oplus_charger_aidl self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
+allow hal_oplus_charger_aidl block_device:dir search;
+allow hal_oplus_charger_aidl vendor_reserve_partition:blk_file rw_file_perms;
+
+rw_dir_file(hal_oplus_charger_aidl, vendor_sysfs_charger)
+rw_dir_file(hal_oplus_charger_aidl, vendor_sysfs_usb_supply)
+rw_dir_file(hal_oplus_charger_aidl, vendor_proc_charger)
+rw_dir_file(hal_oplus_charger_aidl, vendor_proc_oplus_version)
+rw_dir_file(hal_oplus_charger_aidl, vendor_proc_wireless)

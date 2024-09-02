@@ -10,6 +10,9 @@ init_daemon_domain(hal_oplus_touchdaemon)
 
 hal_attribute_service(vendor_hal_oplus_touchdaemon, touchDeamonBinder_service)
 
+allow hal_oplus_touchdaemon fwk_stats_service:service_manager find;
+allow hal_oplus_touchdaemon hal_oplus_olc_aidl_service:service_manager find;
+
 allow hal_oplus_touchdaemon hal_oplus_touchdaemon:capability sys_nice;
 
 allow hal_oplus_touchdaemon hal_oplus_touch_aidl:binder call;
