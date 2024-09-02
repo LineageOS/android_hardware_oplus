@@ -1,2 +1,5 @@
+# Display
+dpa.service    u:object_r:dpa_service:s0
+
 # Touch
 touchDeamonBinder    u:object_r:touchDeamonBinder_service:s0

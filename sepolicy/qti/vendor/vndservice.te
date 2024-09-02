@@ -1,2 +1,5 @@
+# Display
+type dpa_service, vndservice_manager_type;
+
 # Touch
 type touchDeamonBinder_service, vndservice_manager_type;
