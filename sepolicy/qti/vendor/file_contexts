@@ -11,18 +11,24 @@
 /vendor/lib64/libipebpsstriping\.so                                             u:object_r:same_process_hal_file:s0
 
 # Charging
-/vendor/bin/hw/vendor\.lineage\.powershare-service\.oplus    u:object_r:hal_lineage_powershare_default_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.charger-V[0-9]+-service    u:object_r:hal_oplus_charger_aidl_exec:s0
+/vendor/bin/hw/vendor\.lineage\.powershare-service\.oplus                    u:object_r:hal_lineage_powershare_default_exec:s0
+
+# Communication Center
+/odm/bin/commcenterd    u:object_r:hal_oplus_commcenter_aidl_exec:s0
 
 # CommonDcs
 /vendor/bin/hw/vendor\.oplus\.hardware\.commondcs-service    u:object_r:hal_oplus_commondcs_aidl_exec:s0
 
 # Display
-/vendor/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.oplus    u:object_r:hal_lineage_livedisplay_qti_exec:s0
-/dev/oplus_display                                                 u:object_r:graphics_device:s0
+/vendor/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.oplus     u:object_r:hal_lineage_livedisplay_qti_exec:s0
+/odm/bin/hw/vendor\.oplus\.hardware\.displaypanelfeature-service    u:object_r:hal_oplus_displaypanelfeature_aidl_exec:s0
+/dev/oplus_display                                                  u:object_r:graphics_device:s0
 
 # Display (Pixelworks)
 /(odm|vendor/odm)/bin/hw/vendor\.pixelworks\.hardware\.display\.iris-service           u:object_r:hal_graphics_composer_default_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.pixelworks\.hardware\.feature\.irisfeature-service    u:object_r:hal_graphics_composer_default_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.pixelworks\.hardware\.feature-service                 u:object_r:hal_feature_irisfeature_default_exec:s0
 
 # Engineering
 /mnt/vendor/persist/engineermode(/.*)?    u:object_r:vendor_persist_engineer_file:s0
@@ -94,7 +100,8 @@
 /dev/block/platform/soc/4804000\.ufshc/by-name/oplusreserve[1-5]    u:object_r:vendor_reserve_partition:s0
 
 # Secure Element
-/(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service    u:object_r:hal_secure_element_default_exec:s0
+/(odm|vendor/odm)/bin/hw/android\.hardware\.secure_element-service\.qti    u:object_r:hal_secure_element_default_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service          u:object_r:hal_secure_element_default_exec:s0
 
 # Sensors
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.oplusSensor@1\.0-service    u:object_r:vendor_hal_oplusSensor_default_exec:s0
