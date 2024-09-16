@@ -1,0 +1,3 @@
+allow vendor_qtelephony property_socket:sock_file write;
+
+set_prop(vendor_qtelephony, system_oplus_radio_prop);
