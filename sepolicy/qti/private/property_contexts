@@ -45,6 +45,7 @@ ro.build.display.full_id    u:object_r:exported_system_prop:s0
 ro.build.oplus_nv_id        u:object_r:exported_system_prop:s0
 ro.sys.reserve.integrate    u:object_r:exported_system_prop:s0
 sys.oplus_boot_mode         u:object_r:exported_system_prop:s0
+sys.oplus.radio.            u:object_r:system_oplus_radio_prop:s0
 
 # SVN
 ro.build.version.svn      u:object_r:exported_system_prop:s0

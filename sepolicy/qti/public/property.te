@@ -4,6 +4,9 @@ vendor_internal_prop(system_oplus_iris_prop)
 # Fingerprint
 vendor_internal_prop(system_fingerprint_prop)
 
+# Radio
+system_public_prop(system_oplus_radio_prop)
+
 # Touch
 system_public_prop(system_oplus_touch_prop)
 
