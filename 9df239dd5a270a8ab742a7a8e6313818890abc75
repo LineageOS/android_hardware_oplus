@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d0cc444_f4b37592",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-09-22T20:16:22Z",
+      "side": 1,
+      "message": "everything else looks ok",
+      "revId": "9df239dd5a270a8ab742a7a8e6313818890abc75",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3b4aae7_0d99f100",
+        "filename": "sepolicy/qti/vendor/vendor_qtelephony.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-09-22T20:16:22Z",
+      "side": 1,
+      "message": "set_prop grants that already",
+      "revId": "9df239dd5a270a8ab742a7a8e6313818890abc75",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cf40327_46aa2282",
+        "filename": "sepolicy/qti/vendor/vendor_qtelephony.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-09-22T20:16:22Z",
+      "side": 1,
+      "message": "remove ;",
+      "revId": "9df239dd5a270a8ab742a7a8e6313818890abc75",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
