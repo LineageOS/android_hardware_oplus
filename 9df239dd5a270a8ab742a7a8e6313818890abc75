@@ -35,6 +35,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0334f6bf_ef075c69",
+        "filename": "sepolicy/qti/private/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-09-22T20:42:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8e8d0e3_f6e855b8",
+      "revId": "9df239dd5a270a8ab742a7a8e6313818890abc75",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9ec99a6_3589618a",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-09-22T20:18:57Z",
       "side": 1,
       "message": "```\npersist.vendor.oplus.radio. u:object_r:vendor_oplus_network_prop:s0\nro.vendor.oplus.radio.      u:object_r:vendor_oplus_network_prop:s0\nvendor.oplus.radio.         u:object_r:vendor_oplus_network_prop:s0\n```\n\nsince all 3 use the same label, move `vendor.oplus.radio.` here and label it as u:object_r:vendor_radio_prop:s0",
+      "revId": "9df239dd5a270a8ab742a7a8e6313818890abc75",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aade11a9_95652dab",
+        "filename": "sepolicy/qti/vendor/property_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-09-22T20:42:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9ec99a6_3589618a",
       "revId": "9df239dd5a270a8ab742a7a8e6313818890abc75",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
@@ -69,6 +105,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ed75d89_156436b5",
+        "filename": "sepolicy/qti/vendor/vendor_qtelephony.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-09-22T20:42:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3b4aae7_0d99f100",
+      "revId": "9df239dd5a270a8ab742a7a8e6313818890abc75",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5cf40327_46aa2282",
@@ -82,6 +136,24 @@
       "writtenOn": "2024-09-22T20:16:22Z",
       "side": 1,
       "message": "remove ;",
+      "revId": "9df239dd5a270a8ab742a7a8e6313818890abc75",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c7e188a_b202af48",
+        "filename": "sepolicy/qti/vendor/vendor_qtelephony.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-09-22T20:42:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cf40327_46aa2282",
       "revId": "9df239dd5a270a8ab742a7a8e6313818890abc75",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
