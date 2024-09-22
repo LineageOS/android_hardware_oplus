@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b058df5_95b77caf",
+        "filename": "sepolicy/qti/vendor/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-09-22T20:44:52Z",
+      "side": 1,
+      "message": "might need set_prop(rild, vendor_radio_prop)",
+      "revId": "c8ef84bd8274159aabc2c146d504fdca12d719a4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
