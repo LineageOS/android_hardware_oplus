@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The LineageOS Project
+ * Copyright (C) 2022-2014 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,11 +22,19 @@
 #include <drm/sde_drm.h>
 #endif
 
+uint32_t getUdfpsAodZOrder(uint32_t z) {
+    return 0x41000011;
+}
+
+uint32_t getUdfpsDimZOrder(uint32_t z) {
+    return 0x41000005;
+}
+
 uint32_t getUdfpsZOrder(uint32_t z, bool touched) {
 #ifdef FOD_PRESSED_LAYER_ZORDER
     return touched ? z | FOD_PRESSED_LAYER_ZORDER : z;
 #else
-    return touched ? 0x41000033 : z;
+    return touched ? 0x41000033 : 0x41000032;
 #endif
 }
 
