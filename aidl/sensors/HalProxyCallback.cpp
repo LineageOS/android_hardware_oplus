@@ -74,6 +74,11 @@ std::vector<V2_1::Event> HalProxyCallbackBase::processEvents(const std::vector<V
         }
         const V2_1::SensorInfo& sensor = mCallback->getSensorInfo(event.sensorHandle);
 
+        if (sensor.type == V2_1::SensorType::GLANCE_GESTURE
+            && event.u.scalar != 2) {
+            continue;
+        }
+
         if (sensor.type == V2_1::SensorType::PICK_UP_GESTURE
             && event.u.scalar != 0) {
             continue;
