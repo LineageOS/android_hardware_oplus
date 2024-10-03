@@ -1,3 +1,6 @@
+on boot
+    chmod 666 /sys/kernel/oplus_display/aod_light_mode_set
+
 service vendor.sensors-hal-multihal /vendor/bin/hw/android.hardware.sensors-service.oplus-multihal
     class hal
     user system
