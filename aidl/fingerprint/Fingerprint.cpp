@@ -8,14 +8,20 @@
 
 namespace aidl::android::hardware::biometrics::fingerprint {
 
-ndk::ScopedAStatus Fingerprint::getSensorProps(std::vector<SensorProps>* /*out*/) {
-    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+Fingerprint::Fingerprint() {
+    const std::string instance = std::string() + Fingerprint::descriptor + "/oplus";
+    ndk::SpAIBinder fingerprintBinder = SpAIBinder(AServiceManager_getService(instance.c_str()));
+    mOplusFingerprint = IFingerprint::fromBinder(fingerprintBinder);
 }
 
-ndk::ScopedAStatus Fingerprint::createSession(int32_t /*sensorId*/, int32_t /*userId*/,
-                                              const std::shared_ptr<ISessionCallback>& /*cb*/,
-                                              std::shared_ptr<ISession>* /*out*/) {
-    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+ndk::ScopedAStatus Fingerprint::getSensorProps(std::vector<SensorProps>* out) {
+    return mOplusFingerprint->getSensorProps(out);
+}
+
+ndk::ScopedAStatus Fingerprint::createSession(int32_t sensorId, int32_t userId,
+                                              const std::shared_ptr<ISessionCallback>& cb,
+                                              std::shared_ptr<ISession>* out) {
+    return mOplusFingerprint->createSession(sensorId, userId, cb, out);
 }
 
 }  // namespace aidl::android::hardware::biometrics::fingerprint
