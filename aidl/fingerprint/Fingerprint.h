@@ -24,6 +24,8 @@ class Fingerprint : public BnFingerprint {
 
   private:
     std::shared_ptr<IFingerprint> mOplusFingerprint;
+    FingerprintSensorType mSensorType;
+    int mMaxEnrollmentsPerUser;
 };
 
 }  // namespace aidl::android::hardware::biometrics::fingerprint
