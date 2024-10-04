@@ -21,5 +21,13 @@ cc_binary {
         "android.hardware.biometrics.common.thread",
         "android.hardware.biometrics.common.util",
     ],
+    static_libs: ["libandroid.hardware.biometrics.fingerprint.OplusProps"],
+    vendor: true,
+}
+
+sysprop_library {
+    name: "android.hardware.biometrics.fingerprint.OplusProps",
+    srcs: ["fingerprint.sysprop"],
+    property_owner: "Vendor",
     vendor: true,
 }
