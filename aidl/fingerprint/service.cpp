@@ -20,6 +20,10 @@ int main() {
     binder_status_t status = AServiceManager_addService(fingerprint->asBinder().get(), instance.c_str());
     CHECK(status == STATUS_OK);
 
+    const std::string instance = std::string() + Fingerprint::descriptor + "/oneplus";
+    SpAIBinder vibBinder = SpAIBinder(AServiceManager_getService(kInstance.c_str()));
+    std::shared_ptr<IFingerprint> fp = IFingerprint::fromBinder(vibBinder);
+
     ABinderProcess_joinThreadPool();
     return EXIT_FAILURE; // should not reach
 }
