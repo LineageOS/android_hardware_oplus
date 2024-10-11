@@ -2,5 +2,6 @@
     <hal format="aidl">
         <name>vendor.oplus.hardware.osense.client</name>
         <fqname>IOsenseAidlHalReporter/default</fqname>
+        <fqname>IOsenseAidlHalReporter/oplus</fqname>
     </hal>
 </manifest>
