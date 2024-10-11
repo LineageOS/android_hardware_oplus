@@ -16,6 +16,24 @@
       "message": "The problem with requiring patching like this, is for devices which require Oplus Touch and also osense for fp service to function at all. Default interface is only specified once as default in those services/binaries. For touch, this isn\u0027t bad to patch default-\u003eoplus, but once you get to osense you run into more of a cascading issue (because blobs which must be patched are also specifying default interface only once and have interface dependencies outside of only osense).",
       "revId": "b98a3d3c594f7a969a0096b7c72416d573ebd544",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "808f162e_10ddf024",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33946
+      },
+      "writtenOn": "2024-10-11T19:28:09Z",
+      "side": 1,
+      "message": "Resolved from patching oplus touch blobs (default-\u003eoplus) and doing this in hardware/oplus: https://0x0.st/X6MI.diff",
+      "parentUuid": "55a9201e_17fe0b72",
+      "revId": "b98a3d3c594f7a969a0096b7c72416d573ebd544",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
