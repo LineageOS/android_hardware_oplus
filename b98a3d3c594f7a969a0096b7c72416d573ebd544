@@ -34,6 +34,24 @@
       "parentUuid": "55a9201e_17fe0b72",
       "revId": "b98a3d3c594f7a969a0096b7c72416d573ebd544",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f718456_f48654a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-10-12T09:05:18Z",
+      "side": 1,
+      "message": "I haven\u0027t had time to try this again, but is this now fully working for you? Are you able to use stock aidl fingerprint?",
+      "parentUuid": "808f162e_10ddf024",
+      "revId": "b98a3d3c594f7a969a0096b7c72416d573ebd544",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
