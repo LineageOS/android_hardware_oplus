@@ -52,6 +52,24 @@
       "parentUuid": "808f162e_10ddf024",
       "revId": "b98a3d3c594f7a969a0096b7c72416d573ebd544",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0e5efb4_d1cf3aff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33946
+      },
+      "writtenOn": "2024-10-12T13:08:11Z",
+      "side": 1,
+      "message": "Not quite fully working (but keep in mind on waffle we didn\u0027t have fod at all until now). I got pretty far with it so far after:\n - using a15 beta fp service which is V3 biometrics ndk service. Last a14 is only V1 biometrics ndk service which died when patchelf\u0027d to V4, and had unimplemented methods when V1 ndk dep was built.\n  - adding oplus touch (necessary now), and patching with https://0x0.st/X6_1.diff since it would look for oplus instance opposed to default instance due to the patching.\n\n\nMy current issue is that after first press at enroll screen (which registers), I get: 10-12 08:03:11.008 E/[FP_HAL][DcsReport](2079): [sendToDcsService]can\u0027t get the commondcsservice\n\nand no further press registers (outside of dim/hbm ofc). I have all dcs blobs except jars, but when looking at stock it seems it may be loaded from framework and the entry is in the main system vintf manifest.",
+      "parentUuid": "0f718456_f48654a6",
+      "revId": "b98a3d3c594f7a969a0096b7c72416d573ebd544",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
