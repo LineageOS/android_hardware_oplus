@@ -1,3 +1,6 @@
+# Audio
+sys.oplus_ftm_mode    u:object_r:exported_system_prop:s0
+
 # Autotest
 persist.sys.oplus.autotest.monkeyRunning    u:object_r:exported_system_prop:s0
 

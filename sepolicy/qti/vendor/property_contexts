@@ -1,3 +1,7 @@
+# Audio
+ro.vendor.oplus.audiodriver.operator    u:object_r:vendor_audio_debug_prop:s0
+ro.vendor.oplus.regionmark              u:object_r:vendor_audio_debug_prop:s0
+
 # Camera
 ro.vendor.oplus.camera.        u:object_r:vendor_camera_prop:s0
 vendor.camera.vm.parameters    u:object_r:vendor_camera_prop:s0
