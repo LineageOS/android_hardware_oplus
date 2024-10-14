@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eefc4dd_58419c94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33946
+      },
+      "writtenOn": "2024-10-14T19:09:57Z",
+      "side": 1,
+      "message": "Patching commondcs to be oplus instance rather than default is not very trivial and also needs cam and their dependencies to be patched also for instance change.\n\nI think it\u0027s better to support having a different default fingerprint fqname in platform than IFingerprint/default so we can simply use something different here and not need to come up with ways to patch all these blobs.",
+      "revId": "e030d9079de9391d0b04730de4412bf5f1211f33",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
