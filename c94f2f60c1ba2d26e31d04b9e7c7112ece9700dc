@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1958dbe7_3a839345",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-15T06:45:22Z",
+      "side": 1,
+      "message": "sepolicy: qti:",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "c94f2f60c1ba2d26e31d04b9e7c7112ece9700dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ca7325e_1feae33d",
+        "filename": "sepolicy/qti/private/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-15T06:45:22Z",
+      "side": 1,
+      "message": "```suggestion\n# Audio\n```",
+      "revId": "c94f2f60c1ba2d26e31d04b9e7c7112ece9700dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27eabf29_e26e81f3",
+        "filename": "sepolicy/qti/vendor/property_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-15T06:45:22Z",
+      "side": 1,
+      "message": "```suggestion\n# Audio\nro.vendor.oplus.audiodriver.operator    u:object_r:vendor_audio_debug_prop:s0\nro.vendor.oplus.regionmark              u:object_r:vendor_audio_debug_prop:s0\n```",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 75
+      },
+      "revId": "c94f2f60c1ba2d26e31d04b9e7c7112ece9700dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
