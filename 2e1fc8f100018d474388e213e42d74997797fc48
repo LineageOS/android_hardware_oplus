@@ -16,6 +16,24 @@
       "message": "I\u0027m unsure about the purpose of the AOD layer but as for the icon layer, the idea of z-ordering it above the dim layer where we enable dim layer HBM on overlay show/hide would only add more complication by making the UDFPS icon bright.",
       "revId": "2e1fc8f100018d474388e213e42d74997797fc48",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8422aac7_3162fa60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33946
+      },
+      "writtenOn": "2024-10-23T18:12:04Z",
+      "side": 1,
+      "message": "I suspect the AOD layer may be needed to fix udfps on AOD without changes to oplus_onscreenfingerprint.c",
+      "parentUuid": "0de9e652_7f6cf27b",
+      "revId": "2e1fc8f100018d474388e213e42d74997797fc48",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
