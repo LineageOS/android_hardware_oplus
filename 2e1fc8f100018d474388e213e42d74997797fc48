@@ -34,6 +34,24 @@
       "parentUuid": "0de9e652_7f6cf27b",
       "revId": "2e1fc8f100018d474388e213e42d74997797fc48",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42c0efd7_18379ad1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2024-10-24T05:53:53Z",
+      "side": 1,
+      "message": "AOD layer is also used by sm8350, however the layer remains active even when the fingerprint is not enrolled, while on AOD. So, I wonder if it has uses beyond udfps.\n\nStock also uses DOZE_SUSPEND. I assume this layer has something to do with providing a side kick resource so that the AOD clock updates happen on the display. However when I tested, that didn\u0027t work out as expected.",
+      "parentUuid": "8422aac7_3162fa60",
+      "revId": "2e1fc8f100018d474388e213e42d74997797fc48",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
