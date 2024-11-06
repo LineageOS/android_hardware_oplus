@@ -19,10 +19,6 @@ public class OplusFeatureConfigManager {
         return sInstance;
     }
 
-    public boolean hasFeature(String featureName) {
-        return false;
-    }
-
     public interface OnFeatureObserver {
         default void onFeatureUpdate(List<String> features) {}
     }
