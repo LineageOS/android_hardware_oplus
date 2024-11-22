@@ -16,6 +16,23 @@
       "message": "any complaints for the whole chain?",
       "revId": "60f641a773c178fcea98b609e3beb0a87324e605",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06b2205a_36c79eca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-11-22T21:19:15Z",
+      "side": 1,
+      "message": "requires repo sync build/soong as I cherry-picked two patches to make this work.",
+      "revId": "60f641a773c178fcea98b609e3beb0a87324e605",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
