@@ -1,4 +1,5 @@
 # Camera
+vendor.oplus.hardware.camera_rfi.ICameraRfiService/default               u:object_r:hal_camera_service:s0
 vendor.oplus.hardware.cameraextension.ICameraExtensionService/default    u:object_r:hal_camera_service:s0
 vendor.oplus.hardware.cammidasservice.IMIDASService/default              u:object_r:hal_oplus_cammidasservice_aidl_service:s0
 vendor.oplus.hardware.sendextcamcmd.ISendExtCamCmdService/default        u:object_r:hal_camera_service:s0
