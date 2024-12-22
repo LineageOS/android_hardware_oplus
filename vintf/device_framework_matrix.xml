@@ -185,6 +185,22 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.touch</name>
+        <version>2</version>
+        <interface>
+            <name>IOplusTouch</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.urcc</name>
+        <version>1</version>
+        <interface>
+            <name>IUrcc</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.pixelworks.hardware.display</name>
         <version>1</version>
         <interface>
