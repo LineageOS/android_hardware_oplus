@@ -32,7 +32,6 @@ aidl_interface {
     vendor_available: true,
     local_include_dir: "aidl",
     srcs: ["aidl/vendor/oplus/hardware/touch/*.aidl"],
-    frozen: true,
     stability: "vintf",
     owner: "oplus",
 
