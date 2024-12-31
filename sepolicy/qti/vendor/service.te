@@ -12,3 +12,6 @@ type hal_oplus_project_aidl_service, hal_service_type, service_manager_type;
 
 # Touch
 type hal_oplus_touch_aidl_service, hal_service_type, service_manager_type;
+
+# URCC
+type hal_oplus_urcc_aidl_service, hal_service_type, service_manager_type;

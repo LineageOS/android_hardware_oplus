@@ -30,3 +30,6 @@ vendor.oplus.hardware.radio.IRadioStable/OplusRadio1                 u:object_r:
 
 # Touch
 vendor.oplus.hardware.touch.IOplusTouch/default    u:object_r:hal_oplus_touch_aidl_service:s0
+
+# URCC
+vendor.oplus.hardware.urcc.IUrcc/default    u:object_r:hal_oplus_urcc_aidl_service:s0

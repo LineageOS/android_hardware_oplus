@@ -5,6 +5,8 @@ hal_client_domain(hal_camera_default, vendor_hal_oplus_cammidasservice)
 hal_client_domain(hal_camera_default, vendor_hal_oplus_osense)
 hal_client_domain(hal_camera_default, vendor_hal_oplus_performance)
 
+allow hal_camera_default hal_oplus_urcc_aidl_service:service_manager find;
+
 allow hal_camera_default vendor_hal_orms_hwservice:hwservice_manager find;
 allow hal_camera_default vendor_hal_osense_hwservice:hwservice_manager find;
 
