@@ -1,1 +1,3 @@
+allow vendor_hal_perf_default hal_oplus_urcc_aidl_service:service_manager find;
+
 r_dir_file(vendor_hal_perf_default, vendor_sysfs_usb_supply)

@@ -128,6 +128,9 @@
 /dev/audio_ultrasound     u:object_r:ultrasound_device:s0
 /dev/sensor_ultrasound    u:object_r:ultrasound_device:s0
 
+# URCC
+/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.urcc-service    u:object_r:hal_oplus_urcc_aidl_exec:s0
+
 # Vibrator
 /dev/awinic_haptic                                                    u:object_r:aac_richtap_device:s0
 /vendor/bin/hw/android\.hardware\.vibrator\.service\.oplus-richtap    u:object_r:hal_vibrator_default_exec:s0
