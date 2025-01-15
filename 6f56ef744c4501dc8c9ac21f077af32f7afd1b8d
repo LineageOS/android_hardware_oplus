@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47159260_c35c293f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2025-01-15T20:22:34Z",
+      "side": 1,
+      "message": "Works on ovaltine, which requires the 1.2 IDmtpService",
+      "revId": "6f56ef744c4501dc8c9ac21f077af32f7afd1b8d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
