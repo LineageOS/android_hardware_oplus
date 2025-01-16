@@ -1,0 +1,64 @@
+//
+// SPDX-FileCopyrightText: 2020-2025 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+soong_config_module_type {
+    name: "target_board_platform_cc_library_shared",
+    module_type: "cc_library_shared",
+    config_namespace: "ANDROID",
+    value_variables: ["target_board_platform"],
+    properties: [
+        "name",
+    ],
+}
+
+target_board_platform_cc_library_shared {
+    name: "audio_amplifier.qcom",
+    soong_config_variables: {
+        target_board_platform: {
+            name: "audio_amplifier.%s",
+            conditions_default: {
+                name: "audio_amplifier.qcom",
+            },
+        },
+    },
+    relative_install_path: "hw",
+    vendor: true,
+    owner: "qti",
+
+    srcs: [
+        "audio_amplifier.c",
+    ],
+
+    cflags: select(soong_config_variable("ANDROID", "target_board_platform"), {
+        any @ platform: ["-DLIB_AUDIO_HAL=\"audio.primary." + platform + ".so\""],
+        default: ["-DLIB_AUDIO_HAL=\"audio.primary.default.so\""],
+    }),
+
+    include_dirs: [
+        "external/tinyalsa/include",
+        "external/tinycompress/include",
+        "system/media/audio_route/include",
+        "system/media/audio_utils/include",
+    ] + select(soong_config_variable("ANDROID", "target_board_platform"), {
+        "kona": [
+            "hardware/qcom-caf/sm8250/audio/hal",
+            "hardware/qcom-caf/sm8250/audio/hal/audio_extn",
+            "hardware/qcom-caf/sm8250/audio/hal/msm8974",
+        ],
+        default: [],
+    }),
+
+    header_libs: [
+        "libhardware_headers",
+        "qti_kernel_headers",
+    ],
+
+    shared_libs: [
+        "libcutils",
+        "libdl",
+        "liblog",
+        "libtinyalsa",
+    ],
+}
