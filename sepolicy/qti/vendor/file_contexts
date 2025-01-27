@@ -126,6 +126,7 @@
 /dev/sensor_ultrasound    u:object_r:ultrasound_device:s0
 
 # Vibrator
+/dev/awinic_haptic                                                    u:object_r:aac_richtap_device:s0
 /vendor/bin/hw/android\.hardware\.vibrator\.service\.oplus-richtap    u:object_r:hal_vibrator_default_exec:s0
 /vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.oplus        u:object_r:hal_vibrator_default_exec:s0
 

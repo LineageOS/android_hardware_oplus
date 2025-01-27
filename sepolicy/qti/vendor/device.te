@@ -16,5 +16,8 @@ type oplus_touchdaemon_device, dev_type;
 # Ultrasound
 type ultrasound_device, dev_type;
 
+# Vibrator
+type aac_richtap_device, dev_type;
+
 # Wlchgmonitor
 type wlchg_device, dev_type;

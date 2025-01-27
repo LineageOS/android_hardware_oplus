@@ -1,0 +1,1 @@
+allow hal_vibrator_default aac_richtap_device:chr_file rw_file_perms;
