@@ -126,7 +126,8 @@
 /dev/sensor_ultrasound    u:object_r:ultrasound_device:s0
 
 # Vibrator
-/vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.oplus    u:object_r:hal_vibrator_default_exec:s0
+/vendor/bin/hw/android\.hardware\.vibrator\.service\.oplus-richtap    u:object_r:hal_vibrator_default_exec:s0
+/vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.oplus        u:object_r:hal_vibrator_default_exec:s0
 
 # Widevine
 /(odm|vendor/odm)/bin/hw/android\.hardware\.drm@1\.[0-4]+-service\.widevine    u:object_r:vendor_hal_drm_widevine_exec:s0
