@@ -1,0 +1,27 @@
+cc_binary {
+    name: "android.hardware.vibrator.service.oplus-richtap",
+    vendor: true,
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-DLOG_TAG=\"android.hardware.vibrator.service.oplus\"",
+    ],
+    relative_install_path: "hw",
+    init_rc: ["android.hardware.vibrator.service.oplus-richtap.rc"],
+    vintf_fragments: [
+        "android.hardware.vibrator.service.oplus-richtap.xml",
+    ],
+    srcs: [
+        "service.cpp",
+        "Vibrator.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "liblog",
+        "libbase",
+        "libbinder_ndk",
+        "libaacvibrator",
+        "android.hardware.vibrator-V2-ndk",
+    ],
+}
