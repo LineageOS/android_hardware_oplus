@@ -1,5 +1,14 @@
 <compatibility-matrix version="4.0" type="framework">
     <hal format="aidl" optional="true">
+        <name>android.hardware.audio.core</name>
+        <version>2</version>
+        <interface>
+            <name>IModule</name>
+            <instance>binaural_record</instance>
+            <instance>virtual</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.appradioaidl</name>
         <version>1</version>
         <interface>
@@ -17,11 +26,27 @@
             <instance>oplus_app_slot2</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.binaural_record</name>
+        <version>1</version>
+        <interface>
+            <name>IBinauralRecordProviderFactory</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.oplus.hardware.biometrics.fingerprint</name>
         <version>2.1</version>
         <interface>
             <name>IBiometricsFingerprint</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.biometrics.fingerprintpay</name>
+        <version>1</version>
+        <interface>
+            <name>IFingerprintPay</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -43,7 +68,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.camera_rfi</name>
-        <version>1</version>
+        <version>1-2</version>
         <interface>
             <name>ICameraRfiService</name>
             <instance>default</instance>
@@ -76,7 +101,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.charger</name>
-        <version>6</version>
+        <version>1-6</version>
         <interface>
             <name>ICharger</name>
             <instance>default</instance>
@@ -95,6 +120,14 @@
         <version>1-2</version>
         <interface>
             <name>IDmtpService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.cryptoeng</name>
+        <version>1</version>
+        <interface>
+            <name>ICryptoeng</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -139,6 +172,22 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.fido.fido2ca</name>
+        <version>1</version>
+        <interface>
+            <name>IFidoDaemon</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.fido.fidoca</name>
+        <version>1</version>
+        <interface>
+            <name>IFidoDaemon</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.ims</name>
         <version>1</version>
         <interface>
@@ -154,6 +203,22 @@
             <name>IOplusImsRadio</name>
             <instance>oplusimsradio0</instance>
             <instance>oplusimsradio1</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.misc</name>
+        <version>1</version>
+        <interface>
+            <name>IOplusMisc</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.olc2</name>
+        <version>1-2</version>
+        <interface>
+            <name>IOplusLogCore</name>
+            <instance>default</instance>
         </interface>
     </hal>
     <hal format="aidl" optional="true">
@@ -207,6 +272,38 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.radio.satellite</name>
+        <version>1-3</version>
+        <interface>
+            <name>IRadioSatellite</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.radio.satellite.audio</name>
+        <version>1</version>
+        <interface>
+            <name>ISatelliteAudioService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.radio.satellite.rsmc</name>
+        <version>1</version>
+        <interface>
+            <name>ISmcService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.radio.satellite.zb</name>
+        <version>1-2</version>
+        <interface>
+            <name>ISatelliteZbService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.sendextcamcmd</name>
         <version>1-2</version>
         <interface>
@@ -222,9 +319,25 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.subsys_imsrtp</name>
+        <version>1</version>
+        <interface>
+            <name>IImsRtp</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.subsys_interface.subsys</name>
+        <version>1-3</version>
+        <interface>
+            <name>ISubsys</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="aidl">
         <name>vendor.oplus.hardware.subsys_interface.subsys_radio</name>
-        <version>1-3</version>
+        <version>1-4</version>
         <interface>
             <name>ISubsysRadio</name>
             <instance>slot1</instance>
@@ -253,6 +366,14 @@
         <version>1</version>
         <interface>
             <name>IUrcc</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.virtual_device.audio</name>
+        <version>1</version>
+        <interface>
+            <name>IStatusProvider</name>
             <instance>default</instance>
         </interface>
     </hal>
