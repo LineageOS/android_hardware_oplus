@@ -26,6 +26,14 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.biometrics.fingerprintpay</name>
+        <version>1</version>
+        <interface>
+            <name>IFingerprintPay</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.camera.aon</name>
         <version>1</version>
         <interface>
@@ -76,7 +84,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.charger</name>
-        <version>6</version>
+        <version>1-7</version>
         <interface>
             <name>ICharger</name>
             <instance>default</instance>
@@ -157,6 +165,14 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.olc2</name>
+        <version>1-2</version>
+        <interface>
+            <name>IOplusLogCore</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.oplusSensor</name>
         <version>1</version>
         <interface>
@@ -207,6 +223,38 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.radio.satellite</name>
+        <version>1-3</version>
+        <interface>
+            <name>IRadioSatellite</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.radio.satellite.audio</name>
+        <version>1</version>
+        <interface>
+            <name>ISatelliteAudioService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.radio.satellite.rsmc</name>
+        <version>1</version>
+        <interface>
+            <name>ISmcService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.radio.satellite.zb</name>
+        <version>1-2</version>
+        <interface>
+            <name>ISatelliteZbService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.sendextcamcmd</name>
         <version>1-2</version>
         <interface>
@@ -223,8 +271,24 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
-        <name>vendor.oplus.hardware.subsys_interface.subsys_radio</name>
+        <name>vendor.oplus.hardware.subsys_imsrtp</name>
+        <version>1</version>
+        <interface>
+            <name>IImsRtp</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.subsys_interface.subsys</name>
         <version>1-3</version>
+        <interface>
+            <name>ISubsys</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.subsys_interface.subsys_radio</name>
+        <version>1-4</version>
         <interface>
             <name>ISubsysRadio</name>
             <instance>slot1</instance>
