@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84060276_e5accd7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-01-30T11:40:33Z",
+      "side": 1,
+      "message": "requires https://review.lineageos.org/c/LineageOS/android_hardware_qcom_bootctrl/+/416582",
+      "revId": "d480014a4e3405f5869a62f89406ccab66c7a54c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
