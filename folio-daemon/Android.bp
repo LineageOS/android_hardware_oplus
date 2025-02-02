@@ -18,4 +18,6 @@ cc_binary {
     ],
 
     owner: "google",
+
+    system_ext_specific: true,
 }
