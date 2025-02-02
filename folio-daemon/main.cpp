@@ -136,8 +136,8 @@ int main(void) {
         int eventCount = 0;
         ASensorEvent sensorEvent;
         while (ASensorEventQueue_getEvents(eventQueue, &sensorEvent, 1) > 0) {
-            // 1 means closed; 0 means open
-            int isClosed = sensorEvent.data[0] > 0.0f ? 1 : 0;
+            // 0 means closed; 1 means open
+            int isClosed = sensorEvent.data[0] > 0.0f ? 0 : 1;
             struct input_event event;
             event.type = EV_SW;
             event.code = SW_LID;
