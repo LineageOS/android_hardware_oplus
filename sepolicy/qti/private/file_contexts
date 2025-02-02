@@ -1,2 +1,5 @@
+# Folio daemon
+/system_ext/bin/folio-daemon    u:object_r:folio_daemon_exec:s0
+
 # Horae
 /system_ext/bin/horae    u:object_r:horae_exec:s0
