@@ -26,7 +26,7 @@
 #include <cutils/log.h>
 
 // Hall-effect sensor type
-#define SENSOR_TYPE 33171016
+#define SENSOR_TYPE 33171002
 
 #define RETRY_LIMIT     120
 #define RETRY_PERIOD    30          // 30 seconds
