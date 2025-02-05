@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09d25328_0c1f0a01",
+        "filename": "audio_amplifier/audio_amplifier.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-02-05T16:13:50Z",
+      "side": 1,
+      "message": "maybe typeof() can work for casting.",
+      "revId": "9b39a4718bf26c8c0032d0214598a24a23ee79b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
