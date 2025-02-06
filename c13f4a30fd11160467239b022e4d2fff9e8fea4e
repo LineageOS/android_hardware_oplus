@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7662f4a2_35b035b6",
+        "filename": "sepolicy/qti/vendor/device.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-02-06T23:30:36Z",
+      "side": 1,
+      "message": "_dev_device?",
+      "revId": "c13f4a30fd11160467239b022e4d2fff9e8fea4e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
