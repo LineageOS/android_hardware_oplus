@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70644273_4b6e63bd",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-02-06T23:31:42Z",
+      "side": 1,
+      "message": "dev first",
+      "revId": "e8e61ac843109b3f7afe0fe5855d45a4feded531",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
