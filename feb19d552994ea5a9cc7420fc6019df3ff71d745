@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac7ca78d_6d30e7e1",
+        "filename": "aidl/ir/main.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-06T23:41:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e01fcb04_a2f58a2a",
+      "revId": "feb19d552994ea5a9cc7420fc6019df3ff71d745",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1018251b_77e7d35b",
@@ -31,6 +49,30 @@
       "writtenOn": "2025-02-06T23:33:41Z",
       "side": 1,
       "message": "spaces, since we are maintaining this header ourselves anyway.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "feb19d552994ea5a9cc7420fc6019df3ff71d745",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b45f7370_ee5db8fe",
+        "filename": "kernel-headers/include/oplus/oplus_ir_core.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-06T23:41:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1018251b_77e7d35b",
       "range": {
         "startLine": 27,
         "startChar": 0,
