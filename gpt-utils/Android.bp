@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
-cc_defaults {
+cc_library {
     name: "libgptutils.oplus",
     export_include_dirs: ["."],
     header_libs: ["generated_kernel_headers"],
@@ -13,20 +13,13 @@ cc_defaults {
         "liblog",
         "libz",
     ],
+    cflags: select(soong_config_variable("QTI_GPT_UTILS", "USE_BSG_FRAMEWORK"), {
+        "false": [],
+        default: ["-D_BSG_FRAMEWORK_KERNEL_HEADERS"],
+    }),
     srcs: [
         "gpt-utils.cpp",
         "recovery-ufs-bsg.cpp",
     ],
     vendor: true,
-}
-
-cc_library {
-    name: "libgptutils-sg.oplus",
-    defaults: ["libgptutils.oplus"],
-}
-
-cc_library {
-    name: "libgptutils-bsg.oplus",
-    defaults: ["libgptutils.oplus"],
-    cflags: ["-D_BSG_FRAMEWORK_KERNEL_HEADERS"],
 }
