@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dd919e2_30fd31b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2025-02-07T14:53:52Z",
+      "side": 1,
+      "message": "Works fine on ziti (OnePlus Nord CE 3)",
+      "revId": "f05b7abd5d7f01aff0b0cc9618a33cb6e03f8af4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
