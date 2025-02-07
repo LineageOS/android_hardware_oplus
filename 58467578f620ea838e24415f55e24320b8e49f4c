@@ -16,6 +16,23 @@
       "message": "get rid of  consumerir.default",
       "revId": "58467578f620ea838e24415f55e24320b8e49f4c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53c6e05f_a5dd7081",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-02-07T14:56:07Z",
+      "side": 1,
+      "message": "also if you remove consumerir support, you might as well just squash all changes.",
+      "revId": "58467578f620ea838e24415f55e24320b8e49f4c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
