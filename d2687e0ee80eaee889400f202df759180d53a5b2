@@ -16,6 +16,24 @@
       "message": "android::base::unique_fd maybe",
       "revId": "d2687e0ee80eaee889400f202df759180d53a5b2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46967232_06146a50",
+        "filename": "aidl/ir/main.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-02-07T14:02:20Z",
+      "side": 1,
+      "message": "maybe open it once in init?",
+      "parentUuid": "21f0f575_eaddd020",
+      "revId": "d2687e0ee80eaee889400f202df759180d53a5b2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
