@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b80b1e4c_fab67bbe",
+        "filename": "aidl/ir/main.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-02-07T14:43:49Z",
+      "side": 1,
+      "message": "write only?",
+      "range": {
+        "startLine": 91,
+        "startChar": 80,
+        "endLine": 91,
+        "endChar": 86
+      },
+      "revId": "034f4c318dd17d0f0dc76b24f3b774d001c7b38c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
