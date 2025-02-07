@@ -65,6 +65,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1a286a7_ce31d4f4",
+        "filename": "aidl/ir/main.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-07T14:11:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb4c6e33_52971e3b",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 0
+      },
+      "revId": "68c20379f29db1fe507c0d517b0376b6b10d13a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6a7b62e_e59e257f",
@@ -78,6 +102,30 @@
       "writtenOn": "2025-02-07T13:19:31Z",
       "side": 1,
       "message": "```suggestion\n    int oplusConsumerIrFd \u003d open(\"/dev/oplus_consumer_ir\", O_RDWR);\n    if (oplusConsumerIrFd \u003c 0) {\n        return ::ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);\n    }\n```\n\n0 is a valid fd, the check below is wrong",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 67
+      },
+      "revId": "68c20379f29db1fe507c0d517b0376b6b10d13a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "038c3532_f96854f7",
+        "filename": "aidl/ir/main.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-07T14:11:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6a7b62e_e59e257f",
       "range": {
         "startLine": 94,
         "startChar": 0,
