@@ -43,6 +43,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb4c6e33_52971e3b",
+        "filename": "aidl/ir/main.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-02-07T13:19:31Z",
+      "side": 1,
+      "message": "```suggestion\n    // Calculate the size of the pattern_params structure\n    size_t param_size \u003d sizeof(pattern_params) + in_pattern.size() * sizeof(int32_t);\n\n    auto params \u003d std::unique_ptr\u003cpattern_params, decltype(\u0026free)\u003e(\n        static_cast\u003cpattern_params*\u003e(malloc(param_size)), free);\n    if (!params) {\n        return ::ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);\n    }\n```",
+      "parentUuid": "d88341ce_222e5fa5",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 0
+      },
+      "revId": "68c20379f29db1fe507c0d517b0376b6b10d13a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6a7b62e_e59e257f",
+        "filename": "aidl/ir/main.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-02-07T13:19:31Z",
+      "side": 1,
+      "message": "```suggestion\n    int oplusConsumerIrFd \u003d open(\"/dev/oplus_consumer_ir\", O_RDWR);\n    if (oplusConsumerIrFd \u003c 0) {\n        return ::ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);\n    }\n```\n\n0 is a valid fd, the check below is wrong",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 67
+      },
+      "revId": "68c20379f29db1fe507c0d517b0376b6b10d13a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8bc29b81_2e79c457",
         "filename": "aidl/ir/main.cpp",
         "patchSetId": 11
