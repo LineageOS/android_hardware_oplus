@@ -1,0 +1,29 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "sensors.fusionlight",
+    defaults: ["hidl_defaults"],
+    srcs: [
+        "SensorsSubHal.cpp",
+    ],
+    shared_libs: [
+        "android.hardware.sensors@2.0",
+        "android.hardware.sensors@2.1",
+        "libbase",
+        "libhidlbase",
+        "libutils",
+    ],
+    header_libs: [
+        "android.hardware.sensors@2.X-multihal.header",
+    ],
+    cflags: [
+        "-DLOG_TAG=\"sensors.fusionlight\"",
+    ] + select(soong_config_variable("OPLUS_SENSORS_FUSIONLIGHT", "BACKEND_SUBHAL_LIB_NAME"), {
+        any @ flag_val: ["-DBACKEND_SUBHAL_LIB_NAME=\"" + flag_val + "\""],
+        default: [],
+    }),
+    vendor: true,
+}
