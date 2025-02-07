@@ -20,6 +20,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d88341ce_222e5fa5",
+        "filename": "aidl/ir/main.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-02-07T13:14:45Z",
+      "side": 1,
+      "message": "```suggestion\n    size_t param_size \u003d sizeof(pattern_params) + in_pattern.size() * sizeof(int32_t);\n    auto params \u003d std::unique_ptr\u003cpattern_params, decltype(\u0026free)\u003e(\n        static_cast\u003cpattern_params*\u003e(malloc(param_size)), free\n    );\n```\n\nit\u0027ll automatically call free when it goes out of scope",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 0
+      },
+      "revId": "68c20379f29db1fe507c0d517b0376b6b10d13a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bc29b81_2e79c457",
+        "filename": "aidl/ir/main.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-02-07T13:14:45Z",
+      "side": 1,
+      "message": "move this check right after alloc and early fail in case",
+      "range": {
+        "startLine": 96,
+        "startChar": 57,
+        "endLine": 96,
+        "endChar": 63
+      },
+      "revId": "68c20379f29db1fe507c0d517b0376b6b10d13a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6044cccc_a4c09349",
         "filename": "aidl/ir/main.cpp",
         "patchSetId": 11
