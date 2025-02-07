@@ -33,6 +33,23 @@
       "message": "pending removal of old HAL loading, it\u0027s useless",
       "revId": "f05b7abd5d7f01aff0b0cc9618a33cb6e03f8af4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b78e9710_24c9c2e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-02-07T15:28:39Z",
+      "side": 1,
+      "message": "squashed",
+      "revId": "f05b7abd5d7f01aff0b0cc9618a33cb6e03f8af4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
