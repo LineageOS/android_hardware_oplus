@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aac8c18_a318a40d",
+        "filename": "aidl/ir/main.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-07T14:43:05Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "aff58c62_00ca3c4f",
+      "revId": "68c20379f29db1fe507c0d517b0376b6b10d13a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d88341ce_222e5fa5",
@@ -159,6 +177,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26a2936f_66c3f40a",
+        "filename": "aidl/ir/main.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-07T14:43:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bc29b81_2e79c457",
+      "range": {
+        "startLine": 96,
+        "startChar": 57,
+        "endLine": 96,
+        "endChar": 63
+      },
+      "revId": "68c20379f29db1fe507c0d517b0376b6b10d13a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6044cccc_a4c09349",
@@ -172,6 +214,24 @@
       "writtenOn": "2025-02-07T02:22:05Z",
       "side": 1,
       "message": "Use `delete[]`, plus make sure the buffer is free\u0027d even when it fails?",
+      "revId": "68c20379f29db1fe507c0d517b0376b6b10d13a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "beba9aa9_45e78973",
+        "filename": "aidl/ir/main.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-07T14:43:05Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6044cccc_a4c09349",
       "revId": "68c20379f29db1fe507c0d517b0376b6b10d13a1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
