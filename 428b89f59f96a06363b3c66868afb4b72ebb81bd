@@ -16,6 +16,24 @@
       "message": "does this still depend on close source impl?",
       "revId": "428b89f59f96a06363b3c66868afb4b72ebb81bd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c9f8fca_7a68e7ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-02-07T14:48:47Z",
+      "side": 1,
+      "message": "get_carrier_freqs calls into the old hal, so probably?\ntho those can be easily extracted and replaced",
+      "parentUuid": "a1742462_645814b8",
+      "revId": "428b89f59f96a06363b3c66868afb4b72ebb81bd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
