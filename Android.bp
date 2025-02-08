@@ -4,6 +4,9 @@
 //
 
 soong_namespace {
+    imports: [
+        "vendor/qcom/opensource/commonsys-intf/display",
+    ],
 }
 
 prebuilt_hidl_interfaces {
