@@ -7,6 +7,8 @@ init_daemon_domain(hal_oplus_displaypanelfeature_aidl)
 
 hal_server_domain(hal_oplus_displaypanelfeature_aidl, vendor_hal_oplus_displaypanelfeature)
 
+binder_call(vendor_hal_oplus_displaypanelfeature_client, vendor_hal_oplus_displaypanelfeature_server)
+
 hal_attribute_service(vendor_hal_oplus_displaypanelfeature, hal_oplus_displaypanel_aidl_service)
 
 add_service(hal_oplus_displaypanelfeature_aidl, dpa_service)
