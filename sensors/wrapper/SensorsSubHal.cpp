@@ -7,6 +7,7 @@
 
 #include <android-base/logging.h>
 #include <dlfcn.h>
+#include <hardware/sensors.h>
 
 using ::android::hardware::sensors::V2_0::implementation::ScopedWakelock;
 using ::android::hardware::sensors::V2_1::implementation::ISensorsSubHal;
@@ -25,6 +26,22 @@ constexpr auto kLibName = WRAPPED_LIB_NAME;
 #else
 constexpr auto kLibName = "sensors.qsh.so";
 #endif
+
+constexpr auto kTypeUnderScreenRgbSensor = 33171070;
+
+// This is larger than any sensor handle returned by the HAL
+constexpr auto kWrappedSensorHandleBase = 0x10000;
+inline int32_t IsWrappedHandle(int32_t sensor_handle) {
+    return sensor_handle >= kWrappedSensorHandleBase;
+}
+inline int32_t FromWrappedHandle(int32_t sensor_handle) {
+    return IsWrappedHandle(sensor_handle) ? sensor_handle - kWrappedSensorHandleBase
+                                          : sensor_handle;
+}
+inline int32_t ToWrappedHandle(int32_t sensor_handle) {
+    return IsWrappedHandle(sensor_handle) ? sensor_handle
+                                          : sensor_handle + kWrappedSensorHandleBase;
+}
 };  // anonymous namespace
 
 SensorsSubHal::SensorsSubHal()
@@ -46,16 +63,17 @@ Return<Result> SensorsSubHal::setOperationMode(OperationMode mode) {
 }
 
 Return<Result> SensorsSubHal::activate(int32_t sensor_handle, bool enabled) {
-    return impl_->activate(sensor_handle, enabled);
+    return impl_->activate(FromWrappedHandle(sensor_handle), enabled);
 }
 
 Return<Result> SensorsSubHal::batch(int32_t sensor_handle, int64_t sampling_period_ns,
                                     int64_t max_report_latency_ns) {
-    return impl_->batch(sensor_handle, sampling_period_ns, max_report_latency_ns);
+    return impl_->batch(FromWrappedHandle(sensor_handle), sampling_period_ns,
+                        max_report_latency_ns);
 }
 
 Return<Result> SensorsSubHal::flush(int32_t sensor_handle) {
-    return impl_->flush(sensor_handle);
+    return impl_->flush(FromWrappedHandle(sensor_handle));
 }
 
 Return<void> SensorsSubHal::registerDirectChannel(const SharedMemInfo& mem,
@@ -70,14 +88,43 @@ Return<Result> SensorsSubHal::unregisterDirectChannel(int32_t channel_handle) {
 Return<void> SensorsSubHal::configDirectReport(int32_t sensor_handle, int32_t channel_handle,
                                                RateLevel rate,
                                                ISensors::configDirectReport_cb _hidl_cb) {
-    return impl_->configDirectReport(sensor_handle, channel_handle, rate, _hidl_cb);
+    return impl_->configDirectReport(FromWrappedHandle(sensor_handle), channel_handle, rate,
+                                     _hidl_cb);
 }
 
 Return<void> SensorsSubHal::getSensorsList_2_1(ISensors::getSensorsList_2_1_cb _hidl_cb) {
-    return impl_->getSensorsList_2_1(_hidl_cb);
+    return impl_->getSensorsList_2_1([&](const auto& _hidl_out_list) {
+        auto it = std::find_if(_hidl_out_list.begin(), _hidl_out_list.end(), [](auto&& v) {
+            return static_cast<int32_t>(v.type) == kTypeUnderScreenRgbSensor;
+        });
+        if (it != _hidl_out_list.end()) {
+            auto last = _hidl_out_list.size();
+            auto sensors = hidl_vec<SensorInfo>(last + 1);
+            std::copy(_hidl_out_list.begin(), _hidl_out_list.end(), sensors.begin());
+
+            handle_type_[it->sensorHandle] = it->type;
+
+            sensors[last] = *it;
+            sensors[last].sensorHandle = ToWrappedHandle(sensors[last].sensorHandle);
+            sensors[last].name = "Aliased Light Sensor";
+            sensors[last].type = SensorType::LIGHT;
+            sensors[last].typeAsString = "";  // Empty string is valid for known types
+
+            LOG(INFO) << "High PWM Light sensor found, aliasing it to Light sensor";
+            _hidl_cb(sensors);
+        } else {
+            _hidl_cb(_hidl_out_list);
+        }
+    });
 }
 
 Return<Result> SensorsSubHal::injectSensorData_2_1(const Event& event) {
+    if (IsWrappedHandle(event.sensorHandle)) {
+        auto event_copy = event;
+        event_copy.sensorHandle = FromWrappedHandle(event.sensorHandle);
+        event_copy.sensorType = handle_type_[event.sensorHandle];
+        return impl_->injectSensorData_2_1(event_copy);
+    }
     return impl_->injectSensorData_2_1(event);
 }
 
@@ -109,7 +156,21 @@ Return<void> SensorsSubHal::onDynamicSensorsConnected_2_1(
 }
 
 void SensorsSubHal::postEvents(const std::vector<Event>& events, ScopedWakelock wakelock) {
-    hal_proxy_callback_->postEvents(events, std::move(wakelock));
+    std::vector<Event> wrapped_events;
+    for (auto&& e : events) {
+        if (static_cast<int32_t>(e.sensorType) == kTypeUnderScreenRgbSensor) {
+            auto event_copy = e;
+            event_copy.sensorHandle = ToWrappedHandle(e.sensorHandle);
+            event_copy.sensorType = SensorType::LIGHT;
+            wrapped_events.emplace_back(std::move(event_copy));
+        }
+    }
+    if (wrapped_events.empty()) {
+        hal_proxy_callback_->postEvents(events, std::move(wakelock));
+    } else {
+        wrapped_events.insert(wrapped_events.end(), events.begin(), events.end());
+        hal_proxy_callback_->postEvents(wrapped_events, std::move(wakelock));
+    }
 }
 
 ScopedWakelock SensorsSubHal::createScopedWakelock(bool lock) {
