@@ -8,6 +8,7 @@
 #include <android-base/logging.h>
 #include <dlfcn.h>
 
+using ::android::hardware::sensors::V2_0::implementation::ScopedWakelock;
 using ::android::hardware::sensors::V2_1::implementation::ISensorsSubHal;
 
 namespace android {
@@ -89,7 +90,30 @@ const std::string SensorsSubHal::getName() {
 }
 
 Return<Result> SensorsSubHal::initialize(const sp<IHalProxyCallback>& hal_proxy_callback) {
-    return impl_->initialize(hal_proxy_callback);
+    hal_proxy_callback_ = hal_proxy_callback;
+    return impl_->initialize(this);
+}
+
+Return<void> SensorsSubHal::onDynamicSensorsConnected(
+        const hidl_vec<V1_0::SensorInfo>& sensor_infos) {
+    return hal_proxy_callback_->onDynamicSensorsConnected(sensor_infos);
+}
+
+Return<void> SensorsSubHal::onDynamicSensorsDisconnected(const hidl_vec<int32_t>& sensor_handles) {
+    return hal_proxy_callback_->onDynamicSensorsDisconnected(sensor_handles);
+}
+
+Return<void> SensorsSubHal::onDynamicSensorsConnected_2_1(
+        const hidl_vec<V2_1::SensorInfo>& sensor_infos) {
+    return hal_proxy_callback_->onDynamicSensorsConnected_2_1(sensor_infos);
+}
+
+void SensorsSubHal::postEvents(const std::vector<Event>& events, ScopedWakelock wakelock) {
+    hal_proxy_callback_->postEvents(events, std::move(wakelock));
+}
+
+ScopedWakelock SensorsSubHal::createScopedWakelock(bool lock) {
+    return hal_proxy_callback_->createScopedWakelock(lock);
 }
 
 }  // namespace wrapper
