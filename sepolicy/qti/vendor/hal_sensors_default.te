@@ -1,3 +1,6 @@
+hal_client_domain(hal_sensors_default, vendor_hal_oplus_sensor)
+hal_client_domain(hal_sensors_default, vendor_hal_oplus_displaypanelfeature)
+
 allow hal_sensors_default ssc_interactive_device:chr_file rw_file_perms;
 allow hal_sensors_default ultrasound_device:chr_file rw_file_perms;
 
