@@ -60,6 +60,8 @@ class SensorsSubHal : public ISensorsSubHal, public IHalProxyCallback {
     std::unique_ptr<void, std::function<void(void*)>> lib_handle_;
     V2_1::implementation::ISensorsSubHal* impl_;
     sp<IHalProxyCallback> hal_proxy_callback_;
+
+    std::unordered_map<int32_t, SensorType> handle_type_;
 };
 
 }  // namespace wrapper
