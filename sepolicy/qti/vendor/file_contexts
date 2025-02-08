@@ -55,8 +55,7 @@
 /dev/block/platform/soc/4804000\.ufshc/by-name/mdm1oemnvbktmp     u:object_r:vendor_modem_efs_partition_device:s0
 
 # NFC
-/vendor/bin/hw/android\.hardware\.nfc-service\.nxp                    u:object_r:hal_nfc_default_exec:s0
-/dev/pn553                                                            u:object_r:nfc_device:s0
+/dev/pn553    u:object_r:nfc_device:s0
 
 # OSENSE
 /vendor/bin/hw/vendor\.oplus\.hardware\.osense\.client-service    u:object_r:hal_oplus_osense_aidl_exec:s0
