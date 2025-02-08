@@ -1,0 +1,5 @@
+# eSE
+/(odm|vendor/odm)/bin/hw/vendor\.qti\.esepowermanager@1\.1-service    u:object_r:vendor_hal_esepowermanager_qti_exec:s0
+
+# Widevine
+/(odm|vendor/odm)/bin/hw/android\.hardware\.drm@1\.[0-4]+-service\.widevine    u:object_r:vendor_hal_drm_widevine_exec:s0
