@@ -1,13 +1,4 @@
 <compatibility-matrix version="4.0" type="framework">
-    <hal format="hidl" optional="true">
-        <name>vendor.nxp.nxpnfc</name>
-        <version>1.0</version>
-        <version>2.0</version>
-        <interface>
-            <name>INxpNfc</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.appradioaidl</name>
         <version>1</version>

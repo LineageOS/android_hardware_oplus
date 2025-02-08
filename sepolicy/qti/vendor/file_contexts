@@ -51,8 +51,6 @@
 /dev/block/platform/soc/4804000\.ufshc/by-name/mdm1oemnvbktmp     u:object_r:vendor_modem_efs_partition_device:s0
 
 # NFC
-/(odm|vendor/odm)/bin/hw/android\.hardware\.nfc@1\.2-service          u:object_r:hal_nfc_default_exec:s0
-/(odm|vendor/odm)/bin/hw/vendor\.nxp\.hardware\.nfc@1\.2-service      u:object_r:hal_nfc_default_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.qti\.esepowermanager@1\.1-service    u:object_r:vendor_hal_esepowermanager_qti_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service     u:object_r:hal_secure_element_default_exec:s0
 /vendor/bin/hw/android\.hardware\.nfc-service\.nxp                    u:object_r:hal_nfc_default_exec:s0
