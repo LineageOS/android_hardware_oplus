@@ -7,6 +7,8 @@ cc_library_shared {
     name: "sensors.fusionlight",
     defaults: ["hidl_defaults"],
     srcs: [
+        "FusionLightUtils.cpp",
+        "FusionLightProcessor.cpp",
         "SensorsSubHal.cpp",
     ],
     shared_libs: [
@@ -14,11 +16,18 @@ cc_library_shared {
         "android.hardware.sensors@2.0-ScopedWakelock",
         "android.hardware.sensors@2.1",
         "libbase",
+        "libbinder_ndk",
         "libhidlbase",
+        "libjsoncpp",
         "libutils",
+        "vendor.lineage.oplus_fusionlight-V1-ndk",
+        "vendor.oplus.hardware.displaypanelfeature-V1-ndk",
+        "vendor.oplus.hardware.oplusSensor-V1-ndk",
     ],
     header_libs: [
         "android.hardware.sensors@2.X-multihal.header",
+        "libeigen",
+        "libhardware_headers",
     ],
     cflags: [
         "-DLOG_TAG=\"sensors.fusionlight\"",

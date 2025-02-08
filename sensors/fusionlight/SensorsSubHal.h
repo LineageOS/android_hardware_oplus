@@ -5,7 +5,13 @@
 
 #pragma once
 
+#include <atomic>
+#include <deque>
+#include <mutex>
+
 #include <V2_1/SubHal.h>
+
+#include "FusionLightProcessor.h"
 
 namespace android {
 namespace hardware {
@@ -57,9 +63,26 @@ class SensorsSubHal : public ISensorsSubHal, public IHalProxyCallback {
     ScopedWakelock createScopedWakelock(bool lock) override;
 
   private:
+    enum class FlushTarget {
+        kRaw,
+        kFusionLight,
+    };
+
+    void emitFusionEvent(Event event);
+
     std::unique_ptr<void, std::function<void(void*)>> lib_handle_;
     V2_1::implementation::ISensorsSubHal* impl_;
     sp<IHalProxyCallback> hal_proxy_callback_;
+
+    FusionLightProcessor fusion_light_;
+    std::mutex control_mutex_;
+    std::mutex flush_call_mutex_;
+    std::mutex flush_mutex_;
+    std::deque<FlushTarget> pending_flushes_;
+    int32_t high_pwm_handle_ = -1;
+    int32_t fusion_light_handle_ = -1;
+    bool raw_enabled_ = false;
+    std::atomic_bool fusion_light_enabled_ = false;
 };
 
 }  // namespace fusionlight
