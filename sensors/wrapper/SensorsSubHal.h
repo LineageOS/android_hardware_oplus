@@ -23,7 +23,7 @@ using ::android::hardware::sensors::V2_1::Event;
 using ::android::hardware::sensors::V2_1::implementation::IHalProxyCallback;
 using ::android::hardware::sensors::V2_1::implementation::ISensorsSubHal;
 
-class SensorsSubHal : public ISensorsSubHal {
+class SensorsSubHal : public ISensorsSubHal, public IHalProxyCallback {
   public:
     SensorsSubHal();
 
@@ -46,9 +46,20 @@ class SensorsSubHal : public ISensorsSubHal {
     const std::string getName() override;
     Return<Result> initialize(const sp<IHalProxyCallback>& hal_proxy_callback) override;
 
+    // ISensorsCallback
+    Return<void> onDynamicSensorsConnected(const hidl_vec<V1_0::SensorInfo>& sensor_infos) override;
+    Return<void> onDynamicSensorsDisconnected(const hidl_vec<int32_t>& sensor_handles) override;
+    Return<void> onDynamicSensorsConnected_2_1(
+            const hidl_vec<V2_1::SensorInfo>& sensor_infos) override;
+
+    // IHalProxyCallback
+    void postEvents(const std::vector<Event>& events, ScopedWakelock wakelock) override;
+    ScopedWakelock createScopedWakelock(bool lock) override;
+
   private:
     std::unique_ptr<void, std::function<void(void*)>> lib_handle_;
     V2_1::implementation::ISensorsSubHal* impl_;
+    sp<IHalProxyCallback> hal_proxy_callback_;
 };
 
 }  // namespace wrapper
