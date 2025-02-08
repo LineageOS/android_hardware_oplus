@@ -1,3 +1,10 @@
+hal_client_domain(hal_sensors_default, vendor_hal_oplus_sensor)
+hal_client_domain(hal_sensors_default, vendor_hal_oplus_displaypanelfeature)
+
+hal_client_domain(hal_sensors_default, hal_graphics_composer)
+binder_call(hal_sensors_default, hal_graphics_composer_default)
+binder_call(hal_graphics_composer_default, hal_sensors_default)
+
 allow hal_sensors_default ssc_interactive_device:chr_file rw_file_perms;
 allow hal_sensors_default ultrasound_device:chr_file rw_file_perms;
 
