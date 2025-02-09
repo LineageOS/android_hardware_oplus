@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8c61230_6ce970cb",
+        "filename": "aidl/vibrator/qti/effect/effect.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-02-09T11:37:02Z",
+      "side": 1,
+      "message": "Create an instance in the vibrator hal, otherwise you\u0027ll block for json I/O read every time you want to play an effect",
+      "revId": "0e688f92022eba43819bc98c247c941448858145",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
