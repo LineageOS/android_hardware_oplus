@@ -34,6 +34,24 @@
       "parentUuid": "f8c61230_6ce970cb",
       "revId": "0e688f92022eba43819bc98c247c941448858145",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c3458c7_79ae966d",
+        "filename": "aidl/vibrator/qti/effect/effect.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-02-09T11:40:39Z",
+      "side": 1,
+      "message": "Oh derp, didn\u0027t see static.\nFine then, maybe could make use of c++ classes for that but \\o/",
+      "parentUuid": "9c185afe_00ebdd67",
+      "revId": "0e688f92022eba43819bc98c247c941448858145",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
