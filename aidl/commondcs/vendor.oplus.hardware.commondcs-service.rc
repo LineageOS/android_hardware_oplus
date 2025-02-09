@@ -1,0 +1,4 @@
+service vendor.commondcs /vendor/bin/hw/vendor.oplus.hardware.commondcs-service
+    class hal
+    user system
+    group system
