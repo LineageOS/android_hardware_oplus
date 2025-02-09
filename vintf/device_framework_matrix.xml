@@ -346,6 +346,7 @@
         <interface>
             <name>IOplusTouch</name>
             <instance>default</instance>
+            <instance>oplus</instance>
         </interface>
     </hal>
     <hal format="aidl" optional="true">
