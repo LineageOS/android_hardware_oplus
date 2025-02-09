@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5222bbaf_32ce23a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-02-09T11:57:21Z",
+      "side": 1,
+      "message": "moved to global variable, so the data loads earlier than hal initialization and won\u0027t even block the first vibration",
+      "revId": "4415064b84cb07bce26396f64b9e85989c64ecee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
