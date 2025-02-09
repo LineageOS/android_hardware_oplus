@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63f95373_ae4fbbde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-02-09T23:35:56Z",
+      "side": 1,
+      "message": "plus clang format",
+      "revId": "f3d5c07df6742f3d17f78ea8f78b444927aaf9bd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bff5773_b3a92275",
+        "filename": "aidl/commondcs/CommonDcsAidlHalService.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-02-09T23:35:56Z",
+      "side": 1,
+      "message": "```suggestion\n        const std::vector\u003cStringPair\u003e\u0026 data,\n```",
+      "revId": "f3d5c07df6742f3d17f78ea8f78b444927aaf9bd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "414213bd_aa54fe29",
+        "filename": "aidl/commondcs/CommonDcsAidlHalService.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-02-09T23:35:56Z",
+      "side": 1,
+      "message": "```suggestion\n            const std::vector\u003cStringPair\u003e\u0026 data,\n```",
+      "revId": "f3d5c07df6742f3d17f78ea8f78b444927aaf9bd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
