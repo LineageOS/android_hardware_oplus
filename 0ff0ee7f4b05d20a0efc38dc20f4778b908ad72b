@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dd001a2_7ad41c5e",
+        "filename": "bootctrl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-02-09T02:33:26Z",
+      "side": 1,
+      "message": "1.1 was added for sg, I guess it can be removed now?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 1
+      },
+      "revId": "0ff0ee7f4b05d20a0efc38dc20f4778b908ad72b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
