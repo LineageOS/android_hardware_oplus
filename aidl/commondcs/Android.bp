@@ -1,0 +1,22 @@
+//
+// Copyright (C) 2025 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "vendor.oplus.hardware.commondcs-service",
+    vendor: true,
+    relative_install_path: "hw",
+    init_rc: ["vendor.oplus.hardware.commondcs-service.rc"],
+    vintf_fragments: ["vendor.oplus.hardware.commondcs-service.xml"],
+    srcs: [
+        "CommonDcsAidlHalService.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "vendor.oplus.hardware.commondcs-V1-ndk",
+    ],
+}
