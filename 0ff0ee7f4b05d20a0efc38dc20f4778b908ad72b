@@ -22,6 +22,30 @@
       },
       "revId": "0ff0ee7f4b05d20a0efc38dc20f4778b908ad72b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5163d93f_665f05eb",
+        "filename": "bootctrl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-02-09T11:10:33Z",
+      "side": 1,
+      "message": "Once everyone migrates to aidl 1.1 and 1.2 can be removed",
+      "parentUuid": "6dd001a2_7ad41c5e",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 1
+      },
+      "revId": "0ff0ee7f4b05d20a0efc38dc20f4778b908ad72b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
