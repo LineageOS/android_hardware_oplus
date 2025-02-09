@@ -4,6 +4,30 @@ hidl_package_root {
 }
 
 aidl_interface {
+    name: "vendor.oplus.hardware.commondcs",
+    vendor_available: true,
+    local_include_dir: "aidl",
+    srcs: ["aidl/vendor/oplus/hardware/commondcs/*.aidl"],
+    stability: "vintf",
+    owner: "oplus",
+
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            sdk_version: "module_current",
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+}
+
+aidl_interface {
     name: "vendor.oplus.hardware.osense.client",
     vendor_available: true,
     local_include_dir: "aidl",
