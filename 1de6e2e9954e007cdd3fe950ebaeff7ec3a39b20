@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54b9e7d1_52068e48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-10T09:50:26Z",
+      "side": 1,
+      "message": "Hey John, if you wanna give it another shot on waffle. Also, check my messages on telegram.",
+      "revId": "1de6e2e9954e007cdd3fe950ebaeff7ec3a39b20",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
