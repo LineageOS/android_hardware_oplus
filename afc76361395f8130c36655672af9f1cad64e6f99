@@ -16,6 +16,23 @@
       "message": "one thing to note, devices which ship without oplus touch stack would have to import it from other devices to make this work. Should be a relatively simple drop-in but without it there will be breakage.",
       "revId": "afc76361395f8130c36655672af9f1cad64e6f99",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a7d8fbd_0fcb4992",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28158
+      },
+      "writtenOn": "2025-02-10T04:39:18Z",
+      "side": 1,
+      "message": "I recommend making this optional through something like a prop check since this implementation is necessary for modern devices, thoughts? If we don\u0027t go through with it we\u0027d be skimping out on support for a lot of oplus devices.",
+      "revId": "afc76361395f8130c36655672af9f1cad64e6f99",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
