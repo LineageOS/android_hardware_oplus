@@ -1,0 +1,6 @@
+service vendor.lineage.oplus_als.service /system_ext/bin/hw/vendor.lineage.oplus_als.service
+    class hal
+    user system
+    group system
+    task_profiles ServiceCapacityLow
+    interface aidl vendor.lineage.oplus_als.IAreaCapture/default
