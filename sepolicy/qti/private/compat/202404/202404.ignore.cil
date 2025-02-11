@@ -12,4 +12,7 @@
     system_oplus_project_prop
     system_oplus_radio_prop
     system_oplus_touch_prop
-    vendor_persist_engineer_file))
+    vendor_persist_engineer_file
+    vendor_sensors_als_prop
+  )
+)

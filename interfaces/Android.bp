@@ -4,6 +4,29 @@ hidl_package_root {
 }
 
 aidl_interface {
+    name: "vendor.lineage.oplus_fusionlight",
+    vendor_available: true,
+    local_include_dir: "aidl",
+    srcs: ["aidl/vendor/lineage/oplus_fusionlight/*.aidl"],
+    stability: "vintf",
+    owner: "lineage",
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            sdk_version: "module_current",
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+}
+
+aidl_interface {
     name: "vendor.oplus.hardware.appradioaidl",
     system_ext_specific: true,
     vendor_available: true,

@@ -1,0 +1,6 @@
+service vendor.lineage.oplus_fusionlight.service /system_ext/bin/hw/vendor.lineage.oplus_fusionlight.service
+    class hal
+    user system
+    group system
+    task_profiles ServiceCapacityLow
+    interface aidl vendor.lineage.oplus_fusionlight.IScreenSampler/default

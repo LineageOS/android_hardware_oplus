@@ -1,0 +1,2 @@
+# Sensors
+/(system_ext|system/system_ext)/bin/hw/vendor\.lineage\.oplus_fusionlight.service    u:object_r:hal_lineage_oplus_fusionlight_aidl_exec:s0

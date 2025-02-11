@@ -1,0 +1,25 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "vendor.lineage.oplus_fusionlight.service",
+    init_rc: ["vendor.lineage.oplus_fusionlight.service.rc"],
+    vintf_fragments: ["vendor.lineage.oplus_fusionlight.service.xml"],
+    relative_install_path: "hw",
+    system_ext_specific: true,
+    srcs: [
+        "ScreenSampler.cpp",
+        "main.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder",
+        "libbinder_ndk",
+        "libgui",
+        "libui",
+        "libutils",
+        "vendor.lineage.oplus_fusionlight-V1-ndk",
+    ],
+}

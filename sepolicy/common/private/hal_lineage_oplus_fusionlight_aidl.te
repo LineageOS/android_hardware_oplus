@@ -1,0 +1,28 @@
+type hal_lineage_oplus_fusionlight_aidl, domain, coredomain;
+binder_use(hal_lineage_oplus_fusionlight_aidl)
+
+allow hal_lineage_oplus_fusionlight_aidl fwk_stats_service:service_manager find;
+binder_call(hal_lineage_oplus_fusionlight_aidl, system_server)
+
+hal_server_domain(hal_lineage_oplus_fusionlight_aidl, hal_lineage_oplus_fusionlight)
+
+type hal_lineage_oplus_fusionlight_aidl_exec, exec_type, system_file_type, file_type;
+init_daemon_domain(hal_lineage_oplus_fusionlight_aidl)
+
+binder_call(hal_lineage_oplus_fusionlight_client, hal_lineage_oplus_fusionlight_server)
+binder_call(hal_lineage_oplus_fusionlight_server, hal_lineage_oplus_fusionlight_client)
+
+hal_attribute_service(hal_lineage_oplus_fusionlight,
+                      hal_lineage_oplus_fusionlight_aidl_service)
+
+hal_client_domain(hal_lineage_oplus_fusionlight_aidl, hal_graphics_allocator)
+
+binder_call(hal_lineage_oplus_fusionlight_aidl, surfaceflinger)
+binder_call(surfaceflinger, hal_lineage_oplus_fusionlight_aidl)
+
+allow hal_lineage_oplus_fusionlight_aidl hal_graphics_allocator_hwservice:hwservice_manager find;
+allow hal_lineage_oplus_fusionlight_aidl hal_graphics_mapper_hwservice:hwservice_manager find;
+
+allow hal_lineage_oplus_fusionlight_aidl surfaceflinger_service:service_manager find;
+
+allow hal_lineage_oplus_fusionlight_aidl ion_device:chr_file rw_file_perms;
