@@ -1,0 +1,10 @@
+<!--
+     Copyright (C) 2024 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<manifest version="1.0" type="framework">
+    <hal format="aidl">
+        <name>vendor.lineage.oplus_als</name>
+        <fqname>IAreaCapture/default</fqname>
+    </hal>
+</manifest>
