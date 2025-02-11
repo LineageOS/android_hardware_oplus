@@ -1,0 +1,7 @@
+<manifest version="1.0" type="framework">
+    <hal format="aidl">
+        <name>vendor.lineage.oplus_als</name>
+        <version>1</version>
+        <fqname>IAreaCapture/default</fqname>
+    </hal>
+</manifest>
