@@ -1,0 +1,28 @@
+type hal_lineage_oplus_als_aidl, domain, coredomain;
+binder_use(hal_lineage_oplus_als_aidl)
+
+allow hal_lineage_oplus_als_aidl fwk_stats_service:service_manager find;
+binder_call(hal_lineage_oplus_als_aidl, system_server)
+
+hal_server_domain(hal_lineage_oplus_als_aidl, hal_lineage_oplus_als)
+
+type hal_lineage_oplus_als_aidl_exec, exec_type, system_file_type, file_type;
+init_daemon_domain(hal_lineage_oplus_als_aidl)
+
+binder_call(hal_lineage_oplus_als_client, hal_lineage_oplus_als_server)
+
+hal_attribute_service(hal_lineage_oplus_als, hal_lineage_oplus_als_aidl_service)
+
+hal_client_domain(hal_lineage_oplus_als_aidl, hal_graphics_allocator)
+
+binder_call(hal_lineage_oplus_als_aidl, surfaceflinger)
+binder_call(surfaceflinger, hal_lineage_oplus_als_aidl)
+
+allow hal_lineage_oplus_als_aidl hal_graphics_allocator_hwservice:hwservice_manager find;
+allow hal_lineage_oplus_als_aidl hal_graphics_mapper_hwservice:hwservice_manager find;
+
+allow hal_lineage_oplus_als_aidl surfaceflinger_service:service_manager find;
+
+allow hal_lineage_oplus_als_aidl ion_device:chr_file rw_file_perms;
+
+get_prop(hal_lineage_oplus_als_aidl, vendor_sensors_als_prop)
