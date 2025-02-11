@@ -1,0 +1,27 @@
+/*
+ * Copyright (C) 2024 The LineageOS Project
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+cc_binary {
+    name: "vendor.lineage.oplus_als.service",
+    init_rc: ["vendor.lineage.oplus_als.service.rc"],
+    vintf_fragments: ["vendor.lineage.oplus_als.service.xml"],
+    relative_install_path: "hw",
+    system_ext_specific: true,
+    srcs: [
+        "AreaCapture.cpp",
+        "main.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder",
+        "libbinder_ndk",
+        "libgui",
+        "libui",
+        "libutils",
+        "liblog",
+        "vendor.lineage.oplus_als-V1-ndk",
+    ],
+}
