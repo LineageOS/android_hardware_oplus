@@ -4,6 +4,30 @@ hidl_package_root {
 }
 
 aidl_interface {
+    name: "vendor.lineage.oplus_als",
+    vendor_available: true,
+    local_include_dir: "aidl",
+    srcs: ["aidl/vendor/lineage/oplus_als/*.aidl"],
+    stability: "vintf",
+    owner: "lineage",
+
+    backend: {
+        cpp: {
+            enabled: false,
+        },
+        java: {
+            enabled: false,
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+}
+
+aidl_interface {
     name: "vendor.oplus.hardware.commondcs",
     vendor_available: true,
     local_include_dir: "aidl",
