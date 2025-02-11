@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d1513da_d42bdf34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-02-11T02:34:00Z",
+      "side": 1,
+      "message": "ps20 replaced deprecated AServiceManager_getService with AServiceManager_waitForService",
+      "revId": "851bee57d6cddfd68f39b71043924d1e3fffe1d2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
