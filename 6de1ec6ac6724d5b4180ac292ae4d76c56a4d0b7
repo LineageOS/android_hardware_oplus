@@ -16,6 +16,23 @@
       "message": "Verified that gestures and high touch polling rate works on vitamin.\n\nAlthough, OnePlus advertized high touch polling rate to be capable of reaching up to 1000 Hz on vitamin, it\u0027s not the case when game_switch_enable node is enabled on AOSP since the maximum rate reaches up to 250 Hz instead. Note that this also happens to other oplus devices like bitra and martini, it seems that OPlus do more than the current logic on these devices.",
       "revId": "6de1ec6ac6724d5b4180ac292ae4d76c56a4d0b7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8fa149e_f4dd1c0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32811
+      },
+      "writtenOn": "2025-02-13T18:31:27Z",
+      "side": 1,
+      "message": "Does the SEPolicy compile fine for you?",
+      "revId": "6de1ec6ac6724d5b4180ac292ae4d76c56a4d0b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
