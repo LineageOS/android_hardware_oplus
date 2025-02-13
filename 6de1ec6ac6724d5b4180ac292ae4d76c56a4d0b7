@@ -86,6 +86,24 @@
       "parentUuid": "9d85a841_a6a06fcb",
       "revId": "6de1ec6ac6724d5b4180ac292ae4d76c56a4d0b7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60280c03_05e3eaee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32811
+      },
+      "writtenOn": "2025-02-13T18:36:05Z",
+      "side": 1,
+      "message": "Doesn\u0027t errors out without the commit",
+      "parentUuid": "9432937d_c40f2e1e",
+      "revId": "6de1ec6ac6724d5b4180ac292ae4d76c56a4d0b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
