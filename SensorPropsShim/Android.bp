@@ -1,0 +1,6 @@
+cc_library_shared {
+    name: "SensorPropsShim",
+    srcs: ["SensorPropsShim.cpp"],
+    static_libs: ["android.hardware.biometrics.fingerprint-V4-ndk"],
+    vendor: true,
+}
