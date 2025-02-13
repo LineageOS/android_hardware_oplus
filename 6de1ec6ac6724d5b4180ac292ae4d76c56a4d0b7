@@ -33,6 +33,24 @@
       "message": "Does the SEPolicy compile fine for you?",
       "revId": "6de1ec6ac6724d5b4180ac292ae4d76c56a4d0b7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "589fc8af_8086098c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24442
+      },
+      "writtenOn": "2025-02-13T18:32:31Z",
+      "side": 1,
+      "message": "Yeah why ? it’s different than the one from your commit if that’s what you wondering since it triggers a neverallow",
+      "parentUuid": "d8fa149e_f4dd1c0b",
+      "revId": "6de1ec6ac6724d5b4180ac292ae4d76c56a4d0b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
