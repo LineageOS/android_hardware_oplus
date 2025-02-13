@@ -1,0 +1,7 @@
+cc_library_shared {
+    name: "libshims_oplus_fps_props",
+    srcs: ["SensorPropsShim.cpp"],
+    shared_libs: ["libbase"],
+    static_libs: ["android.hardware.biometrics.fingerprint-V3-ndk"],
+    vendor: true,
+}
