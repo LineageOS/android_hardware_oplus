@@ -4,6 +4,17 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
+cc_library_shared {
+    name: "libshims_aidl_fingerprint.oplus",
+    srcs: ["SensorPropsShim.cpp"],
+    shared_libs: ["libbase"],
+    static_libs: select(soong_config_variable("OPLUS_BIOMETRICS_FINGERPRINT_AIDL_HAL", "AIDL_INTERFACE_VERSION"), {
+        any @ flag_val: ["android.hardware.biometrics.fingerprint-" + flag_val + "-ndk"],
+        default: ["android.hardware.biometrics.fingerprint-V4-ndk"],
+    }),
+    device_specific: true,
+}
+
 cc_library {
     name: "libshims_fingerprint.oplus",
     srcs: ["BiometricsFingerprintShim.cpp"],
