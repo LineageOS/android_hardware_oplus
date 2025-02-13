@@ -4,6 +4,7 @@
 
 | Namespace | Variable | Description | Default |
 | --------- | -------- | ----------- | ------- |
+| OPLUS_BIOMETRICS_FINGERPRINT_AIDL_HAL | AIDL_INTERFACE_VERSION | Select version that matches original AIDL HAL | V4 |
 | OPLUS_LINEAGE_LIVEDISPLAY_HAL | ENABLE_AF | Enable AntiFlicker feature | false |
 | OPLUS_LINEAGE_LIVEDISPLAY_HAL | ENABLE_DM | Enable DisplayModes feature | false |
 | OPLUS_LINEAGE_LIVEDISPLAY_HAL | ENABLE_PA | Enable PictureAdjustment feature | true |
