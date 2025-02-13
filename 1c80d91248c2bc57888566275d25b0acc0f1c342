@@ -16,6 +16,23 @@
       "message": "Yeah it\u0027s fine now.",
       "revId": "1c80d91248c2bc57888566275d25b0acc0f1c342",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6efe40f_11306bbf",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2025-02-13T20:01:46Z",
+      "side": 1,
+      "message": "You really don\u0027t have to change domain for this change, just add rules for `hal_lineage_touch_default`, less git diff",
+      "revId": "1c80d91248c2bc57888566275d25b0acc0f1c342",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
