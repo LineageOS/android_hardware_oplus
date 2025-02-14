@@ -8,6 +8,9 @@ vendor.oplus.hardware.cammidasservice::IMIDASService                   u:object_
 vendor.oplus.hardware.sendextcamcmd::ISendExtCamCmdService             u:object_r:hal_camera_hwservice:s0
 vendor.qti.hardware.camera.cameraextension::ICameraExtensionService    u:object_r:vendor_hal_camera_extension_hwservice:s0
 
+# CommonDcs
+vendor.oplus.hardware.commondcs::ICommonDcsHalService    u:object_r:vendor_hal_commondcs_hwservice:s0
+
 # Display
 vendor.display.PanelChaplin::IPanelChaplin          u:object_r:hal_graphics_composer_hwservice:s0
 vendor.oplus.hardware.cwb::ICwbService              u:object_r:hal_graphics_composer_hwservice:s0
@@ -16,7 +19,6 @@ vendor.pixelworks.hardware.feature::IIrisFeature    u:object_r:hal_graphics_comp
 
 # Fingerprint
 vendor.oplus.hardware.biometrics.fingerprint::IBiometricsFingerprint    u:object_r:hal_fingerprint_hwservice:s0
-vendor.oplus.hardware.commondcs::ICommonDcsHalService                   u:object_r:hal_fingerprint_hwservice:s0
 
 # ORMS
 vendor.oplus.hardware.orms::IOrmsHalProxy    u:object_r:vendor_hal_orms_hwservice:s0
