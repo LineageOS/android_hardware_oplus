@@ -1,0 +1,11 @@
+type hal_oplus_commondcs_aidl, domain;
+binder_use(hal_oplus_commondcs_aidl)
+
+hal_server_domain(hal_oplus_commondcs_aidl, vendor_hal_oplus_commondcs)
+
+type hal_oplus_commondcs_aidl_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oplus_commondcs_aidl)
+
+binder_call(vendor_hal_oplus_commondcs_client, vendor_hal_oplus_commondcs_server)
+
+hal_attribute_service(vendor_hal_oplus_commondcs, hal_oplus_commondcs_aidl_service)

@@ -3,6 +3,7 @@ allow hal_fingerprint_default self:netlink_socket create_socket_perms_no_ioctl;
 binder_call(hal_fingerprint_default, hal_fingerprint_default)
 binder_call(hal_fingerprint_default, hal_oplus_touch_aidl)
 
+hal_client_domain(hal_fingerprint_default, vendor_hal_oplus_commondcs)
 hal_client_domain(hal_fingerprint_default, vendor_hal_oplus_osense)
 hal_client_domain(hal_fingerprint_default, vendor_hal_oplus_performance)
 hal_client_domain(hal_fingerprint_default, vendor_hal_oplus_touch)
