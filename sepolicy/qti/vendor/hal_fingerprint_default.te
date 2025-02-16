@@ -10,6 +10,7 @@ hal_client_domain(hal_fingerprint_default, vendor_hal_oplus_touch)
 hal_client_domain(hal_fingerprint_default, vendor_hal_oplus_touchdaemon)
 
 allow hal_fingerprint_default hal_oplus_touch_aidl_service:service_manager find;
+allow hal_fingerprint_default hal_oplus_urcc_aidl_service:service_manager find;
 allow hal_fingerprint_default vendor_hal_orms_hwservice:hwservice_manager find;
 allow hal_fingerprint_default vendor_hal_osense_hwservice:hwservice_manager find;
 
@@ -27,5 +28,6 @@ r_dir_file(hal_fingerprint_default, sysfs_leds)
 r_dir_file(hal_fingerprint_default, vendor_proc_fingerprint)
 
 get_prop(hal_fingerprint_default, system_oplus_project_prop)
+get_prop(hal_fingerprint_default, vendor_radio_prop)
 set_prop(hal_fingerprint_default, system_fingerprint_prop)
 set_prop(hal_fingerprint_default, vendor_fingerprint_prop)
