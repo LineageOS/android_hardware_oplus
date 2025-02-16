@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b598878_04f52b4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-16T22:16:50Z",
+      "side": 1,
+      "message": "Sadly, this fails when salami and dodge vendors are present...\n\n\u003e  error: vendor/oneplus/sm8750-common/Android.bp:42635:1: module \"vendor.oplus.hardware.biometrics.fingerprint@2.1-service_uff\" variant \"android_vendor_arm64_armv9-a\": depends on multiple versions of the same aidl_interface: android.hardware.biometrics.common-V2-ndk-source, android.hardware.biometrics.common-V3-ndk-source",
+      "revId": "ff310220b80fb1825abbef7bae6df826f2b25a39",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
