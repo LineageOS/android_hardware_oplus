@@ -22,6 +22,30 @@
       },
       "revId": "f1e5a8438a06fe9eb1b46a8ac8c58c63223792a0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5741148c_12b26fa4",
+        "filename": "aidl/libshims_oplus_fps_props/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-16T17:22:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5e4683d_df112da4",
+      "range": {
+        "startLine": 5,
+        "startChar": 59,
+        "endLine": 5,
+        "endChar": 61
+      },
+      "revId": "f1e5a8438a06fe9eb1b46a8ac8c58c63223792a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
