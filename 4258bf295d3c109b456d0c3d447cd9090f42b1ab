@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d487141a_e5ff5efd",
+        "filename": "fingerprint/shims/SensorPropsShim.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-02-16T20:00:57Z",
+      "side": 1,
+      "message": "newline after this line",
+      "revId": "4258bf295d3c109b456d0c3d447cd9090f42b1ab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "24988bf1_23ddd420",
         "filename": "fingerprint/shims/SensorPropsShim.cpp",
         "patchSetId": 15
