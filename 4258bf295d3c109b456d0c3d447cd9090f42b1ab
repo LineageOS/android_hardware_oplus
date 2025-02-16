@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24988bf1_23ddd420",
+        "filename": "fingerprint/shims/SensorPropsShim.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-02-16T20:00:19Z",
+      "side": 1,
+      "message": "```\nusing android::base::GetProperty;\nusing android::base::ParseInt;\nusing android::base::Tokenize;\n```",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 32
+      },
+      "revId": "4258bf295d3c109b456d0c3d447cd9090f42b1ab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
