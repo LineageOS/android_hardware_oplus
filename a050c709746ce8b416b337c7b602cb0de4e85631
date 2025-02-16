@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "991b31cb_db6031ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-16T18:45:28Z",
+      "side": 1,
+      "message": "@dianlujitao@lineageos.org this works flawlessly on salami. Do you want to add something more for the time being?",
+      "revId": "a050c709746ce8b416b337c7b602cb0de4e85631",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
