@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c448f542_af55cec1",
+        "filename": "fingerprint/shims/SensorPropsShim.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-17T10:29:56Z",
+      "side": 1,
+      "message": "x:y",
+      "range": {
+        "startLine": 52,
+        "startChar": 72,
+        "endLine": 52,
+        "endChar": 76
+      },
+      "revId": "e26f7ebc0ee5a5578d42a62f62fa60b02fdbd9db",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
