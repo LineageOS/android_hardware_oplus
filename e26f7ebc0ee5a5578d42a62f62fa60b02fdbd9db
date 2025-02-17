@@ -70,6 +70,30 @@
       },
       "revId": "e26f7ebc0ee5a5578d42a62f62fa60b02fdbd9db",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99aa8590_9a90d426",
+        "filename": "fingerprint/shims/SensorPropsShim.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-02-17T11:57:13Z",
+      "side": 1,
+      "message": "stock uses two colons so the log follows that to avoid confusion, even though the number of colons doesn\u0027t matter when using Tokenize()",
+      "parentUuid": "d7fd59c9_71b009d1",
+      "range": {
+        "startLine": 52,
+        "startChar": 72,
+        "endLine": 52,
+        "endChar": 76
+      },
+      "revId": "e26f7ebc0ee5a5578d42a62f62fa60b02fdbd9db",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
