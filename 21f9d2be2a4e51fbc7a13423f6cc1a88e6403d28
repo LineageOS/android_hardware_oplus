@@ -70,6 +70,24 @@
       "parentUuid": "30ea0bd9_e907e2da",
       "revId": "21f9d2be2a4e51fbc7a13423f6cc1a88e6403d28",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd059184_6850789b",
+        "filename": "oplus-fwk/src/com/oplus/internal/telephony/radio/aidl/QtiRadioConfigAidlProxy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-17T22:49:14Z",
+      "side": 1,
+      "message": "But as I said, on dodge it\u0027s 6, so it should return true.",
+      "parentUuid": "2f1d754b_165d77b8",
+      "revId": "21f9d2be2a4e51fbc7a13423f6cc1a88e6403d28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
