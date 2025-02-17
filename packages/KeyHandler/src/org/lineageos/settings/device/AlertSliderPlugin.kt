@@ -34,7 +34,14 @@ class AlertSliderPlugin : OverlayPlugin {
             override fun onReceive(context: Context, intent: Intent) {
                 when (intent.action) {
                     Intent.ACTION_CONFIGURATION_CHANGED -> {
-                        synchronized(dialogLock) { handler.sendEmptyMessage(MSG_DIALOG_RECREATE) }
+                        Handler(Looper.getMainLooper())
+                            .postDelayed(
+                                {
+                                    handler.context = context
+                                    handler.sendEmptyMessage(MSG_DIALOG_RECREATE)
+                                },
+                                100,
+                            )
                     }
                     KeyHandler.CHANGED_ACTION -> {
                         synchronized(dialogLock) {
