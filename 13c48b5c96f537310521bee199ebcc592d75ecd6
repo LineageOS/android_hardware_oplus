@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bffabe24_c5a1b600",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 48
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-17T00:49:25Z",
+      "side": 1,
+      "message": "Comment removed by: Bruno Martins; Reason: .",
+      "revId": "13c48b5c96f537310521bee199ebcc592d75ecd6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
