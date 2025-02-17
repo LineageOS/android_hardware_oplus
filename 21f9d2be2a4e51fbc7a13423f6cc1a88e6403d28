@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4b9f765_2b44ef0b",
+        "filename": "oplus-fwk/src/com/oplus/internal/telephony/radio/aidl/QtiRadioConfigAidlProxy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-02-17T22:18:30Z",
+      "side": 1,
+      "message": "FEATURE_SMART_TEMP_DDS_VIA_RADIO_CONFIG?\n\njust define it somewhere",
+      "revId": "21f9d2be2a4e51fbc7a13423f6cc1a88e6403d28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
