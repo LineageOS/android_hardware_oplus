@@ -94,6 +94,30 @@
       },
       "revId": "e26f7ebc0ee5a5578d42a62f62fa60b02fdbd9db",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d400526_29dd7889",
+        "filename": "fingerprint/shims/SensorPropsShim.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-17T12:48:39Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "99aa8590_9a90d426",
+      "range": {
+        "startLine": 52,
+        "startChar": 72,
+        "endLine": 52,
+        "endChar": 76
+      },
+      "revId": "e26f7ebc0ee5a5578d42a62f62fa60b02fdbd9db",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
