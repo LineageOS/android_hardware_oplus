@@ -46,6 +46,30 @@
       },
       "revId": "e26f7ebc0ee5a5578d42a62f62fa60b02fdbd9db",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7fd59c9_71b009d1",
+        "filename": "fingerprint/shims/SensorPropsShim.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-02-17T11:52:24Z",
+      "side": 1,
+      "message": "neither Split() nor Tokenize() treats the second augment as a substring, but a set. the results of `a:b:c` and `a::b:::::c` after Tokenize() are the same",
+      "parentUuid": "50c12380_53ac27ec",
+      "range": {
+        "startLine": 52,
+        "startChar": 72,
+        "endLine": 52,
+        "endChar": 76
+      },
+      "revId": "e26f7ebc0ee5a5578d42a62f62fa60b02fdbd9db",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
