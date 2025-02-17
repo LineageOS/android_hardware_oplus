@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3e41a19_11adfb00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-17T00:56:07Z",
+      "side": 1,
+      "message": "It builds now on salami and dodge, and vendor repos can co-exist.",
+      "revId": "0623794a9add99d814947bab7598dbc9e0f73d0a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
