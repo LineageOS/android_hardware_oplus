@@ -61,6 +61,10 @@ SensorProps SensorPropsInit(SensorProps props) {
         }
     }
 
+    props.halHandlesDisplayTouches =
+            props.sensorType == FingerprintSensorType::UNDER_DISPLAY_OPTICAL ||
+            props.sensorType == FingerprintSensorType::UNDER_DISPLAY_ULTRASONIC;
+
     return props;
 }
 }  // anonymous namespace
