@@ -37,7 +37,9 @@ SensorProps SensorPropsInit(SensorProps props) {
             props.sensorType = FingerprintSensorType::HOME_BUTTON;
     }
 
-    auto loc_prop = GetProperty("persist.vendor.fingerprint.optical.sensorlocation", "");
+    auto loc_prop =
+            GetProperty("ro.vendor.fingerprint.sensor_location",
+                        GetProperty("persist.vendor.fingerprint.optical.sensorlocation", ""));
     if (!loc_prop.empty()) {
         auto loc = Tokenize(loc_prop, ":");
         bool loc_parsed = false;
