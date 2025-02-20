@@ -12,12 +12,14 @@
 #include <android-base/properties.h>
 #include <android-base/strings.h>
 
+#include <fingerprint.sysprop.h>
 #include <dlfcn.h>
 
 using android::base::GetProperty;
 using android::base::ParseInt;
 using android::base::Tokenize;
 
+using namespace ::android::fingerprint::oplus;
 using aidl::android::hardware::biometrics::fingerprint::FingerprintSensorType;
 using aidl::android::hardware::biometrics::fingerprint::SensorProps;
 
@@ -37,7 +39,10 @@ SensorProps SensorPropsInit(SensorProps props) {
             props.sensorType = FingerprintSensorType::HOME_BUTTON;
     }
 
-    auto loc_prop = GetProperty("persist.vendor.fingerprint.optical.sensorlocation", "");
+    auto loc_prop = FingerprintHalProperties::sensor_location().value_or("");
+    if(loc_prop.empty()) {
+        auto loc_prop = GetProperty("persist.vendor.fingerprint.optical.sensorlocation", "");
+    }
     if (!loc_prop.empty()) {
         auto loc = Tokenize(loc_prop, ":");
         bool loc_parsed = false;

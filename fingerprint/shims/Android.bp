@@ -9,6 +9,7 @@ cc_defaults {
     srcs: ["SensorPropsShim.cpp"],
     shared_libs: ["libbase"],
     device_specific: true,
+    static_libs: ["libandroid.hardware.biometrics.fingerprint.OplusProps"],
 }
 
 cc_library_shared {
@@ -37,4 +38,11 @@ cc_library {
         "liblog",
     ],
     device_specific: true,
+}
+
+sysprop_library {
+    name: "android.hardware.biometrics.fingerprint.OplusProps",
+    srcs: ["fingerprint.sysprop"],
+    property_owner: "Vendor",
+    vendor: true,
 }

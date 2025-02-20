@@ -1,0 +1,14 @@
+# fingerprint.sysprop
+# module becomes static class (Java) / namespace (C++) for serving API
+module: "android.fingerprint.oplus.FingerprintHalProperties"
+owner: Vendor
+
+# sensor location
+#    <x>::<y> in pixel
+prop {
+    prop_name: "ro.vendor.fingerprint.sensor_location"
+    type: String
+    scope: Internal
+    access: Readonly
+    api_name: "sensor_location"
+}
