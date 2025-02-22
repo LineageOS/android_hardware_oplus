@@ -24,6 +24,11 @@ cc_library_shared {
             "hardware/qcom-caf/sm8250/audio/hal/audio_extn",
             "hardware/qcom-caf/sm8250/audio/hal/msm8974",
         ],
+        "holi": [
+            "hardware/qcom-caf/sm8350/audio/hal",
+            "hardware/qcom-caf/sm8350/audio/hal/audio_extn",
+            "hardware/qcom-caf/sm8350/audio/hal/msm8974",
+        ],
         default: [],
     }),
 
