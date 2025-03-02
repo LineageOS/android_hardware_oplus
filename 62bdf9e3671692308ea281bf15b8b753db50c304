@@ -33,6 +33,24 @@
       "message": "maybe `persist.vendor.fingerprint.sensor_location` to match other prefix?",
       "revId": "62bdf9e3671692308ea281bf15b8b753db50c304",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e013b33_5cfc2b45",
+        "filename": "fingerprint/shims/SensorPropsShim.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 32811
+      },
+      "writtenOn": "2025-03-02T16:17:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdf544a7_e8c88bcd",
+      "revId": "62bdf9e3671692308ea281bf15b8b753db50c304",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
