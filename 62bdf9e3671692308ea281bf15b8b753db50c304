@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7735a026_ebe93c2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-03-02T10:34:30Z",
+      "side": 1,
+      "message": "let\u0027s not overcomplicate it with sysprops lib ^^",
+      "revId": "62bdf9e3671692308ea281bf15b8b753db50c304",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
