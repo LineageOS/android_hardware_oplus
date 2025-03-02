@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e41fcf7_6b0b2780",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2025-03-02T13:21:00Z",
+      "side": 1,
+      "message": "sensorlocationX can be calculated as width/2\nsensorlocationY can be calculated as (height - persist.vendor.fingerprint.optical.iconlocation)\n\nCan this be used instead of spawning another property ?",
+      "revId": "52e0aec72a78e93f1a6cecc5561009cca686019b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
