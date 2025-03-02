@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c06733e_5b73dfef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32811
+      },
+      "writtenOn": "2025-03-02T09:18:07Z",
+      "side": 1,
+      "message": "Oplus fingerprint HAL is setting out-of-bounds FOD location on the OnePlus Nord CE4\n\nOP5D3FL1:/ # getprop | grep persist.vendor.fingerprint.optical.sensorlocation\n[persist.vendor.fingerprint.optical.sensorlocation]: [620::2529]\n\nThe physical display dimens is 1080x2400",
+      "revId": "7df17abf42ad4ac75bd4bfd66f5cddb8cb060659",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
