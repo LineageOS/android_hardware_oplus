@@ -16,6 +16,24 @@
       "message": "no tabs",
       "revId": "c98a4305c92b43d17e131c0a547866c8dc9d3fa3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0760583_12b83431",
+        "filename": "aidl/vibrator/qti/Vibrator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 34207
+      },
+      "writtenOn": "2025-03-05T10:17:14Z",
+      "side": 1,
+      "message": "oops, forgot to fix this after i finalized my changes",
+      "parentUuid": "ea0ce198_948b6947",
+      "revId": "c98a4305c92b43d17e131c0a547866c8dc9d3fa3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
