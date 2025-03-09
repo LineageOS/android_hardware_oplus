@@ -26,13 +26,9 @@ cc_binary {
         "liblog",
         "libbase",
         "libbinder_ndk",
-        "libaacvibrator",
         "android.hardware.vibrator-V2-ndk",
-    ],
-}
-
-cc_library_shared {
-    name: "libaacvibrator",
-    compile_multilib: "64",
-    soc_specific: true,
+    ] + select(soong_config_variable("OPLUS_RICHTAP_VIBRATOR_HAL", "EFFECTS_LIB"), {
+        any @ flag_val: [ flag_val ],
+        default: [],
+    }),
 }
