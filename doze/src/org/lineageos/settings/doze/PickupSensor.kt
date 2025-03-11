@@ -13,6 +13,7 @@ import android.hardware.SensorManager
 import android.os.PowerManager
 import android.os.SystemClock
 import android.util.Log
+import android.view.Display
 
 import java.util.concurrent.Executors
 
@@ -39,7 +40,10 @@ class PickupSensor(
             if (Utils.isPickUpSetToWake(context)) {
                 wakeLock.acquire(WAKELOCK_TIMEOUT_MS)
                 powerManager.wakeUpWithProximityCheck(
-                    SystemClock.uptimeMillis(), PowerManager.WAKE_REASON_GESTURE, TAG
+                    SystemClock.uptimeMillis(),
+                    PowerManager.WAKE_REASON_GESTURE,
+                    TAG,
+                    Display.DEFAULT_DISPLAY
                 )
             } else {
                 Utils.launchDozePulse(context)
