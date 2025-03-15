@@ -17,5 +17,5 @@
     <string name="alert_slider_mode_dnd_total_silence">Silêncio total</string>
     <string name="alert_slider_mode_dnd_alarms_only">Somente alarmes</string>
     <string name="alert_slider_mute_media_title">Silenciar mídia</string>
-    <string name="alert_slider_mute_media_summary">Silenciar mídia ao mudar para modo silencioso</string>
+    <string name="alert_slider_mute_media_summary">Silenciar mídia ao mudar para o modo silencioso</string>
 </resources>
