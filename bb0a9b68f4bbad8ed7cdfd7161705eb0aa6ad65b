@@ -16,6 +16,23 @@
       "message": "Nord CE4 does not have multiple display res modes",
       "revId": "bb0a9b68f4bbad8ed7cdfd7161705eb0aa6ad65b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3251bb7b_a7716aa7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-03-29T15:32:30Z",
+      "side": 1,
+      "message": "it\u0027s not at all better btw.",
+      "revId": "bb0a9b68f4bbad8ed7cdfd7161705eb0aa6ad65b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
