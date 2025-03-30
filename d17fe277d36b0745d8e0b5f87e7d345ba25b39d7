@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "823c8058_2f5da576",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-03-30T18:07:18Z",
+      "side": 1,
+      "message": "can you just split these changes btw?",
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59218069_a9ba3c33",
@@ -37,6 +54,103 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6c9175b_fa9087a8",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-03-30T18:07:18Z",
+      "side": 1,
+      "message": "```suggestion\n/sys/devices/soc0/subset_parts    u:object_r:vendor_sysfs_mediacodec:s0\n```",
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "065e0347_c293d6f0",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-03-30T18:07:18Z",
+      "side": 1,
+      "message": "```suggestion\ngenfscon proc /boost_pool/camera_pid      u:object_r:vendor_proc_camera:s0\ngenfscon proc /boost_pool/camera_pages    u:object_r:vendor_proc_camera:s0\n```",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 73
+      },
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53a9c10e_87adde56",
+        "filename": "sepolicy/qti/vendor/hal_camera_default.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-03-30T18:07:18Z",
+      "side": 1,
+      "message": "would rather not let it do that",
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3d65e42_8ab6b9bc",
+        "filename": "sepolicy/qti/vendor/hal_secure_element_default.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-03-30T18:07:18Z",
+      "side": 1,
+      "message": "just getattr???",
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9680a627_7b4d68d2",
+        "filename": "sepolicy/qti/vendor/init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-03-30T18:07:18Z",
+      "side": 1,
+      "message": "seems wrong",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 0
+      },
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0acbfbb_671140e2",
         "filename": "sepolicy/qti/vendor/property_contexts",
         "patchSetId": 3
@@ -48,6 +162,114 @@
       "writtenOn": "2025-03-30T17:58:22Z",
       "side": 1,
       "message": "Sort it.",
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95376de4_b84513b5",
+        "filename": "sepolicy/qti/vendor/service_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-03-30T18:07:18Z",
+      "side": 1,
+      "message": "```suggestion\nvendor.oplus.hardware.communicationcenter.IDmtpService/default    u:object_r:hal_oplus_commcenter_aidl_service:s0\n```",
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c84f3756_6fb47eb2",
+        "filename": "sepolicy/qti/vendor/service_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-03-30T18:07:18Z",
+      "side": 1,
+      "message": "```suggestion\nvendor.oplus.hardware.cwb.ICwbService/default    u:object_r:hal_oplus_cwb_aidl_service:s0\n```",
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c3787de_ccb13066",
+        "filename": "sepolicy/qti/vendor/service_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-03-30T18:07:18Z",
+      "side": 1,
+      "message": "```suggestion\nvendor.pixelworks.hardware.display.IIris/default    u:object_r:hal_display_iris_aidl_service:s0\n```",
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef39b61b_92c3087a",
+        "filename": "sepolicy/qti/vendor/service_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-03-30T18:07:18Z",
+      "side": 1,
+      "message": "```suggestion\nandroid.frameworks.sensorservice.ISensorManager/default    u:object_r:fwk_sensor_service:s0\n```",
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3c9a78e_b73a1e39",
+        "filename": "sepolicy/qti/vendor/tee.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-03-30T18:07:18Z",
+      "side": 1,
+      "message": "odd, at least sort it",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 42
+      },
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "300f5496_7b5610ed",
+        "filename": "sepolicy/qti/vendor/vendor_vppservice.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-03-30T18:07:18Z",
+      "side": 1,
+      "message": "get_prop()",
       "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
