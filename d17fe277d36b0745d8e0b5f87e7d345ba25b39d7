@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59218069_a9ba3c33",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-03-30T17:58:22Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be oplus specific...",
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f41d062f_da40f323",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-03-30T17:58:22Z",
+      "side": 1,
+      "message": "Same?",
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0acbfbb_671140e2",
+        "filename": "sepolicy/qti/vendor/property_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-03-30T17:58:22Z",
+      "side": 1,
+      "message": "Sort it.",
+      "revId": "d17fe277d36b0745d8e0b5f87e7d345ba25b39d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
