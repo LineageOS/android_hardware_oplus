@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "594e027e_163d9543",
+        "filename": "sepolicy/qti/private/property_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-03-31T10:02:41Z",
+      "side": 1,
+      "message": "```suggestion\noplus.autotest.                u:object_r:exported_system_prop:s0\npersist.sys.oplus.autotest.    u:object_r:exported_system_prop:s0\n```",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 78
+      },
+      "revId": "891160b1286b192aef3778b7e26bcfa1faf97ee0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfef6d8d_e98d8d15",
+        "filename": "sepolicy/qti/private/property_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-03-31T10:02:41Z",
+      "side": 1,
+      "message": "```suggestion\nro.build.release_type      u:object_r:exported_system_prop:s0\nro.separate.soft           u:object_r:system_oplus_project_prop:s0\nro.version.confidential    u:object_r:exported_system_prop:s0\n```",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 60
+      },
+      "revId": "891160b1286b192aef3778b7e26bcfa1faf97ee0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
