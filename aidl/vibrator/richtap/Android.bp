@@ -33,6 +33,5 @@ cc_binary {
 
 cc_library_shared {
     name: "libaacvibrator",
-    compile_multilib: "64",
     soc_specific: true,
 }
