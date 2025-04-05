@@ -3,7 +3,6 @@ android_app {
     defaults: ["SettingsLibDefaults"],
 
     srcs: ["src/**/*.kt"],
-    resource_dirs: ["res"],
 
     certificate: "platform",
     platform_apis: true,

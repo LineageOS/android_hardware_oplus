@@ -2,7 +2,6 @@ android_app {
     name: "KeyHandler",
 
     srcs: ["src/**/*.kt"],
-    resource_dirs: ["res"],
 
     certificate: "platform",
     platform_apis: true,

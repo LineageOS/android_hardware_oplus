@@ -21,7 +21,7 @@ cc_library_shared {
         "true": ["liboplusvibratoreffect"],
         default: [],
     }),
-    export_include_dirs: ["include"]
+    export_include_dirs: ["include"],
 }
 
 cc_binary {
