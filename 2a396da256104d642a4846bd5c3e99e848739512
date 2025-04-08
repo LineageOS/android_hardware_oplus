@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3271e627_3e2da5b3",
+        "filename": "power/power-mode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-04-08T14:40:24Z",
+      "side": 1,
+      "message": "```suggestion\n#define DOUBLE_TAP_INDEP_DISABLED 1 \u003c\u003c 16\n```",
+      "revId": "2a396da256104d642a4846bd5c3e99e848739512",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
