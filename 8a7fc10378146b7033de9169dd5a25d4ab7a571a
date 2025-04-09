@@ -69,6 +69,24 @@
       "message": "\u003e Are you sure this isn\u0027t your env fault ?\n\n\u003e probably just dealing with something that isn\u0027t Lineage",
       "revId": "8a7fc10378146b7033de9169dd5a25d4ab7a571a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "191f48b9_c5acfbd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24442
+      },
+      "writtenOn": "2025-04-09T15:06:43Z",
+      "side": 1,
+      "message": "It got fixed by moving device/lineage/sepolicy/common/sepolicy.mk include out of build/make/core/config.mk (to vendor/lineage/config/common.mk). It seems that lineage SE common sepolicy being included that late actually causes issues with ordering but that\u0027s an intended design as per the comments",
+      "parentUuid": "0eebadb9_c6dc4674",
+      "revId": "8a7fc10378146b7033de9169dd5a25d4ab7a571a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
