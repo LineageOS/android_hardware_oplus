@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15b32ba5_ddaaa882",
+        "filename": "power/power-mode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2025-04-09T14:03:47Z",
+      "side": 1,
+      "message": "...is this file CRLF?",
+      "revId": "609def77ea9154b1dce764dcc7e909ad1cc15b49",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
