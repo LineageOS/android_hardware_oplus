@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a90c1bb_bd29a3d5",
+        "filename": "hidl/touch/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 24442
+      },
+      "writtenOn": "2025-04-09T16:23:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7414cb1_96908ed7",
+      "range": {
+        "startLine": 20,
+        "startChar": 12,
+        "endLine": 21,
+        "endChar": 28
+      },
+      "revId": "7e2510a638360c04032f120a56a9b52dfe5a7048",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "013f5ad1_9b51ec62",
@@ -37,6 +61,30 @@
       "writtenOn": "2025-04-09T16:16:50Z",
       "side": 1,
       "message": "can be removed",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 24
+      },
+      "revId": "7e2510a638360c04032f120a56a9b52dfe5a7048",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85b613f7_ad1831fa",
+        "filename": "hidl/touch/TouchscreenGesture.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 24442
+      },
+      "writtenOn": "2025-04-09T16:23:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "013f5ad1_9b51ec62",
       "range": {
         "startLine": 65,
         "startChar": 0,
