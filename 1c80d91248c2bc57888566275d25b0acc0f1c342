@@ -35,6 +35,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e68638d_7754d1ef",
+        "filename": "README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 24442
+      },
+      "writtenOn": "2025-04-09T15:35:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb42e8b5_dbfb1d86",
+      "revId": "1c80d91248c2bc57888566275d25b0acc0f1c342",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73d3edfa_ef365a72",
@@ -48,6 +66,24 @@
       "writtenOn": "2025-02-13T20:04:27Z",
       "side": 1,
       "message": "Avoid querying the service every time, wait for it in constructor and add a death handler to just wait again for it\n\nIf you instead want to query it every time, then don\u0027t store the instance in a class attribute",
+      "revId": "1c80d91248c2bc57888566275d25b0acc0f1c342",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07fa0528_2122efdc",
+        "filename": "hidl/touch/HighTouchPollingRate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 24442
+      },
+      "writtenOn": "2025-04-09T15:35:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73d3edfa_ef365a72",
       "revId": "1c80d91248c2bc57888566275d25b0acc0f1c342",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
@@ -101,6 +137,24 @@
       "side": 1,
       "message": "Please just revert it back to `hal_lineage_touch_default`, probably just dealing with something that isn\u0027t Lineage",
       "parentUuid": "f1ad9036_8932ca84",
+      "revId": "1c80d91248c2bc57888566275d25b0acc0f1c342",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92b23595_2682cb55",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 24442
+      },
+      "writtenOn": "2025-04-09T15:35:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45054358_a35ea973",
       "revId": "1c80d91248c2bc57888566275d25b0acc0f1c342",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
