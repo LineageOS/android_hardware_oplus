@@ -34,6 +34,24 @@
       "parentUuid": "a010880c_05a28551",
       "revId": "8a7fc10378146b7033de9169dd5a25d4ab7a571a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0eebadb9_c6dc4674",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24442
+      },
+      "writtenOn": "2025-04-09T14:06:53Z",
+      "side": 1,
+      "message": "How am I supposed to do that when the build system itself isn\u0027t logical at all. The sepolicy context is there",
+      "parentUuid": "799df6d5_9280f9c4",
+      "revId": "8a7fc10378146b7033de9169dd5a25d4ab7a571a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
