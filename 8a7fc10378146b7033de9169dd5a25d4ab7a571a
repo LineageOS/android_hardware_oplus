@@ -16,6 +16,24 @@
       "message": "For some reasons, the sepolicy refuses to compile with the current label used for the hw/oplus fork of lineage touch service when oplus touch hal is added (build system says unknown label for hal_lineage_touch_default) but renaming it works oddly",
       "revId": "8a7fc10378146b7033de9169dd5a25d4ab7a571a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "799df6d5_9280f9c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2025-04-09T14:03:05Z",
+      "side": 1,
+      "message": "This is still an issue, make it work with LineageOS sepolicy context",
+      "parentUuid": "a010880c_05a28551",
+      "revId": "8a7fc10378146b7033de9169dd5a25d4ab7a571a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
