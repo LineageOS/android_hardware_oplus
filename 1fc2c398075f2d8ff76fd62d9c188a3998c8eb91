@@ -16,6 +16,24 @@
       "message": "I would still prefer to label it as vendor_sysfs_graphics, like QCOM does for the other nodes.",
       "revId": "1fc2c398075f2d8ff76fd62d9c188a3998c8eb91",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef81cc77_c318f3c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-04-10T20:02:27Z",
+      "side": 1,
+      "message": "yeah but then power hal gets a lot more access and selinux is supposed to restrict as much as possible...",
+      "parentUuid": "3bf67307_33ca805a",
+      "revId": "1fc2c398075f2d8ff76fd62d9c188a3998c8eb91",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
