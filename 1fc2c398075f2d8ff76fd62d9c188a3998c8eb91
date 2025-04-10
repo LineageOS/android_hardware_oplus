@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bf67307_33ca805a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-04-10T20:01:44Z",
+      "side": 1,
+      "message": "I would still prefer to label it as vendor_sysfs_graphics, like QCOM does for the other nodes.",
+      "revId": "1fc2c398075f2d8ff76fd62d9c188a3998c8eb91",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
