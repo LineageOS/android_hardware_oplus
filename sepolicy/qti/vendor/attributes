@@ -1,6 +1,8 @@
 vendor_hal_attribute(cameraMDM)
 vendor_hal_attribute(oplusSensor)
 vendor_hal_attribute(oplus_cammidasservice)
+vendor_hal_attribute(oplus_charger)
+vendor_hal_attribute(oplus_commcenterd)
 vendor_hal_attribute(oplus_commondcs)
 vendor_hal_attribute(oplus_osense)
 vendor_hal_attribute(oplus_performance)

@@ -3,6 +3,7 @@
 
 # Camera
 /data/vendor/camera_update(/.*)?                                                u:object_r:vendor_camera_update_data_file:s0
+/dev/camera_extension_monitor                                                   u:object_r:vendor_camera_turbo_device:s0
 /mnt/vendor/persist/camera(/.*)?                                                u:object_r:vendor_persist_camera_file:s0
 /mnt/vendor/persist/dual_camera_calibration(/.*)?                               u:object_r:vendor_persist_camera_file:s0
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.cammidasservice-V1-service    u:object_r:hal_oplus_cammidasservice_aidl_exec:s0
@@ -12,7 +13,12 @@
 /vendor/lib64/libipebpsstriping\.so                                             u:object_r:same_process_hal_file:s0
 
 # Charging
-/vendor/bin/hw/vendor\.lineage\.powershare@1\.0-service\.oplus    u:object_r:hal_lineage_powershare_default_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.charger-V[0-9]+-service           u:object_r:hal_oplus_charger_aidl_exec:s0
+/vendor/bin/hw/vendor\.lineage\.powershare@1\.0-service\.oplus                      u:object_r:hal_lineage_powershare_default_exec:s0
+/sys/class/oplus_mutual/cmd                                                         u:object_r:vendor_sysfs_charger:s0
+
+# Commcenter
+/odm/bin/commcenterd    u:object_r:hal_oplus_commcenterd_aidl_exec:s0
 
 # CommonDcs
 /vendor/bin/hw/vendor\.oplus\.hardware\.commondcs-service    u:object_r:hal_oplus_commondcs_aidl_exec:s0
