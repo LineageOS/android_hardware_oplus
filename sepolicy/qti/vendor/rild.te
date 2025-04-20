@@ -1,4 +1,4 @@
-allow rild hal_oplus_commcenter_aidl_service:service_manager find;
+hal_client_domain(rild, vendor_hal_oplus_commcenter)
 
 allow rild mnt_vendor_file:dir search;
 
