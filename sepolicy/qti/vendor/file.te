@@ -27,9 +27,13 @@ type vendor_sysfs_sde_crtc, fs_type, sysfs_type;
 # Input
 type proc_bus_input, fs_type, proc_type;
 
+# Multimedia feedback
+type vendor_proc_mm_fb, fs_type, proc_type;
+
 # Performance
 type vendor_proc_oplus_ctp, fs_type, proc_type;
 type vendor_proc_oplus_scheduler, fs_type, proc_type;
+type vendor_sysfs_cb, fs_type, sysfs_type;
 
 # Sensors
 type vendor_proc_eng_cali_file, fs_type, proc_type;
