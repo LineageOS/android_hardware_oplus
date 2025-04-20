@@ -1,5 +1,6 @@
 # Audio
-sys.oplus_ftm_mode    u:object_r:exported_system_prop:s0
+ro.oplus.audio.aidl_volume       u:object_r:exported_system_prop:s0
+sys.oplus_ftm_mode               u:object_r:exported_system_prop:s0
 
 # Autotest
 oplus.autotest.                u:object_r:exported_system_prop:s0
