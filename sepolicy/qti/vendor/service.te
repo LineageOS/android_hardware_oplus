@@ -26,12 +26,16 @@ type hal_oplus_olc_aidl_service, hal_service_type, service_manager_type;
 
 # OSENSE
 type hal_oplus_osense_aidl_service, hal_service_type, service_manager_type;
+type osense_service, system_server_service, service_manager_type;
 
 # Performance
 type hal_oplus_performance_aidl_service, hal_service_type, service_manager_type;
 
 # Project
 type hal_oplus_project_aidl_service, hal_service_type, service_manager_type;
+
+# Subsys
+type hal_subsys_service, hal_service_type, service_manager_type;
 
 # Touch
 type hal_oplus_touch_aidl_service, hal_service_type, service_manager_type;
