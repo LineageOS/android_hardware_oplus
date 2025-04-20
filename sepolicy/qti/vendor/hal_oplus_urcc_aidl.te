@@ -6,5 +6,5 @@ init_daemon_domain(hal_oplus_urcc_aidl)
 
 set_prop(hal_oplus_urcc_aidl, vendor_oplus_urcc_prop)
 
-allow hal_oplus_urcc_aidl self:capability ipc_lock;
+allow hal_oplus_urcc_aidl self:capability { ipc_lock sys_nice };
 allow hal_oplus_urcc_aidl servicemanager:binder call;
