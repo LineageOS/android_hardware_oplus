@@ -2,7 +2,9 @@
 genfscon proc /tristatekey    u:object_r:vendor_proc_tri_state_key:s0
 
 # Charging
+genfscon proc /charger                                                    u:object_r:vendor_proc_charger:s0
 genfscon proc /wireless                                                   u:object_r:vendor_proc_wireless:s0
+genfscon sysfs /class/oplus_mutual/cmd    u:object_r:vendor_sysfs_charger:s0
 genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pm7250b@2:qcom,qpnp-smb5/power_supply/ac    u:object_r:vendor_sysfs_battery_supply:s0
 genfscon sysfs /devices/platform/soc/4c90000.i2c/i2c-1/1-006b/iio:device                                                                  u:object_r:vendor_sysfs_battery_supply:s0
 genfscon sysfs /devices/platform/soc/4c90000.i2c/i2c-1/1-006b/power_supply/parallel                                                       u:object_r:vendor_sysfs_battery_supply:s0
@@ -90,6 +92,7 @@ genfscon sysfs /devices/platform/soc/8c0000.qcom,qupv3_0_geni_se/880000.spi/spi_
 genfscon sysfs /devices/platform/soc/8c0000.qcom,qupv3_2_geni_se/884000.i2c/i2c-7/7-0010/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/8c0000.qcom,qupv3_2_geni_se/884000.i2c/i2c-8/8-0010/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/8c0000.qcom,qupv3_2_geni_se/884000.i2c/i2c-9/9-0010/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/8c0000.qcom,qupv3_2_geni_se/89c000.qcom,qup_uart/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/980000.i2c/i2c-0/0-003b/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/980000.i2c/i2c-7/7-003b/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/984000.i2c/i2c-3/3-0028/wakeup u:object_r:sysfs_wakeup:s0
@@ -102,6 +105,8 @@ genfscon sysfs /devices/platform/soc/994000.i2c/i2c-8/8-003b/994000.i2c:op,wlchg
 genfscon sysfs /devices/platform/soc/994000.i2c/i2c-8/8-0066/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/998000.qcom,qup_uart/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/98c000.i2c/i2c-5/5-003b/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/98c000.i2c/i2c-6/6-0036/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a4000.i2c/i2c-7/7-0010/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/a600000.ssusb/a600000.dwc3/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-4/4-0028/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-6/6-0028/wakeup u:object_r:sysfs_wakeup:s0
