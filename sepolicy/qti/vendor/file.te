@@ -2,11 +2,14 @@
 type vendor_proc_tri_state_key, fs_type, proc_type;
 
 # Camera
+type vendor_camera_turbo_device, file_type;
 type vendor_camera_update_data_file, file_type, data_file_type;
 type vendor_persist_camera_file, file_type;
 type vendor_proc_camera, fs_type, proc_type;
 
 # Charging
+type vendor_proc_charger, fs_type, proc_type;
+type vendor_sysfs_charger, fs_type, sysfs_type;
 type vendor_proc_wireless, fs_type, proc_type;
 type vendor_sysfs_wireless, fs_type, sysfs_type;
 
