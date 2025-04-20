@@ -1,3 +1,9 @@
+hal_client_domain(hal_audio_default, vendor_hal_oplus_charger)
+
+allow hal_audio_default mnt_vendor_file:file r_file_perms;
+
+allow hal_audio_default vendor_sysfs_wireless:dir search;
+
 allow hal_audio_default ultrasound_device:chr_file rw_file_perms;
 
 rw_dir_file(hal_audio_default, vendor_sysfs_usb_supply)

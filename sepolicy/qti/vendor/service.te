@@ -1,4 +1,5 @@
 # Camera
+type hal_oplus_aon_aidl_service, hal_service_type, service_manager_type;
 type hal_oplus_cammidasservice_aidl_service, hal_service_type, service_manager_type;
 
 # Charging
