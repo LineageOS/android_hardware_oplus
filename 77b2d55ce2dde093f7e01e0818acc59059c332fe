@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf79937c_8d68e521",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-04-20T22:03:33Z",
+      "side": 1,
+      "message": "Uhhh... https://github.com/LineageOS/android_device_qcom_sepolicy_vndr/blob/lineage-22.2-caf-sm8650/generic/vendor/common/genfs_contexts#L220",
+      "parentUuid": "4ad6442b_5d766b8d",
+      "revId": "77b2d55ce2dde093f7e01e0818acc59059c332fe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10a5168c_c6ce2cf3",
         "filename": "sepolicy/qti/vendor/service_contexts",
         "patchSetId": 6
