@@ -1,4 +1,5 @@
 type hal_oplus_urcc_aidl, domain;
+binder_use(hal_oplus_urcc_aidl)
 vndbinder_use(hal_oplus_urcc_aidl)
 
 type hal_oplus_urcc_aidl_exec, exec_type, vendor_file_type, file_type;
@@ -6,5 +7,8 @@ init_daemon_domain(hal_oplus_urcc_aidl)
 
 set_prop(hal_oplus_urcc_aidl, vendor_oplus_urcc_prop)
 
-allow hal_oplus_urcc_aidl self:capability ipc_lock;
-allow hal_oplus_urcc_aidl servicemanager:binder call;
+allow hal_oplus_urcc_aidl self:capability { ipc_lock sys_nice };
+
+hal_attribute_service(vendor_hal_oplus_urcc, hal_oplus_urcc_aidl_service)
+
+binder_call(vendor_hal_oplus_urcc_client, vendor_hal_oplus_urcc_server)
