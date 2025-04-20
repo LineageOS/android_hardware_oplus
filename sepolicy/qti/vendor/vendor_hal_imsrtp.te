@@ -1,0 +1,3 @@
+allow vendor_hal_imsrtp hal_subsys_service:service_manager find;
+
+get_prop(vendor_hal_imsrtp, boot_status_prop)
