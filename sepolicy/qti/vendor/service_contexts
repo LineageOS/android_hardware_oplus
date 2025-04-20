@@ -1,8 +1,12 @@
 # Camera
+vendor.oplus.hardware.camera.aon.IAONService/default                     u:object_r:hal_oplus_aon_aidl_service:s0
 vendor.oplus.hardware.camera_rfi.ICameraRfiService/default               u:object_r:hal_camera_service:s0
 vendor.oplus.hardware.cameraextension.ICameraExtensionService/default    u:object_r:hal_camera_service:s0
 vendor.oplus.hardware.cammidasservice.IMIDASService/default              u:object_r:hal_oplus_cammidasservice_aidl_service:s0
 vendor.oplus.hardware.sendextcamcmd.ISendExtCamCmdService/default        u:object_r:hal_camera_service:s0
+
+# Charging
+vendor.oplus.hardware.charger.ICharger/default        u:object_r:hal_oplus_charger_aidl_service:s0
 
 # Commcenter
 vendor.oplus.hardware.communicationcenter.IDmtpService/default    u:object_r:hal_oplus_commcenter_aidl_service:s0
@@ -41,6 +45,7 @@ vendor.oplus.hardware.ims.IImsStable/OplusImsRadio0                  u:object_r:
 vendor.oplus.hardware.ims.IImsStable/OplusImsRadio1                  u:object_r:hal_radio_service:s0
 vendor.oplus.hardware.radio.IRadioStable/OplusRadio0                 u:object_r:hal_radio_service:s0
 vendor.oplus.hardware.radio.IRadioStable/OplusRadio1                 u:object_r:hal_radio_service:s0
+vendor.oplus.hardware.subsys_imsrtp.IImsRtp/default                  u:object_r:hal_radio_service:s0
 
 # Touch
 vendor.oplus.hardware.touch.IOplusTouch/default    u:object_r:hal_oplus_touch_aidl_service:s0
