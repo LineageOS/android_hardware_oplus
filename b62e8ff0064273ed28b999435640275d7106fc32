@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53dd510e_a2feed84",
+        "filename": "sepolicy/qti/vendor/hal_graphics_composer_default.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-04-20T22:05:13Z",
+      "side": 1,
+      "message": "This type is only defined for sm8650+.",
+      "range": {
+        "startLine": 11,
+        "startChar": 36,
+        "endLine": 11,
+        "endChar": 60
+      },
+      "revId": "b62e8ff0064273ed28b999435640275d7106fc32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
