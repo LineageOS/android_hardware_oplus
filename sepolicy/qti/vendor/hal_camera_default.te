@@ -6,18 +6,21 @@ hal_client_domain(hal_camera_default, vendor_hal_oplus_charger)
 hal_client_domain(hal_camera_default, vendor_hal_oplus_commondcs)
 hal_client_domain(hal_camera_default, vendor_hal_oplus_osense)
 hal_client_domain(hal_camera_default, vendor_hal_oplus_performance)
+hal_client_domain(hal_camera_default, vendor_hal_oplus_urcc)
 
 add_service(hal_camera_default, hal_oplus_aon_aidl_service)
 
 allow hal_camera_default self:capability ipc_lock;
 
+allow hal_camera_default system_server:binder call;
+
 allow hal_camera_default hal_oplus_olc_aidl_service:service_manager find;
-allow hal_camera_default hal_oplus_urcc_aidl_service:service_manager find;
 
 allow hal_camera_default vendor_hal_orms_hwservice:hwservice_manager find;
 allow hal_camera_default vendor_hal_osense_hwservice:hwservice_manager find;
 
 allow hal_camera_default input_device:chr_file rw_file_perms;
+allow hal_camera_default vendor_camera_turbo_device:chr_file rw_file_perms;
 allow hal_camera_default vendor_tof_device:chr_file rw_file_perms;
 
 allow hal_camera_default mnt_vendor_file:dir search;
