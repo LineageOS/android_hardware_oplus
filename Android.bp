@@ -18,6 +18,13 @@ prebuilt_hidl_interfaces {
 }
 
 prebuilt_hidl_interfaces {
+    name: "hidl_oplus_virtual_device_camera_manager_interface",
+    interfaces: [
+        "vendor.oplus.hardware.virtual_device.camera.manager@1.0::IVirtualCameraManager",
+    ],
+}
+
+prebuilt_hidl_interfaces {
     name: "hidl_pixelworks_feature_interface",
     interfaces: [
         "vendor.pixelworks.hardware.feature@1.0::IIrisFeature",
