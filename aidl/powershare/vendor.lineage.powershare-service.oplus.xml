@@ -1,0 +1,7 @@
+<manifest version="1.0" type="device">
+    <hal format="aidl">
+        <name>vendor.lineage.powershare</name>
+        <version>1</version>
+        <fqname>IPowerShare/default</fqname>
+    </hal>
+</manifest>
