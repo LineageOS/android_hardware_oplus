@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The LineageOS Project
+ * Copyright (C) 2022-2025 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ Return<bool> PowerShare::isEnabled() {
 }
 
 Return<bool> PowerShare::setEnabled(bool enable) {
-    return WriteStringToFile(enable ? "1" : "0", kWirelessTxEnablePath, true);
+    return WriteStringToFile(enable ? "1" : "0", kWirelessTxEnablePath, true) && enable;
 }
 
 Return<uint32_t> PowerShare::getMinBattery() {
