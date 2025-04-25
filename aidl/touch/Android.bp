@@ -1,0 +1,28 @@
+//
+// SPDX-FileCopyrightText: 2025 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "vendor.lineage.touch-service.oplus",
+    init_rc: ["vendor.lineage.touch-service.oplus.rc"],
+    vintf_fragments: ["vendor.lineage.touch-service.oplus.xml"],
+    vendor: true,
+    relative_install_path: "hw",
+    srcs: [
+        "HighTouchPollingRate.cpp",
+        //"TouchscreenGesture.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libbinder_ndk",
+        "libutils",
+        "vendor.lineage.touch-V1-ndk",
+    ],
+    include_dirs: select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "INCLUDE_DIR"), {
+        any @ flag_val: [flag_val],
+        default: [],
+    }),
+}
