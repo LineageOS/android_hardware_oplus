@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c54d385c_65d3cbe1",
+        "filename": "aidl/powershare/service.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 35199
+      },
+      "writtenOn": "2025-04-25T16:03:08Z",
+      "side": 1,
+      "message": "Do I need to make these changes in the default impl as well?",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 59
+      },
+      "revId": "3c4039e59eac12245e595f0cb5804b7cf4f0ccea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
