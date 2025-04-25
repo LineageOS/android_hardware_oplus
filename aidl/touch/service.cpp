@@ -16,22 +16,28 @@ using aidl::vendor::lineage::touch::HighTouchPollingRate;
 using aidl::vendor::lineage::touch::TouchscreenGesture;
 
 int main() {
-    binder_status_t status = STATUS_OK;
-
     ABinderProcess_setThreadPoolMaxThreadCount(0);
-    std::shared_ptr<HighTouchPollingRate> htpr = ndk::SharedRefBase::make<HighTouchPollingRate>();
-    std::shared_ptr<TouchscreenGesture> tg = ndk::SharedRefBase::make<TouchscreenGesture>();
+    std::shared_ptr<HighTouchPollingRate> htpr =
+            ENABLE_HTPR ? ndk::SharedRefBase::make<HighTouchPollingRate>() : nullptr;
+    std::shared_ptr<TouchscreenGesture> tg =
+            ENABLE_TG ? ndk::SharedRefBase::make<TouchscreenGesture>() : nullptr;
 
-    const std::string instanceHtpr = std::string(HighTouchPollingRate::descriptor) + "/default";
-    status = AServiceManager_addService(htpr->asBinder().get(), instanceHtpr.c_str());
-    if (status != STATUS_OK) {
-        LOG(WARNING) << "Can't register IHighTouchPollingRate/default";
+    if (htpr) {
+        const std::string instance = std::string(HighTouchPollingRate::descriptor) + "/default";
+        const binder_status_t status =
+                AServiceManager_addService(htpr->asBinder().get(), instance.c_str());
+        if (status != STATUS_OK) {
+            LOG(WARNING) << "Can't register IHighTouchPollingRate/default";
+        }
     }
 
-    const std::string instanceTg = std::string(TouchscreenGesture::descriptor) + "/default";
-    status = AServiceManager_addService(tg->asBinder().get(), instanceTg.c_str());
-    if (status != STATUS_OK) {
-        LOG(WARNING) << "Can't register ITouchscreenGesture/default";
+    if (tg) {
+        const std::string instance = std::string(TouchscreenGesture::descriptor) + "/default";
+        const binder_status_t status =
+                AServiceManager_addService(tg->asBinder().get(), instance.c_str());
+        if (status != STATUS_OK) {
+            LOG(WARNING) << "Can't register ITouchscreenGesture/default";
+        }
     }
 
     ABinderProcess_joinThreadPool();
