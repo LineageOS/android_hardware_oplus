@@ -16,6 +16,23 @@
       "message": "Drop virtualcamera on sm8650.",
       "revId": "681755923df323a877cdd2b9cb63aec5ed8edcf7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ecf3747_d1b157d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-04-26T14:40:36Z",
+      "side": 1,
+      "message": "Or drop the init rc that includes the hidl interface. You are only adding the aidl interface in fwk compat matrix:\n\n    \u003chal format\u003d\"aidl\" optional\u003d\"true\"\u003e\n        \u003cname\u003evendor.oplus.hardware.virtual_device.camera.manager\u003c/name\u003e\n        \u003cversion\u003e1\u003c/version\u003e\n        \u003cinterface\u003e\n            \u003cname\u003eIVirtualCameraManager\u003c/name\u003e\n            \u003cinstance\u003edefault\u003c/instance\u003e\n        \u003c/interface\u003e\n    \u003c/hal\u003e",
+      "revId": "681755923df323a877cdd2b9cb63aec5ed8edcf7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
