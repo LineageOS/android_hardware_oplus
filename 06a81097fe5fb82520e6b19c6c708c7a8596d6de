@@ -16,6 +16,24 @@
       "message": "Can we replace 0x05C6 with 0x22D9 everywhere, like I did on sm8550?",
       "revId": "06a81097fe5fb82520e6b19c6c708c7a8596d6de",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "403de1cb_6fd4f471",
+        "filename": "usb/usb_compositions.conf",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-04-27T23:32:11Z",
+      "side": 1,
+      "message": "If oplus didn\u0027t do it, I think you risk causing driver issues for windows users",
+      "parentUuid": "f26e4951_24e8ce84",
+      "revId": "06a81097fe5fb82520e6b19c6c708c7a8596d6de",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
