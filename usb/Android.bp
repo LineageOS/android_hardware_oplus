@@ -1,0 +1,11 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+prebuilt_etc {
+    name: "oplus_usb_compositions.conf",
+    src: "usb_compositions.conf",
+    filename_from_src: true,
+    device_specific: true,
+}
