@@ -16,6 +16,24 @@
       "message": "If that\u0027s also a thing on current supported oplus devices for some effects, it would be nice to check it too ig",
       "revId": "22c431dd9f1fc75f7f15215acf9bbe6ea29dbb91",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5df50c0_b8ae0d3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24442
+      },
+      "writtenOn": "2025-05-04T15:13:12Z",
+      "side": 1,
+      "message": "AacRichTapConvert will tell if the passed effect_id is invalid",
+      "parentUuid": "7bc17764_56bc9a5c",
+      "revId": "22c431dd9f1fc75f7f15215acf9bbe6ea29dbb91",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
