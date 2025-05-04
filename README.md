@@ -16,3 +16,4 @@
 | OPLUS_LINEAGE_TOUCH_HAL | USE_OPLUSTOUCH | Use and interface with stock OplusTouch | false |
 | OPLUS_LINEAGE_VIBRATOR_HAL | INCLUDE_DIR | Device specific include dir path | |
 | OPLUS_LINEAGE_VIBRATOR_HAL | USE_EFFECT_STREAM | Enable effect stream feature | false |
+| OPLUS_LINEAGE_VIBRATOR_HAL | USE_RICHTAP_EFFECT_REMAP | Enable remapping of AOSP vibration effect IDs to RichTap's internal effect IDs | false |
