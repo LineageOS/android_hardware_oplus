@@ -34,6 +34,24 @@
       "parentUuid": "f26e4951_24e8ce84",
       "revId": "06a81097fe5fb82520e6b19c6c708c7a8596d6de",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ec129f9_414e5e7e",
+        "filename": "usb/usb_compositions.conf",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-05-04T20:46:35Z",
+      "side": 1,
+      "message": "So what are we doing with this comment?",
+      "parentUuid": "403de1cb_6fd4f471",
+      "revId": "06a81097fe5fb82520e6b19c6c708c7a8596d6de",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
