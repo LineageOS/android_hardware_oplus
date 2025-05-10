@@ -39,6 +39,30 @@
       },
       "revId": "54023ff836329c000866361f9a83661dc0ca2f26",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e7de1c4_77c909fe",
+        "filename": "aidl/touch/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-05-10T16:16:15Z",
+      "side": 1,
+      "message": "The current patch mimics LiveDisplay. Up to @priv.luk@gmail.com.",
+      "parentUuid": "bc16e69c_5431e307",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 5
+      },
+      "revId": "54023ff836329c000866361f9a83661dc0ca2f26",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
