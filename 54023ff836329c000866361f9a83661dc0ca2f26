@@ -63,6 +63,30 @@
       },
       "revId": "54023ff836329c000866361f9a83661dc0ca2f26",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d00a431_36fa05d8",
+        "filename": "aidl/touch/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-05-10T22:49:44Z",
+      "side": 1,
+      "message": "i\u0027m ok with the way it is now, at least all cases get compile tested no matter what target you build.",
+      "parentUuid": "9e7de1c4_77c909fe",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 5
+      },
+      "revId": "54023ff836329c000866361f9a83661dc0ca2f26",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
