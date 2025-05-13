@@ -7,8 +7,8 @@ cc_binary {
     name: "vendor.lineage.touch-service.oplus",
     init_rc: ["vendor.lineage.touch-service.oplus.rc"],
     vintf_fragments: select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_HTPR"), {
-        "true": ["vendor.lineage.touch-service.oplus-htpr.xml"],
-        default: [],
+        "false": [],
+        default: ["vendor.lineage.touch-service.oplus-htpr.xml"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_TG"), {
         "false": [],
         default: ["vendor.lineage.touch-service.oplus-tg.xml"],
@@ -32,8 +32,8 @@ cc_binary {
         default: [],
     }),
     cflags: select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_HTPR"), {
-        "true": ["-DENABLE_HTPR=true"],
-        default: ["-DENABLE_HTPR=false"],
+        "false": ["-DENABLE_HTPR=false"],
+        default: ["-DENABLE_HTPR=true"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_TG"), {
         "false": ["-DENABLE_TG=false"],
         default: ["-DENABLE_TG=true"],
