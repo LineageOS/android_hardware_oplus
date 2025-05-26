@@ -43,7 +43,7 @@ ndk::ScopedAStatus PowerShare::isEnabled(bool* _aidl_return) {
 ndk::ScopedAStatus PowerShare::setEnabled(bool enable) {
     if (!WriteStringToFile(enable ? "1" : "0", kWirelessTxEnablePath, true)) {
         LOG(ERROR) << "Failed to write PowerShare state";
-        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+        return ndk::ScopedAStatus::fromExceptionCode(EX_SERVICE_SPECIFIC);
     }
 
     return ndk::ScopedAStatus::ok();
