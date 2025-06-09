@@ -39,3 +39,9 @@ cc_binary {
         default: ["-DENABLE_TG=true"],
     }),
 }
+
+cc_library_headers {
+    name: "vendor.oplus.hardware.touch-headers",
+    vendor_available: true,
+    export_include_dirs: ["touch-headers"],
+}
