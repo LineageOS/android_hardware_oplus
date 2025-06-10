@@ -5,6 +5,7 @@
 
 #define LOG_TAG "vendor.lineage.touch-service.oplus"
 
+#include "GloveMode.h"
 #include "HighTouchPollingRate.h"
 #include "TouchscreenGesture.h"
 
@@ -12,6 +13,7 @@
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 
+using aidl::vendor::lineage::touch::GloveMode;
 using aidl::vendor::lineage::touch::HighTouchPollingRate;
 using aidl::vendor::lineage::touch::TouchscreenGesture;
 using aidl::vendor::oplus::hardware::touch::IOplusTouch;
@@ -25,10 +27,19 @@ int main() {
                                      AServiceManager_waitForService(instance.c_str())))
                            : nullptr;
 
+    std::shared_ptr<GloveMode> gm =
+            ENABLE_GM ? ndk::SharedRefBase::make<GloveMode>(oplusTouch) : nullptr;
     std::shared_ptr<HighTouchPollingRate> htpr =
             ENABLE_HTPR ? ndk::SharedRefBase::make<HighTouchPollingRate>(oplusTouch) : nullptr;
     std::shared_ptr<TouchscreenGesture> tg =
             ENABLE_TG ? ndk::SharedRefBase::make<TouchscreenGesture>(oplusTouch) : nullptr;
+
+    if (gm) {
+        const std::string instance = std::string(GloveMode::descriptor) + "/default";
+        const binder_status_t status =
+                AServiceManager_addService(gm->asBinder().get(), instance.c_str());
+        CHECK_EQ(status, STATUS_OK) << "Failed to add service " << instance << " " << status;
+    }
 
     if (htpr) {
         const std::string instance = std::string(HighTouchPollingRate::descriptor) + "/default";
