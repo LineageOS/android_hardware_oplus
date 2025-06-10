@@ -13,6 +13,7 @@ static constexpr int SUB_DISPLAY_TP_IC_ID = 1;
 static constexpr int DOUBLE_TAP_ENABLE_NODE = 1;
 static constexpr int DOUBLE_TAP_INDEP_NODE = 21;
 static constexpr int GAME_SWITCH_ENABLE_NODE = 26;
+static constexpr int GLOVE_MODE_ENABLE_NODE = 28;
 
 // Features
 static constexpr int DOUBLE_TAP_GESTURE = 1 << 1;
