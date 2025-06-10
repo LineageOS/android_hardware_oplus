@@ -6,7 +6,10 @@
 cc_binary {
     name: "vendor.lineage.touch-service.oplus",
     init_rc: ["vendor.lineage.touch-service.oplus.rc"],
-    vintf_fragments: select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_HTPR"), {
+    vintf_fragments: select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_GM"), {
+        "true": ["vendor.lineage.touch-service.oplus-gm.xml"],
+        default: [],
+    }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_HTPR"), {
         "false": [],
         default: ["vendor.lineage.touch-service.oplus-htpr.xml"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_TG"), {
@@ -16,6 +19,7 @@ cc_binary {
     vendor: true,
     relative_install_path: "hw",
     srcs: [
+        "GloveMode.cpp",
         "HighTouchPollingRate.cpp",
         "TouchscreenGesture.cpp",
         "service.cpp",
@@ -35,7 +39,10 @@ cc_binary {
         any @ flag_val: [flag_val],
         default: [],
     }),
-    cflags: select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_HTPR"), {
+    cflags: select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_GM"), {
+        "true": ["-DENABLE_GM=true"],
+        default: ["-DENABLE_GM=false"],
+    }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_HTPR"), {
         "false": ["-DENABLE_HTPR=false"],
         default: ["-DENABLE_HTPR=true"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_TG"), {
