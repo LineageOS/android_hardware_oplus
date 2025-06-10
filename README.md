@@ -8,6 +8,7 @@
 | OPLUS_LINEAGE_LIVEDISPLAY_HAL | ENABLE_DM | Enable DisplayModes feature | false |
 | OPLUS_LINEAGE_LIVEDISPLAY_HAL | ENABLE_PA | Enable PictureAdjustment feature | true |
 | OPLUS_LINEAGE_LIVEDISPLAY_HAL | ENABLE_SE | Enable SunlightEnhancement feature | true |
+| OPLUS_LINEAGE_TOUCH_HAL | ENABLE_GM | Enable GloveMode feature | false |
 | OPLUS_LINEAGE_TOUCH_HAL | ENABLE_HTPR | Enable HighTouchPollingRate feature | true |
 | OPLUS_LINEAGE_TOUCH_HAL | ENABLE_TG | Enable TouchscreenGesture feature | true |
 | OPLUS_LINEAGE_TOUCH_HAL | INCLUDE_DIR | Device specific include dir path | |
