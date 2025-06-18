@@ -16,6 +16,24 @@
       "message": "Under testing...\nWithout this, communicationcenter services never start.\n\nW ServiceManagerCppClient: Service vendor.oplus.hardware.communicationcenter.IDmtpService/default didn\u0027t start. Returning NULL",
       "revId": "e4c0d7c0de31bec809bf039efb4bab445729756f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fead0e3e_b6b11b3b",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-06-18T02:05:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5ac5a21_ffd33523",
+      "revId": "e4c0d7c0de31bec809bf039efb4bab445729756f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
