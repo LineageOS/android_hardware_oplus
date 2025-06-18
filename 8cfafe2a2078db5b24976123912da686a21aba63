@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d676a239_029c985c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-06-18T18:34:46Z",
+      "side": 1,
+      "message": "Does sepolicy fail to compile without this? Asking because it\u0027s not needed for dodge.",
+      "revId": "8cfafe2a2078db5b24976123912da686a21aba63",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
