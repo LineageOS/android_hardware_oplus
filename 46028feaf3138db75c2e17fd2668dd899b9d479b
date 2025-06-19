@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8912a9b8_7633a4e3",
+        "filename": "sepolicy/qti/vendor/attributes",
+        "patchSetId": 18
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-06-19T14:34:54Z",
+      "side": 1,
+      "message": "This should be in the dodge commit because without this change, the camera HAL crashes in dodge.",
+      "revId": "46028feaf3138db75c2e17fd2668dd899b9d479b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92ac8cb3_b77bffe4",
         "filename": "sepolicy/qti/vendor/genfs_contexts",
         "patchSetId": 18
