@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9d796467_b8819f04",
+        "filename": "sepolicy/qti/private/property_contexts",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-06-19T19:57:43Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0bd05a46_f0b6e408",
+      "revId": "31a51ba5daad07d5878d1b98afa85def982ad36d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d216e891_aaad29d8",
         "filename": "sepolicy/qti/vendor/service_contexts",
         "patchSetId": 9
