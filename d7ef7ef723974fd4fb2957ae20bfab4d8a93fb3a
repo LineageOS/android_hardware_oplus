@@ -16,6 +16,24 @@
       "message": "OnePlus sets VID as 0x22D9 as seen in vendor/etc/init/hw/init.qcom.usb.rc\n\n#ifndef OPLUS_FEATURE_CHG_BASIC /*Jianchao.Shi@BSP.CHG.Basic, 2018/01/17, sjc Modify for for oppo vid \u0026 pid */\n#    write /config/usb_gadget/g1/idVendor 0x05C6\n#    write /config/usb_gadget/g1/idProduct 0x9015\n#else\n    write /config/usb_gadget/g1/idVendor 0x22D9\n    write /config/usb_gadget/g1/idProduct 0x2767\n#endif",
       "revId": "d7ef7ef723974fd4fb2957ae20bfab4d8a93fb3a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ad32e15_7beaee70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32811
+      },
+      "writtenOn": "2025-06-19T14:43:52Z",
+      "side": 1,
+      "message": "```\n#ifndef OPLUS_FEATURE_CHG_BASIC /*Jianchao.Shi@BSP.CHG.Basic, 2018/01/17, sjc Modify for for oppo vid \u0026 pid */\n#    write /config/usb_gadget/g1/idVendor 0x05C6\n#    write /config/usb_gadget/g1/idProduct 0x9015\n#else\n    write /config/usb_gadget/g1/idVendor 0x22D9\n    write /config/usb_gadget/g1/idProduct 0x2767\n#endif```",
+      "parentUuid": "23bffc55_7d496682",
+      "revId": "d7ef7ef723974fd4fb2957ae20bfab4d8a93fb3a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
