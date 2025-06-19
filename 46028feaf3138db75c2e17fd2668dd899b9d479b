@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92ac8cb3_b77bffe4",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 18
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-06-19T14:32:18Z",
+      "side": 1,
+      "message": "wired is not wireless",
+      "range": {
+        "startLine": 19,
+        "startChar": 47,
+        "endLine": 19,
+        "endChar": 56
+      },
+      "revId": "46028feaf3138db75c2e17fd2668dd899b9d479b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
