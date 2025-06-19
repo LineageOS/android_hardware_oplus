@@ -111,6 +111,54 @@
       },
       "revId": "46028feaf3138db75c2e17fd2668dd899b9d479b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43cf61e0_9cbbcdc4",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 18
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-06-19T14:55:36Z",
+      "side": 1,
+      "message": "Should i lable it as vendor_sysfs_usb_supply?",
+      "parentUuid": "92ac8cb3_b77bffe4",
+      "range": {
+        "startLine": 19,
+        "startChar": 47,
+        "endLine": 19,
+        "endChar": 56
+      },
+      "revId": "46028feaf3138db75c2e17fd2668dd899b9d479b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eed6e88_31722972",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 18
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-06-19T14:55:36Z",
+      "side": 1,
+      "message": "Should it lable as vendor_sysfs_usb_supply?",
+      "parentUuid": "92ac8cb3_b77bffe4",
+      "range": {
+        "startLine": 19,
+        "startChar": 47,
+        "endLine": 19,
+        "endChar": 56
+      },
+      "revId": "46028feaf3138db75c2e17fd2668dd899b9d479b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
