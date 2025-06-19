@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b26919dc_06528593",
+        "filename": "sepolicy/qti/vendor/attributes",
+        "patchSetId": 18
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-06-19T14:51:11Z",
+      "side": 1,
+      "message": "Yes, waffle \"works\", but charger service wouldn\u0027t even start because it was not labeled.",
+      "parentUuid": "8aecb4ae_49c1d39c",
+      "revId": "46028feaf3138db75c2e17fd2668dd899b9d479b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92ac8cb3_b77bffe4",
         "filename": "sepolicy/qti/vendor/genfs_contexts",
         "patchSetId": 18
