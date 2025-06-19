@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8aecb4ae_49c1d39c",
+        "filename": "sepolicy/qti/vendor/attributes",
+        "patchSetId": 18
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-06-19T14:43:48Z",
+      "side": 1,
+      "message": "Okay, please note that without the charger service rules, waffle works fine. I have added the rules for dodge, where the camera HAL getting denied while accessing for charger service in enforcing mode.",
+      "parentUuid": "c4ad9fef_ff04b19f",
+      "revId": "46028feaf3138db75c2e17fd2668dd899b9d479b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92ac8cb3_b77bffe4",
         "filename": "sepolicy/qti/vendor/genfs_contexts",
         "patchSetId": 18
