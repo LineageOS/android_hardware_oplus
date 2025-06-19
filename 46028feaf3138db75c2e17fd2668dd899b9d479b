@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c4ad9fef_ff04b19f",
+        "filename": "sepolicy/qti/vendor/attributes",
+        "patchSetId": 18
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-06-19T14:37:09Z",
+      "side": 1,
+      "message": "But your tree already ships charger service. So I am adding everything related to it here.",
+      "parentUuid": "8912a9b8_7633a4e3",
+      "revId": "46028feaf3138db75c2e17fd2668dd899b9d479b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92ac8cb3_b77bffe4",
         "filename": "sepolicy/qti/vendor/genfs_contexts",
         "patchSetId": 18
