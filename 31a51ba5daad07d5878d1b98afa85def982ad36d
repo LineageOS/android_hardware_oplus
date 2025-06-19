@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a44a16ef_873cecf4",
+        "filename": "sepolicy/qti/private/property_contexts",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-06-19T15:49:33Z",
+      "side": 1,
+      "message": "this is aosp prop.",
+      "revId": "31a51ba5daad07d5878d1b98afa85def982ad36d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d216e891_aaad29d8",
