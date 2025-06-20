@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b50f78a_b0215a66",
+        "filename": "sepolicy/qti/vendor/hal_oplus_charger_aidl.te",
+        "patchSetId": 28
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-06-20T21:03:39Z",
+      "side": 1,
+      "message": "Please note that the order here matters.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 79
+      },
+      "revId": "e0f3b53ec3069b2a17aef4e23184cbe1e75d3978",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
