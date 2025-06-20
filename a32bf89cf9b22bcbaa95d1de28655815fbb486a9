@@ -22,6 +22,30 @@
       },
       "revId": "a32bf89cf9b22bcbaa95d1de28655815fbb486a9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60df2635_630b1484",
+        "filename": "sepolicy/qti/vendor/hal_oplus_commondcs_aidl.te",
+        "patchSetId": 26
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-06-20T20:55:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "253d5a46_f1117b2d",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 94
+      },
+      "revId": "a32bf89cf9b22bcbaa95d1de28655815fbb486a9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
