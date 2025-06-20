@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57dc01b4_9f2abc83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 44
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-06-20T01:32:42Z",
+      "side": 1,
+      "message": "Do we really need this Oplus service? It should work fine without it.",
+      "revId": "29f586029fe10e37cc73b411d8f4ddfdb050b696",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
