@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3e52e84_db2c865b",
+        "filename": "sepolicy/qti/vendor/hal_graphics_composer_default.te",
+        "patchSetId": 31
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-06-21T12:59:05Z",
+      "side": 1,
+      "message": "also if you add new label for irisfeature, check move these if they were actually for it.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 76
+      },
+      "revId": "76db8148941d2d31e9207a52f490755d505aaaa9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
