@@ -10,6 +10,4 @@ binder_call(vendor_hal_oplus_project_client, vendor_hal_oplus_project_server)
 
 hal_attribute_service(vendor_hal_oplus_project, hal_oplus_project_aidl_service)
 
-allow vendor_hal_oplus_project_client hal_oplus_project_aidl_service:service_manager find;
-
 r_dir_file(hal_oplus_project_aidl, vendor_proc_oplus_version)

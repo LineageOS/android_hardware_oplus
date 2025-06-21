@@ -9,5 +9,3 @@ init_daemon_domain(hal_oplus_osense_aidl)
 binder_call(vendor_hal_oplus_osense_client, vendor_hal_oplus_osense_server)
 
 hal_attribute_service(vendor_hal_oplus_osense, hal_oplus_osense_aidl_service)
-
-allow vendor_hal_oplus_osense_client hal_oplus_osense_aidl_service:service_manager find;
