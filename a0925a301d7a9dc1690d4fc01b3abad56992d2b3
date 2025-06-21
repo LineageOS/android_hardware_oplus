@@ -34,6 +34,24 @@
       "parentUuid": "fba756b9_08561ee2",
       "revId": "a0925a301d7a9dc1690d4fc01b3abad56992d2b3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fb9b9fd_83f837fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-06-21T11:14:30Z",
+      "side": 1,
+      "message": "is it okay to address here?\n\nservicemanager: type\u003d1400 audit(0.0:233): avc:  denied  { call } for  scontext\u003du:r:servicemanager:s0 tcontext\u003du:r:hal_graphics_composer_default:s0 tclass\u003dbinder permissive\u003d0",
+      "parentUuid": "7186abd5_f016746f",
+      "revId": "a0925a301d7a9dc1690d4fc01b3abad56992d2b3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
