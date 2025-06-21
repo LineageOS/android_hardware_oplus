@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fba756b9_08561ee2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-06-21T11:08:07Z",
+      "side": 1,
+      "message": "is it fine?\n\nE init    : Control message: Could not find \u0027aidl/android.frameworks.sensorservice.ISensorManager/default\u0027 for ctl.interface_start from pid: 444 (/system/bin/servicemanager)\n06-21 14:57:33.883  3063  3063 I servicemanager: Caller(pid\u003d1524,uid\u003d1000,sid\u003du:r:hal_graphics_composer_default:s0) Tried to start aidl service android.frameworks.sensorservice.ISensorManager/default as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.",
+      "revId": "a0925a301d7a9dc1690d4fc01b3abad56992d2b3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
