@@ -22,6 +22,30 @@
       },
       "revId": "dea15c08256b1183597debd0744edd78057e5fa7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08016b94_2a6c0340",
+        "filename": "power/power-mode.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-06-21T13:26:15Z",
+      "side": 1,
+      "message": "clang-format says no.",
+      "parentUuid": "0f582907_aa8941eb",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 1
+      },
+      "revId": "dea15c08256b1183597debd0744edd78057e5fa7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
