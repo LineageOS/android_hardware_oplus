@@ -7,7 +7,6 @@ hal_client_domain(hal_fingerprint_default, vendor_hal_oplus_commondcs)
 hal_client_domain(hal_fingerprint_default, vendor_hal_oplus_osense)
 hal_client_domain(hal_fingerprint_default, vendor_hal_oplus_performance)
 hal_client_domain(hal_fingerprint_default, vendor_hal_oplus_touch)
-hal_client_domain(hal_fingerprint_default, vendor_hal_oplus_touchdaemon)
 
 allow hal_fingerprint_default hal_oplus_touch_aidl_service:service_manager find;
 allow hal_fingerprint_default hal_oplus_urcc_aidl_service:service_manager find;
