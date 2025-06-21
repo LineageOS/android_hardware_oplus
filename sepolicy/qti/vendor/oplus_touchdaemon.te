@@ -1,0 +1,30 @@
+type oplus_touchdaemon, domain;
+binder_use(oplus_touchdaemon)
+vndbinder_use(oplus_touchdaemon)
+
+binder_call(oplus_touchdaemon, system_server)
+
+type oplus_touchdaemon_exec, file_type, exec_type, vendor_file_type;
+init_daemon_domain(oplus_touchdaemon)
+
+add_service(oplus_touchdaemon, touchDeamonBinder_service)
+
+allow oplus_touchdaemon oplus_touchdaemon:capability sys_nice;
+
+hal_client_domain(oplus_touchdaemon, vendor_hal_oplus_touch)
+
+allow oplus_touchdaemon input_device:dir search;
+allow oplus_touchdaemon input_device:chr_file rw_file_perms;
+
+allow oplus_touchdaemon oplus_touchdaemon_device:chr_file rw_file_perms;
+
+allow oplus_touchdaemon vendor_persist_oplus_touch_file:dir rw_dir_perms;
+allow oplus_touchdaemon vendor_persist_oplus_touch_file:file create_file_perms;
+
+rw_dir_file(oplus_touchdaemon, proc_bus_input)
+rw_dir_file(oplus_touchdaemon, vendor_data_file)
+rw_dir_file(oplus_touchdaemon, vendor_proc_display)
+rw_dir_file(oplus_touchdaemon, vendor_proc_oplus_touch)
+
+set_prop(oplus_touchdaemon, system_oplus_touch_prop)
+set_prop(oplus_touchdaemon, vendor_oplus_touch_prop)
