@@ -70,6 +70,24 @@
       "parentUuid": "9fb9b9fd_83f837fc",
       "revId": "a0925a301d7a9dc1690d4fc01b3abad56992d2b3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc7fdf34_ab8aa0ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-06-21T12:57:14Z",
+      "side": 1,
+      "message": "stock has different label for irisfeature\n\n942:/(vendor|odm|system/vendor)/bin/hw/vendor\\.pixelworks\\.hardware\\.feature-service                u:object_r:hal_feature_irisfeature_default_exec:s0\n\nwhich happens to have binder:call granted that you see denied\n\n\nvendor_sepolicy.cil\n14008:(allow servicemanager_202404 hal_feature_irisfeature_server (binder (transfer)))\n14011:(allow servicemanager_202404 hal_feature_irisfeature_default (binder (call transfer)))\n14012:(allow servicemanager_202404 hal_feature_irisfeature_default (dir (search)))\n14013:(allow servicemanager_202404 hal_feature_irisfeature_default (file (read open)))\n14014:(allow servicemanager_202404 hal_feature_irisfeature_default (process (getattr)))",
+      "parentUuid": "bfa3c12b_23feb3b8",
+      "revId": "a0925a301d7a9dc1690d4fc01b3abad56992d2b3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
