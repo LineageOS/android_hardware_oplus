@@ -46,6 +46,30 @@
       },
       "revId": "dea15c08256b1183597debd0744edd78057e5fa7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c69a90e_9ef49862",
+        "filename": "power/power-mode.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-21T17:20:35Z",
+      "side": 1,
+      "message": "I think due to the conditional namespace it doesn\u0027t really consider that. But the closing brackets at the end of the files show that there is a level missing ^^",
+      "parentUuid": "08016b94_2a6c0340",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 1
+      },
+      "revId": "dea15c08256b1183597debd0744edd78057e5fa7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
