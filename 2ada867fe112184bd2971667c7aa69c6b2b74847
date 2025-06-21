@@ -22,6 +22,30 @@
       },
       "revId": "2ada867fe112184bd2971667c7aa69c6b2b74847",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f1ddc46_14ed6ec6",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 33
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-06-21T16:24:17Z",
+      "side": 1,
+      "message": "Sure. Will check and update in sometime.",
+      "parentUuid": "3d21cfde_345d97d2",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 137
+      },
+      "revId": "2ada867fe112184bd2971667c7aa69c6b2b74847",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
