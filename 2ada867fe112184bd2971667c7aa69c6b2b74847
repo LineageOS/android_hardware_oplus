@@ -70,6 +70,30 @@
       },
       "revId": "2ada867fe112184bd2971667c7aa69c6b2b74847",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec1d06e9_471665e0",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 33
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-06-22T11:56:36Z",
+      "side": 1,
+      "message": "I think it is not due to hal_feature_irisfeature_default\n\nstock label this.\n\nplat_pub_versioned.cil:\n(allow servicemanager_34_0 hal_graphics_composer_client (binder (transfer)))\n(allow servicemanager_34_0 hal_graphics_composer_server (binder (transfer)))",
+      "parentUuid": "dac3d75c_25770fbe",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 137
+      },
+      "revId": "2ada867fe112184bd2971667c7aa69c6b2b74847",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

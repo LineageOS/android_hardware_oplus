@@ -22,6 +22,30 @@
       },
       "revId": "76db8148941d2d31e9207a52f490755d505aaaa9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbd6aa41_321209f3",
+        "filename": "sepolicy/qti/vendor/hal_graphics_composer_default.te",
+        "patchSetId": 31
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-06-22T11:56:36Z",
+      "side": 1,
+      "message": "stock also do the same\n\nvendor_sepolicy_debug.cil:\nallow hal_graphics_composer_default fwk_sensor_service_34_0 (service_manager (find)))",
+      "parentUuid": "d3e52e84_db2c865b",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 76
+      },
+      "revId": "76db8148941d2d31e9207a52f490755d505aaaa9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
