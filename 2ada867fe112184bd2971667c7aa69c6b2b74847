@@ -46,6 +46,30 @@
       },
       "revId": "2ada867fe112184bd2971667c7aa69c6b2b74847",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dac3d75c_25770fbe",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 33
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-06-22T08:12:50Z",
+      "side": 1,
+      "message": "No luck. Still getting the same.\n\navc:  denied  { call } for  scontext\u003du:r:servicemanager:s0 tcontext\u003du:r:hal_graphics_composer_default:s0 tclass\u003dbinder permissive\u003d0",
+      "parentUuid": "3f1ddc46_14ed6ec6",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 137
+      },
+      "revId": "2ada867fe112184bd2971667c7aa69c6b2b74847",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
