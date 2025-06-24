@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65d8016a_5b9a8f7b",
+        "filename": "vintf/device_framework_matrix.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-06-24T22:11:02Z",
+      "side": 1,
+      "message": "1-3",
+      "range": {
+        "startLine": 54,
+        "startChar": 17,
+        "endLine": 54,
+        "endChar": 18
+      },
+      "revId": "534be67e749ab50bd05d390e37c679d2a15adc7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
