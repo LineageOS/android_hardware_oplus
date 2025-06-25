@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<exceptions>
+    <exception package="org.lineageos.pen">
+        <permission name="android.permission.ACCESS_FINE_LOCATION" fixed="false" />
+        <permission name="android.permission.BLUETOOTH_CONNECT" fixed="false" />
+        <permission name="android.permission.BLUETOOTH_SCAN" fixed="false" />
+        <permission name="android.permission.POST_NOTIFICATIONS" fixed="false" />
+    </exception>
+</exceptions>
