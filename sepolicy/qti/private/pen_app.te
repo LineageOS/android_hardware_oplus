@@ -1,0 +1,8 @@
+type pen_app, domain, coredomain;
+
+app_domain(pen_app)
+bluetooth_domain(pen_app)
+
+allow pen_app self:netlink_kobject_uevent_socket { create read setopt bind };
+
+allow pen_app app_api_service:service_manager find;
