@@ -1,0 +1,14 @@
+type nvram_qmi, domain;
+type nvram_qmi_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(nvram_qmi)
+
+domain_auto_trans(nvram, nvram_exec, nvram_qmi)
+
+allow nvram_qmi self:qipcrtr_socket create_socket_perms_no_ioctl;
+
+allow nvram_qmi nvram:unix_stream_socket connectto;
+
+allow nvram_qmi nvram_socket:sock_file w_file_perms;
+
+set_prop(nvram_qmi, vendor_nw_exported_system_prop)
