@@ -30,6 +30,9 @@ type proc_bus_input, fs_type, proc_type;
 # Multimedia feedback
 type vendor_proc_mm_fb, fs_type, proc_type;
 
+# NVRAM
+type nvram_socket, file_type;
+
 # Performance
 type vendor_proc_oplus_ctp, fs_type, proc_type;
 type vendor_proc_oplus_scheduler, fs_type, proc_type;
