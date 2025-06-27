@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "593eb142_a6d430f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-06-27T16:26:36Z",
+      "side": 1,
+      "message": "Derped authorship and change-Id: https://git.codelinaro.org/clo/la/platform/vendor/qcom-opensource/vibrator/-/commit/04ff4c1c79e902982db97d5577ad4485be03d70e",
+      "revId": "1ba32d24c454d08b0ae920b93551e43d2ee86725",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
