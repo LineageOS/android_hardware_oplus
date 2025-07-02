@@ -22,6 +22,30 @@
       },
       "revId": "b2336cdb1010152dcf57443eea8db02af9b971e2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "822cc929_4f16182e",
+        "filename": "aidl/touch/touch-headers/OplusTouchConstants.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-07-02T23:40:52Z",
+      "side": 1,
+      "message": "with anonymous namespace?",
+      "parentUuid": "36e8fecc_46bda516",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 50
+      },
+      "revId": "b2336cdb1010152dcf57443eea8db02af9b971e2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
