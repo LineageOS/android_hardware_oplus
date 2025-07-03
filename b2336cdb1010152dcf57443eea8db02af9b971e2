@@ -46,6 +46,30 @@
       },
       "revId": "b2336cdb1010152dcf57443eea8db02af9b971e2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0564288a_2a972e4a",
+        "filename": "aidl/touch/touch-headers/OplusTouchConstants.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-07-03T01:32:27Z",
+      "side": 1,
+      "message": "aidl::vendor::lineage::touch or even aidl::vendor::lineage::touch::oplus\n\nit\u0027s insane to use anonymous namespace in headers",
+      "parentUuid": "822cc929_4f16182e",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 50
+      },
+      "revId": "b2336cdb1010152dcf57443eea8db02af9b971e2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
