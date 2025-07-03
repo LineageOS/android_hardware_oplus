@@ -70,6 +70,30 @@
       },
       "revId": "b2336cdb1010152dcf57443eea8db02af9b971e2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f3de5e7_e6427a40",
+        "filename": "aidl/touch/touch-headers/OplusTouchConstants.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-07-03T01:34:24Z",
+      "side": 1,
+      "message": "they also don\u0027t need to be `static`. `constexpr auto` is suggested",
+      "parentUuid": "0564288a_2a972e4a",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 50
+      },
+      "revId": "b2336cdb1010152dcf57443eea8db02af9b971e2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
