@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f6b4ff41_33d7b1f4",
+        "filename": "sepolicy/qti/vendor/hal_oplus_urcc_aidl.te",
+        "patchSetId": 43
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-07-05T05:56:02Z",
+      "side": 1,
+      "message": "W TP:1820_1: type\u003d1400 audit(0.0:9372): avc:  denied  { search } for  name\u003d\"cpufreq_bouncing\" dev\u003d\"sysfs\" ino\u003d79864 scontext\u003du:r:hal_oplus_urcc_aidl:s0 tcontext\u003du:object_r:vendor_sysfs_cb:s0 tclass\u003ddir permissive\u003d0",
+      "revId": "e0ba0d0e3492ecbab82e0dc4779e08962668d4b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8e98ae5_9fc23b46",
         "filename": "sepolicy/qti/vendor/service_contexts",
         "patchSetId": 43
