@@ -118,6 +118,30 @@
       },
       "revId": "2ada867fe112184bd2971667c7aa69c6b2b74847",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25b4690a_cdec7e35",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 33
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-07-06T14:13:20Z",
+      "side": 1,
+      "message": "Well, I\u0027m not getting any denials for these service. I\u0027ve checked many times, but no rules are found.",
+      "parentUuid": "74a22c95_cb123e97",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 137
+      },
+      "revId": "2ada867fe112184bd2971667c7aa69c6b2b74847",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
