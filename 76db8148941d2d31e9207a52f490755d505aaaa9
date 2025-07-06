@@ -46,6 +46,30 @@
       },
       "revId": "76db8148941d2d31e9207a52f490755d505aaaa9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de7c1827_2f3ccc53",
+        "filename": "sepolicy/qti/vendor/hal_graphics_composer_default.te",
+        "patchSetId": 31
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-07-06T14:14:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbd6aa41_321209f3",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 76
+      },
+      "revId": "76db8148941d2d31e9207a52f490755d505aaaa9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
