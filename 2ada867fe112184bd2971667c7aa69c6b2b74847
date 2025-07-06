@@ -94,6 +94,30 @@
       },
       "revId": "2ada867fe112184bd2971667c7aa69c6b2b74847",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74a22c95_cb123e97",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 33
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-07-06T13:57:52Z",
+      "side": 1,
+      "message": "I think that this is unrelated with vendor.pixelworks.hardware.feature-service, because we don\u0027t have that on dodge and the same denials are seen there.\n\nPlease finish writing the rules for it, so that we can unblock this.",
+      "parentUuid": "ec1d06e9_471665e0",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 137
+      },
+      "revId": "2ada867fe112184bd2971667c7aa69c6b2b74847",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
