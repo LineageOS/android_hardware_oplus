@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed8451e0_becbe19f",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 43
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-07-06T12:57:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "289358bf_d45d7d3d",
+      "revId": "e0ba0d0e3492ecbab82e0dc4779e08962668d4b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42575ed6_d3692ded",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-07-05T05:36:41Z",
       "side": 1,
       "message": "This path needs to be labeled, as it seems to be introduced in upstream Oplus changes.\n\ngenfscon sysfs /devices/platform/soc/soc:oplus,plc_charge/oplus_mms/plc/wakeup u:object_r:sysfs_wakeup:s0",
+      "revId": "e0ba0d0e3492ecbab82e0dc4779e08962668d4b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e543a84_d5b74b21",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 43
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-07-06T12:57:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42575ed6_d3692ded",
       "revId": "e0ba0d0e3492ecbab82e0dc4779e08962668d4b5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
@@ -52,6 +88,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1a371ed_eeb4c3f4",
+        "filename": "sepolicy/qti/vendor/hal_oplus_urcc_aidl.te",
+        "patchSetId": 43
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-07-06T12:57:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6b4ff41_33d7b1f4",
+      "revId": "e0ba0d0e3492ecbab82e0dc4779e08962668d4b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8e98ae5_9fc23b46",
@@ -65,6 +119,24 @@
       "writtenOn": "2025-07-05T05:36:41Z",
       "side": 1,
       "message": "E SELinux : avc:  denied  { add } for pid\u003d5042 uid\u003d1001 name\u003dvendor.oplus.hardware.subsys_imsrtp.IImsRtp/default scontext\u003du:r:vendor_hal_imsrtp:s0 tcontext\u003du:object_r:hal_radio_service:s0 tclass\u003dservice_manager permissive\u003d0\n\nThis should be labeled as:\nu:object_r:vendor_hal_imsrtp_service:s0\n\nStock follows the same labeling.\n\nhttps://git.codelinaro.org/clo/la/device/qcom/sepolicy_vndr/-/commit/c481d80861f2df3fdb4dbb55b30b3d18db3b7727",
+      "revId": "e0ba0d0e3492ecbab82e0dc4779e08962668d4b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "043616c7_dcd3b76c",
+        "filename": "sepolicy/qti/vendor/service_contexts",
+        "patchSetId": 43
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-07-06T12:57:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8e98ae5_9fc23b46",
       "revId": "e0ba0d0e3492ecbab82e0dc4779e08962668d4b5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
