@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "620ed6bf_4cf443df",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 51
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-07-06T14:19:22Z",
+      "side": 1,
+      "message": "Can we move this to the OnePlus 12 change? We\u0027ve been using this change in OnePlus 12 too.",
+      "revId": "ea97f0d9df7ad88d81d89028ed42d15b3e0bc1e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
