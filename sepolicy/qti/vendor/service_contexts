@@ -49,7 +49,7 @@ vendor.oplus.hardware.radio.IRadioStable/OplusRadio1                 u:object_r:
 vendor.oplus.hardware.subsys_interface.subsys.ISubsys/default             u:object_r:hal_subsys_service:s0
 vendor.oplus.hardware.subsys_interface.subsys_radio.ISubsysRadio/slot1    u:object_r:hal_subsys_service:s0
 vendor.oplus.hardware.subsys_interface.subsys_radio.ISubsysRadio/slot2    u:object_r:hal_subsys_service:s0
-vendor.oplus.hardware.subsys_imsrtp.IImsRtp/default                       u:object_r:vendor_hal_imsrtp_service:s0
+vendor.oplus.hardware.subsys_imsrtp.IImsRtp/default                       u:object_r:hal_imsrtp_service:s0
 
 # Touch
 vendor.oplus.hardware.touch.IOplusTouch/default    u:object_r:hal_oplus_touch_aidl_service:s0
