@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a119953_10067616",
+        "filename": "sepolicy/qti/vendor/service_contexts",
+        "patchSetId": 55
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2025-07-08T03:11:58Z",
+      "side": 1,
+      "message": "this breaks building on 8450, anything \u003c 8650 doesnt have vendor_hal_imsrtp_service defined",
+      "revId": "6c901c1bef86099a06cb7dce20c8acdcdf09353b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": []
 }
