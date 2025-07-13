@@ -23,19 +23,7 @@
 
 package vendor.oplus.hardware.radio;
 @VintfStability
-interface IOplusRadioIndication {
-  void networkInfoInd(int type, in String[] networkInfo);
-  void oemHotswapProcessInd(int type, int process, int state);
-  void oemHotswapSetInd(int type, int state);
-  void oemKeyLogErrInd(int type, in vendor.oplus.hardware.radio.Oem_key_log_err_msg_type errMsg);
-  void oemLargeDataKeyLogErrInd(int type, in int[] errData);
-  void oemLogPacketInd(int type, in vendor.oplus.hardware.radio.Oem_log_packet_type logPacket);
-  void oemPinPukRetryNumInd(int type, int pin1, int pin2, int puk1);
-  void smlDeviceLockInfoChangedInd(int type, String lockInfo);
-  void smlEncryptedSerialIdInd(int type, in String[] serialIds);
-  void subsidyDeviceLockInfoChangedInd(int type, String lockInfo);
-  void regionlockStatusChangedInd(int type, in byte[] status);
-  void nrEvolutionTypeIndication(int type, int evolutionType);
-  void singleSimConfigChangedInd(int type, int config);
-  void offlineLockStatusChangedInd(int type, in int[] status);
+parcelable Oplus_5g_band_type {
+  boolean valid;
+  vendor.oplus.hardware.radio.Oplus_5g_band_mask_type band_mask;
 }
