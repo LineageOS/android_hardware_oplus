@@ -52,4 +52,6 @@ interface IOplusRadio {
     void updateRegionlockKey(int serial, in byte[] data, in byte[] key);
     void getRegionlockSettingData(int serial);
     void setRegionlockSettingData(int serial, in byte[] data);
+    void setSimlockOfflineLock(int serial, boolean enabled, int timeout, in int[] retryCount, long timestamp);
+    void getSimlockOfflineLock(int serial);
 }
