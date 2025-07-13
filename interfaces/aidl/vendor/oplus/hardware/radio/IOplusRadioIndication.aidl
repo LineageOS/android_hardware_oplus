@@ -23,4 +23,5 @@ interface IOplusRadioIndication {
     void regionlockStatusChangedInd(int type, in byte[] region_lock_status_info);
     void nrEvolutionTypeIndication(int type, int toe);
     void singleSimConfigChangedInd(int type, int result);
+    void offlineLockStatusChangedInd(int type, in int[] status);
 }
