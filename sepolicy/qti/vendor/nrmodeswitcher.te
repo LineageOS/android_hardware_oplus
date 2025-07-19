@@ -1,0 +1,9 @@
+type vendor_nrmodeswitcher, domain;
+type vendor_nrmodeswitcher_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(vendor_nrmodeswitcher)
+
+binder_use(vendor_nrmodeswitcher)
+hal_client_domain(vendor_nrmodeswitcher, hal_telephony)
+
+get_prop(vendor_nrmodeswitcher, vendor_radio_prop)
