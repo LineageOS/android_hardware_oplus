@@ -1,0 +1,19 @@
+//
+// SPDX-FileCopyrightText: 2025 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "nrmodeswitcher",
+    init_rc: ["nrmodeswitcher.rc"],
+    vendor: true,
+    srcs: [
+        "main.cpp",
+        "OplusRadioResponse.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "vendor.oplus.hardware.radio-V2-ndk",
+    ],
+}
