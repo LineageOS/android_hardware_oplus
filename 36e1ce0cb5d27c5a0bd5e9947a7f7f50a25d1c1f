@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1545f778_c4a926ff",
+        "filename": "nrmodeswitcher/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-07-19T14:08:48Z",
+      "side": 1,
+      "message": "hint: it typically succeeds after two retries",
+      "revId": "36e1ce0cb5d27c5a0bd5e9947a7f7f50a25d1c1f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
