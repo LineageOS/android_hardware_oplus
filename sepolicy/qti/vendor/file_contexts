@@ -102,6 +102,9 @@
 # Project
 /(odm|vendor/odm)/bin/hw/vendor.oplus.hardware.stability.oplus_project-V1-service    u:object_r:hal_oplus_project_aidl_exec:s0
 
+# Radio
+/vendor/bin/nrmodeswitcher    u:object_r:vendor_nrmodeswitcher_exec:s0
+
 # RMT
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oem_dycnvbk          u:object_r:vendor_modem_efs_partition_device:s0
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oem_stanvbk          u:object_r:vendor_modem_efs_partition_device:s0
