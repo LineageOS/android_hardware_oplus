@@ -5,5 +5,7 @@ init_daemon_domain(vendor_wvmkiller)
 
 hal_client_domain(vendor_wvmkiller, hal_drm)
 
+binder_call(vendor_wvmkiller, servicemanager)
+
 get_prop(vendor_wvmkiller, hwservicemanager_prop)
 set_prop(vendor_wvmkiller, vendor_wvmkiller_prop)
