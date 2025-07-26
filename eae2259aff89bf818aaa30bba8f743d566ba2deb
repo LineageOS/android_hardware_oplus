@@ -16,6 +16,24 @@
       "message": "Only dir search?\n\nhttps://review.lineageos.org/c/LineageOS/android_hardware_oplus/+/428325/65/sepolicy/qti/vendor/rild.te",
       "revId": "eae2259aff89bf818aaa30bba8f743d566ba2deb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ad30226_dc4e5dc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-07-26T15:51:15Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "34751b8e_1fcda6b5",
+      "revId": "eae2259aff89bf818aaa30bba8f743d566ba2deb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
