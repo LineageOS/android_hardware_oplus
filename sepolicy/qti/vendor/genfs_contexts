@@ -62,6 +62,9 @@ genfscon sysfs /module/cpufreq_bouncing                            u:object_r:ve
 # Pogo pin keyboard
 genfscon proc /pogopin    u:object_r:vendor_proc_oplus_pogo_keyboard:s0
 
+# Secure
+genfscon proc /oplus_secure_common    u:object_r:vendor_proc_oppo_secure_common_file:s0
+
 # Sensors
 genfscon proc /sensor/als_cali                        u:object_r:vendor_proc_oplus_als_file:s0
 genfscon proc /sensor/pressure_cali                   u:object_r:vendor_proc_eng_cali_file:s0
