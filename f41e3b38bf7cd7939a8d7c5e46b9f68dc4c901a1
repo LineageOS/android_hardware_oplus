@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "974fc126_aec95fa7",
+        "filename": "sepolicy/qti/vendor/hal_fingerprintpay_oplus.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-08-02T20:40:09Z",
+      "side": 1,
+      "message": "also stock doesn\u0027t have vendor_ prefix here ^^",
+      "revId": "f41e3b38bf7cd7939a8d7c5e46b9f68dc4c901a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dbe9de6_5a0a176d",
+        "filename": "sepolicy/qti/vendor/hal_fingerprintpay_oplus.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-08-02T20:40:09Z",
+      "side": 1,
+      "message": "```suggestion\nallow hal_fingerprintpay_oplus tee_device:chr_file rw_file_perms;\nallow hal_fingerprintpay_oplus vendor_dmabuf_qseecom_heap_device:chr_file r_file_perms;\nallow hal_fingerprintpay_oplus vendor_dmabuf_qseecom_ta_heap_device:chr_file r_file_perms;\n\nr_dir_file(hal_fingerprintpay_oplus, vendor_proc_oppo_secure_common_file)\nset_prop(hal_fingerprintpay_oplus, vendor_oplus_rpmb_enable_state_prop)\n```\n\nto match stock policy?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 79
+      },
+      "revId": "f41e3b38bf7cd7939a8d7c5e46b9f68dc4c901a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
