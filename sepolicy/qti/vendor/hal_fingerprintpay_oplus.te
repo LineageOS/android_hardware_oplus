@@ -1,0 +1,16 @@
+type hal_fingerprintpay_oplus, domain;
+binder_use(hal_fingerprintpay_oplus)
+
+hal_server_domain(hal_fingerprintpay_oplus, vendor_hal_fingerprintpay)
+
+type hal_fingerprintpay_oplus_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_fingerprintpay_oplus)
+
+hal_attribute_service(vendor_hal_fingerprintpay, hal_fingerprintpay_service)
+
+allow vendor_hal_fingerprintpay_server tee_device:chr_file rw_file_perms;
+allow vendor_hal_fingerprintpay_server vendor_dmabuf_qseecom_heap_device:chr_file r_file_perms;
+allow vendor_hal_fingerprintpay_server vendor_dmabuf_qseecom_ta_heap_device:chr_file r_file_perms;
+
+r_dir_file(vendor_hal_fingerprintpay_server, vendor_proc_oppo_secure_common_file)
+set_prop(vendor_hal_fingerprintpay_server, vendor_oplus_rpmb_enable_state_prop)
