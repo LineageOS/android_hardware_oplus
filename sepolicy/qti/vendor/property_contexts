@@ -19,6 +19,9 @@ persist.vendor.silead_newalgo.                 u:object_r:vendor_fingerprint_pro
 vendor.fingerprint.                            u:object_r:vendor_fingerprint_prop:s0
 vendor.silead.                                 u:object_r:vendor_fingerprint_prop:s0
 
+# Fingerprint Pay
+persist.vendor.rpmb.enable.state    u:object_r:vendor_oplus_rpmb_enable_state_prop:s0
+
 # Media
 vendor.oplus.media.vpp.osie_sr.    u:object_r:vendor_video_prop:s0
 
