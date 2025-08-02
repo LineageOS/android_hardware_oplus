@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cad7417_6845e5e9",
+        "filename": "sepolicy/qti/vendor/attributes",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-08-02T15:04:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2385353a_960f82e3",
+      "revId": "3c8b09f6363d53c2639d619bb2ad96c02671cdad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cea0545_d2a0e304",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-08-02T14:38:32Z",
       "side": 1,
       "message": "Unused?",
+      "revId": "3c8b09f6363d53c2639d619bb2ad96c02671cdad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21fb663b_9745d7d8",
+        "filename": "sepolicy/qti/vendor/hal_fingerprintpay_oplus.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-08-02T15:04:28Z",
+      "side": 1,
+      "message": "it associates the hal binary with the hwservice, all boilerplate stuff",
+      "parentUuid": "0cea0545_d2a0e304",
       "revId": "3c8b09f6363d53c2639d619bb2ad96c02671cdad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
