@@ -67,6 +67,9 @@ genfscon proc /sensor/als_cali                        u:object_r:vendor_proc_opl
 genfscon proc /sensor/pressure_cali                   u:object_r:vendor_proc_eng_cali_file:s0
 genfscon sysfs /devices/platform/soc/soc:sensor_fb    u:object_r:vendor_sysfs_sensor_fb:s0
 
+# Secure
+genfscon proc /oplus_secure_common    u:object_r:vendor_proc_oppo_secure_common_file:s0
+
 # TOF
 genfscon sysfs /kernel/tof_control    u:object_r:vendor_sysfs_tof:s0
 genfscon sysfs /module/stmvl53l1      u:object_r:vendor_sysfs_tof:s0
