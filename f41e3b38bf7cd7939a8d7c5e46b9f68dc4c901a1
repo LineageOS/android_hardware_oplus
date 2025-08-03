@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "126bb0a8_152edb24",
+        "filename": "sepolicy/qti/vendor/hal_fingerprintpay_oplus.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-08-03T08:01:59Z",
+      "side": 1,
+      "message": "I think you should remove the attribute. In the current patch set I still don\u0027t see this HAL being a client or server of any other HAL.",
+      "parentUuid": "323a16e5_fdd683cc",
+      "revId": "f41e3b38bf7cd7939a8d7c5e46b9f68dc4c901a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1dbe9de6_5a0a176d",
         "filename": "sepolicy/qti/vendor/hal_fingerprintpay_oplus.te",
         "patchSetId": 4
