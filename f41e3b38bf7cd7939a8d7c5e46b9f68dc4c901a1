@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "323a16e5_fdd683cc",
+        "filename": "sepolicy/qti/vendor/hal_fingerprintpay_oplus.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-08-03T06:02:09Z",
+      "side": 1,
+      "message": "vendor_hal_attribute comes with the vendor_ prefix\nhttps://github.com/LineageOS/android_hardware_oplus/blob/lineage-22.2/sepolicy/qti/public/te_macros",
+      "parentUuid": "974fc126_aec95fa7",
+      "revId": "f41e3b38bf7cd7939a8d7c5e46b9f68dc4c901a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1dbe9de6_5a0a176d",
         "filename": "sepolicy/qti/vendor/hal_fingerprintpay_oplus.te",
         "patchSetId": 4
