@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac1bda58_fdffd5fa",
+        "filename": "sepolicy/qti/vendor/hal_fingerprintpay_oplus.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-08-03T10:28:55Z",
+      "side": 1,
+      "message": "still wip",
+      "parentUuid": "126bb0a8_152edb24",
+      "revId": "f41e3b38bf7cd7939a8d7c5e46b9f68dc4c901a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1dbe9de6_5a0a176d",
         "filename": "sepolicy/qti/vendor/hal_fingerprintpay_oplus.te",
         "patchSetId": 4
