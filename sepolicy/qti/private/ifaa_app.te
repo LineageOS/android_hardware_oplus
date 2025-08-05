@@ -1,0 +1,8 @@
+type ifaa_app, domain, coredomain;
+
+app_domain(ifaa_app)
+hal_client_domain(ifaa_app, vendor_hal_fingerprintpay)
+
+allow ifaa_app app_api_service:service_manager find;
+
+get_prop(ifaa_app, system_fingerprint_prop)
