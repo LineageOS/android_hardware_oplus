@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2023 The LineageOS Project
+ * Copyright (C) 2021-2025 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -41,19 +41,26 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
     private var wasMuted = false
     private val broadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            val stream = intent.getIntExtra(AudioManager.EXTRA_VOLUME_STREAM_TYPE, -1)
-            val state = intent.getBooleanExtra(AudioManager.EXTRA_STREAM_VOLUME_MUTED, false)
-            if (stream == AudioSystem.STREAM_MUSIC && !state) {
-                wasMuted = false
+            when (intent.action) {
+                AudioManager.STREAM_MUTE_CHANGED_ACTION -> {
+                    val stream = intent.getIntExtra(AudioManager.EXTRA_VOLUME_STREAM_TYPE, -1)
+                    val state = intent.getBooleanExtra(AudioManager.EXTRA_STREAM_VOLUME_MUTED,
+                            false)
+                    if (stream == AudioSystem.STREAM_MUSIC && !state) {
+                        wasMuted = false
+                    }
+                }
+
+                Intent.ACTION_BOOT_COMPLETED -> populateKeyState(false)
             }
         }
     }
 
     init {
-        context.registerReceiver(
-            broadcastReceiver,
-            IntentFilter(AudioManager.STREAM_MUTE_CHANGED_ACTION)
-        )
+        val intentFilter = IntentFilter()
+        intentFilter.addAction(AudioManager.STREAM_MUTE_CHANGED_ACTION)
+        intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED)
+        context.registerReceiver(broadcastReceiver, intentFilter)
     }
 
     override fun handleKeyEvent(event: KeyEvent): KeyEvent? {
@@ -67,29 +74,32 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
             return event
         }
 
-        when (File("/proc/tristatekey/tri_state").readText().trim()) {
-            "1" -> handleMode(POSITION_TOP)
-            "2" -> handleMode(POSITION_MIDDLE)
-            "3" -> handleMode(POSITION_BOTTOM)
-        }
+        populateKeyState(true)
 
         return null
+    }
+
+    private fun populateKeyState(vibrate: Boolean) {
+        when (File("/proc/tristatekey/tri_state").readText().trim()) {
+            "1" -> handleMode(POSITION_TOP, vibrate)
+            "2" -> handleMode(POSITION_MIDDLE, vibrate)
+            "3" -> handleMode(POSITION_BOTTOM, vibrate)
+        }
     }
 
     private fun vibrateIfNeeded(mode: Int) {
         when (mode) {
             AudioManager.RINGER_MODE_VIBRATE -> vibrator.vibrate(
-                MODE_VIBRATION_EFFECT,
-                HARDWARE_FEEDBACK_VIBRATION_ATTRIBUTES
+                MODE_VIBRATION_EFFECT, HARDWARE_FEEDBACK_VIBRATION_ATTRIBUTES
             )
+
             AudioManager.RINGER_MODE_NORMAL -> vibrator.vibrate(
-                MODE_NORMAL_EFFECT,
-                HARDWARE_FEEDBACK_VIBRATION_ATTRIBUTES
+                MODE_NORMAL_EFFECT, HARDWARE_FEEDBACK_VIBRATION_ATTRIBUTES
             )
         }
     }
 
-    private fun handleMode(position: Int) {
+    private fun handleMode(position: Int, vibrate: Boolean) {
         val muteMedia = sharedPreferences.getBoolean(MUTE_MEDIA_WITH_SILENT, false)
 
         val mode = when (position) {
@@ -109,6 +119,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
                         wasMuted = true
                     }
                 }
+
                 AudioManager.RINGER_MODE_VIBRATE, AudioManager.RINGER_MODE_NORMAL -> {
                     setZenMode(Settings.Global.ZEN_MODE_OFF)
                     audioManager.ringerModeInternal = mode
@@ -116,6 +127,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
                         audioManager.adjustVolume(AudioManager.ADJUST_UNMUTE, 0)
                     }
                 }
+
                 ZEN_PRIORITY_ONLY, ZEN_TOTAL_SILENCE, ZEN_ALARMS_ONLY -> {
                     audioManager.ringerModeInternal = AudioManager.RINGER_MODE_NORMAL
                     setZenMode(mode - ZEN_OFFSET)
@@ -124,7 +136,9 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
                     }
                 }
             }
-            vibrateIfNeeded(mode)
+            if (vibrate) {
+                vibrateIfNeeded(mode)
+            }
         }
     }
 
