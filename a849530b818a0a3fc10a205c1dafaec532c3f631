@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1b9fb3e_c072abf3",
+        "filename": "IFAAService/src/org/ifaa/aidl/manager/IfaaService.kt",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-08-09T11:33:13Z",
+      "side": 1,
+      "message": "Try wrapping to 100 chars?",
+      "revId": "a849530b818a0a3fc10a205c1dafaec532c3f631",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5607710d_b2365826",
+        "filename": "IFAAService/src/org/ifaa/aidl/manager/IfaaService.kt",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-08-09T11:33:13Z",
+      "side": 1,
+      "message": "Here too?",
+      "revId": "a849530b818a0a3fc10a205c1dafaec532c3f631",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c058f578_82f5477b",
+        "filename": "IFAAService/src/org/ifaa/aidl/manager/IfaaService.kt",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-08-09T11:33:13Z",
+      "side": 1,
+      "message": "```suggestion\n            AUTH_TYPE_FINGERPRINT -\u003e fingerprintManager\n                ?.enrolledFingerprints\n                ?.map { it.biometricId }\n                ?.toIntArray()\n                ?.also { Log.w(LOG_TAG, \"getIDList: fingerprint list!\") } ?: run {\n                    Log.w(LOG_TAG, \"getIDList: no FingerprintManager!\")\n                    null\n                }\n```",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 13
+      },
+      "revId": "a849530b818a0a3fc10a205c1dafaec532c3f631",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
