@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16059c8c_d6b7e9ef",
+        "filename": "IFAAService/src/org/ifaa/aidl/manager/IfaaService.kt",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-08-09T13:26:26Z",
+      "side": 1,
+      "message": "shadows intent from onBind",
+      "range": {
+        "startLine": 47,
+        "startChar": 20,
+        "endLine": 47,
+        "endChar": 26
+      },
+      "revId": "94c21196f64192f73774eb47833bee44573dba17",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22c1503a_67845e19",
+        "filename": "IFAAService/src/org/ifaa/aidl/manager/IfaaService.kt",
+        "patchSetId": 8
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-08-09T13:26:26Z",
+      "side": 1,
+      "message": "the aim is to return max(dim1, dim2) if both are non-null, otherwise return the non-null one if either is null",
+      "range": {
+        "startLine": 129,
+        "startChar": 8,
+        "endLine": 133,
+        "endChar": 63
+      },
+      "revId": "94c21196f64192f73774eb47833bee44573dba17",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
