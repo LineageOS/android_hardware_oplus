@@ -36,6 +36,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "204b2453_a7e05102",
+        "filename": "IFAAService/src/org/ifaa/aidl/manager/IfaaService.kt",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-08-09T13:21:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb981bb2_0d362dcc",
+      "revId": "a849530b818a0a3fc10a205c1dafaec532c3f631",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5607710d_b2365826",
@@ -53,6 +71,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "570a92ab_e39eb87d",
+        "filename": "IFAAService/src/org/ifaa/aidl/manager/IfaaService.kt",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-08-09T13:21:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5607710d_b2365826",
+      "revId": "a849530b818a0a3fc10a205c1dafaec532c3f631",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c058f578_82f5477b",
@@ -66,6 +102,30 @@
       "writtenOn": "2025-08-09T11:33:13Z",
       "side": 1,
       "message": "```suggestion\n            AUTH_TYPE_FINGERPRINT -\u003e fingerprintManager\n                ?.enrolledFingerprints\n                ?.map { it.biometricId }\n                ?.toIntArray()\n                ?.also { Log.w(LOG_TAG, \"getIDList: fingerprint list!\") } ?: run {\n                    Log.w(LOG_TAG, \"getIDList: no FingerprintManager!\")\n                    null\n                }\n```",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 13
+      },
+      "revId": "a849530b818a0a3fc10a205c1dafaec532c3f631",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "522aa935_fe71dee9",
+        "filename": "IFAAService/src/org/ifaa/aidl/manager/IfaaService.kt",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-08-09T13:21:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c058f578_82f5477b",
       "range": {
         "startLine": 103,
         "startChar": 0,
