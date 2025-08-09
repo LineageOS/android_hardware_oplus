@@ -16,6 +16,29 @@
       "message": "Verify the chain once you\u0027re done.",
       "revId": "0441db75d2fe01a4c5648f9eec4f44c98073f2cd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1b3c5fc_26fb33ef",
+        "filename": "IFAAService/src/org/ifaa/aidl/manager/IfaaService.kt",
+        "patchSetId": 11
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-08-09T13:57:42Z",
+      "side": 1,
+      "message": "should we add non-null assertion here like most of the other services in this repo https://github.com/search?q\u003drepo%3ALineageOS%2Fandroid_hardware_oplus%20getSystemService\u0026type\u003dcode",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 85
+      },
+      "revId": "0441db75d2fe01a4c5648f9eec4f44c98073f2cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
