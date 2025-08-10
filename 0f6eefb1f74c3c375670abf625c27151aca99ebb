@@ -16,6 +16,23 @@
       "message": "This fails to compile on sm8350. Will fix it.",
       "revId": "0f6eefb1f74c3c375670abf625c27151aca99ebb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6239fd1_ea900cbe",
+        "filename": "sepolicy/qti/vendor/hal_fingerprintpay_oplus.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-08-10T14:34:05Z",
+      "side": 1,
+      "message": "legacy-um uses ion_device by the looks of it, so add this above:\nallow hal_fingerprintpay_oplus ion_device:chr_file rw_file_perms;",
+      "revId": "0f6eefb1f74c3c375670abf625c27151aca99ebb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
