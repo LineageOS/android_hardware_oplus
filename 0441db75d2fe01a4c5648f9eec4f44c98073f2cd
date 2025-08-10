@@ -39,6 +39,30 @@
       },
       "revId": "0441db75d2fe01a4c5648f9eec4f44c98073f2cd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc7e1f1f_04a08987",
+        "filename": "IFAAService/src/org/ifaa/aidl/manager/IfaaService.kt",
+        "patchSetId": 11
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-08-10T10:56:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1b3c5fc_26fb33ef",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 85
+      },
+      "revId": "0441db75d2fe01a4c5648f9eec4f44c98073f2cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
