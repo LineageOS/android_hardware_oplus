@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c97822a1_01638507",
+        "filename": "oplus-fwk/src/com/oplus/internal/telephony/OplusSimController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2025-08-12T22:51:16Z",
+      "side": 1,
+      "message": "https://developer.android.com/reference/android/util/Log#e(java.lang.String,%20java.lang.String,%20java.lang.Throwable)\n\nYou can use this to properly log the exception",
+      "revId": "3be9a8abe8cf0f6fbb21d450139607e10a7b0eb6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
