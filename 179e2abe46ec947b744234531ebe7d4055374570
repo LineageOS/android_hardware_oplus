@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17fc138f_84d900f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-08-12T17:33:59Z",
+      "side": 1,
+      "message": "Compile verified on sm8350, sm8550 and sm8750.",
+      "revId": "179e2abe46ec947b744234531ebe7d4055374570",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
