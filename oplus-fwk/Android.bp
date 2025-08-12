@@ -1,6 +1,5 @@
 //
-// Copyright (C) 2024 The LineageOS Project
-//
+// SPDX-FileCopyrightText: 2024-2025 The LineageOS Project
 // SPDX-License-Identifier: Apache-2.0
 //
 
@@ -11,5 +10,9 @@ java_library {
     srcs: [
         "src/**/*.aidl",
         "src/**/*.java",
+    ],
+
+    static_libs: [
+        "vendor.oplus.hardware.esim-V1-java",
     ],
 }
