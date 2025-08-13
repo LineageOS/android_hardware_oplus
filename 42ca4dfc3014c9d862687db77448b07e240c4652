@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f021977_0e48bf90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-08-13T09:59:42Z",
+      "side": 1,
+      "message": "are you going to hardcode this feature? I think it\u0027s more reasonable to add a toggle in settings to switch between 1p+1e/2p",
+      "revId": "42ca4dfc3014c9d862687db77448b07e240c4652",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
