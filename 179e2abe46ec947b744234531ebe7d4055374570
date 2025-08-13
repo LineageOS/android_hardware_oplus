@@ -34,6 +34,24 @@
       "parentUuid": "17fc138f_84d900f4",
       "revId": "179e2abe46ec947b744234531ebe7d4055374570",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fb8a80a_34971fd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-08-13T09:58:07Z",
+      "side": 1,
+      "message": "yes:\n\n```\n$ readelf -d /mnt/data/stock-roms/oneplus/LE2125_14.0.0.730\\(EX01\\)/raw/odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprintpay@1.0-service \n\nDynamic section at offset 0x5108 contains 42 entries:\n  Tag        Type                         Name/Value\n 0x0000000000000001 (NEEDED)             Shared library: [libbinder.so]\n 0x0000000000000001 (NEEDED)             Shared library: [liblog.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libbase.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libhidlbase.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libhidltransport.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libcutils.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libutils.so]\n 0x0000000000000001 (NEEDED)             Shared library: [librpmbengclient.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libifaa_factory.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libbinder_ndk.so]\n 0x0000000000000001 (NEEDED)             Shared library: [vendor.oplus.hardware.biometrics.fingerprintpay-V1-ndk_platform.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libQSEEComAPI.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libc++.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libc.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libm.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libdl.so]\n ```",
+      "parentUuid": "67a65875_54a99361",
+      "revId": "179e2abe46ec947b744234531ebe7d4055374570",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
