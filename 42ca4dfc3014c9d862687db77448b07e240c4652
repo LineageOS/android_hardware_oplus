@@ -34,6 +34,24 @@
       "parentUuid": "3f021977_0e48bf90",
       "revId": "42ca4dfc3014c9d862687db77448b07e240c4652",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "749d6eeb_7c763ce8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-08-13T15:03:50Z",
+      "side": 1,
+      "message": "\u003e If it is possible to hook this with EuiccGoogle, that would be great and completely transparent to the user.\n\nagreed. is the current approach compatible with 3rd party LPA such as EasyEUICC?",
+      "parentUuid": "bd584e73_4380937c",
+      "revId": "42ca4dfc3014c9d862687db77448b07e240c4652",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
