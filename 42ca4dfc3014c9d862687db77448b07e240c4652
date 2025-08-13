@@ -16,6 +16,24 @@
       "message": "are you going to hardcode this feature? I think it\u0027s more reasonable to add a toggle in settings to switch between 1p+1e/2p",
       "revId": "42ca4dfc3014c9d862687db77448b07e240c4652",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd584e73_4380937c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-08-13T15:01:35Z",
+      "side": 1,
+      "message": "If it is possible to hook this with EuiccGoogle, that would be great and completely transparent to the user. To be honest, I don\u0027t know how OnePlus does, if they have a switch or not.",
+      "parentUuid": "3f021977_0e48bf90",
+      "revId": "42ca4dfc3014c9d862687db77448b07e240c4652",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
