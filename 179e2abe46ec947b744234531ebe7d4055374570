@@ -16,6 +16,24 @@
       "message": "Compile verified on sm8350, sm8550 and sm8750.",
       "revId": "179e2abe46ec947b744234531ebe7d4055374570",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67a65875_54a99361",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-08-13T09:56:38Z",
+      "side": 1,
+      "message": "does sm8350 use aidl?",
+      "parentUuid": "17fc138f_84d900f4",
+      "revId": "179e2abe46ec947b744234531ebe7d4055374570",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
