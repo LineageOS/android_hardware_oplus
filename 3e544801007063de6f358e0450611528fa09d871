@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a3a26f4_d6014986",
+        "filename": "aidl/livedisplay/AntiFlicker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-08-15T08:23:07Z",
+      "side": 1,
+      "message": "note to self: kinda stupid",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 88
+      },
+      "revId": "3e544801007063de6f358e0450611528fa09d871",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
