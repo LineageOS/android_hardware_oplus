@@ -1,4 +1,4 @@
-// Copyright (C) 2019-2024 The LineageOS Project
+// Copyright (C) 2019-2025 The LineageOS Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,64 +13,61 @@
 // limitations under the License.
 
 filegroup {
-    name: "vendor.lineage.livedisplay@2.1-oplus-af",
+    name: "vendor.lineage.livedisplay-oplus-af",
     srcs: ["AntiFlicker.cpp"],
 }
 
 filegroup {
-    name: "vendor.lineage.livedisplay@2.1-oplus-dm",
+    name: "vendor.lineage.livedisplay-oplus-dm",
     srcs: ["DisplayModes.cpp"],
 }
 
 filegroup {
-    name: "vendor.lineage.livedisplay@2.1-oplus-se",
+    name: "vendor.lineage.livedisplay-oplus-se",
     srcs: ["SunlightEnhancement.cpp"],
 }
 
 cc_library_headers {
-    name: "vendor.lineage.livedisplay@2.1-oplus-headers",
+    name: "vendor.lineage.livedisplay-oplus-headers",
     vendor_available: true,
     export_include_dirs: ["include"],
 }
 
 cc_binary {
-    name: "vendor.lineage.livedisplay@2.1-service.oplus",
-    defaults: ["hidl_defaults"],
-    init_rc: ["vendor.lineage.livedisplay@2.1-service.oplus.rc"],
+    name: "vendor.lineage.livedisplay-service.oplus",
+    init_rc: ["vendor.lineage.livedisplay-service.oplus.rc"],
     vintf_fragments: select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_AF"), {
-        "true": ["vendor.lineage.livedisplay@2.1-service.oplus-af.xml"],
+        "true": ["vendor.lineage.livedisplay-service.oplus-af.xml"],
         default: [],
     }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_DM"), {
-        "true": ["vendor.lineage.livedisplay@2.1-service.oplus-dm.xml"],
+        "true": ["vendor.lineage.livedisplay-service.oplus-dm.xml"],
         default: [],
     }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_PA"), {
         "false": [],
-        default: ["vendor.lineage.livedisplay@2.1-service.oplus-pa.xml"],
+        default: ["vendor.lineage.livedisplay-service.oplus-pa.xml"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_SE"), {
         "false": [],
-        default: ["vendor.lineage.livedisplay@2.1-service.oplus-se.xml"],
+        default: ["vendor.lineage.livedisplay-service.oplus-se.xml"],
     }),
     relative_install_path: "hw",
     srcs: [
-        ":vendor.lineage.livedisplay@2.0-sdm-pa",
-        ":vendor.lineage.livedisplay@2.0-sdm-utils",
-        ":vendor.lineage.livedisplay@2.1-oplus-af",
-        ":vendor.lineage.livedisplay@2.1-oplus-dm",
-        ":vendor.lineage.livedisplay@2.1-oplus-se",
+        ":vendor.lineage.livedisplay-sdm-pa",
+        ":vendor.lineage.livedisplay-sdm-utils",
+        ":vendor.lineage.livedisplay-oplus-af",
+        ":vendor.lineage.livedisplay-oplus-dm",
+        ":vendor.lineage.livedisplay-oplus-se",
         "service.cpp",
     ],
     shared_libs: [
         "libbase",
-        "libbinder",
-        "libhidlbase",
+        "libbinder_ndk",
         "libutils",
-        "vendor.lineage.livedisplay@2.0",
-        "vendor.lineage.livedisplay@2.1",
+        "vendor.lineage.livedisplay-V1-ndk",
     ],
     header_libs: [
         "kernel_headers.oplus",
-        "vendor.lineage.livedisplay@2.0-sdm-headers",
-        "vendor.lineage.livedisplay@2.1-oplus-headers",
+        "vendor.lineage.livedisplay-sdm-headers",
+        "vendor.lineage.livedisplay-oplus-headers",
     ],
     cflags: select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_AF"), {
         "true": ["-DENABLE_AF=true"],
