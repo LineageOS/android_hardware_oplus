@@ -25,7 +25,7 @@
 /vendor/bin/hw/vendor\.oplus\.hardware\.commondcs-service    u:object_r:hal_oplus_commondcs_aidl_exec:s0
 
 # Display
-/vendor/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.oplus     u:object_r:hal_lineage_livedisplay_qti_exec:s0
+/vendor/bin/hw/vendor\.lineage\.livedisplay-service\.oplus          u:object_r:hal_lineage_livedisplay_qti_exec:s0
 /odm/bin/hw/vendor\.oplus\.hardware\.displaypanelfeature-service    u:object_r:hal_oplus_displaypanelfeature_aidl_exec:s0
 /dev/oplus_display                                                  u:object_r:graphics_device:s0
 
