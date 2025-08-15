@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The LineageOS Project
+ * Copyright (C) 2022-2025 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,27 +18,33 @@
 #include <livedisplay/oplus/AntiFlicker.h>
 #include <oplus/oplus_display_panel.h>
 
+namespace aidl {
 namespace vendor {
 namespace lineage {
 namespace livedisplay {
-namespace V2_1 {
-namespace implementation {
 
 AntiFlicker::AntiFlicker() : mOplusDisplayFd(open("/dev/oplus_display", O_RDWR)) {}
 
-Return<bool> AntiFlicker::isEnabled() {
+ndk::ScopedAStatus AntiFlicker::getEnabled(bool* _aidl_return) {
     unsigned int value;
-    return ioctl(mOplusDisplayFd, PANEL_IOCTL_GET_DIMLAYER_BL_EN, &value) == 0 && value > 0;
+    *_aidl_return =
+            ioctl(mOplusDisplayFd, PANEL_IOCTL_GET_DIMLAYER_BL_EN, &value) == 0 && value > 0;
+    return ndk::ScopedAStatus::ok();
 }
 
-Return<bool> AntiFlicker::setEnabled(bool enabled) {
-    unsigned int value = enabled;
-    return isEnabled() == enabled ||
-           ioctl(mOplusDisplayFd, PANEL_IOCTL_SET_DIMLAYER_BL_EN, &value) == 0;
+ndk::ScopedAStatus AntiFlicker::setEnabled(bool enabled) {
+    bool isEnabled;
+    getEnabled(&isEnabled);
+
+    if (isEnabled != enabled) {
+        unsigned int value = enabled;
+        ioctl(mOplusDisplayFd, PANEL_IOCTL_SET_DIMLAYER_BL_EN, &value);
+    }
+
+    return ndk::ScopedAStatus::ok();
 }
 
-}  // namespace implementation
-}  // namespace V2_1
 }  // namespace livedisplay
 }  // namespace lineage
 }  // namespace vendor
+}  // namespace aidl
