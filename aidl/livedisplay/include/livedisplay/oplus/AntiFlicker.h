@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2022 The LineageOS Project
+ * Copyright (C) 2021-2025 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,34 +16,26 @@
 
 #pragma once
 
-#include <hidl/MQDescriptor.h>
-#include <hidl/Status.h>
-#include <vendor/lineage/livedisplay/2.1/IAntiFlicker.h>
+#include <aidl/vendor/lineage/livedisplay/BnAntiFlicker.h>
 
+namespace aidl {
 namespace vendor {
 namespace lineage {
 namespace livedisplay {
-namespace V2_1 {
-namespace implementation {
 
-using ::android::sp;
-using ::android::hardware::Return;
-using ::android::hardware::Void;
-
-class AntiFlicker : public IAntiFlicker {
+class AntiFlicker : public BnAntiFlicker {
   public:
     AntiFlicker();
 
-    // Methods from ::vendor::lineage::livedisplay::V2_1::IAntiFlicker follow.
-    Return<bool> isEnabled() override;
-    Return<bool> setEnabled(bool enabled) override;
+    // Methods from ::aidl::vendor::lineage::livedisplay::BnAntiFlicker follow.
+    ndk::ScopedAStatus getEnabled(bool* _aidl_return) override;
+    ndk::ScopedAStatus setEnabled(bool enabled, bool* _aidl_return) override;
 
   private:
     int mOplusDisplayFd;
 };
 
-}  // namespace implementation
-}  // namespace V2_1
 }  // namespace livedisplay
 }  // namespace lineage
 }  // namespace vendor
+}  // namespace aidl
