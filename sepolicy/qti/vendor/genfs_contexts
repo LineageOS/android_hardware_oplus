@@ -76,7 +76,6 @@ genfscon sysfs /module/stmvl53l1      u:object_r:vendor_sysfs_tof:s0
 
 # Touch
 genfscon proc /bus/input/devices    u:object_r:proc_bus_input:s0
-genfscon proc /shell-temp           u:object_r:vendor_proc_oplus_touch:s0
 
 # Ultrasound
 genfscon proc /ultrasound    u:object_r:vendor_proc_ultrasound:s0
