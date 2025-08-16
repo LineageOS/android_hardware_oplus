@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9631dcee_72335938",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-08-16T10:03:03Z",
+      "side": 1,
+      "message": "Horae service is required for thermal management, as it reports and updates shell temperature to /proc/shell-temp.",
+      "revId": "785f43989cb7bccd0a7fc7d9176393c71583dc98",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
