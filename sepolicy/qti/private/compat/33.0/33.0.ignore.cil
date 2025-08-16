@@ -5,6 +5,8 @@
 (typeattribute new_objects)
 (typeattributeset new_objects
   ( new_objects
+    horae
+    proc_horae
     system_fingerprint_prop
     system_oplus_iris_prop
     system_oplus_project_prop

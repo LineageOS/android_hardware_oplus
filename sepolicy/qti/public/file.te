@@ -1,2 +1,5 @@
 # Engineering
 type vendor_persist_engineer_file, file_type;
+
+# Horae
+type proc_horae, fs_type, proc_type;
