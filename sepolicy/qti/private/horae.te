@@ -1,0 +1,15 @@
+type horae_exec, exec_type, system_file_type, file_type;
+init_daemon_domain(horae)
+
+type horae_service, system_api_service, service_manager_type;
+add_service(horae, horae_service)
+
+allow horae horae_service:service_manager find;
+
+allow horae horae_exec:file { rx_file_perms entrypoint };
+
+allow horae statsdw_socket:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
+binder_call(horae, servicemanager)
+
+rw_dir_file(horae, horae_proc)
