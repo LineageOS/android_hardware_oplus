@@ -1,0 +1,2 @@
+# Horae
+genfscon proc /shell-temp    u:object_r:proc_horae:s0

@@ -31,7 +31,6 @@ vendor.oplus.hardware.biometrics.fingerprintpay.IFingerprintPay/default    u:obj
 vendor.oplus.hardware.olc2.IOplusLogCore/default    u:object_r:hal_oplus_olc_aidl_service:s0
 
 # OSENSE
-osensemanager                                                         u:object_r:osense_service:s0
 vendor.oplus.hardware.osense.client.IOsenseAidlHalReporter/default    u:object_r:hal_oplus_osense_aidl_service:s0
 
 # Performance
