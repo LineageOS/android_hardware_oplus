@@ -33,6 +33,24 @@
       "message": "granted via init_daemon_domain",
       "revId": "785f43989cb7bccd0a7fc7d9176393c71583dc98",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "414d7053_78f55c39",
+        "filename": "sepolicy/qti/private/horae.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2025-08-16T13:09:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "640103b7_f11658fa",
+      "revId": "785f43989cb7bccd0a7fc7d9176393c71583dc98",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
