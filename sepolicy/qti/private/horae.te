@@ -1,0 +1,19 @@
+type horae_exec, exec_type, system_file_type, file_type;
+
+init_daemon_domain(horae)
+
+hal_client_domain(horae, hal_health)
+
+add_service(horae, horae_service)
+
+binder_call(horae, servicemanager)
+binder_call(horae, system_server)
+
+unix_socket_send(horae, statsdw, statsd)
+
+allow horae horae_service:service_manager find;
+allow horae osense_service:service_manager find;
+allow horae surfaceflinger_service:service_manager find;
+allow horae thermal_service:service_manager find;
+
+rw_dir_file(horae, proc_horae)
