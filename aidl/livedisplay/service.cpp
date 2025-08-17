@@ -9,11 +9,13 @@
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 #include <binder/ProcessState.h>
+#include <livedisplay/oplus/AdaptiveBacklight.h>
 #include <livedisplay/oplus/AntiFlicker.h>
 #include <livedisplay/oplus/DisplayModes.h>
 #include <livedisplay/oplus/SunlightEnhancement.h>
 #include <livedisplay/sdm/PictureAdjustment.h>
 
+using ::aidl::vendor::lineage::livedisplay::AdaptiveBacklight;
 using ::aidl::vendor::lineage::livedisplay::AntiFlicker;
 using ::aidl::vendor::lineage::livedisplay::DisplayModes;
 using ::aidl::vendor::lineage::livedisplay::SunlightEnhancement;
@@ -29,6 +31,8 @@ int main() {
     std::shared_ptr<SDMController> controller =
             ENABLE_DM || ENABLE_PA ? std::make_shared<SDMController>() : nullptr;
 
+    std::shared_ptr<AdaptiveBacklight> ab =
+            ENABLE_AB ? ndk::SharedRefBase::make<AdaptiveBacklight>() : nullptr;
     std::shared_ptr<AntiFlicker> af = ENABLE_AF ? ndk::SharedRefBase::make<AntiFlicker>() : nullptr;
     std::shared_ptr<DisplayModes> dm =
             ENABLE_DM ? ndk::SharedRefBase::make<DisplayModes>(controller) : nullptr;
@@ -36,6 +40,12 @@ int main() {
             ENABLE_PA ? ndk::SharedRefBase::make<PictureAdjustment>(controller) : nullptr;
     std::shared_ptr<SunlightEnhancement> se =
             ENABLE_SE ? ndk::SharedRefBase::make<SunlightEnhancement>() : nullptr;
+
+    if (ab) {
+        std::string instance = std::string() + AdaptiveBacklight::descriptor + "/default";
+        binder_status_t status = AServiceManager_addService(ab->asBinder().get(), instance.c_str());
+        CHECK_EQ(status, STATUS_OK);
+    }
 
     if (af) {
         std::string instance = std::string() + AntiFlicker::descriptor + "/default";
