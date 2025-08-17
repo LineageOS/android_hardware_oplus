@@ -4,6 +4,11 @@
 //
 
 filegroup {
+    name: "vendor.lineage.livedisplay-oplus-ab",
+    srcs: ["AdaptiveBacklight.cpp"],
+}
+
+filegroup {
     name: "vendor.lineage.livedisplay-oplus-af",
     srcs: ["AntiFlicker.cpp"],
 }
@@ -27,7 +32,10 @@ cc_library_headers {
 cc_binary {
     name: "vendor.lineage.livedisplay-service.oplus",
     init_rc: ["vendor.lineage.livedisplay-service.oplus.rc"],
-    vintf_fragments: select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_AF"), {
+    vintf_fragments: select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_AB"), {
+        "true": ["vendor.lineage.livedisplay-service.oplus-ab.xml"],
+        default: [],
+    }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_AF"), {
         "true": ["vendor.lineage.livedisplay-service.oplus-af.xml"],
         default: [],
     }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_DM"), {
@@ -44,6 +52,7 @@ cc_binary {
     srcs: [
         ":vendor.lineage.livedisplay-sdm-pa",
         ":vendor.lineage.livedisplay-sdm-utils",
+        ":vendor.lineage.livedisplay-oplus-ab",
         ":vendor.lineage.livedisplay-oplus-af",
         ":vendor.lineage.livedisplay-oplus-dm",
         ":vendor.lineage.livedisplay-oplus-se",
@@ -61,7 +70,10 @@ cc_binary {
         "vendor.lineage.livedisplay-sdm-headers",
         "vendor.lineage.livedisplay-oplus-headers",
     ],
-    cflags: select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_AF"), {
+    cflags: select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_AB"), {
+        "true": ["-DENABLE_AB=true"],
+        default: ["-DENABLE_AB=false"],
+    }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_AF"), {
         "true": ["-DENABLE_AF=true"],
         default: ["-DENABLE_AF=false"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_DM"), {
