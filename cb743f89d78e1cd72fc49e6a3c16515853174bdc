@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abf6cb01_0a9182f5",
+        "filename": "sepolicy/qti/public/service.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-08-17T08:34:55Z",
+      "side": 1,
+      "message": "move to private given it\u0027s not referenced by vendor rules? it resides in system_ext_service_contexts of stock anyway",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 65
+      },
+      "revId": "cb743f89d78e1cd72fc49e6a3c16515853174bdc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
