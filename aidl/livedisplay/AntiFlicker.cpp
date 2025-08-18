@@ -19,7 +19,8 @@ AntiFlicker::AntiFlicker() : mOplusDisplayFd(open("/dev/oplus_display", O_RDWR))
 
 ndk::ScopedAStatus AntiFlicker::getEnabled(bool* _aidl_return) {
     unsigned int value;
-    if (ioctl(mOplusDisplayFd, PANEL_IOCTL_GET_DIMLAYER_BL_EN, &value) != 0) {
+    if (ioctl(mOplusDisplayFd, PANEL_IOCTL_GET_PWM_TURBO, &value) != 0 &&
+        ioctl(mOplusDisplayFd, PANEL_IOCTL_GET_DIMLAYER_BL_EN, &value) != 0) {
         LOG(ERROR) << "Failed to read current AntiFlicker state";
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
@@ -33,7 +34,7 @@ ndk::ScopedAStatus AntiFlicker::setEnabled(bool enabled) {
         return status;
     }
     unsigned int value = enabled;
-    if (isEnabled != enabled &&
+    if (isEnabled != enabled && ioctl(mOplusDisplayFd, PANEL_IOCTL_SET_PWM_TURBO, &value) != 0 &&
         ioctl(mOplusDisplayFd, PANEL_IOCTL_SET_DIMLAYER_BL_EN, &value) != 0) {
         LOG(ERROR) << "Failed to set AntiFlicker state";
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
