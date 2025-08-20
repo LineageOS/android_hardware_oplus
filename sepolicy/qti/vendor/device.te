@@ -4,6 +4,9 @@ type oplus_awsmartpa_device, dev_type;
 # Camera
 type vendor_camera_turbo_device, dev_type;
 
+# Charging
+type oplus_charger_device, dev_type;
+
 # Fingerprint
 type fingerprint_device, dev_type;
 
