@@ -52,6 +52,23 @@
       "parentUuid": "41022cad_08ff38cb",
       "revId": "ca425edc322373cb775fccdd42580369078a82e7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c6ebfcc_c076c2cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2025-08-21T11:37:38Z",
+      "side": 1,
+      "message": "pjgowtham@pjgowtham-MS-7C94:~$ adb shell\nziti / # cat /sys/devices/platform/soc/a94000.spi/spi_master/spi1/spi1.0/name\ncat: /sys/devices/platform/soc/a94000.spi/spi_master/spi1/spi1.0/name: No such file or directory\nziti / # ls /sys/devices/platform/soc/a94000.spi/spi_master/spi1/spi1.0/\ndriver           fts_rw_reg  supplier:18200000.rsc:rpmh-regulator-ldoc12\ndriver_override  input       supplier:18200000.rsc:rpmh-regulator-ldoc3\nfts_dump_reg     modalias    supplier:f000000.pinctrl\nfts_esd_check    of_node     supplier:regulator.36\nfts_fw_version   power       supplier:regulator.47\nfts_hw_reset     statistics  uevent\nfts_irq          subsystem   wakeup\nziti / #",
+      "revId": "ca425edc322373cb775fccdd42580369078a82e7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
