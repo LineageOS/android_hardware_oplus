@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61547a94_7f7191c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-08-21T11:11:11Z",
+      "side": 1,
+      "message": "```\ncat /sys/devices/platform/soc/a84000.i2c/i2c-1/1-0008/name\ncat /sys/devices/platform/soc/a94000.i2c/i2c-2/2-0038/name\ncat /sys/devices/platform/soc/a94000.spi/spi_master/spi1/spi1.0/name\n```",
+      "revId": "ca425edc322373cb775fccdd42580369078a82e7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
