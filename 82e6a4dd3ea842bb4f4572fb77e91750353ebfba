@@ -16,6 +16,24 @@
       "message": "dre and sm6375-common will need to be patched otherwise it will break builds for those devices",
       "revId": "82e6a4dd3ea842bb4f4572fb77e91750353ebfba",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "decfe0e5_75f4d783",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-08-21T18:04:58Z",
+      "side": 1,
+      "message": "how?",
+      "parentUuid": "3499ba0c_6b159052",
+      "revId": "82e6a4dd3ea842bb4f4572fb77e91750353ebfba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
