@@ -51,6 +51,24 @@
       "message": "these are defined in the device trees, they would need to be removed from device/oneplus/(dre|sm6375-common)",
       "revId": "82e6a4dd3ea842bb4f4572fb77e91750353ebfba",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "684e2276_843aa349",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-08-21T18:07:19Z",
+      "side": 1,
+      "message": "they shouldn\u0027t have been there in the first place, smh.",
+      "parentUuid": "42dc7f90_c9c251b5",
+      "revId": "82e6a4dd3ea842bb4f4572fb77e91750353ebfba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
