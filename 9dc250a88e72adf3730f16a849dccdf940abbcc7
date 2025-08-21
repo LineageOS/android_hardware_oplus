@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81f40fad_fd21cdaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-08-21T11:44:53Z",
+      "side": 1,
+      "message": "would like this split into wakeup nodes, prop, tee.\n\nfor wakeup nodes commit msg, please follow lunaa/ziti one.",
+      "revId": "9dc250a88e72adf3730f16a849dccdf940abbcc7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
