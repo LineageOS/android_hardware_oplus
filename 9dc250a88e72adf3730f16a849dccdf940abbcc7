@@ -50,6 +50,24 @@
       "message": "Thanks, will follow the same format as with lunaa/ziti change and split the changes",
       "revId": "9dc250a88e72adf3730f16a849dccdf940abbcc7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91c186df_5fa19fa7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-08-21T11:50:14Z",
+      "side": 1,
+      "message": "also, put all wakeup node changes in a chain, i can just merge them right away once they have matching commit msgs.",
+      "parentUuid": "ea8e2918_8795c89a",
+      "revId": "9dc250a88e72adf3730f16a849dccdf940abbcc7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
