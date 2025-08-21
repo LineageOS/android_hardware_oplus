@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7b06f4f_4d3eeb7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2025-08-21T11:42:00Z",
+      "side": 1,
+      "message": "ferrari / # cat /sys/devices/platform/soc/990000.i2c/i2c-5/5-004b/name\nsynaptics-s3908\nferrari / # cat /sys/devices/platform/soc/a84000.i2c/i2c-7/7-0028/name\nsn-nci\nferrari / #",
+      "revId": "4bab3fa76ddc4e031b8d8bdd61fc60e2a53cc526",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
