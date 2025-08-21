@@ -33,6 +33,23 @@
       "message": "also notice that i moved it to 22.2",
       "revId": "9dc250a88e72adf3730f16a849dccdf940abbcc7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea8e2918_8795c89a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2025-08-21T11:49:23Z",
+      "side": 1,
+      "message": "Thanks, will follow the same format as with lunaa/ziti change and split the changes",
+      "revId": "9dc250a88e72adf3730f16a849dccdf940abbcc7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
