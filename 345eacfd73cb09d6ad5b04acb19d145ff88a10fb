@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b24b2a9_9497f71b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2025-08-22T02:20:38Z",
+      "side": 1,
+      "message": "In addition to the current rule, it required\n\nallow tee vendor_persist_fingerprint_file:dir { write remove_name add_name };\nallow tee vendor_persist_fingerprint_file:file { create unlink };\n\nSo, I made this change instead.",
+      "revId": "345eacfd73cb09d6ad5b04acb19d145ff88a10fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
