@@ -12,4 +12,4 @@ type vendor_hal_orms_hwservice, hwservice_manager_type, protected_hwservice;
 type vendor_hal_osense_hwservice, hwservice_manager_type, protected_hwservice;
 
 # Sensors
-type vendor_hal_oplusSensor_hwservice, hwservice_manager_type, protected_hwservice;
+type vendor_hal_oplus_sensor_hwservice, hwservice_manager_type, protected_hwservice;

@@ -1,14 +1,14 @@
 type hal_oplus_sensor_aidl, domain;
 binder_use(hal_oplus_sensor_aidl)
 
-hal_server_domain(hal_oplus_sensor_aidl, vendor_hal_oplusSensor)
+hal_server_domain(hal_oplus_sensor_aidl, vendor_hal_oplus_sensor)
 
 type hal_oplus_sensor_aidl_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(hal_oplus_sensor_aidl)
 
-binder_call(vendor_hal_oplusSensor_client, vendor_hal_oplusSensor_server)
+binder_call(vendor_hal_oplus_sensor_client, vendor_hal_oplus_sensor_server)
 
-hal_attribute_service(vendor_hal_oplusSensor, hal_oplus_sensor_aidl_service)
+hal_attribute_service(vendor_hal_oplus_sensor, hal_oplus_sensor_aidl_service)
 
 allow hal_oplus_sensor_aidl block_device:dir search;
 allow hal_oplus_sensor_aidl vendor_reserve_partition:blk_file r_file_perms;
