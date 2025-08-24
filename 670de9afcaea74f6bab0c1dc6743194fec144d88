@@ -51,6 +51,23 @@
       "parentUuid": "4a938a6e_97de1532",
       "revId": "670de9afcaea74f6bab0c1dc6743194fec144d88",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b68c06c_75d6cc74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-08-24T18:19:29Z",
+      "side": 1,
+      "message": "that\u0027s odd because current shim should technically work w/o additional work:\n\n```cpp\nint property_get(const char* key, char* value, const char* default_value) {\n    int len \u003d __system_property_get(key, value);\n    if (len \u003c 1 \u0026\u0026 default_value) {\n        snprintf(value, PROPERTY_VALUE_MAX, \"%s\", default_value);\n        return strlen(value);\n    }\n    return len;\n}\n```",
+      "revId": "670de9afcaea74f6bab0c1dc6743194fec144d88",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
