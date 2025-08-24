@@ -1,0 +1,7 @@
+<manifest version="1.0" type="device">
+    <hal format="aidl">
+        <name>vendor.oplus.hardware.performance</name>
+        <version>1</version>
+        <fqname>IPerformance/default</fqname>
+    </hal>
+</manifest>
