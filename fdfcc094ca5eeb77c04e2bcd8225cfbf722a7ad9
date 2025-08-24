@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6c4cd33_6e530907",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-08-24T19:26:22Z",
+      "side": 1,
+      "message": "`vendor_sepolicy.cil:(allow hal_secure_element_default nfc_device_202404 (chr_file (ioctl read write getattr lock append map open watch watch_reads)))` on stock CPH2723, so let\u0027s just give it rw_file_perms?",
+      "revId": "fdfcc094ca5eeb77c04e2bcd8225cfbf722a7ad9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
