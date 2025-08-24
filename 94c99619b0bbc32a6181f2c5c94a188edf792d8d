@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de8b21bb_e55aa750",
+        "filename": "sepolicy/qti/public/genfs_contexts",
+        "patchSetId": 15
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-08-24T12:18:10Z",
+      "side": 1,
+      "message": "Name it \"proc_horae\"",
+      "range": {
+        "startLine": 2,
+        "startChar": 42,
+        "endLine": 2,
+        "endChar": 52
+      },
+      "revId": "94c99619b0bbc32a6181f2c5c94a188edf792d8d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
