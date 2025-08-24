@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "798b9ff8_1e96eedd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-08-24T11:25:20Z",
+      "side": 1,
+      "message": "Can you add all CN variants of OnePlus 11, 12 and 13?",
+      "revId": "d0da4a3fc666d3a364b01ee20797674d6fd8a88c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
