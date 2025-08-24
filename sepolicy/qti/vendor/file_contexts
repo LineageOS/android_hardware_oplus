@@ -97,7 +97,7 @@
 /dev/block/platform/soc/4804000\.ufshc/by-name/vbmeta_vendor_[ab]      u:object_r:vendor_custom_ab_block_device:s0
 
 # Performance
-/(odm|vendor/odm)/bin/hw/vendor-oplus-hardware-performance-V1-service    u:object_r:hal_oplus_performance_aidl_exec:s0
+/(odm|vendor|vendor/odm)/bin/hw/vendor-oplus-hardware-performance(-V1)?-service    u:object_r:hal_oplus_performance_aidl_exec:s0
 
 # Pogo pin keyboard
 /dev/ttyHS5                                                                u:object_r:oplus_pogo_keyboard_device:s0
