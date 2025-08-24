@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "916f79fd_732bd10c",
+        "filename": "Euicc/res/values/strings.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-08-24T11:46:36Z",
+      "side": 1,
+      "message": "Missed here?",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "cd7300aeb39287d11b6441cf58ab5c8efd5393f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
