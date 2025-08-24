@@ -33,6 +33,24 @@
       "message": "Yeah, I am confident that it works. Ziti is an unusual device where it uses UFF fingerprint but doesn\u0027t use userspace dimming. Only this patch helped it appropriately set vendor.fingerprint.cali to 1",
       "revId": "670de9afcaea74f6bab0c1dc6743194fec144d88",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13797900_c6b591fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2025-08-24T18:18:40Z",
+      "side": 1,
+      "message": "The older shim had no effect",
+      "parentUuid": "4a938a6e_97de1532",
+      "revId": "670de9afcaea74f6bab0c1dc6743194fec144d88",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
