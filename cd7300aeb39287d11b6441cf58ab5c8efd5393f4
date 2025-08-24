@@ -22,6 +22,30 @@
       },
       "revId": "cd7300aeb39287d11b6441cf58ab5c8efd5393f4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21541572_406e0f7f",
+        "filename": "Euicc/res/values/strings.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-08-24T11:49:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "916f79fd_732bd10c",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "cd7300aeb39287d11b6441cf58ab5c8efd5393f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
