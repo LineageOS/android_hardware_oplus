@@ -98,6 +98,7 @@
 
 # Performance
 /(odm|vendor/odm)/bin/hw/vendor-oplus-hardware-performance-V1-service    u:object_r:hal_oplus_performance_aidl_exec:s0
+/vendor/bin/hw/vendor\.oplus\.hardware\.performance-service              u:object_r:hal_oplus_performance_aidl_exec:s0
 
 # Pogo pin keyboard
 /dev/ttyHS5                                                                u:object_r:oplus_pogo_keyboard_device:s0
