@@ -16,6 +16,23 @@
       "message": "Yes, it needs to be made.",
       "revId": "dc91e3eff22883a5669dba5749937dfee06caac7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f46f19ed_14ea3cc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-08-28T21:27:03Z",
+      "side": 1,
+      "message": "Luk, can you merge and fast-forward to 23.0?",
+      "revId": "dc91e3eff22883a5669dba5749937dfee06caac7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
