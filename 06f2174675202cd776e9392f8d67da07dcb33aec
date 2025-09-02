@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f50617fa_c0dc002e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2025-09-02T18:02:38Z",
+      "side": 1,
+      "message": "I made this commit message back before I learned that HWC wasn\u0027t the one disabling color transformations; it was actually being done in the kernel itself. As such, I ended up making this change instead so that HBM and dimlayer can still be kept enabled/disabled on auth/cancel: https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8250/+/348818\n\nWould something like this be possible for whatever device you\u0027re working on?",
+      "revId": "06f2174675202cd776e9392f8d67da07dcb33aec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
