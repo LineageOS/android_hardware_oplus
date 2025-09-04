@@ -14,6 +14,7 @@ interface ICharger {
     int chgExchangeSohMesgInit();
     int getAcType();
     int getBattAuthenticate();
+    String getBattGaugeInfo();
     int getBattPPSChgIng();
     int getBattPPSChgPower();
     String getBattParamNoplug();
@@ -47,6 +48,7 @@ interface ICharger {
     int getPsyBatteryPchg();
     int getPsyBatteryPchgResetCount();
     int getPsyBatteryRm();
+    String getPsyBatterySN();
     int getPsyBatteryShortFeature();
     int getPsyBatteryShortStatus();
     String getPsyBatteryStatus();
