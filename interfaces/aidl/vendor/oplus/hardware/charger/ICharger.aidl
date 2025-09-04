@@ -74,6 +74,7 @@ interface ICharger {
     int getSmartChgMode();
     int getUIsohValue();
     String getUisohDebugParameterInfo();
+    String getUsbCurrentEyeDiagram(int model);
     int getUsbInputCurrentNow();
     int getUsbPrimalType();
     int getWiredOtgOnline();
@@ -122,6 +123,7 @@ interface ICharger {
     int setSuperEnduranceStatus(String data);
     int setTbattPwrOff(String data);
     int setUisohDebugInfo(String data);
+    int setUsbEyeDiagram(int model, String eyeDiagram, boolean isDefaultEyeDiagram);
     int setUsbPrimalType(String data);
     int setWirelessChargePumpEn(String data);
     int setWirelessFtmMode(String data);
