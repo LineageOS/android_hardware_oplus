@@ -103,6 +103,7 @@ interface ICharger {
     int setChargerLog(String data);
     int setChargingModeInGsmCall(String data);
     int setChgOlcConfig(String data);
+    int setChgRusConfig(String data);
     int setChgStatusToBcc(int status);
     int setCustomSelectChgMode(int mode, boolean enable);
     int setFastchgFwUpdate(String data);
