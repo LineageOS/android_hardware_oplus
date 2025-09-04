@@ -66,14 +66,14 @@ int main() {
             continue;
         }
 
-        int32_t in_result = 0;
-        auto resp_cb = ndk::SharedRefBase::make<OplusRadioResponse>(in_result);
+        int32_t result = 0;
+        auto resp_cb = ndk::SharedRefBase::make<OplusRadioResponse>(result);
         radio->setCallback(resp_cb, nullptr);
 
         bool succeed = false;
         for (auto retry = 100; retry > 0; --retry) {
             auto status = radio->setNrMode(kOplusRilSerial, mode);
-            if (!status.isOk() || in_result != 0) {
+            if (!status.isOk() || result != 0) {
                 LOG(ERROR) << "setNrMode failed for SIM" << i
                            << ", (remaining retries: " << retry - 1 << ")";
                 std::this_thread::sleep_for(1s);
