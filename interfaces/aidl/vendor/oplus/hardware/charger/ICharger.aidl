@@ -5,6 +5,7 @@
 
 package vendor.oplus.hardware.charger;
 
+import vendor.oplus.hardware.charger.ChgFuncFlag;
 import vendor.oplus.hardware.charger.testKitFeatureTestResult;
 
 @VintfStability
@@ -135,4 +136,6 @@ interface ICharger {
     int setChgRusConfig(String data);
     String getPsyBatterySN();
     String getBattGaugeInfo();
+    int setChgConfig(ChgFuncFlag flag, String extra, int callname);
+    String getChgConfig(ChgFuncFlag flag, String extra, int callname);
 }
