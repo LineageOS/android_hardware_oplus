@@ -32,6 +32,7 @@ interface ICharger {
     int getChargerIdVolt();
     int getChargerLog();
     int getChargingModeInGsmCall();
+    String getChgConfig(int flag, String extra, int callname);
     String getChgOlcConfig();
     int getCpVbatDeviation();
     int getCustomSelectChgMode();
@@ -104,6 +105,7 @@ interface ICharger {
     int setChargerFactoryModeTest(String data);
     int setChargerLog(String data);
     int setChargingModeInGsmCall(String data);
+    int setChgConfig(int flag, String extra, int callname);
     int setChgOlcConfig(String data);
     int setChgRusConfig(String data);
     int setChgStatusToBcc(int status);
