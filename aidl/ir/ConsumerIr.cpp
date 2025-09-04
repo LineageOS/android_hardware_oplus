@@ -26,15 +26,15 @@ ConsumerIr::ConsumerIr() : supportedFreqs({{MIN_FREQ, MAX_FREQ}}) {}
     return ::ndk::ScopedAStatus::ok();
 }
 
-::ndk::ScopedAStatus ConsumerIr::transmit(int32_t in_carrierFreqHz,
-                                          const std::vector<int32_t>& in_pattern) {
-    if (in_carrierFreqHz < MIN_FREQ || in_carrierFreqHz > MAX_FREQ) {
-        LOG(ERROR) << "Invalid carrier frequency: " << in_carrierFreqHz;
+::ndk::ScopedAStatus ConsumerIr::transmit(int32_t carrierFreqHz,
+                                          const std::vector<int32_t>& pattern) {
+    if (carrierFreqHz < MIN_FREQ || carrierFreqHz > MAX_FREQ) {
+        LOG(ERROR) << "Invalid carrier frequency: " << carrierFreqHz;
         return ::ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
 
     int32_t totalTime = 0;
-    for (int32_t value : in_pattern) {
+    for (int32_t value : pattern) {
         if (value < 0) {
             LOG(ERROR) << "Invalid pattern value: " << value;
             return ::ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
@@ -53,7 +53,7 @@ ConsumerIr::ConsumerIr() : supportedFreqs({{MIN_FREQ, MAX_FREQ}}) {}
         return ::ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
 
-    size_t paramsSize = sizeof(struct pattern_params) + in_pattern.size() * sizeof(int32_t);
+    size_t paramsSize = sizeof(struct pattern_params) + pattern.size() * sizeof(int32_t);
     auto params = std::unique_ptr<struct pattern_params, decltype(&free)>(
             static_cast<pattern_params*>(malloc(paramsSize)), free);
     if (!params) {
@@ -61,9 +61,9 @@ ConsumerIr::ConsumerIr() : supportedFreqs({{MIN_FREQ, MAX_FREQ}}) {}
         return ::ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
 
-    params->carrier_freq = in_carrierFreqHz;
-    params->size = in_pattern.size();
-    memcpy(params->pattern, in_pattern.data(), in_pattern.size() * sizeof(int32_t));
+    params->carrier_freq = carrierFreqHz;
+    params->size = pattern.size();
+    memcpy(params->pattern, pattern.data(), pattern.size() * sizeof(int32_t));
 
     int result = ioctl(fd, IR_SEND_PATTERN, params.get());
 
