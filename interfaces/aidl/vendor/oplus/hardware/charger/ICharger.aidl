@@ -132,4 +132,5 @@ interface ICharger {
     String testKitGetFeatureName(int index);
     int testKitGetFeatureNum();
     int updateUiSohToPartion();
+    int setChgRusConfig(String data);
 }
