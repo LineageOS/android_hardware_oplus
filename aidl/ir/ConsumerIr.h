@@ -18,8 +18,8 @@ class ConsumerIr : public BnConsumerIr {
 
   private:
     ::ndk::ScopedAStatus getCarrierFreqs(std::vector<ConsumerIrFreqRange>* _aidl_return) override;
-    ::ndk::ScopedAStatus transmit(int32_t in_carrierFreqHz,
-                                  const std::vector<int32_t>& in_pattern) override;
+    ::ndk::ScopedAStatus transmit(int32_t carrierFreqHz,
+                                  const std::vector<int32_t>& pattern) override;
 
     std::vector<ConsumerIrFreqRange> supportedFreqs;
 };
