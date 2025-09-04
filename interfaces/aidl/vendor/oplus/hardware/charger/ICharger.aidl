@@ -138,4 +138,6 @@ interface ICharger {
     String getBattGaugeInfo();
     int setChgConfig(ChgFuncFlag flag, String extra, int callname);
     String getChgConfig(ChgFuncFlag flag, String extra, int callname);
+    int setUsbEyeDiagram(int model, String eyeDiagram, boolean isDefaultEyeDiagram);
+    String getUsbCurrentEyeDiagram(int model);
 }
