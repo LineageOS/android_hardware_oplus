@@ -133,4 +133,6 @@ interface ICharger {
     int testKitGetFeatureNum();
     int updateUiSohToPartion();
     int setChgRusConfig(String data);
+    String getPsyBatterySN();
+    String getBattGaugeInfo();
 }
