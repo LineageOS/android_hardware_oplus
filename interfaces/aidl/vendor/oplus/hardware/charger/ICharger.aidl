@@ -132,4 +132,5 @@ interface ICharger {
     int setBatteryLogPush(String data);
     int getChargingModeInGsmCall();
     int setChargingModeInGsmCall(String data);
+    int setChgRusConfig(String data);
 }
