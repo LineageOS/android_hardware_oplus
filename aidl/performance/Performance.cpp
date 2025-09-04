@@ -15,56 +15,54 @@ namespace oplus {
 namespace hardware {
 namespace performance {
 
-ndk::ScopedAStatus Performance::addAcmDirName(const std::string& in_dirname, int64_t in_flag,
+ndk::ScopedAStatus Performance::addAcmDirName(const std::string& dirname, int64_t flag,
                                               int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": dirname=" << in_dirname << ", flag=" << in_flag;
+    LOG(INFO) << __func__ << ": dirname=" << dirname << ", flag=" << flag;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::addAcmNomediaDirName(const std::string& in_dirname,
+ndk::ScopedAStatus Performance::addAcmNomediaDirName(const std::string& dirname,
                                                      int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": dirname=" << in_dirname;
+    LOG(INFO) << __func__ << ": dirname=" << dirname;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::addAcmPkgName(const std::string& in_pkgname, int64_t in_flag,
+ndk::ScopedAStatus Performance::addAcmPkgName(const std::string& pkgname, int64_t flag,
                                               int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": pkgname=" << in_pkgname << ", flag=" << in_flag;
+    LOG(INFO) << __func__ << ": pkgname=" << pkgname << ", flag=" << flag;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::addTaskTrackPid(int32_t in_group, int32_t in_pid, bool in_clear,
+ndk::ScopedAStatus Performance::addTaskTrackPid(int32_t group, int32_t pid, bool clear,
                                                 int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": group=" << in_group << ", pid=" << in_pid << ", clear=" << in_clear;
+    LOG(INFO) << __func__ << ": group=" << group << ", pid=" << pid << ", clear=" << clear;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::clearTaskTrackGroup(int32_t in_group) {
-    LOG(INFO) << __func__ << ": group=" << in_group;
+ndk::ScopedAStatus Performance::clearTaskTrackGroup(int32_t group) {
+    LOG(INFO) << __func__ << ": group=" << group;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::delAcmDirName(const std::string& in_dirname,
-                                              int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": dirname=" << in_dirname;
+ndk::ScopedAStatus Performance::delAcmDirName(const std::string& dirname, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": dirname=" << dirname;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::delAcmNomediaDirName(const std::string& in_dirname,
+ndk::ScopedAStatus Performance::delAcmNomediaDirName(const std::string& dirname,
                                                      int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": dirname=" << in_dirname;
+    LOG(INFO) << __func__ << ": dirname=" << dirname;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::delAcmPkgName(const std::string& in_pkgname,
-                                              int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": pkgname=" << in_pkgname;
+ndk::ScopedAStatus Performance::delAcmPkgName(const std::string& pkgname, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": pkgname=" << pkgname;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
@@ -111,9 +109,8 @@ ndk::ScopedAStatus Performance::disableVmallocDebug(int32_t* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::enableAudioPerf(const std::string& in_value,
-                                                int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": value=" << in_value;
+ndk::ScopedAStatus Performance::enableAudioPerf(const std::string& value, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": value=" << value;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
@@ -166,9 +163,8 @@ ndk::ScopedAStatus Performance::existMemMonitor(int32_t* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::getAcmDirFlag(const std::string& in_dirname,
-                                              int64_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": dirname=" << in_dirname;
+ndk::ScopedAStatus Performance::getAcmDirFlag(const std::string& dirname, int64_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": dirname=" << dirname;
     *_aidl_return = 0L;
     return ndk::ScopedAStatus::ok();
 }
@@ -179,9 +175,8 @@ ndk::ScopedAStatus Performance::getAcmOpstat(int32_t* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::getAcmPkgFlag(const std::string& in_pkgname,
-                                              int64_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": pkgname=" << in_pkgname;
+ndk::ScopedAStatus Performance::getAcmPkgFlag(const std::string& pkgname, int64_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": pkgname=" << pkgname;
     *_aidl_return = 0L;
     return ndk::ScopedAStatus::ok();
 }
@@ -192,9 +187,8 @@ ndk::ScopedAStatus Performance::getClmMuxSwitch(std::string* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::getClmThreshold(int32_t in_threshold_id,
-                                                std::string* _aidl_return) {
-    LOG(INFO) << __func__ << ": threshold_id=" << in_threshold_id;
+ndk::ScopedAStatus Performance::getClmThreshold(int32_t threshold_id, std::string* _aidl_return) {
+    LOG(INFO) << __func__ << ": threshold_id=" << threshold_id;
     *_aidl_return = "";
     return ndk::ScopedAStatus::ok();
 }
@@ -223,16 +217,16 @@ ndk::ScopedAStatus Performance::getDevinfoUfsVersionInfo(std::string* _aidl_retu
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::getExt4FragScore(const std::string& in_devpath,
+ndk::ScopedAStatus Performance::getExt4FragScore(const std::string& devpath,
                                                  std::string* _aidl_return) {
-    LOG(INFO) << __func__ << ": devpath=" << in_devpath;
+    LOG(INFO) << __func__ << ": devpath=" << devpath;
     *_aidl_return = "";
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::getExt4FreefragInfo(const std::string& in_devpath,
+ndk::ScopedAStatus Performance::getExt4FreefragInfo(const std::string& devpath,
                                                     std::string* _aidl_return) {
-    LOG(INFO) << __func__ << ": devpath=" << in_devpath;
+    LOG(INFO) << __func__ << ": devpath=" << devpath;
     *_aidl_return = "";
     return ndk::ScopedAStatus::ok();
 }
@@ -393,10 +387,10 @@ ndk::ScopedAStatus Performance::getVmallocUsed(std::string* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::getWakeThreadsAffinityOrdered(const std::string& in_handle,
-                                                              int32_t in_size,
+ndk::ScopedAStatus Performance::getWakeThreadsAffinityOrdered(const std::string& handle,
+                                                              int32_t size,
                                                               TaskWakeInfo* _aidl_return) {
-    LOG(INFO) << __func__ << ": handle=" << in_handle << ", size=" << in_size;
+    LOG(INFO) << __func__ << ": handle=" << handle << ", size=" << size;
     *_aidl_return = {};
     return ndk::ScopedAStatus::ok();
 }
@@ -437,35 +431,33 @@ ndk::ScopedAStatus Performance::getschedlatency(std::string* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::hybridswap_memcg_para_read(int32_t in_action,
-                                                           const std::string& in_cgroup,
+ndk::ScopedAStatus Performance::hybridswap_memcg_para_read(int32_t action,
+                                                           const std::string& cgroup,
                                                            std::string* _aidl_return) {
-    LOG(INFO) << __func__ << ": action=" << in_action << ", cgroup=" << in_cgroup;
+    LOG(INFO) << __func__ << ": action=" << action << ", cgroup=" << cgroup;
     *_aidl_return = "";
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::hybridswap_memcg_para_write(int32_t in_action,
-                                                            const std::string& in_cgroup,
-                                                            const std::string& in_str,
+ndk::ScopedAStatus Performance::hybridswap_memcg_para_write(int32_t action,
+                                                            const std::string& cgroup,
+                                                            const std::string& str,
                                                             int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": action=" << in_action << ", cgroup=" << in_cgroup
-              << ", str=" << in_str;
+    LOG(INFO) << __func__ << ": action=" << action << ", cgroup=" << cgroup << ", str=" << str;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::hybridswap_zram_para_read(int32_t in_action,
+ndk::ScopedAStatus Performance::hybridswap_zram_para_read(int32_t action,
                                                           std::string* _aidl_return) {
-    LOG(INFO) << __func__ << ": action=" << in_action;
+    LOG(INFO) << __func__ << ": action=" << action;
     *_aidl_return = "";
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::hybridswap_zram_para_write(int32_t in_action,
-                                                           const std::string& in_str,
+ndk::ScopedAStatus Performance::hybridswap_zram_para_write(int32_t action, const std::string& str,
                                                            int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": action=" << in_action << ", str=" << in_str;
+    LOG(INFO) << __func__ << ": action=" << action << ", str=" << str;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
@@ -476,16 +468,16 @@ ndk::ScopedAStatus Performance::isJankTaskTrackEnable(bool* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::perProcessMemReadahead(int32_t in_uid, int32_t in_pid,
-                                                       int32_t in_type, int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": uid=" << in_uid << ", pid=" << in_pid << ", type=" << in_type;
+ndk::ScopedAStatus Performance::perProcessMemReadahead(int32_t uid, int32_t pid, int32_t type,
+                                                       int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": uid=" << uid << ", pid=" << pid << ", type=" << type;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::perProcessMemReclaim(int32_t in_uid, int32_t in_pid,
-                                                     int32_t in_type, int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": uid=" << in_uid << ", pid=" << in_pid << ", type=" << in_type;
+ndk::ScopedAStatus Performance::perProcessMemReclaim(int32_t uid, int32_t pid, int32_t type,
+                                                     int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": uid=" << uid << ", pid=" << pid << ", type=" << type;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
@@ -550,9 +542,9 @@ ndk::ScopedAStatus Performance::readIOBacktrace(std::string* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::readIomonitorInfo(const std::string& in_procname,
+ndk::ScopedAStatus Performance::readIomonitorInfo(const std::string& procname,
                                                   std::string* _aidl_return) {
-    LOG(INFO) << __func__ << ": procname=" << in_procname;
+    LOG(INFO) << __func__ << ": procname=" << procname;
     *_aidl_return = "";
     return ndk::ScopedAStatus::ok();
 }
@@ -599,8 +591,8 @@ ndk::ScopedAStatus Performance::readJankTaskTrack(std::string* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::readJankTaskTrackByPid(int32_t in_pid, std::string* _aidl_return) {
-    LOG(INFO) << __func__ << ": pid=" << in_pid;
+ndk::ScopedAStatus Performance::readJankTaskTrackByPid(int32_t pid, std::string* _aidl_return) {
+    LOG(INFO) << __func__ << ": pid=" << pid;
     *_aidl_return = "";
     return ndk::ScopedAStatus::ok();
 }
@@ -629,23 +621,23 @@ ndk::ScopedAStatus Performance::readMemleakDetectThread(std::string* _aidl_retur
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::readMemoryByPids(const std::vector<int32_t>& in_pids,
-                                                 int32_t in_flags, ProcMemStatRet* _aidl_return) {
-    LOG(INFO) << __func__ << ": pids.size=" << in_pids.size() << ", flags=" << in_flags;
+ndk::ScopedAStatus Performance::readMemoryByPids(const std::vector<int32_t>& pids, int32_t flags,
+                                                 ProcMemStatRet* _aidl_return) {
+    LOG(INFO) << __func__ << ": pids.size=" << pids.size() << ", flags=" << flags;
     *_aidl_return = {};
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::readMemoryByUids(const std::vector<int32_t>& in_uids,
-                                                 int32_t in_flags, ProcMemStatRet* _aidl_return) {
-    LOG(INFO) << __func__ << ": uids.size=" << in_uids.size() << ", flags=" << in_flags;
+ndk::ScopedAStatus Performance::readMemoryByUids(const std::vector<int32_t>& uids, int32_t flags,
+                                                 ProcMemStatRet* _aidl_return) {
+    LOG(INFO) << __func__ << ": uids.size=" << uids.size() << ", flags=" << flags;
     *_aidl_return = {};
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::readNandswapProc(const std::string& in_inProc,
+ndk::ScopedAStatus Performance::readNandswapProc(const std::string& inProc,
                                                  std::string* _aidl_return) {
-    LOG(INFO) << __func__ << ": inProc=" << in_inProc;
+    LOG(INFO) << __func__ << ": inProc=" << inProc;
     *_aidl_return = "";
     return ndk::ScopedAStatus::ok();
 }
@@ -662,9 +654,9 @@ ndk::ScopedAStatus Performance::readNormalizeRunningTime(std::string* _aidl_retu
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::readOplusReserve3(int32_t in_offset, int32_t in_len,
+ndk::ScopedAStatus Performance::readOplusReserve3(int32_t offset, int32_t len,
                                                   std::string* _aidl_return) {
-    LOG(INFO) << __func__ << ": offset=" << in_offset << ", len=" << in_len;
+    LOG(INFO) << __func__ << ": offset=" << offset << ", len=" << len;
     *_aidl_return = "";
     return ndk::ScopedAStatus::ok();
 }
@@ -711,19 +703,17 @@ ndk::ScopedAStatus Performance::readSgeInfo(std::string* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::readStorageFeature(const std::string& in_name,
-                                                   const std::string& in_addr,
-                                                   const std::string& in_isMulti,
+ndk::ScopedAStatus Performance::readStorageFeature(const std::string& name, const std::string& addr,
+                                                   const std::string& isMulti,
                                                    std::string* _aidl_return) {
-    LOG(INFO) << __func__ << ": name=" << in_name << ", addr=" << in_addr
-              << ", isMulti=" << in_isMulti;
+    LOG(INFO) << __func__ << ": name=" << name << ", addr=" << addr << ", isMulti=" << isMulti;
     *_aidl_return = "";
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::readTargetProcess(const std::string& in_buffer,
+ndk::ScopedAStatus Performance::readTargetProcess(const std::string& buffer,
                                                   std::string* _aidl_return) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     *_aidl_return = "";
     return ndk::ScopedAStatus::ok();
 }
@@ -770,9 +760,9 @@ ndk::ScopedAStatus Performance::readTmemorySysdirtypages(std::string* _aidl_retu
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::readUxTaskTrack(int32_t in_uPid, int32_t in_rPid,
+ndk::ScopedAStatus Performance::readUxTaskTrack(int32_t uPid, int32_t rPid,
                                                 std::string* _aidl_return) {
-    LOG(INFO) << __func__ << ": uPid=" << in_uPid << ", rPid=" << in_rPid;
+    LOG(INFO) << __func__ << ": uPid=" << uPid << ", rPid=" << rPid;
     *_aidl_return = "";
     return ndk::ScopedAStatus::ok();
 }
@@ -789,311 +779,295 @@ ndk::ScopedAStatus Performance::readVersion(std::string* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::removeTaskTrackPid(int32_t in_group, int32_t in_pid) {
-    LOG(INFO) << __func__ << ": group=" << in_group << ", pid=" << in_pid;
+ndk::ScopedAStatus Performance::removeTaskTrackPid(int32_t group, int32_t pid) {
+    LOG(INFO) << __func__ << ": group=" << group << ", pid=" << pid;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::searchAcmNomediaDirName(const std::string& in_dirname,
+ndk::ScopedAStatus Performance::searchAcmNomediaDirName(const std::string& dirname,
                                                         int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": dirname=" << in_dirname;
+    LOG(INFO) << __func__ << ": dirname=" << dirname;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setAcmOpstat(int32_t in_flag, int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": flag=" << in_flag;
+ndk::ScopedAStatus Performance::setAcmOpstat(int32_t flag, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": flag=" << flag;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setClmMuxSwitch(const std::string& in_buffer) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+ndk::ScopedAStatus Performance::setClmMuxSwitch(const std::string& buffer) {
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setClmThreshold(const std::string& in_buffer,
-                                                int32_t in_threshold_id) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer << ", threshold_id=" << in_threshold_id;
+ndk::ScopedAStatus Performance::setClmThreshold(const std::string& buffer, int32_t threshold_id) {
+    LOG(INFO) << __func__ << ": buffer=" << buffer << ", threshold_id=" << threshold_id;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setDamonReclaimColdTime(int32_t in_cold_time,
-                                                        int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": cold_time=" << in_cold_time;
+ndk::ScopedAStatus Performance::setDamonReclaimColdTime(int32_t cold_time, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": cold_time=" << cold_time;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setDamonReclaimMonitoring(int32_t in_sample, int32_t in_aggr,
+ndk::ScopedAStatus Performance::setDamonReclaimMonitoring(int32_t sample, int32_t aggr,
                                                           int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": sample=" << in_sample << ", aggr=" << in_aggr;
+    LOG(INFO) << __func__ << ": sample=" << sample << ", aggr=" << aggr;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setDamonReclaimQuota(int32_t in_quota_ms, int32_t in_quota_sz,
-                                                     int32_t in_reset_interval,
+ndk::ScopedAStatus Performance::setDamonReclaimQuota(int32_t quota_ms, int32_t quota_sz,
+                                                     int32_t reset_interval,
                                                      int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": quota_ms=" << in_quota_ms << ", quota_sz=" << in_quota_sz
-              << ", reset_interval=" << in_reset_interval;
+    LOG(INFO) << __func__ << ": quota_ms=" << quota_ms << ", quota_sz=" << quota_sz
+              << ", reset_interval=" << reset_interval;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setDamonReclaimWmarks(int32_t in_metric, int32_t in_high,
-                                                      int32_t in_mid, int32_t in_low,
-                                                      int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": metric=" << in_metric << ", high=" << in_high << ", mid=" << in_mid
-              << ", low=" << in_low;
+ndk::ScopedAStatus Performance::setDamonReclaimWmarks(int32_t metric, int32_t high, int32_t mid,
+                                                      int32_t low, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": metric=" << metric << ", high=" << high << ", mid=" << mid
+              << ", low=" << low;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setExtSchedProp(const std::string& in_pid,
-                                                const std::string& in_prop) {
-    LOG(INFO) << __func__ << ": pid=" << in_pid << ", prop=" << in_prop;
+ndk::ScopedAStatus Performance::setExtSchedProp(const std::string& pid, const std::string& prop) {
+    LOG(INFO) << __func__ << ": pid=" << pid << ", prop=" << prop;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setFgUids(const std::string& in_fg_uid) {
-    LOG(INFO) << __func__ << ": fg_uid=" << in_fg_uid;
+ndk::ScopedAStatus Performance::setFgUids(const std::string& fg_uid) {
+    LOG(INFO) << __func__ << ": fg_uid=" << fg_uid;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setFrameRate(const std::string& in_frame_rate) {
-    LOG(INFO) << __func__ << ": frame_rate=" << in_frame_rate;
+ndk::ScopedAStatus Performance::setFrameRate(const std::string& frame_rate) {
+    LOG(INFO) << __func__ << ": frame_rate=" << frame_rate;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setFreqGoverner(const std::string& in_gov_name,
-                                                const std::vector<int32_t>& in_clusters,
+ndk::ScopedAStatus Performance::setFreqGoverner(const std::string& gov_name,
+                                                const std::vector<int32_t>& clusters,
                                                 int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": gov_name=" << in_gov_name
-              << ", clusters.size=" << in_clusters.size();
+    LOG(INFO) << __func__ << ": gov_name=" << gov_name << ", clusters.size=" << clusters.size();
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setImFlag(const std::string& in_pid,
-                                          const std::string& in_im_flag) {
-    LOG(INFO) << __func__ << ": pid=" << in_pid << ", im_flag=" << in_im_flag;
+ndk::ScopedAStatus Performance::setImFlag(const std::string& pid, const std::string& im_flag) {
+    LOG(INFO) << __func__ << ": pid=" << pid << ", im_flag=" << im_flag;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setProcessReclaim(const std::string& in_info,
-                                                  int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": info=" << in_info;
+ndk::ScopedAStatus Performance::setProcessReclaim(const std::string& info, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": info=" << info;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setSchedAssistImptTask(const std::string& in_impt_info) {
-    LOG(INFO) << __func__ << ": impt_info=" << in_impt_info;
+ndk::ScopedAStatus Performance::setSchedAssistImptTask(const std::string& impt_info) {
+    LOG(INFO) << __func__ << ": impt_info=" << impt_info;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setSchedAssistScene(const std::string& in_scene_id) {
-    LOG(INFO) << __func__ << ": scene_id=" << in_scene_id;
+ndk::ScopedAStatus Performance::setSchedAssistScene(const std::string& scene_id) {
+    LOG(INFO) << __func__ << ": scene_id=" << scene_id;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setSlideboost(const std::string& in_boost) {
-    LOG(INFO) << __func__ << ": boost=" << in_boost;
+ndk::ScopedAStatus Performance::setSlideboost(const std::string& boost) {
+    LOG(INFO) << __func__ << ": boost=" << boost;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setTpdID(const std::string& in_param, int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": param=" << in_param;
+ndk::ScopedAStatus Performance::setTpdID(const std::string& param, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": param=" << param;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setTpdSerialParams(const std::string& in_params,
+ndk::ScopedAStatus Performance::setTpdSerialParams(const std::string& params,
                                                    int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": params=" << in_params;
+    LOG(INFO) << __func__ << ": params=" << params;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::setWakeSeedThread(const std::string& in_tid, bool in_identify_type,
-                                                  bool in_inUid, int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": tid=" << in_tid << ", identify_type=" << in_identify_type
-              << ", inUid=" << in_inUid;
+ndk::ScopedAStatus Performance::setWakeSeedThread(const std::string& tid, bool identify_type,
+                                                  bool inUid, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": tid=" << tid << ", identify_type=" << identify_type
+              << ", inUid=" << inUid;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeClmEnable(const std::string& in_buffer) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+ndk::ScopedAStatus Performance::writeClmEnable(const std::string& buffer) {
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeClmHighLoadAll(const std::string& in_buffer) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+ndk::ScopedAStatus Performance::writeClmHighLoadAll(const std::string& buffer) {
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeClmHighLoadGrp(const std::string& in_buffer) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+ndk::ScopedAStatus Performance::writeClmHighLoadGrp(const std::string& buffer) {
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeClmLowLoadGrp(const std::string& in_buffer) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+ndk::ScopedAStatus Performance::writeClmLowLoadGrp(const std::string& buffer) {
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeDBacktrace(const std::string& in_buffer) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+ndk::ScopedAStatus Performance::writeDBacktrace(const std::string& buffer) {
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeFgFreqsThreshold(const std::string& in_buffer) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+ndk::ScopedAStatus Performance::writeFgFreqsThreshold(const std::string& buffer) {
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeIOBacktrace(const std::string& in_buffer) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+ndk::ScopedAStatus Performance::writeIOBacktrace(const std::string& buffer) {
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeJankTaskTrackEnable(bool in_enable) {
-    LOG(INFO) << __func__ << ": enable=" << in_enable;
+ndk::ScopedAStatus Performance::writeJankTaskTrackEnable(bool enable) {
+    LOG(INFO) << __func__ << ": enable=" << enable;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeKmallocDebugCreate(int32_t in_kcreate, int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": kcreate=" << in_kcreate;
+ndk::ScopedAStatus Performance::writeKmallocDebugCreate(int32_t kcreate, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": kcreate=" << kcreate;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeKmallocDebugCreateWithType(const std::string& in_type,
+ndk::ScopedAStatus Performance::writeKmallocDebugCreateWithType(const std::string& type,
                                                                 int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": type=" << in_type;
+    LOG(INFO) << __func__ << ": type=" << type;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeMemMonitor(const std::string& in_buffer,
-                                                int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+ndk::ScopedAStatus Performance::writeMemMonitor(const std::string& buffer, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeMemleakDetectThread(int32_t in_memdect,
-                                                         int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": memdect=" << in_memdect;
+ndk::ScopedAStatus Performance::writeMemleakDetectThread(int32_t memdect, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": memdect=" << memdect;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeMonitorStatus(const std::string& in_buffer,
+ndk::ScopedAStatus Performance::writeMonitorStatus(const std::string& buffer,
                                                    int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeNandswapProc(const std::string& in_inProc,
-                                                  const std::string& in_cmd,
+ndk::ScopedAStatus Performance::writeNandswapProc(const std::string& inProc, const std::string& cmd,
                                                   int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": inProc=" << in_inProc << ", cmd=" << in_cmd;
+    LOG(INFO) << __func__ << ": inProc=" << inProc << ", cmd=" << cmd;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeOplusReserve3(int32_t in_offset, int32_t in_len,
-                                                   const std::string& in_info,
-                                                   int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": offset=" << in_offset << ", len=" << in_len << ", info=" << in_info;
+ndk::ScopedAStatus Performance::writeOplusReserve3(int32_t offset, int32_t len,
+                                                   const std::string& info, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": offset=" << offset << ", len=" << len << ", info=" << info;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writePidsSet(const std::string& in_buffer) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+ndk::ScopedAStatus Performance::writePidsSet(const std::string& buffer) {
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeSchedInfoThreshold(const std::string& in_buffer) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+ndk::ScopedAStatus Performance::writeSchedInfoThreshold(const std::string& buffer) {
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeStorageFeature(const std::string& in_name,
-                                                    const std::string& in_addr,
-                                                    const std::string& in_isMulti,
-                                                    const std::string& in_cmd,
-                                                    int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": name=" << in_name << ", addr=" << in_addr
-              << ", isMulti=" << in_isMulti << ", cmd=" << in_cmd;
+ndk::ScopedAStatus Performance::writeStorageFeature(const std::string& name,
+                                                    const std::string& addr,
+                                                    const std::string& isMulti,
+                                                    const std::string& cmd, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": name=" << name << ", addr=" << addr << ", isMulti=" << isMulti
+              << ", cmd=" << cmd;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeTaskSchedInfo(const std::string& in_buffer) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+ndk::ScopedAStatus Performance::writeTaskSchedInfo(const std::string& buffer) {
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeTidsSet(const std::string& in_buffer) {
-    LOG(INFO) << __func__ << ": buffer=" << in_buffer;
+ndk::ScopedAStatus Performance::writeTidsSet(const std::string& buffer) {
+    LOG(INFO) << __func__ << ": buffer=" << buffer;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeTmemoryCapacity(int32_t in_param, int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": param=" << in_param;
+ndk::ScopedAStatus Performance::writeTmemoryCapacity(int32_t param, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": param=" << param;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeTmemoryFlushBusy(int32_t in_param, int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": param=" << in_param;
+ndk::ScopedAStatus Performance::writeTmemoryFlushBusy(int32_t param, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": param=" << param;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeTmemoryFlushIdle(int32_t in_param, int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": param=" << in_param;
+ndk::ScopedAStatus Performance::writeTmemoryFlushIdle(int32_t param, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": param=" << param;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeTmemoryHighWaterRatio(int32_t in_param,
-                                                           int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": param=" << in_param;
+ndk::ScopedAStatus Performance::writeTmemoryHighWaterRatio(int32_t param, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": param=" << param;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeTmemoryMemory(const std::string& in_str,
-                                                   int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": str=" << in_str;
+ndk::ScopedAStatus Performance::writeTmemoryMemory(const std::string& str, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": str=" << str;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeTmemorySwitch(int32_t in_param, int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": param=" << in_param;
+ndk::ScopedAStatus Performance::writeTmemorySwitch(int32_t param, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": param=" << param;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeUxState(const std::string& in_ux_state,
-                                             const std::string& in_pid, const std::string& in_tid,
-                                             int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": ux_state=" << in_ux_state << ", pid=" << in_pid
-              << ", tid=" << in_tid;
+ndk::ScopedAStatus Performance::writeUxState(const std::string& ux_state, const std::string& pid,
+                                             const std::string& tid, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": ux_state=" << ux_state << ", pid=" << pid << ", tid=" << tid;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Performance::writeVaFeature(int32_t in_vafeature, int32_t* _aidl_return) {
-    LOG(INFO) << __func__ << ": vafeature=" << in_vafeature;
+ndk::ScopedAStatus Performance::writeVaFeature(int32_t vafeature, int32_t* _aidl_return) {
+    LOG(INFO) << __func__ << ": vafeature=" << vafeature;
     *_aidl_return = 0;
     return ndk::ScopedAStatus::ok();
 }

@@ -7,199 +7,197 @@
 
 namespace aidl::vendor::oplus::hardware::radio {
 
-OplusRadioResponse::OplusRadioResponse(int32_t& in_result) : in_result_(in_result) {}
+OplusRadioResponse::OplusRadioResponse(int32_t& result) : result_(result) {}
 
 ndk::ScopedAStatus OplusRadioResponse::setCallbackExtResponse() {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus OplusRadioResponse::setNrModeResponse(const OplusRadioResponseInfo& in_info,
-                                                         int32_t in_result) {
-    in_result_ = in_result;
+ndk::ScopedAStatus OplusRadioResponse::setNrModeResponse(const OplusRadioResponseInfo& info,
+                                                         int32_t result) {
+    result_ = result;
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus OplusRadioResponse::getNrModeResponse(const OplusRadioResponseInfo& in_info,
-                                                         int32_t in_result) {
+ndk::ScopedAStatus OplusRadioResponse::getNrModeResponse(const OplusRadioResponseInfo& info,
+                                                         int32_t result) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::setModemErrorFatalResponse(
-        const OplusRadioResponseInfo& in_info) {
+        const OplusRadioResponseInfo& info) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus OplusRadioResponse::setVoNrEnabledResponse(
-        const OplusRadioResponseInfo& in_info) {
+ndk::ScopedAStatus OplusRadioResponse::setVoNrEnabledResponse(const OplusRadioResponseInfo& info) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus OplusRadioResponse::getVoNrEnabledResponse(const OplusRadioResponseInfo& in_info,
-                                                              bool in_result) {
+ndk::ScopedAStatus OplusRadioResponse::getVoNrEnabledResponse(const OplusRadioResponseInfo& info,
+                                                              bool result) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus OplusRadioResponse::setEccListResponse(const OplusRadioResponseInfo& in_info,
-                                                          const std::string& in_result) {
+ndk::ScopedAStatus OplusRadioResponse::setEccListResponse(const OplusRadioResponseInfo& info,
+                                                          const std::string& result) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::SetHsrModeForListeningResponse(
-        const OplusRadioResponseInfo& in_info, int32_t in_result) {
+        const OplusRadioResponseInfo& info, int32_t result) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::SetLogIdForListeningResponse(
-        const OplusRadioResponseInfo& in_info, int32_t in_result) {
+        const OplusRadioResponseInfo& info, int32_t result) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus OplusRadioResponse::setSlowStartResponse(const OplusRadioResponseInfo& in_info) {
+ndk::ScopedAStatus OplusRadioResponse::setSlowStartResponse(const OplusRadioResponseInfo& info) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus OplusRadioResponse::setCtVolteModeResponse(
-        const OplusRadioResponseInfo& in_info) {
+ndk::ScopedAStatus OplusRadioResponse::setCtVolteModeResponse(const OplusRadioResponseInfo& info) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus OplusRadioResponse::simlockReqResponse(const OplusRadioResponseInfo& in_info,
-                                                          const std::vector<uint8_t>& in_result) {
+ndk::ScopedAStatus OplusRadioResponse::simlockReqResponse(const OplusRadioResponseInfo& info,
+                                                          const std::vector<uint8_t>& result) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::updateRegionlockBlobResponse(
-        const OplusRadioResponseInfo& in_info, const std::vector<uint8_t>& in_status) {
+        const OplusRadioResponseInfo& info, const std::vector<uint8_t>& status) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::updateRegionlockStatusResponse(
-        const OplusRadioResponseInfo& in_info, const std::vector<uint8_t>& in_status) {
+        const OplusRadioResponseInfo& info, const std::vector<uint8_t>& status) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getRegionlockStatusResponse(
-        const OplusRadioResponseInfo& in_info, const std::vector<uint8_t>& in_status) {
+        const OplusRadioResponseInfo& info, const std::vector<uint8_t>& status) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::setNwCongestionCfgResponse(
-        const OplusRadioResponseInfo& in_info, const std::vector<uint8_t>& in_status) {
+        const OplusRadioResponseInfo& info, const std::vector<uint8_t>& status) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::setModemEsimStatusResponse(
-        const OplusRadioResponseInfo& in_info) {
+        const OplusRadioResponseInfo& info) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getSimlockOperatorIdResponse(
-        const OplusRadioResponseInfo& in_info, int32_t in_result) {
+        const OplusRadioResponseInfo& info, int32_t result) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getSimlockFeestateResponse(
-        const OplusRadioResponseInfo& in_info, int32_t in_result) {
+        const OplusRadioResponseInfo& info, int32_t result) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::setSimlockFeestateResponse(
-        const OplusRadioResponseInfo& in_info) {
+        const OplusRadioResponseInfo& info) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getSimlockUnlockStateResponse(
-        const OplusRadioResponseInfo& in_info, int32_t in_result) {
+        const OplusRadioResponseInfo& info, int32_t result) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::setSimlockFactoryResetTimeResponse(
-        const OplusRadioResponseInfo& in_info) {
+        const OplusRadioResponseInfo& info) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getSimlockFactoryResetTimeResponse(
-        const OplusRadioResponseInfo& in_info, const std::vector<uint8_t>& in_status) {
+        const OplusRadioResponseInfo& info, const std::vector<uint8_t>& status) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::setSimlockActivateTimeResponse(
-        const OplusRadioResponseInfo& in_info) {
+        const OplusRadioResponseInfo& info) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getSimlockActivateTimeResponse(
-        const OplusRadioResponseInfo& in_info, const std::vector<uint8_t>& in_status) {
+        const OplusRadioResponseInfo& info, const std::vector<uint8_t>& status) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getSimlockFeatureResponse(
-        const OplusRadioResponseInfo& in_info, const std::vector<uint8_t>& in_feature) {
+        const OplusRadioResponseInfo& info, const std::vector<uint8_t>& feature) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getSimlockLockMarkResponse(
-        const OplusRadioResponseInfo& in_info, const std::vector<uint8_t>& in_lockmark) {
+        const OplusRadioResponseInfo& info, const std::vector<uint8_t>& lockmark) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getSimlockDeviceLockStateResponse(
-        const OplusRadioResponseInfo& in_info, int32_t in_lockstate) {
+        const OplusRadioResponseInfo& info, int32_t lockstate) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getSimlockDeviceLockinfoResponse(
-        const OplusRadioResponseInfo& in_info, const std::vector<uint8_t>& in_lockinfo) {
+        const OplusRadioResponseInfo& info, const std::vector<uint8_t>& lockinfo) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getSimlockVersionInfoResponse(
-        const OplusRadioResponseInfo& in_info, const std::vector<uint8_t>& in_version) {
+        const OplusRadioResponseInfo& info, const std::vector<uint8_t>& version) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getSimlockMaxRetryResponse(
-        const OplusRadioResponseInfo& in_info, int32_t in_result) {
+        const OplusRadioResponseInfo& info, int32_t result) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getSimlockCurrentRetryResponse(
-        const OplusRadioResponseInfo& in_info, int32_t in_result) {
+        const OplusRadioResponseInfo& info, int32_t result) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::setPsDetachAttachActionResponse(
-        const OplusRadioResponseInfo& in_info) {
+        const OplusRadioResponseInfo& info) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus OplusRadioResponse::unlockRegionlockResponse(
-        const OplusRadioResponseInfo& in_info, int32_t in_result) {
+ndk::ScopedAStatus OplusRadioResponse::unlockRegionlockResponse(const OplusRadioResponseInfo& info,
+                                                                int32_t result) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::updateRegionlockKeyResponse(
-        const OplusRadioResponseInfo& in_info, int32_t in_result) {
+        const OplusRadioResponseInfo& info, int32_t result) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getRegionlockSettingDataResponse(
-        const OplusRadioResponseInfo& in_info, const std::vector<uint8_t>& in_result) {
+        const OplusRadioResponseInfo& info, const std::vector<uint8_t>& result) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::setRegionlockSettingDataResponse(
-        const OplusRadioResponseInfo& in_info, int32_t in_result) {
+        const OplusRadioResponseInfo& info, int32_t result) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::setSimlockOfflineLockResponse(
-        const OplusRadioResponseInfo& in_info) {
+        const OplusRadioResponseInfo& info) {
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus OplusRadioResponse::getSimlockOfflineLockResponse(
-        const OplusRadioResponseInfo& in_info, const std::vector<int32_t>& in_retryCount) {
+        const OplusRadioResponseInfo& info, const std::vector<int32_t>& retryCount) {
     return ndk::ScopedAStatus::ok();
 }
 
