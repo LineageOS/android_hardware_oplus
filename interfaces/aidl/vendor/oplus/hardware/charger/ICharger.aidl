@@ -135,4 +135,6 @@ interface ICharger {
     int setChgRusConfig(String data);
     String getPsyBatterySN();
     String getBattGaugeInfo();
+    int setChgConfig(int flag, String extra, int callname);
+    String getChgConfig(int flag, String extra, int callname);
 }
