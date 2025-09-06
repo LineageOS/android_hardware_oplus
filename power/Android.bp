@@ -5,7 +5,6 @@
 
 cc_library_static {
     name: "power-ext-oplus",
-    defaults: ["android.hardware.power-ndk_shared"],
     vendor: true,
     srcs: [
         "power-mode.cpp",
@@ -17,7 +16,10 @@ cc_library_static {
     header_libs: [
         "vendor.oplus.hardware.touch-headers",
     ],
-    shared_libs: [
+    shared_libs: select(soong_config_variable("power_libperfmgr", "mode_extension_lib"), {
+        any: ["android.hardware.power-V6-ndk"],
+        default: ["android.hardware.power-V5-ndk"],
+    }) + [
         "libbase",
     ],
     whole_static_libs: [
