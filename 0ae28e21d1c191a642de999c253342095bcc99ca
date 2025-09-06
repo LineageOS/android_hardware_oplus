@@ -16,6 +16,23 @@
       "message": "rename existing type to match oplus.",
       "revId": "0ae28e21d1c191a642de999c253342095bcc99ca",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7dd264b_7d39601c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-09-06T19:10:08Z",
+      "side": 1,
+      "message": "why abandon? just amend this change...",
+      "revId": "0ae28e21d1c191a642de999c253342095bcc99ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
