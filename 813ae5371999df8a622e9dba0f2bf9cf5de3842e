@@ -16,6 +16,23 @@
       "message": "Alternatively to https://review.lineageos.org/c/LineageOS/android_vendor_qcom_opensource_power/+/450294",
       "revId": "813ae5371999df8a622e9dba0f2bf9cf5de3842e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb9b8e67_68942b98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-09-06T23:50:29Z",
+      "side": 1,
+      "message": "Pfff... now I remember that this will break for libperfmgr usage, since that one links with the latest.",
+      "revId": "813ae5371999df8a622e9dba0f2bf9cf5de3842e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
