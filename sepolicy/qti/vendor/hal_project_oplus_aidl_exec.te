@@ -1,0 +1,2 @@
+type hal_project_oplus_aidl_exec, domain;
+binder_use(hal_project_oplus_aidl_exec)
