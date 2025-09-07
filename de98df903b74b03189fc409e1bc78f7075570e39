@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "212f2e65_8f4be863",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-09-07T10:08:58Z",
+      "side": 1,
+      "message": "you were supposed to rename existing hw/oplus type to match stock rom.",
+      "revId": "de98df903b74b03189fc409e1bc78f7075570e39",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
