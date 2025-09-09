@@ -52,6 +52,24 @@
       "parentUuid": "2e152247_6ada7c41",
       "revId": "6ccd31b20d2d5b74e6b06cd4dcf29fb15283b843",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1098a98c_335e161f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32811
+      },
+      "writtenOn": "2025-09-09T13:51:03Z",
+      "side": 1,
+      "message": "02-03 14:23:57.108  1873  1873 I [FP_HAL][FingerprintConfig]: prop:persist.vendor.fingerprint.optical.sensorlocation, value:620::2529\n09-09 19:02:08.771     1     1 I init    : processing action (persist.vendor.fingerprint.optical.sensorlocation\u003d*) from (/odm/etc/init/init.oplus.rc:38)\n\n\nOP5D3FL1:/ $ getprop persist.vendor.fingerprint.optical.sensorlocation\n540::2192\n\nIt did work actually, i\u0027ll try building enforcing now and see if there\u0027s any denials",
+      "parentUuid": "ba7a6897_1fdd7310",
+      "revId": "6ccd31b20d2d5b74e6b06cd4dcf29fb15283b843",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
