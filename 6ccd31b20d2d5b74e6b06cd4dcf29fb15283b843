@@ -16,6 +16,24 @@
       "message": "is it possible to add an on property trigger to override it through init rc?",
       "revId": "6ccd31b20d2d5b74e6b06cd4dcf29fb15283b843",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e152247_6ada7c41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-09-09T08:48:22Z",
+      "side": 1,
+      "message": "Does that work on a persist prop?",
+      "parentUuid": "0cf37aaa_8881e99d",
+      "revId": "6ccd31b20d2d5b74e6b06cd4dcf29fb15283b843",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
