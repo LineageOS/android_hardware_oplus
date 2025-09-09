@@ -70,6 +70,24 @@
       "parentUuid": "ba7a6897_1fdd7310",
       "revId": "6ccd31b20d2d5b74e6b06cd4dcf29fb15283b843",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00fe7749_472c6337",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-09-09T13:53:42Z",
+      "side": 1,
+      "message": "it\u0027d be better to hardcode the wrong value instead of a wildcard, to avoid potential assignment dead loop",
+      "parentUuid": "1098a98c_335e161f",
+      "revId": "6ccd31b20d2d5b74e6b06cd4dcf29fb15283b843",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
