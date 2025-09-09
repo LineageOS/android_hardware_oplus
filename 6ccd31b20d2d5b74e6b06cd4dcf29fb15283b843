@@ -159,6 +159,24 @@
       "message": "I wonder if it works during the first boot",
       "revId": "6ccd31b20d2d5b74e6b06cd4dcf29fb15283b843",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "085c2132_0bea9b91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32811
+      },
+      "writtenOn": "2025-09-09T15:36:18Z",
+      "side": 1,
+      "message": "Is fine after format/clean flash",
+      "parentUuid": "ee045204_814585ad",
+      "revId": "6ccd31b20d2d5b74e6b06cd4dcf29fb15283b843",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
