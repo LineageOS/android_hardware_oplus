@@ -13,4 +13,8 @@ cc_library_static {
     header_libs: [
         "generated_kernel_headers",
     ],
+    cflags: select(soong_config_variable("RETURN_DIMLAYER_ZORDER_Z", "DIMLAYER_ZORDER_Z"), {
+        "true": ["-DDIMLAYER_ZORDER_Z=true"],
+        default: [],
+    }),
 }
