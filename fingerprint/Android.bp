@@ -13,4 +13,8 @@ cc_library_static {
     header_libs: [
         "generated_kernel_headers",
     ],
+    cflags: select(soong_config_variable("OPLUS_LINEAGE_UDFPS_EXT", "SKIP_OPLUS_DIMLAYER_ZORDER"), {
+        "true": ["-DSKIP_OPLUS_DIMLAYER_ZORDER=true"],
+        default: [],
+    }),
 }

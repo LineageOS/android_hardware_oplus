@@ -14,5 +14,6 @@
 | OPLUS_LINEAGE_TOUCH_HAL | ENABLE_TG | Enable TouchscreenGesture feature | true |
 | OPLUS_LINEAGE_TOUCH_HAL | INCLUDE_DIR | Device specific include dir path | |
 | OPLUS_LINEAGE_TOUCH_HAL | USE_OPLUSTOUCH | Use and interface with stock OplusTouch | false |
+| OPLUS_LINEAGE_UDFPS_EXT | SKIP_OPLUS_DIMLAYER_ZORDER | Return Dimlayer Zorder as z | false |
 | OPLUS_LINEAGE_VIBRATOR_HAL | INCLUDE_DIR | Device specific include dir path | |
 | OPLUS_LINEAGE_VIBRATOR_HAL | USE_EFFECT_STREAM | Enable effect stream feature | false |
