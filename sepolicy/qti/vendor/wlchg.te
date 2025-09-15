@@ -1,0 +1,6 @@
+type wlchg, domain;
+
+type wlchg_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(wlchg)
+
+allow wlchg oplus_wls_device:chr_file rw_file_perms;
