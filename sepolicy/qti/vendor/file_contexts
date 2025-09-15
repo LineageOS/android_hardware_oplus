@@ -16,7 +16,9 @@
 
 # Charging
 /dev/oplus_chg                                                               u:object_r:oplus_charger_device:s0
+/dev/wls_dev                                                                 u:object_r:oplus_wls_device:s0
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.charger-V[0-9]+-service    u:object_r:hal_oplus_charger_aidl_exec:s0
+/(odm|vendor/odm)/bin/hw/wlschgd                                             u:object_r:wlchg_exec:s0
 /vendor/bin/hw/vendor\.lineage\.powershare-service\.oplus                    u:object_r:hal_lineage_powershare_default_exec:s0
 
 # Communication Center
