@@ -6,6 +6,7 @@ type vendor_camera_turbo_device, dev_type;
 
 # Charging
 type oplus_charger_device, dev_type;
+type oplus_wls_device, dev_type;
 
 # eSIM
 type esim_det_device, dev_type;
