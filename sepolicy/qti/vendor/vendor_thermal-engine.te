@@ -1,1 +1,2 @@
 r_dir_file(vendor_thermal-engine, vendor_sysfs_usb_supply)
+set_prop(vendor_thermal-engine, vendor_thermal_engine_prop)
