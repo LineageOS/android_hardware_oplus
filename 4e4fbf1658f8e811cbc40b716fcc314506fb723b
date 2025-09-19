@@ -16,6 +16,24 @@
       "message": "it is oplus specific?",
       "revId": "4e4fbf1658f8e811cbc40b716fcc314506fb723b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb456fd4_0af40e11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-09-19T13:14:33Z",
+      "side": 1,
+      "message": "I think it is. Didn\u0027t find it from other brands such as https://dumps.tadiphone.dev/dumps/nothing/metroid/-/blob/qssi_64-user-15-AQ3A.250226.002-2507191646-release-keys/vendor/etc/init/init_thermal-engine-v2.rc",
+      "parentUuid": "255b3f08_233d9ddc",
+      "revId": "4e4fbf1658f8e811cbc40b716fcc314506fb723b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
