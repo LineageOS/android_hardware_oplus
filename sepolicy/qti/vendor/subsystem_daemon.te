@@ -1,0 +1,22 @@
+type subsystem_daemon, domain;
+binder_use(subsystem_daemon)
+
+hal_server_domain(subsystem_daemon, vendor_hal_subsys)
+
+type subsystem_daemon_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(subsystem_daemon)
+
+binder_call(vendor_hal_subsys_client, vendor_hal_subsys_server)
+binder_call(vendor_hal_subsys_server, vendor_hal_subsys_client)
+
+hal_attribute_service(vendor_hal_subsys, hal_subsys_service)
+
+allow subsystem_daemon block_device:dir r_dir_perms;
+allow subsystem_daemon self:qipcrtr_socket create_socket_perms_no_ioctl;
+allow subsystem_daemon vendor_reserve_partition:blk_file r_file_perms;
+allow subsystem_daemon vendor_sysfs_soc_sensitive:file r_file_perms;
+
+set_prop(subsystem_daemon, vendor_nw_exported_system_prop)
+set_prop(subsystem_daemon, vendor_radio_prop)
+
+rw_dir_file(subsystem_daemon, vendor_olog_file)

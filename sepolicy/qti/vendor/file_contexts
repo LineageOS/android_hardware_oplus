@@ -87,6 +87,9 @@
 /dev/block/platform/soc/1d84000\.ufshc/by-name/nonmodemst2    u:object_r:nvram_device:s0
 /dev/socket/nvram                                             u:object_r:nvram_socket:s0
 
+# Olog
+/data/vendor/olog(/.*)?    u:object_r:vendor_olog_file:s0
+
 # OSENSE
 /vendor/bin/hw/vendor\.oplus\.hardware\.osense\.client-service    u:object_r:hal_oplus_osense_aidl_exec:s0
 
@@ -114,7 +117,8 @@
 /(odm|vendor/odm)/bin/hw/vendor.oplus.hardware.stability.oplus_project-V1-service    u:object_r:hal_oplus_project_aidl_exec:s0
 
 # Radio
-/vendor/bin/nrmodeswitcher    u:object_r:vendor_nrmodeswitcher_exec:s0
+/(odm|vendor/odm)/bin/hw/subsys_daemon    u:object_r:subsystem_daemon_exec:s0
+/vendor/bin/nrmodeswitcher                u:object_r:vendor_nrmodeswitcher_exec:s0
 
 # RMT
 /dev/block/platform/soc/1d84000\.ufshc/by-name/oem_dycnvbk          u:object_r:vendor_modem_efs_partition_device:s0
