@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17c064b1_d0de7042",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-09-19T13:58:54Z",
+      "side": 1,
+      "message": "it wants to write dmesg\n```\n[    4.487497] type\u003d1400 audit(1758283865.770:61): avc:  denied  { getattr } for  comm\u003d\"wlschgd\" path\u003d\"/dev/kmsg\" dev\u003d\"tmpfs\" ino\u003d5 scontext\u003du:r:wlchg:s0 tcontext\u003du:object_r:kmsg_device:s0 tclass\u003dchr_file permissive\u003d0\n[    4.487539] type\u003d1400 audit(1758283865.770:62): avc:  denied  { write } for  comm\u003d\"wlschgd\" name\u003d\"kmsg\" dev\u003d\"tmpfs\" ino\u003d5 scontext\u003du:r:wlchg:s0 tcontext\u003du:object_r:kmsg_device:s0 tclass\u003dchr_file permissive\u003d0\n```",
+      "revId": "ecfd79c6e785f07fc7698917d6771747433340f5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
