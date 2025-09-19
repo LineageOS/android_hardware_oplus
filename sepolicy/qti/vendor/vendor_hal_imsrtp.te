@@ -1,5 +1,5 @@
 add_service(vendor_hal_imsrtp, hal_imsrtp_service)
 
-allow vendor_hal_imsrtp hal_subsys_service:service_manager find;
+hal_client_domain(vendor_hal_imsrtp, vendor_hal_subsys)
 
 get_prop(vendor_hal_imsrtp, boot_status_prop)
