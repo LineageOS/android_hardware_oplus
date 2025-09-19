@@ -1,0 +1,1 @@
+allow init vendor_reserve_partition:{ blk_file lnk_file } relabelto;
