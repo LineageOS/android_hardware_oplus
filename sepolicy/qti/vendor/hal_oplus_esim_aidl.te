@@ -11,6 +11,7 @@ allow hal_oplus_esim_aidl esim_en_device:chr_file rw_file_perms;
 allow hal_oplus_esim_aidl esim_gpio_device:chr_file rw_file_perms;
 
 allow hal_oplus_esim_aidl mnt_vendor_file:dir search;
+r_dir_file(hal_oplus_esim_aidl, oplus_reserve_file)
 rw_dir_file(hal_oplus_esim_aidl, oplus_reserve_radio_file)
 
 allow hal_oplus_esim_aidl block_device:dir search;
