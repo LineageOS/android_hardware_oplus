@@ -89,6 +89,10 @@
 /dev/block/platform/soc/1d84000\.ufshc/by-name/nonmodemst2    u:object_r:nvram_device:s0
 /dev/socket/nvram                                             u:object_r:nvram_socket:s0
 
+# Olog
+/data/vendor/olog(/.*)?                       u:object_r:vendor_olog_file:s0
+/(odm|vendor/odm)/bin/vendor\.autochmod\.sh   u:object_r:vendor_autochmod_exec:s0
+
 # OSENSE
 /vendor/bin/hw/vendor\.oplus\.hardware\.osense\.client-service    u:object_r:hal_oplus_osense_aidl_exec:s0
 

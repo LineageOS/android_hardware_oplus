@@ -7,3 +7,4 @@ allow vendor_qti_init_shell vendor_qmcs_file:dir r_file_perms;
 allow vendor_qti_init_shell vendor_spunvm_file:dir r_file_perms;
 
 create_dir_file(vendor_qti_init_shell, mnt_vendor_file)
+rw_dir_file(vendor_qti_init_shell, vendor_olog_file)
