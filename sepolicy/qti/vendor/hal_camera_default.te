@@ -16,6 +16,7 @@ allow hal_camera_default self:capability ipc_lock;
 allow hal_camera_default system_server:binder call;
 
 allow hal_camera_default hal_oplus_olc_aidl_service:service_manager find;
+allow hal_camera_default osense_service:service_manager find;
 
 allow hal_camera_default vendor_hal_orms_hwservice:hwservice_manager find;
 allow hal_camera_default vendor_hal_osense_hwservice:hwservice_manager find;
