@@ -29,5 +29,6 @@ rw_dir_file(oplus_touchdaemon, proc_horae)
 rw_dir_file(oplus_touchdaemon, vendor_data_file)
 rw_dir_file(oplus_touchdaemon, vendor_proc_display)
 
+set_prop(oplus_touchdaemon, ctl_stop_prop)
 set_prop(oplus_touchdaemon, system_oplus_touch_prop)
 set_prop(oplus_touchdaemon, vendor_oplus_touch_prop)
