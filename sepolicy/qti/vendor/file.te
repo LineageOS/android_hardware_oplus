@@ -36,6 +36,9 @@ type vendor_proc_mm_fb, fs_type, proc_type;
 # NVRAM
 type nvram_socket, file_type;
 
+# Olog
+type vendor_olog_file, file_type, data_file_type;
+
 # Performance
 type vendor_proc_oplus_ctp, fs_type, proc_type;
 type vendor_proc_oplus_scheduler, fs_type, proc_type;

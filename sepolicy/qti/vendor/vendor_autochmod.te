@@ -1,0 +1,6 @@
+type vendor_autochmod, domain;
+type vendor_autochmod_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(vendor_autochmod)
+
+allow vendor_autochmod vendor_toolbox_exec:file rx_file_perms;

@@ -1,0 +1,6 @@
+type subsystem_daemon, domain;
+type subsystem_daemon_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(subsystem_daemon)
+
+rw_dir_file(subsystem_daemon, vendor_olog_file)
