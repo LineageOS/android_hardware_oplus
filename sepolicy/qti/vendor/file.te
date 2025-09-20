@@ -45,19 +45,28 @@ type vendor_sysfs_cb, fs_type, sysfs_type;
 type vendor_proc_oplus_pogo_keyboard, fs_type, proc_type;
 
 # Reserve
-type oplus_reserve_connectivity_file, file_type;
 type oplus_reserve_connectivity_felicalock, file_type;
-type oplus_reserve_file, file_type;
+type oplus_reserve_connectivity_file, file_type;
+type oplus_reserve_file, file_type, oplus_reserve_file_type;
 type oplus_reserve_media_camera, file_type;
 type oplus_reserve_media_dropbox, file_type;
 type oplus_reserve_media_engineermode, file_type;
 type oplus_reserve_media_file, file_type;
 type oplus_reserve_media_log, file_type;
-type oplus_reserve_radio_file, file_type;
+type oplus_reserve_radio_file, file_type, oplus_reserve_radio_file_type;
 type oplus_reserve_system_config, file_type;
 type oplus_reserve_system_file, file_type;
 type oplus_reserve_system_flag, file_type;
 type oplus_reserve_system_ssv, file_type;
+type oppo_reserve_file, file_type, oplus_reserve_file_type;
+type oppo_reserve_media_camera, file_type;
+type oppo_reserve_media_coloros, file_type;
+type oppo_reserve_media_dropbox, file_type;
+type oppo_reserve_media_file, file_type;
+type oppo_reserve_media_log, file_type;
+type oppo_reserve_radio_file, file_type, oplus_reserve_radio_file_type;
+type oppo_reserve_system_config, file_type;
+type oppo_reserve_system_file, file_type;
 
 # Secure
 type vendor_proc_oppo_secure_common_file, fs_type, proc_type;

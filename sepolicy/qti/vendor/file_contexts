@@ -133,6 +133,7 @@
 /mnt/vendor/oplusreserve/connectivity/nfclock(/.*)?                 u:object_r:oplus_reserve_connectivity_felicalock:s0
 /mnt/vendor/oplusreserve/media(/.*)?                                u:object_r:oplus_reserve_media_file:s0
 /mnt/vendor/oplusreserve/media/Camera(/.*)?                         u:object_r:oplus_reserve_media_camera:s0
+/mnt/vendor/oplusreserve/media/ColorOS(/.*)?                        u:object_r:oppo_reserve_media_coloros:s0
 /mnt/vendor/oplusreserve/media/dropbox(/.*)?                        u:object_r:oplus_reserve_media_dropbox:s0
 /mnt/vendor/oplusreserve/media/engineermode(/.*)?                   u:object_r:oplus_reserve_media_engineermode:s0
 /mnt/vendor/oplusreserve/media/log(/.*)?                            u:object_r:oplus_reserve_media_log:s0
