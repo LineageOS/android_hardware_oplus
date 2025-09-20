@@ -193,5 +193,7 @@
 /vendor/bin/wvmkiller    u:object_r:vendor_wvmkiller_exec:s0
 
 # Wlchgmonitor
+/(odm|vendor/odm)/bin/hw/wlschgd      u:object_r:wlchgmonitor_exec:s0
 /(odm|vendor/odm)/bin/wlchgmonitor    u:object_r:wlchgmonitor_exec:s0
 /dev/wlchg                            u:object_r:wlchg_device:s0
+/dev/wls_dev                          u:object_r:wlchg_device:s0
