@@ -16,6 +16,24 @@
       "message": "we\u0027d use the existing one https://github.com/LineageOS/android_hardware_oplus/blob/lineage-22.2/sepolicy/qti/vendor/wlchgmonitor.te",
       "revId": "70cda85f9bcf67657998ce603392f4e00fe453d2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eff1c59_94a6ef64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-09-20T07:21:49Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/c/LineageOS/android_hardware_oplus/+/452272",
+      "parentUuid": "04b8489b_fdaed419",
+      "revId": "70cda85f9bcf67657998ce603392f4e00fe453d2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
