@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="pen_attached">Caneta anexada</string>
+    <string name="tap_to_connect">Toque para conectar</string>
+</resources>
