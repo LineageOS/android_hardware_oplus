@@ -1,2 +1,2 @@
 user=_app seinfo=platform name=org.ifaa.aidl.manager domain=ifaa_app type=app_data_file levelFrom=user
-user=_app seinfo=platform name=org.lineageos.pen domain=pen_app type=app_data_file levelFrom=user
+user=_app isPrivApp=true seinfo=platform name=org.lineageos.pen domain=pen_app type=app_data_file levelFrom=user
