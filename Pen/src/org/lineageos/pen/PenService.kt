@@ -17,13 +17,23 @@ import android.bluetooth.le.ScanResult
 import android.bluetooth.le.ScanSettings
 import android.content.Context
 import android.content.Intent
+import android.database.ContentObserver
+import android.hardware.input.InputManager
+import android.os.Handler
 import android.os.IBinder
 import android.os.UEventObserver
+import android.provider.Settings
+import android.provider.Settings.System.PEAK_REFRESH_RATE
 import android.util.Log
 
 class PenService : Service() {
     private val bluetoothManager by lazy { getSystemService(BluetoothManager::class.java) }
+    private val inputManager by lazy { getSystemService(InputManager::class.java) }
     private val notificationManager by lazy { getSystemService(NotificationManager::class.java) }
+
+    private val penSupportedRefreshRate by lazy { getString(R.string.config_penSupportedRefreshRate) }
+
+    private val handler by lazy { Handler(mainLooper) }
 
     private val observer = object : UEventObserver() {
         private val lock = Any()
@@ -43,6 +53,30 @@ class PenService : Service() {
         }
     }
 
+    private val inputObserver = object : InputManager.InputDeviceListener {
+        override fun onInputDeviceAdded(deviceId: Int) {
+            overridePeakRefreshRateIfNeeded()
+        }
+
+        override fun onInputDeviceRemoved(deviceId: Int) {
+            overridePeakRefreshRateIfNeeded()
+        }
+
+        override fun onInputDeviceChanged(deviceId: Int) {
+            // Do nothing
+        }
+    }
+
+    private val peakRefreshRateSettingsObserver by lazy {
+        object : ContentObserver(handler) {
+            override fun onChange(selfChange: Boolean) {
+                super.onChange(selfChange)
+
+                overridePeakRefreshRateIfNeeded()
+            }
+        }
+    }
+
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         intent?.getStringExtra(EXTRA_PENCIL_ADDR)?.let {
             bondBtDevice(it)
@@ -56,11 +90,27 @@ class PenService : Service() {
     override fun onCreate() {
         super.onCreate()
 
+        if (!penSupportedRefreshRate.isEmpty()) {
+            contentResolver.registerContentObserver(
+                Settings.System.getUriFor(PEAK_REFRESH_RATE),
+                false,
+                peakRefreshRateSettingsObserver
+            )
+            peakRefreshRateSettingsObserver.onChange(true)
+
+            inputManager.registerInputDeviceListener(inputObserver, handler)
+        }
+
         observer.startObserving("DEVPATH=/devices/virtual/oplus_wireless/pencil")
     }
 
     override fun onDestroy() {
         super.onDestroy()
+
+        if (!penSupportedRefreshRate.isEmpty()) {
+            contentResolver.unregisterContentObserver(peakRefreshRateSettingsObserver)
+            inputManager.unregisterInputDeviceListener(inputObserver)
+        }
 
         observer.stopObserving()
     }
@@ -95,6 +145,21 @@ class PenService : Service() {
                 }
             }
         )
+    }
+
+    private fun overridePeakRefreshRateIfNeeded() {
+        val isPenConnected = inputManager.inputDeviceIds.firstOrNull {
+            val device = inputManager.getInputDevice(it) ?: return@firstOrNull false
+            val deviceId = DeviceId.fromInputDevice(device) ?: return@firstOrNull false
+            return@firstOrNull true
+        } != null
+        val peakRefreshRate = Settings.System.getString(contentResolver, PEAK_REFRESH_RATE)
+
+        if (isPenConnected && peakRefreshRate == "Infinity") {
+            Settings.System.putString(contentResolver, PEAK_REFRESH_RATE, penSupportedRefreshRate)
+        } else if (!isPenConnected && peakRefreshRate == penSupportedRefreshRate) {
+            Settings.System.putString(contentResolver, PEAK_REFRESH_RATE, "Infinity")
+        }
     }
 
     private fun postNotification(pencilAddr: String) {
