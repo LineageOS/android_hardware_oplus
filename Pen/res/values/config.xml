@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Max supported refresh rate when using pen. -->
+    <string name="pen_supported_refresh_rate" translatable="false"></string>
+</resources>
