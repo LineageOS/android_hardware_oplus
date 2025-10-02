@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-#include <errno.h>
-#include <fcntl.h>
-#include <string.h>
-#include <time.h>
-#include <unistd.h>
-#include <linux/input.h>
-#include <linux/uinput.h>
 #include <android/looper.h>
 #include <android/sensor.h>
 #include <cutils/log.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <linux/input.h>
+#include <linux/uinput.h>
+#include <string.h>
+#include <time.h>
+#include <unistd.h>
 
 // Hall-effect sensor type
 #define SENSOR_TYPE 33171002
 
-#define RETRY_LIMIT     120
-#define RETRY_PERIOD    30          // 30 seconds
-#define WARN_PERIOD     (time_t)300 // 5 minutes
+#define RETRY_LIMIT 120
+#define RETRY_PERIOD 30          // 30 seconds
+#define WARN_PERIOD (time_t)300  // 5 minutes
 
 /*
  * This simple daemon listens for events from the Hall-effect sensor and writes
@@ -41,10 +41,10 @@ int main(void) {
     int uinputFd;
     int err;
     struct uinput_user_dev uidev;
-    ASensorManager *sensorManager = nullptr;
+    ASensorManager* sensorManager = nullptr;
     ASensorRef hallSensor;
-    ALooper *looper;
-    ASensorEventQueue *eventQueue = nullptr;
+    ALooper* looper;
+    ASensorEventQueue* eventQueue = nullptr;
     int32_t hallMinDelay = 0;
     time_t lastWarn = 0;
     int attemptCount = 0;
@@ -57,22 +57,22 @@ int main(void) {
         goto out;
     }
 
-    err = TEMP_FAILURE_RETRY(ioctl(uinputFd, UI_SET_EVBIT, EV_SW))
-        | TEMP_FAILURE_RETRY(ioctl(uinputFd, UI_SET_EVBIT, EV_SYN))
-        | TEMP_FAILURE_RETRY(ioctl(uinputFd, UI_SET_SWBIT, SW_LID));
+    err = TEMP_FAILURE_RETRY(ioctl(uinputFd, UI_SET_EVBIT, EV_SW)) |
+          TEMP_FAILURE_RETRY(ioctl(uinputFd, UI_SET_EVBIT, EV_SYN)) |
+          TEMP_FAILURE_RETRY(ioctl(uinputFd, UI_SET_SWBIT, SW_LID));
     if (err != 0) {
         ALOGE("Unable to enable SW_LID events: %s", strerror(errno));
         goto out;
     }
 
-    memset(&uidev, 0, sizeof (uidev));
+    memset(&uidev, 0, sizeof(uidev));
     snprintf(uidev.name, UINPUT_MAX_NAME_SIZE, "uinput-folio");
     uidev.id.bustype = BUS_VIRTUAL;
     uidev.id.vendor = 0;
     uidev.id.product = 0;
     uidev.id.version = 0;
 
-    err = TEMP_FAILURE_RETRY(write(uinputFd, &uidev, sizeof (uidev)));
+    err = TEMP_FAILURE_RETRY(write(uinputFd, &uidev, sizeof(uidev)));
     if (err < 0) {
         ALOGE("Write user device to uinput node failed: %s", strerror(errno));
         goto out;
@@ -93,8 +93,7 @@ int main(void) {
         looper = ALooper_prepare(ALOOPER_PREPARE_ALLOW_NON_CALLBACKS);
     }
 
-    eventQueue = ASensorManager_createEventQueue(sensorManager, looper, 0, NULL,
-                                                 NULL);
+    eventQueue = ASensorManager_createEventQueue(sensorManager, looper, 0, NULL, NULL);
 
     /*
      * As long as we are unable to get the sensor handle, periodically retry
@@ -104,9 +103,7 @@ int main(void) {
      */
     while (true) {
         time_t now = time(NULL);
-        hallSensor = ASensorManager_getDefaultSensorEx(sensorManager,
-                                                       SENSOR_TYPE,
-                                                       true);
+        hallSensor = ASensorManager_getDefaultSensorEx(sensorManager, SENSOR_TYPE, true);
         if (hallSensor != nullptr) {
             hallMinDelay = ASensor_getMinDelay(hallSensor);
             break;
@@ -123,8 +120,7 @@ int main(void) {
         sleep(RETRY_PERIOD);
     }
 
-    err = ASensorEventQueue_registerSensor(eventQueue, hallSensor,
-                                           hallMinDelay, 10000);
+    err = ASensorEventQueue_registerSensor(eventQueue, hallSensor, hallMinDelay, 10000);
     if (err < 0) {
         ALOGE("Unable to register for Hall-effect sensor events");
         goto out;
@@ -143,7 +139,7 @@ int main(void) {
             event.type = EV_SW;
             event.code = SW_LID;
             event.value = isClosed;
-            err = TEMP_FAILURE_RETRY(write(uinputFd, &event, sizeof (event)));
+            err = TEMP_FAILURE_RETRY(write(uinputFd, &event, sizeof(event)));
             if (err < 0) {
                 ALOGE("Write EV_SW to uinput node failed: %s", strerror(errno));
                 goto out;
@@ -153,10 +149,9 @@ int main(void) {
             event.type = EV_SYN;
             event.code = SYN_REPORT;
             event.value = 0;
-            err = TEMP_FAILURE_RETRY(write(uinputFd, &event, sizeof (event)));
+            err = TEMP_FAILURE_RETRY(write(uinputFd, &event, sizeof(event)));
             if (err < 0) {
-                ALOGE("Write EV_SYN to uinput node failed: %s",
-                      strerror(errno));
+                ALOGE("Write EV_SYN to uinput node failed: %s", strerror(errno));
                 goto out;
             }
 
