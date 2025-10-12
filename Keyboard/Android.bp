@@ -1,0 +1,29 @@
+//
+// SPDX-FileCopyrightText: 2025 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_app {
+    name: "OplusKeyboard",
+
+    srcs: ["src/**/*.kt"],
+
+    certificate: "platform",
+    platform_apis: true,
+    system_ext_specific: true,
+
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
+    required: [
+        "default-permissions_org.lineageos.keyboard",
+    ],
+}
+
+prebuilt_etc {
+    name: "default-permissions_org.lineageos.keyboard",
+    system_ext_specific: true,
+    src: "default-permissions_org.lineageos.keyboard.xml",
+    sub_dir: "default-permissions",
+    filename_from_src: true,
+}

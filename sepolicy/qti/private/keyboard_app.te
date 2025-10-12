@@ -1,0 +1,8 @@
+type keyboard_app, domain, coredomain;
+
+app_domain(keyboard_app)
+bluetooth_domain(keyboard_app)
+
+allow keyboard_app self:netlink_kobject_uevent_socket { create read setopt bind };
+
+allow keyboard_app app_api_service:service_manager find;
