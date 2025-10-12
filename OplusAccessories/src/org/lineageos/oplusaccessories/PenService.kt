@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.lineageos.pen
+package org.lineageos.oplusaccessories
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -208,11 +208,11 @@ class PenService : Service() {
     }
 
     companion object {
-        private const val TAG = "OplusPenService"
+        private const val TAG = "OplusAccessoriesService"
 
         private const val EXTRA_PENCIL_ADDR = "pencil_addr"
 
-        private const val NOTIFICATION_CHANNEL_ID = "OplusPen"
+        private const val NOTIFICATION_CHANNEL_ID = "OplusAccessories"
         private const val NOTIFICATION_ID = 1000
     }
 }
