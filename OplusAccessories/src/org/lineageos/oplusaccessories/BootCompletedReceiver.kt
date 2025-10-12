@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.lineageos.pen
+package org.lineageos.oplusaccessories
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -13,10 +13,10 @@ import android.util.Log
 class BootCompletedReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         Log.d(TAG, "Received boot completed intent")
-        context.startService(Intent(context, PenService::class.java))
+        context.startService(Intent(context, OplusAccessoriesService::class.java))
     }
 
     companion object {
-        private const val TAG = "OplusPenBootReceiver"
+        private const val TAG = "OplusAccessoriesBootReceiver"
     }
 }
