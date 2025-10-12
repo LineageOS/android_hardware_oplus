@@ -1,0 +1,8 @@
+type accessory_app, domain, coredomain;
+
+app_domain(accessory_app)
+bluetooth_domain(accessory_app)
+
+allow accessory_app self:netlink_kobject_uevent_socket { create read setopt bind };
+
+allow accessory_app app_api_service:service_manager find;

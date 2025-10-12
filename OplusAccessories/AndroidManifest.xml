@@ -4,7 +4,7 @@
     SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.lineageos.pen">
+          package="org.lineageos.oplusaccessories">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
@@ -27,6 +27,6 @@
         </receiver>
         <service
             android:exported="false"
-            android:name=".PenService" />
+            android:name=".OplusAccessoriesService" />
     </application>
 </manifest>

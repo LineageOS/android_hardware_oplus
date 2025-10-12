@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.lineageos.pen
+package org.lineageos.oplusaccessories
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -26,7 +26,7 @@ import android.provider.Settings
 import android.provider.Settings.System.PEAK_REFRESH_RATE
 import android.util.Log
 
-class PenService : Service() {
+class OplusAccessoriesService : Service() {
     private val bluetoothManager by lazy { getSystemService(BluetoothManager::class.java) }
     private val inputManager by lazy { getSystemService(InputManager::class.java) }
     private val notificationManager by lazy { getSystemService(NotificationManager::class.java) }
@@ -191,7 +191,7 @@ class PenService : Service() {
         val contentIntent = PendingIntent.getService(
             this,
             0,
-            Intent(this, PenService::class.java).apply {
+            Intent(this, OplusAccessoriesService::class.java).apply {
                 putExtra(EXTRA_PENCIL_ADDR, pencilAddr)
             },
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
@@ -208,7 +208,7 @@ class PenService : Service() {
     }
 
     companion object {
-        private const val TAG = "OplusPenService"
+        private const val TAG = "OplusAccessoriesService"
 
         private const val EXTRA_PENCIL_ADDR = "pencil_addr"
 
