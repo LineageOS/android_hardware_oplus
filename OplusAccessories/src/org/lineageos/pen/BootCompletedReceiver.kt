@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.lineageos.pen
+package org.lineageos.oplusaccessories
 
 import android.content.BroadcastReceiver
 import android.content.Context
