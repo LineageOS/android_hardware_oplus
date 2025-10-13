@@ -22,6 +22,30 @@
       },
       "revId": "0dc8b9d0c7a75c543a02f4831599d0da574a3d1a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cff4a07b_c6ad8482",
+        "filename": "OplusAccessories/res/values/strings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-10-13T13:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "055e58d7_7d1d8864",
+      "range": {
+        "startLine": 7,
+        "startChar": 49,
+        "endLine": 7,
+        "endChar": 63
+      },
+      "revId": "0dc8b9d0c7a75c543a02f4831599d0da574a3d1a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
