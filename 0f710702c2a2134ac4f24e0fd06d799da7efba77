@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "606e7476_c3d54622",
+        "filename": "OplusAccessories/src/org/lineageos/oplusaccessories/OplusAccessoriesService.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-10-13T13:47:03Z",
+      "side": 1,
+      "message": "You missed this",
+      "range": {
+        "startLine": 235,
+        "startChar": 53,
+        "endLine": 235,
+        "endChar": 61
+      },
+      "revId": "0f710702c2a2134ac4f24e0fd06d799da7efba77",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
