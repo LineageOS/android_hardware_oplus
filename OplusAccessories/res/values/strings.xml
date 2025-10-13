@@ -4,7 +4,8 @@
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
-    <string name="app_name" translatable="false">OplusAccessory</string>
+    <string name="app_name" translatable="false">OplusAccessories</string>
+    <string name="keyboard_attached">Keyboard attached</string>
     <string name="pen_attached">Pen attached</string>
     <string name="tap_to_connect">Tap to connect</string>
 </resources>
