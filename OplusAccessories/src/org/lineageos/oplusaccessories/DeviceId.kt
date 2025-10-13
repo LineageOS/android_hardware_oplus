@@ -25,3 +25,8 @@ enum class DeviceId(val productName: String) {
         }
     }
 }
+
+enum class DeviceType(val addr: String, val icon: Int, val tile: Int) {
+    PEN("pencil_addr", R.drawable.ic_stylus, R.string.pen_attached),
+    KEYBOARD("mac_addr", R.drawable.ic_keyboard, R.string.keyboard_attached)
+}
