@@ -35,7 +35,27 @@ class OplusAccessoriesService : Service() {
 
     private val handler by lazy { Handler(mainLooper) }
 
-    private val observer = object : UEventObserver() {
+    private val keyboardObserver = object : UEventObserver() {
+        private val lock = Any()
+
+        override fun onUEvent(event: UEvent) {
+            synchronized(lock) {
+                val keyboardStatus = event.get("pogopin_status") ?: return
+                val keyboardAddr = event.get("mac_addr")?.chunked(2)?.joinToString(":") {
+                    it.uppercase()
+                } ?: return
+
+                if (keyboardAddr != "00:00:00:00:00:00") {
+                    when (keyboardStatus) {
+                        "0" -> notificationManager.cancel(NOTIFICATION_ID)
+                        "1" -> postNotification(keyboardAddr, DeviceType.KEYBOARD)
+                    }
+                }
+            }
+        }
+    }
+
+    private val penObserver = object : UEventObserver() {
         private val lock = Any()
 
         override fun onUEvent(event: UEvent) {
@@ -47,7 +67,7 @@ class OplusAccessoriesService : Service() {
 
                 when (pencilStatus) {
                     "0" -> notificationManager.cancel(NOTIFICATION_ID)
-                    "1" -> postNotification(pencilAddr)
+                    "1" -> postNotification(pencilAddr, DeviceType.PEN)
                 }
             }
         }
@@ -78,7 +98,7 @@ class OplusAccessoriesService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        intent?.getStringExtra(EXTRA_PENCIL_ADDR)?.let {
+        intent?.getStringExtra(EXTRA_MAC_ADDR)?.let {
             bondBtDevice(it)
         }
 
@@ -101,7 +121,8 @@ class OplusAccessoriesService : Service() {
             inputManager.registerInputDeviceListener(inputObserver, handler)
         }
 
-        observer.startObserving("DEVPATH=/devices/virtual/oplus_wireless/pencil")
+        keyboardObserver.startObserving("DEVPATH=/devices/virtual/pogopin/pogo_keyboard")
+        penObserver.startObserving("DEVPATH=/devices/virtual/oplus_wireless/pencil")
     }
 
     override fun onDestroy() {
@@ -112,7 +133,8 @@ class OplusAccessoriesService : Service() {
             inputManager.unregisterInputDeviceListener(inputObserver)
         }
 
-        observer.stopObserving()
+        keyboardObserver.stopObserving()
+        penObserver.stopObserving()
     }
 
     private fun bondBtDevice(pencilAddr: String) {
@@ -170,11 +192,11 @@ class OplusAccessoriesService : Service() {
         }
     }
 
-    private fun postNotification(pencilAddr: String) {
+    private fun postNotification(macAddr: String, devType: DeviceType) {
         val adapter = bluetoothManager.adapter
 
-        if (adapter.bondedDevices.contains(adapter.getRemoteDevice(pencilAddr))) {
-            Log.e(TAG, "$pencilAddr already bonded, bailing out")
+        if (adapter.bondedDevices.contains(adapter.getRemoteDevice(macAddr))) {
+            Log.e(TAG, "$macAddr already bonded, bailing out")
             return
         }
 
@@ -192,14 +214,14 @@ class OplusAccessoriesService : Service() {
             this,
             0,
             Intent(this, OplusAccessoriesService::class.java).apply {
-                putExtra(EXTRA_PENCIL_ADDR, pencilAddr)
+                putExtra(EXTRA_MAC_ADDR, macAddr)
             },
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
 
         val notification = Notification.Builder(this, NOTIFICATION_CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_stylus)
-            .setContentTitle(getString(R.string.pen_attached))
+            .setSmallIcon(devType.icon)
+            .setContentTitle(getString(devType.title))
             .setContentText(getString(R.string.tap_to_connect))
             .setContentIntent(contentIntent)
             .setAutoCancel(true)
@@ -210,7 +232,7 @@ class OplusAccessoriesService : Service() {
     companion object {
         private const val TAG = "OplusAccessoriesService"
 
-        private const val EXTRA_PENCIL_ADDR = "pencil_addr"
+        private const val EXTRA_MAC_ADDR = "mac_addr"
 
         private const val NOTIFICATION_CHANNEL_ID = "OplusAccessories"
         private const val NOTIFICATION_ID = 1000
