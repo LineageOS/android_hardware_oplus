@@ -1,0 +1,39 @@
+//
+// SPDX-FileCopyrightText: 2025 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_app {
+    name: "OplusEsimSwitcher",
+    defaults: ["SettingsLibDefaults"],
+
+    srcs: ["src/**/*.kt"],
+
+    certificate: "platform",
+    platform_apis: true,
+    system_ext_specific: true,
+    privileged: true,
+
+    static_libs: [
+        "androidx.core_core",
+        "androidx.preference_preference",
+        "org.lineageos.settings.resources",
+        "vendor.oplus.hardware.esim-V1-java",
+        "vendor.oplus.hardware.radio-V1-java",
+    ],
+
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
+    required: [
+        "org.lineageos.settings.esimswitcher.xml",
+    ],
+}
+
+prebuilt_etc {
+    name: "org.lineageos.settings.esimswitcher.xml",
+    relative_install_path: "permissions",
+    filename: "org.lineageos.settings.esimswitcher.xml",
+    src: "org.lineageos.settings.esimswitcher.xml",
+    system_ext_specific: true,
+}
