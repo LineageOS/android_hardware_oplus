@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="esim_key"
+        android:title="eSIM settings" >
+
+        <SwitchPreferenceCompat
+            android:key="esim_toggle"
+            android:title="eSIM"
+            android:summary="Download and activate a operator profile to use a virtual SIM card" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
