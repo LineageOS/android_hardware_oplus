@@ -158,7 +158,7 @@ class PenService : Service() {
     private fun overridePeakRefreshRateIfNeeded() {
         val isPenConnected = inputManager.inputDeviceIds.firstOrNull {
             val device = inputManager.getInputDevice(it) ?: return@firstOrNull false
-            if (device.vendorId != 0x22D9) {
+            if (device.vendorId != 0x22D9 && device.vendorId != 0x330A) {
                 // Not an OPPO vendor ID
                 return@firstOrNull false
             }
