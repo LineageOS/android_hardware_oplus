@@ -70,6 +70,30 @@
       },
       "revId": "0e46430461b3e25831dceba58b6a3c61ac55459b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a88dbee1_8d1442ef",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/BootCompletedReceiver.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-10-26T18:03:03Z",
+      "side": 1,
+      "message": "\u003e \u003cuses-feature android:name\u003d\"android.hardware.telephony.euicc\" android:required\u003d\"true\" /\u003e\n\u003e \n\u003e maybe.\n\u003e \n\nI\u0027m not sure. https://developer.android.com/guide/topics/manifest/uses-feature-element says \"Android system itself doesn\u0027t check for matching feature support on the device before installing an application\"",
+      "parentUuid": "dde89c73_fe80e18b",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 5
+      },
+      "revId": "0e46430461b3e25831dceba58b6a3c61ac55459b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
