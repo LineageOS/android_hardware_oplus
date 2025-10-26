@@ -1,0 +1,6 @@
+type esim_switcher_app, domain, coredomain;
+
+app_domain(esim_switcher_app)
+hal_client_domain(esim_switcher_app, vendor_hal_oplus_esim)
+
+allow esim_switcher_app app_api_service:service_manager find;
