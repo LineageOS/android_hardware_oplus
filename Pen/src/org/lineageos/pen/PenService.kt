@@ -158,7 +158,15 @@ class PenService : Service() {
     private fun overridePeakRefreshRateIfNeeded() {
         val isPenConnected = inputManager.inputDeviceIds.firstOrNull {
             val device = inputManager.getInputDevice(it) ?: return@firstOrNull false
-            val deviceId = DeviceId.fromInputDevice(device) ?: return@firstOrNull false
+            if (device.vendorId != 0x22D9) {
+                // Not an OPPO vendor ID
+                return@firstOrNull false
+            }
+            val bluetoothAddress = device.getBluetoothAddress() ?: return@firstOrNull false
+            if (!bluetoothAddress.startsWith("C0:87:06")) {
+                // Not a Maxeye prefix
+                return@firstOrNull false
+            }
             return@firstOrNull true
         } != null
         val peakRefreshRate = Settings.System.getString(contentResolver, PEAK_REFRESH_RATE)
