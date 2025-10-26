@@ -46,6 +46,30 @@
       },
       "revId": "0e46430461b3e25831dceba58b6a3c61ac55459b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f09017e_4fc8f4c9",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/BootCompletedReceiver.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-10-26T18:02:09Z",
+      "side": 1,
+      "message": "eSIM is not the same as eUICC. This aims to control the hardware (eSIM).",
+      "parentUuid": "dde89c73_fe80e18b",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 5
+      },
+      "revId": "0e46430461b3e25831dceba58b6a3c61ac55459b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
