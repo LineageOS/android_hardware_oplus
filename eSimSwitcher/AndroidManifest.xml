@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="org.lineageos.settings.esimswitcher">
+
+    <application
+        android:label="@string/device_settings_app_name"
+        android:persistent="true"
+        android:theme="@style/Theme.SubSettingsBase">
+
+        <activity
+            android:name=".EsimSettingsActivity"
+            android:exported="false"
+            android:label="@string/esim_settings_title">
+            <intent-filter>
+                <action android:name="org.lineageos.settings.device.ESIM_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+    </application>
+</manifest>
