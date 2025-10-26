@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="org.lineageos.settings.esimswitcher">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:directBootAware="true"
+        android:label="@string/device_settings_app_name"
+        android:persistent="true"
+        android:theme="@style/Theme.SubSettingsBase">
+
+        <activity
+            android:exported="false"
+            android:label="@string/esim_settings_title"
+            android:name=".EsimSettingsActivity">
+
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data android:name="com.android.settings.category"
+                       android:value="com.android.settings.category.ia.wireless" />
+            <meta-data android:name="com.android.settings.icon"
+                       android:resource="@drawable/ic_settings_esim" />
+            <meta-data android:name="com.android.settings.icon_tintable"
+                       android:value="true" />
+            <meta-data android:name="com.android.settings.order"
+                       android:value="-10" />
+        </activity>
+
+        <receiver
+            android:exported="true"
+            android:name=".BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>
