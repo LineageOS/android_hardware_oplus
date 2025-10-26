@@ -22,6 +22,30 @@
       },
       "revId": "0e46430461b3e25831dceba58b6a3c61ac55459b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dde89c73_fe80e18b",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/BootCompletedReceiver.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-10-26T18:00:09Z",
+      "side": 1,
+      "message": "\u003cuses-feature android:name\u003d\"android.hardware.telephony.euicc\" android:required\u003d\"true\" /\u003e\n\nmaybe.\n\nalso maybe name the app EuiccSwitcher.",
+      "parentUuid": "70f06995_f1b6ea3d",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 5
+      },
+      "revId": "0e46430461b3e25831dceba58b6a3c61ac55459b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
