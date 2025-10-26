@@ -1,10 +1,14 @@
 type hal_oplus_esim_aidl, domain;
 binder_use(hal_oplus_esim_aidl)
 
+hal_server_domain(hal_oplus_esim_aidl, vendor_hal_oplus_esim)
+
 type hal_oplus_esim_aidl_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(hal_oplus_esim_aidl)
 
-add_service(hal_oplus_esim_aidl, hal_oplus_esim_aidl_service)
+hal_attribute_service(vendor_hal_oplus_esim, hal_oplus_esim_aidl_service)
+
+binder_call(vendor_hal_oplus_esim_client, vendor_hal_oplus_esim_server)
 
 allow hal_oplus_esim_aidl esim_det_device:chr_file rw_file_perms;
 allow hal_oplus_esim_aidl esim_en_device:chr_file rw_file_perms;
