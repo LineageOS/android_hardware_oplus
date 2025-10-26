@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="org.lineageos.settings.esimswitcher">
+
+    <application
+        android:label="@string/device_settings_app_name"
+        android:persistent="true">
+
+        <activity
+            android:name=".EsimSettingsActivity"
+            android:exported="false"
+            android:label="@string/esim_settings_title"
+            android:theme="@style/Theme.SubSettingsBase">
+            <!--intent-filter>
+                <action android:name="org.lineageos.settings.device.ESIM_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter-->
+
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data android:name="com.android.settings.category"
+                       android:value="com.android.settings.category.ia.wireless" />
+        </activity>
+
+    </application>
+</manifest>
