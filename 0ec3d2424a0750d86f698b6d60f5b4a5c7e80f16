@@ -22,6 +22,30 @@
       },
       "revId": "0ec3d2424a0750d86f698b6d60f5b4a5c7e80f16",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "278bc94c_14fe2854",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/EsimSettingsFragment.kt",
+        "patchSetId": 13
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-10-27T13:14:37Z",
+      "side": 1,
+      "message": "not really worth it when it\u0027s only used when fragment is visible?",
+      "parentUuid": "b520866f_e6cafb22",
+      "range": {
+        "startLine": 22,
+        "startChar": 16,
+        "endLine": 22,
+        "endChar": 32
+      },
+      "revId": "0ec3d2424a0750d86f698b6d60f5b4a5c7e80f16",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
