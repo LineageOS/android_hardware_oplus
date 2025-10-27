@@ -46,6 +46,30 @@
       },
       "revId": "0ec3d2424a0750d86f698b6d60f5b4a5c7e80f16",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11137ddd_1d436d7b",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/EsimSettingsFragment.kt",
+        "patchSetId": 13
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-10-27T13:16:36Z",
+      "side": 1,
+      "message": "i think it is. just some boilerplate code to make the app more robust",
+      "parentUuid": "278bc94c_14fe2854",
+      "range": {
+        "startLine": 22,
+        "startChar": 16,
+        "endLine": 22,
+        "endChar": 32
+      },
+      "revId": "0ec3d2424a0750d86f698b6d60f5b4a5c7e80f16",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
