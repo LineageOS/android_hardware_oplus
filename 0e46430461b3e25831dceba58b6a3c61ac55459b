@@ -118,6 +118,30 @@
       },
       "revId": "0e46430461b3e25831dceba58b6a3c61ac55459b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53805c8f_8a383d66",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/BootCompletedReceiver.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-10-27T09:48:08Z",
+      "side": 1,
+      "message": "Just have to check for non-empty non_removable_euicc_slots config overlay.",
+      "parentUuid": "c7195855_21c15d68",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 5
+      },
+      "revId": "0e46430461b3e25831dceba58b6a3c61ac55459b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
