@@ -142,6 +142,30 @@
       },
       "revId": "0e46430461b3e25831dceba58b6a3c61ac55459b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f762da5_c1a8611f",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/BootCompletedReceiver.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-10-27T09:49:53Z",
+      "side": 1,
+      "message": "would rather use some telephony api to iterate sim slots.",
+      "parentUuid": "53805c8f_8a383d66",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 5
+      },
+      "revId": "0e46430461b3e25831dceba58b6a3c61ac55459b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
