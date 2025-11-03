@@ -6,8 +6,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="org.lineageos.settings.esimswitcher">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SECURE_ELEMENT_PRIVILEGED_OPERATION" />
+
     <application
         android:label="@string/device_settings_app_name"
+        android:directBootAware="true"
         android:persistent="true"
         android:theme="@style/Theme.SubSettingsBase">
 
@@ -21,5 +25,17 @@
             </intent-filter>
         </activity>
 
+        <receiver
+            android:exported="true"
+            android:name=".BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:exported="false"
+            android:name=".EsimService" />
     </application>
 </manifest>
