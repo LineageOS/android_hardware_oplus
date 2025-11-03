@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <privapp-permissions package="org.lineageos.settings.esimswitcher">
+        <permission name="android.permission.SECURE_ELEMENT_PRIVILEGED_OPERATION"/>
+    </privapp-permissions>
+</permissions>
