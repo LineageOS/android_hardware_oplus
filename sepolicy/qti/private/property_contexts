@@ -53,6 +53,9 @@ persist.sys.log.awb             u:object_r:exported_system_prop:s0
 # Modem
 persist.sys.enable_modem_dump    u:object_r:exported_system_prop:s0
 
+# NFC
+persist.vendor.nfc.config_file_name    u:object_r:vendor_public_vendor_default_prop:s0
+
 # Performance
 sys.oplus.high.performance    u:object_r:exported_system_prop:s0
 
