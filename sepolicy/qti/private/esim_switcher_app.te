@@ -1,4 +1,5 @@
 type esim_switcher_app, domain, coredomain;
+permissive esim_switcher_app;
 
 app_domain(esim_switcher_app)
 hal_client_domain(esim_switcher_app, vendor_hal_oplus_esim)
