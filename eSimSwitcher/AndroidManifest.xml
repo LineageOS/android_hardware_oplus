@@ -7,6 +7,7 @@
           package="org.lineageos.settings.esimswitcher">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SECURE_ELEMENT_PRIVILEGED_OPERATION" />
 
     <application
         android:directBootAware="true"

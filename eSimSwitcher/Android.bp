@@ -14,6 +14,8 @@ android_app {
     certificate: "platform",
     platform_apis: true,
     system_ext_specific: true,
+    privileged: true,
+    privapp_allowlist: "org.lineageos.settings.esimswitcher.xml",
 
     static_libs: [
         "androidx.core_core",
