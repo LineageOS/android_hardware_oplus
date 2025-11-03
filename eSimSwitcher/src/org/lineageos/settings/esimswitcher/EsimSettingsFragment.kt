@@ -7,8 +7,6 @@ package org.lineageos.settings.esimswitcher
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
@@ -16,8 +14,6 @@ import org.lineageos.settings.esimswitcher.R
 
 class EsimSettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChangeListener {
     private lateinit var controller: EsimController
-
-    private val handler = Handler(Looper.getMainLooper())
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.esim_settings, rootKey)
@@ -38,13 +34,13 @@ class EsimSettingsFragment : PreferenceFragmentCompat(), Preference.OnPreference
                 }
                 .setPositiveButton(R.string.esim_toggle_dialog_ok) { dialog, _ ->
                     dialog.dismiss()
-                    handler.post { controller.toggleEsimState(1) }
+                    controller.toggleEsimState(1)
                     (preference as? SwitchPreferenceCompat)?.isChecked = true
                 }
                 .show()
             return false
         } else {
-            handler.post { controller.toggleEsimState(0) }
+            controller.toggleEsimState(0)
             return true
         }
     }
