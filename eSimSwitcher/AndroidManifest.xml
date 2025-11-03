@@ -6,6 +6,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="org.lineageos.settings.esimswitcher">
 
+    <uses-permission android:name="android.permission.SECURE_ELEMENT_PRIVILEGED_OPERATION" />
+
     <application
         android:label="@string/device_settings_app_name"
         android:persistent="true"
