@@ -1,0 +1,8 @@
+cc_library_shared {
+    name: "liboplus-uah-client",
+    device_specific: true,
+    srcs: [
+        "uah-client.cpp",
+    ],
+    compile_multilib: "64",
+}
