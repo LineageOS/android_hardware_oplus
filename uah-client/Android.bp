@@ -1,0 +1,13 @@
+//
+// SPDX-FileCopyrightText: 2025 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "liboplus-uah-client",
+    device_specific: true,
+    srcs: [
+        "uah-client.c",
+    ],
+    compile_multilib: "64",
+}
