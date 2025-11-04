@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a78d674_a5b5b013",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/EsimController.kt",
+        "patchSetId": 32
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-11-04T21:16:15Z",
+      "side": 1,
+      "message": "not necesarily true when session might as well be null at this point xd",
+      "revId": "a9c4c6f31f24d8c2c1ce24333deafe9abcc6a7e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
