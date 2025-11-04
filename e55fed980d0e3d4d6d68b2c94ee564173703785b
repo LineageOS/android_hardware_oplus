@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b94c3425_2b48d651",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-11-04T02:10:31Z",
+      "side": 1,
+      "message": "Now it works.",
+      "revId": "e55fed980d0e3d4d6d68b2c94ee564173703785b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea76c856_aa2f99e5",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/EsimController.kt",
+        "patchSetId": 22
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-11-04T02:10:31Z",
+      "side": 1,
+      "message": "W SecureElement-Terminal-eSE1: Enable access control on logical channel for org.lineageos.settings.esimswitcher\nI SecureElementService: openLogicalChannel() Success. Channel: 1",
+      "revId": "e55fed980d0e3d4d6d68b2c94ee564173703785b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
