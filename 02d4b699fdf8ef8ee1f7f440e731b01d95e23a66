@@ -70,6 +70,24 @@
       "parentUuid": "0548e2c3_3bd7c677",
       "revId": "02d4b699fdf8ef8ee1f7f440e731b01d95e23a66",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eef657c_d8e480c8",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/BootCompletedReceiver.kt",
+        "patchSetId": 33
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-11-05T23:29:10Z",
+      "side": 1,
+      "message": "my previous suggestion was iterating the subscriptions, not slots info.",
+      "parentUuid": "77ac2e38_07d0a7e8",
+      "revId": "02d4b699fdf8ef8ee1f7f440e731b01d95e23a66",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
