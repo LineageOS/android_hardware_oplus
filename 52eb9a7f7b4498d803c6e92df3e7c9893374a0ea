@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e37808da_7fe69428",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-11-05T21:48:38Z",
+      "side": 1,
+      "message": "Just for reference: PS30 goes with patch in Settings app.",
+      "revId": "52eb9a7f7b4498d803c6e92df3e7c9893374a0ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
