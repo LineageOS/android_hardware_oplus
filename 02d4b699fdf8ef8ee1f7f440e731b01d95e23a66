@@ -34,6 +34,24 @@
       "parentUuid": "ab30d7bd_992f0c27",
       "revId": "02d4b699fdf8ef8ee1f7f440e731b01d95e23a66",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c4f07c3_eed09377",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/BootCompletedReceiver.kt",
+        "patchSetId": 33
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-11-05T23:26:11Z",
+      "side": 1,
+      "message": "that\u0027s a different api.",
+      "parentUuid": "0548e2c3_3bd7c677",
+      "revId": "02d4b699fdf8ef8ee1f7f440e731b01d95e23a66",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
