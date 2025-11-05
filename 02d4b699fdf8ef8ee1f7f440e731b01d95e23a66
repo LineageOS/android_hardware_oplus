@@ -16,6 +16,24 @@
       "message": "```kt\nval telephonyManager \u003d context.getSystemService(TelephonyManager::class.java)\nval hasNonRemovableEuicc \u003d telephonyManager.uiccSlotsInfo.any {\n    it.isEuicc \u0026\u0026 !it.isRemovable\n}\n```",
       "revId": "02d4b699fdf8ef8ee1f7f440e731b01d95e23a66",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0548e2c3_3bd7c677",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/BootCompletedReceiver.kt",
+        "patchSetId": 33
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-11-05T23:23:25Z",
+      "side": 1,
+      "message": "Already told you it doesn\u0027t work.",
+      "parentUuid": "ab30d7bd_992f0c27",
+      "revId": "02d4b699fdf8ef8ee1f7f440e731b01d95e23a66",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
