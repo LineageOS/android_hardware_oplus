@@ -70,6 +70,30 @@
       },
       "revId": "0ec3d2424a0750d86f698b6d60f5b4a5c7e80f16",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dccb6e2_76195202",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/EsimSettingsFragment.kt",
+        "patchSetId": 13
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-11-05T23:19:28Z",
+      "side": 1,
+      "message": "Thanks for the suggestion, but we\u0027re gonna skip it.",
+      "parentUuid": "11137ddd_1d436d7b",
+      "range": {
+        "startLine": 22,
+        "startChar": 16,
+        "endLine": 22,
+        "endChar": 32
+      },
+      "revId": "0ec3d2424a0750d86f698b6d60f5b4a5c7e80f16",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
