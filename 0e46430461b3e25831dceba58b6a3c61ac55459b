@@ -190,6 +190,30 @@
       },
       "revId": "0e46430461b3e25831dceba58b6a3c61ac55459b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef7ba4da_1796abd1",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/BootCompletedReceiver.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-11-05T23:20:42Z",
+      "side": 1,
+      "message": "Implemented by checking non_removable_euicc_slots overlay.",
+      "parentUuid": "06478889_1c47af2d",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 5
+      },
+      "revId": "0e46430461b3e25831dceba58b6a3c61ac55459b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
