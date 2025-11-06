@@ -1,0 +1,18 @@
+cc_binary {
+    name: "vendor.oplus.hardware.commondcs@1.0-service",
+    defaults: ["hidl_defaults"],
+    init_rc: ["vendor.oplus.hardware.commondcs@1.0-service.rc"],
+    vintf_fragments: ["vendor.oplus.hardware.commondcs@1.0-service.xml"],
+    vendor: true,
+    relative_install_path: "hw",
+    srcs: [
+        "CommonDcsHalService.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libutils",
+        "vendor.oplus.hardware.commondcs@1.0",
+    ],
+}
