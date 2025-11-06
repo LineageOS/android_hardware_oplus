@@ -1,0 +1,6 @@
+type hal_oplus_commondcs_default, domain;
+hal_server_domain(hal_oplus_commondcs_default, vendor_hal_oplus_commondcs)
+
+type hal_oplus_commondcs_default_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oplus_commondcs_default)
+hwbinder_use(hal_oplus_commondcs_default)
