@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ece0d17_2d9698bc",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/EsimController.kt",
+        "patchSetId": 39
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-11-06T09:43:09Z",
+      "side": 1,
+      "message": "here",
+      "range": {
+        "startLine": 42,
+        "startChar": 12,
+        "endLine": 42,
+        "endChar": 89
+      },
+      "revId": "c40e78bc934e0eb435d0c14c138479123232450c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8767b23f_a27195d5",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/EsimController.kt",
+        "patchSetId": 39
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-11-06T09:43:09Z",
+      "side": 1,
+      "message": "inconsistent with the above comment?",
+      "range": {
+        "startLine": 64,
+        "startChar": 20,
+        "endLine": 64,
+        "endChar": 52
+      },
+      "revId": "c40e78bc934e0eb435d0c14c138479123232450c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
