@@ -124,6 +124,24 @@
       "parentUuid": "62f3a5f9_20234cb9",
       "revId": "02d4b699fdf8ef8ee1f7f440e731b01d95e23a66",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "066737f6_c0bf0c9f",
+        "filename": "eSimSwitcher/src/org/lineageos/settings/esimswitcher/BootCompletedReceiver.kt",
+        "patchSetId": 33
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-11-06T08:52:51Z",
+      "side": 1,
+      "message": "After all it works, just required radio_service access.",
+      "parentUuid": "ce6897b5_db5cd33d",
+      "revId": "02d4b699fdf8ef8ee1f7f440e731b01d95e23a66",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
