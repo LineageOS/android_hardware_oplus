@@ -1,0 +1,4 @@
+service vendor.oplus_commondcs /vendor/bin/hw/vendor.oplus.hardware.commondcs@1.0-service
+    class core
+    user system
+    group system
