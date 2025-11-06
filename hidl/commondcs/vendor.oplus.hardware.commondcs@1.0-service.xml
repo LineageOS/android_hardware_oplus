@@ -1,0 +1,11 @@
+<manifest version="1.0" type="device">
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.commondcs</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ICommonDcsHalService</name>
+            <instance>commondcsservice</instance>
+        </interface>
+    </hal>
+</manifest>
