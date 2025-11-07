@@ -13,7 +13,9 @@
                         \"OP5929L1\",
                         \"OP594DL1\",
                         \"OP595DL1\",
+                        \"OP5CF9L1\",
                         \"OP5D0DL1\",
+                        \"OP5D35L1\",
                         \"OP5D55L1\"
                     ],
                     \"illustration_lottie\": \"sim_illustration_lottie_bottom\"
@@ -28,6 +30,7 @@
                     \"devices\": [
                         \"OP594DL1\",
                         \"OP595DL1\",
+                        \"OP5D35L1\",
                         \"OP5D55L1\"
                     ],
                     \"esim-slot-ids\": [
@@ -41,6 +44,7 @@
                     \"devices\": [
                         \"OP591BL1\",
                         \"OP5929L1\",
+                        \"OP5CF9L1\",
                         \"OP5D0DL1\"
                     ],
                     \"esim-slot-ids\": [],
