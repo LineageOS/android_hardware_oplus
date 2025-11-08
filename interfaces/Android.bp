@@ -103,6 +103,31 @@ aidl_interface {
 }
 
 aidl_interface {
+    name: "vendor.oplus.hardware.displaypanelfeature",
+    system_ext_specific: true,
+    odm_available: true,
+    local_include_dir: "aidl",
+    srcs: ["aidl/vendor/oplus/hardware/displaypanelfeature/*.aidl"],
+    stability: "vintf",
+    owner: "oplus",
+
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            enabled: false,
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+}
+
+aidl_interface {
     name: "vendor.oplus.hardware.esim",
     system_ext_specific: true,
     odm_available: true,
