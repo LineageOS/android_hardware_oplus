@@ -18,7 +18,6 @@ cc_library_shared {
         "libbinder_ndk",
         "libhidlbase",
         "libjsoncpp",
-        "liblog",
         "libutils",
         "vendor.lineage.oplus_als-V1-ndk",
     ],
