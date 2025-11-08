@@ -7,6 +7,8 @@
 
 #include <V2_1/SubHal.h>
 
+#include "AlsCorrection.h"
+
 namespace android {
 namespace hardware {
 namespace sensors {
@@ -60,6 +62,9 @@ class SensorsSubHal : public ISensorsSubHal, public IHalProxyCallback {
     std::unique_ptr<void, std::function<void(void*)>> lib_handle_;
     V2_1::implementation::ISensorsSubHal* impl_;
     sp<IHalProxyCallback> hal_proxy_callback_;
+
+    AlsCorrection als_correction_;
+    bool use_als_correction_;
 
     std::unordered_map<int32_t, SensorType> handle_type_;
 };

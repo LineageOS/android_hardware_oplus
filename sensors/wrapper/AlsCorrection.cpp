@@ -377,7 +377,7 @@ bool AlsCorrection::init() {
     return true;
 }
 
-void AlsCorrection::process(Event& event) {
+float AlsCorrection::process(const Event& event) {
     LOG(VERBOSE) << "Raw sensor reading: " << event.u.scalar;
 
     std::string buf;
@@ -400,8 +400,7 @@ void AlsCorrection::process(Event& event) {
         }
         if ((now - last_update_) < ms2ns(100)) {
             LOG(WARNING) << "Events coming too fast, dropping";
-            event.sensorHandle = 0;
-            return;
+            return -1.f;
         }
         last_update_ = now;
     }
@@ -623,8 +622,8 @@ void AlsCorrection::process(Event& event) {
         final_lux = calculated_lux;
     }
 
-    event.u.scalar = final_lux;
-    LOG(VERBOSE) << "Final corrected lux: " << event.u.scalar;
+    LOG(VERBOSE) << "Final corrected lux: " << final_lux;
+    return final_lux;
 }
 
 }  // namespace qsh_wrapper
