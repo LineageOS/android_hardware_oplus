@@ -124,7 +124,7 @@ using aidl::vendor::lineage::oplus_als::IAreaCapture;
 class AlsCorrection {
   public:
     bool init();
-    void process(Event& event);
+    float process(const Event& event);
 
   private:
     bool loadFusionLightConfig();
