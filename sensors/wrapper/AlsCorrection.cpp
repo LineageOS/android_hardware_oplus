@@ -47,6 +47,23 @@ int ParseInt(const Json::Value& val) {
     return val.asInt();
 }
 
+void ParseBrightnessRanges(const Json::Value& arr, std::vector<BrightnessRange>& out) {
+    out.resize(arr.size());
+    for (const Json::Value& item : arr) {
+        int level = item["Level"].asInt();
+        out[level] = {item["BrightnessMin"].asInt(), item["BrightnessMax"].asInt()};
+    }
+}
+
+void ParseLuxCoeff(const Json::Value& arr, std::vector<LuxCoeff>& out) {
+    out.resize(arr.size());
+    for (const Json::Value& item : arr) {
+        int level = item["Level"].asInt();
+        out[level] = {ParseFloat(item["ChannelR"]), ParseFloat(item["ChannelG"]),
+                      ParseFloat(item["ChannelB"]), ParseFloat(item["ChannelC"])};
+    }
+}
+
 }  // anonymous namespace
 
 bool AlsCorrection::loadFusionLightConfig() {
@@ -67,231 +84,187 @@ bool AlsCorrection::loadFusionLightConfig() {
     }
 
     // Parse CommonConfig
-    if (doc.isMember("CommonConfig")) {
+    {
         const Json::Value& cc = doc["CommonConfig"];
-        if (cc.isMember("ScreenShotRect")) {
-            const Json::Value& rect = cc["ScreenShotRect"];
-            conf_.common.screenshot_rect.left_top_x = rect["LeftTopX"].asInt();
-            conf_.common.screenshot_rect.left_top_y = rect["LeftTopY"].asInt();
-            conf_.common.screenshot_rect.right_bottom_x = rect["RightBottomX"].asInt();
-            conf_.common.screenshot_rect.right_bottom_y = rect["RightBottomY"].asInt();
-        }
-        conf_.common.brightness_max = cc.get("BrightnessMax", 4095).asInt();
-        conf_.common.normal_brightness_max = cc.get("NormalModeBrightnessMax", 3332).asInt();
-        conf_.common.fusion_rgb_supported = cc.get("FusionRGBSupported", true).asBool();
+        const Json::Value& rect = cc["ScreenShotRect"];
+        conf_.common = {{rect["LeftTopX"].asInt(), rect["LeftTopY"].asInt(),
+                         rect["RightBottomX"].asInt(), rect["RightBottomY"].asInt()},
+                        cc.get("BrightnessMax", 4095).asInt(),
+                        cc.get("NormalModeBrightnessMax", 3332).asInt(),
+                        cc.get("FusionRGBSupported", true).asBool()};
     }
 
     // Parse CCT leakage
-    conf_.cct_segment_count = 0;
-    if (doc.isMember("CCTSegmentRange") && doc.isMember("CCTSegmentPureColorParameter")) {
-        const Json::Value& seg_range = doc["CCTSegmentRange"];
-        const Json::Value& seg_pure = doc["CCTSegmentPureColorParameter"];
+    {
+        const Json::Value& arr = doc["CCTSegmentRange"];
+        conf_.cct_segments.resize(arr.size());
+        for (const Json::Value& item : arr) {
+            int level = item["Level"].asInt();
+            conf_.cct_segments[level] = {item["LuxMin"].asInt(), item["LuxMax"].asInt(),
+                                         item["CCTMaxLeakRatioThreshold"].asFloat(),
+                                         item["CCTLeakRatioThreshold"].asFloat()};
+        }
+    }
 
-        for (Json::ArrayIndex seg_idx = 0; seg_idx < seg_range.size() && seg_idx < 5; seg_idx++) {
-            const Json::Value& seg = seg_range[seg_idx];
-            int level = seg["Level"].asInt();
-            conf_.cct_segments[level].level = level;
-            conf_.cct_segments[level].lux_min = seg["LuxMin"].asInt();
-            conf_.cct_segments[level].lux_max = seg["LuxMax"].asInt();
-            conf_.cct_segments[level].max_leak_ratio_threshold =
-                    ParseFloat(seg["CCTMaxLeakRatioThreshold"]);
-            conf_.cct_segments[level].leak_ratio_threshold =
-                    ParseFloat(seg["CCTLeakRatioThreshold"]);
-            // Find matching pure color params by Level field (not array index!)
-            conf_.cct_segments[level].pure_color_count = 0;
-            for (Json::ArrayIndex pure_idx = 0; pure_idx < seg_pure.size(); pure_idx++) {
-                if (seg_pure[pure_idx]["Level"].asInt() == level &&
-                    seg_pure[pure_idx].isMember("CCTPureColorParameter")) {
-                    const Json::Value& colors = seg_pure[pure_idx]["CCTPureColorParameter"];
-                    for (Json::ArrayIndex color_idx = 0; color_idx < colors.size() && color_idx < 9;
-                         color_idx++) {
-                        const Json::Value& col = colors[color_idx];
-                        auto& pc = conf_.cct_segments[level].pure_colors[color_idx];
-                        pc.color_id = col["PureColorId"].asInt();
-                        pc.color_name = col["PureColorName"].asString();
-                        pc.grey_scale_delta_threshold = col["GreyScaleDeltaThreshold"].asInt();
-                        pc.leak_ratio_min = ParseFloat(col["LeakRatioMin"]);
-                        pc.leak_ratio_max = ParseFloat(col["LeakRatioMax"]);
-                        conf_.cct_segments[level].pure_color_count++;
-                    }
-                    break;
+    // Parse pure color params
+    {
+        const Json::Value& arr = doc["CCTSegmentPureColorParameter"];
+        for (const Json::Value& item : arr) {
+            int level = item["Level"].asInt();
+            for (const Json::Value& col : item["CCTPureColorParameter"]) {
+                auto name = col["PureColorName"].asString();
+                if (name == "SPECIAL_PICTURE") {
+                    // TODO: properly handle SPECIAL_PICTURE if needed
+                    continue;
                 }
+                conf_.cct_segments[level].pure_colors.emplace_back(
+                        col["PureColorId"].asInt(), std::move(name),
+                        col["GreyScaleDeltaThreshold"].asInt(), col["LeakRatioMin"].asFloat(),
+                        col["LeakRatioMax"].asFloat());
             }
-            conf_.cct_segment_count++;
         }
     }
 
-    if (conf_.cct_segment_count > 0) {
-        std::string info("Loaded " + std::to_string(conf_.cct_segment_count) +
-                         " CCT leak segments:");
-        for (int i = 0; i < conf_.cct_segment_count; i++) {
-            StringAppendF(&info, "  Seg%d: lux %d-%d, leak thresh %.3f-%.3f, %d pure colors",
-                          conf_.cct_segments[i].level, conf_.cct_segments[i].lux_min,
-                          conf_.cct_segments[i].lux_max, conf_.cct_segments[i].leak_ratio_threshold,
-                          conf_.cct_segments[i].max_leak_ratio_threshold,
-                          conf_.cct_segments[i].pure_color_count);
-        }
-        LOG(INFO) << info;
+    std::string info("Loaded " + std::to_string(conf_.cct_segments.size()) + " CCT leak segments:");
+    for (const auto& seg : conf_.cct_segments) {
+        StringAppendF(&info, "  Seg: lux %d-%d, leak thresh %.3f-%.3f, %zu pure colors",
+                      seg.lux_min, seg.lux_max, seg.leak_ratio_threshold,
+                      seg.max_leak_ratio_threshold, seg.pure_colors.size());
     }
+    LOG(INFO) << info;
 
     // Parse IRThreshold
-    if (doc.isMember("IRThreshold")) {
-        const Json::Value& arr = doc["IRThreshold"];
-        for (Json::ArrayIndex i = 0; i < arr.size() && i < 3; i++) {
-            const Json::Value& item = arr[i];
-            conf_.ir_thresholds[i].level = item["Level"].asInt();
-            conf_.ir_thresholds[i].ir_min = ParseFloat(item["IR_Ratio_Min"]);
-            conf_.ir_thresholds[i].ir_max = ParseFloat(item["IR_Ratio_Max"]);
+    {
+        const Json::Value& arr =
+                doc.isMember("IRThreshold") ? doc["IRThreshold"] : doc["IRThreshold_V2_1"];
+        conf_.ir_thresholds.resize(arr.size());
+        for (const Json::Value& item : arr) {
+            int level = item["Level"].asInt();
+            conf_.ir_thresholds[level] = {item["IR_Ratio_Min"].asFloat(),
+                                          item["IR_Ratio_Max"].asFloat()};
         }
     }
 
     // Parse IRBrightness
-    if (doc.isMember("IRBrightness")) {
-        const Json::Value& arr = doc["IRBrightness"];
-        for (Json::ArrayIndex i = 0; i < arr.size() && i < 3; i++) {
-            const Json::Value& item = arr[i];
-            conf_.ir_brightness[i].level = item["Level"].asInt();
-            conf_.ir_brightness[i].bright_min = item["BrightnessMin"].asInt();
-            conf_.ir_brightness[i].bright_max = item["BrightnessMax"].asInt();
-        }
-    }
+    ParseBrightnessRanges(
+            doc.isMember("IRBrightness") ? doc["IRBrightness"] : doc["IRBrightness_V2_1"],
+            conf_.ir_brightness);
 
     // Parse LuxCoeffLIR
-    if (doc.isMember("LuxCoeffLIR")) {
-        const Json::Value& arr = doc["LuxCoeffLIR"];
-        for (Json::ArrayIndex i = 0; i < arr.size() && i < 3; i++) {
-            const Json::Value& item = arr[i];
-            conf_.lux_coeff_lir[i].r = ParseFloat(item["ChannelR"]);
-            conf_.lux_coeff_lir[i].g = ParseFloat(item["ChannelG"]);
-            conf_.lux_coeff_lir[i].b = ParseFloat(item["ChannelB"]);
-            conf_.lux_coeff_lir[i].c = ParseFloat(item["ChannelC"]);
-        }
-    }
+    ParseLuxCoeff(doc.isMember("LuxCoeffLIR") ? doc["LuxCoeffLIR"] : doc["LuxCoeffLIR_V2_1"],
+                  conf_.lux_coeff_lir);
 
     // Parse LuxCoeffHIR
-    if (doc.isMember("LuxCoeffHIR")) {
-        const Json::Value& arr = doc["LuxCoeffHIR"];
-        for (Json::ArrayIndex i = 0; i < arr.size() && i < 3; i++) {
-            const Json::Value& item = arr[i];
-            conf_.lux_coeff_hir[i].r = ParseFloat(item["ChannelR"]);
-            conf_.lux_coeff_hir[i].g = ParseFloat(item["ChannelG"]);
-            conf_.lux_coeff_hir[i].b = ParseFloat(item["ChannelB"]);
-            conf_.lux_coeff_hir[i].c = ParseFloat(item["ChannelC"]);
-        }
-    }
+    ParseLuxCoeff(doc.isMember("LuxCoeffHIR") ? doc["LuxCoeffHIR"] : doc["LuxCoeffHIR_V2_1"],
+                  conf_.lux_coeff_hir);
 
     // Parse LuxCoeffSuperHIR
-    if (doc.isMember("LuxCoeffSuperHIR")) {
-        const Json::Value& arr = doc["LuxCoeffSuperHIR"];
-        for (Json::ArrayIndex i = 0; i < arr.size() && i < 3; i++) {
-            const Json::Value& item = arr[i];
-            conf_.lux_coeff_super_hir[i].r = ParseFloat(item["ChannelR"]);
-            conf_.lux_coeff_super_hir[i].g = ParseFloat(item["ChannelG"]);
-            conf_.lux_coeff_super_hir[i].b = ParseFloat(item["ChannelB"]);
-            conf_.lux_coeff_super_hir[i].c = ParseFloat(item["ChannelC"]);
-        }
-    }
-
-    // Parse LinearityType
-    if (doc.isMember("LinearityType")) {
-        conf_.linearity_type = doc["LinearityType"].asInt();
-    }
+    ParseLuxCoeff(doc.isMember("LuxCoeffSuperHIR") ? doc["LuxCoeffSuperHIR"]
+                                                   : doc["LuxCoeffSuperHIR_V2_1"],
+                  conf_.lux_coeff_super_hir);
 
     // Parse LinearityBrightnessRange
-    if (doc.isMember("LinearityBrightnessRange")) {
-        const Json::Value& arr = doc["LinearityBrightnessRange"];
-        for (Json::ArrayIndex i = 0; i < arr.size() && i < 9; i++) {
-            const Json::Value& item = arr[i];
-            conf_.linearity_ranges[i].level = item["Level"].asInt();
-            conf_.linearity_ranges[i].bright_min = item["BrightnessMin"].asInt();
-            conf_.linearity_ranges[i].bright_max = item["BrightnessMax"].asInt();
-        }
-    }
+    ParseBrightnessRanges(doc["LinearityBrightnessRange"], conf_.linearity_ranges);
 
     // Parse Linearity
-    if (doc.isMember("Linearity")) {
-        const Json::Value& arr = doc["Linearity"];
-        for (Json::ArrayIndex i = 0; i < arr.size() && i < 9; i++) {
-            const Json::Value& item = arr[i];
-            conf_.linearity[i].function = item["Function"].asInt();
-
-            if (item.isMember("LinearityParameter")) {
-                const Json::Value& params = item["LinearityParameter"];
-                for (Json::ArrayIndex ch = 0; ch < params.size() && ch < 4; ch++) {
-                    const Json::Value& p = params[ch];
-                    conf_.linearity[i].channels[ch].p0 = ParseFloat(p["Parameter0"]);
-                    conf_.linearity[i].channels[ch].p1 = ParseFloat(p["Parameter1"]);
-                    conf_.linearity[i].channels[ch].p2 = ParseFloat(p["Parameter2"]);
-                    conf_.linearity[i].channels[ch].p3 = ParseFloat(p["Parameter3"]);
+    {
+        if (doc.isMember("Linearity")) {
+            const Json::Value& arr = doc["Linearity"];
+            conf_.linearity.resize(arr.size());
+            for (const Json::Value& item : arr) {
+                int function = item["Function"].asInt();
+                for (const Json::Value& p : item["LinearityParameter"]) {
+                    int ch = p["Channel"].asInt();
+                    conf_.linearity[function].channels[ch] = {
+                            ParseFloat(p["Parameter0"]), ParseFloat(p["Parameter1"]),
+                            ParseFloat(p["Parameter2"]), ParseFloat(p["Parameter3"])};
+                };
+            }
+        } else if (doc.isMember("LinearityCompensation")) {
+            const Json::Value& arr = doc["LinearityCompensation"];
+            for (const Json::Value& item : arr) {
+                int ch = item["channel"].asInt();
+                const Json::Value& params = item["Parameter"];
+                conf_.linearity.resize(params.size());
+                for (const Json::Value& p : params) {
+                    int level = p["level"].asInt();
+                    conf_.linearity[level].channels[ch] = {
+                            ParseFloat(p["Parameter0"]), ParseFloat(p["Parameter1"]),
+                            ParseFloat(p["Parameter2"]), ParseFloat(p["Parameter3"])};
                 }
             }
+        } else {
+            LOG(ERROR) << "No Linearity or LinearityCompensation found in config";
+            return false;
+        }
+
+        // sanity check
+        if (conf_.linearity_ranges.size() != conf_.linearity.size()) {
+            LOG(ERROR) << "Linearity size and range mismatch";
+            return false;
         }
     }
 
     // Parse Golden
-    if (doc.isMember("Golden")) {
-        const Json::Value& arr = doc["Golden"];
-        for (Json::ArrayIndex i = 0; i < arr.size() && i < 4; i++) {
-            const Json::Value& item = arr[i];
-            conf_.golden[i].channel = item["Channel"].asInt();
-            conf_.golden[i].r = ParseInt(item["RGolden"]);
-            conf_.golden[i].g = ParseInt(item["GGolden"]);
-            conf_.golden[i].b = ParseInt(item["BGolden"]);
-            conf_.golden[i].w = ParseInt(item["WGolden"]);
+    {
+        if (doc.isMember("Golden")) {
+            const Json::Value& arr = doc["Golden"];
+            for (const Json::Value& item : arr) {
+                int ch = item["Channel"].asInt();
+                conf_.golden[ch] = {ParseInt(item["RGolden"]), ParseInt(item["GGolden"]),
+                                    ParseInt(item["BGolden"]), ParseInt(item["WGolden"])};
+            }
+        } else if (doc.isMember("LightLeakageGolden")) {
+            const Json::Value& arr = doc["LightLeakageGolden"];
+            if (conf_.linearity_ranges.size() != arr.size()) {
+                LOG(ERROR) << "LightLeakageGolden size and range mismatch";
+                return false;
+            }
+            conf_.light_leakage_golden.resize(arr.size());
+            for (const Json::Value& item : arr) {
+                int level = item["level"].asInt();
+                conf_.light_leakage_golden[level] = {
+                        ParseInt(item["RGolden"]), ParseInt(item["GGolden"]),
+                        ParseInt(item["BGolden"]), ParseInt(item["CGolden"])};
+            }
+        } else {
+            LOG(ERROR) << "No Golden or LightLeakageGolden found in config";
+            return false;
         }
     }
 
-    // Parse GreyScale
-    if (doc.isMember("GreyScale")) {
+    // Parse GreyScale (optional)
+    {
         const Json::Value& arr = doc["GreyScale"];
-        for (Json::ArrayIndex i = 0; i < arr.size() && i < 4; i++) {
-            const Json::Value& item = arr[i];
-            conf_.grayscale[i].channel = item["Channel"].asInt();
-            conf_.grayscale[i].r = ParseFloat(item["RGreyscale"]);
-            conf_.grayscale[i].g = ParseFloat(item["GGreyscale"]);
-            conf_.grayscale[i].b = ParseFloat(item["BGreyscale"]);
+        if (!arr.isNull()) {
+            for (const Json::Value& item : arr) {
+                int ch = item["Channel"].asInt();
+                conf_.grayscale[ch] = {ParseFloat(item["RGreyscale"]),
+                                       ParseFloat(item["GGreyscale"]),
+                                       ParseFloat(item["BGreyscale"])};
+            }
         }
     }
 
-    // Check for L_ mode
-    conf_.has_l_mode = doc.isMember("L_LuxCoeffLIR");
-    if (conf_.has_l_mode) {
-        const Json::Value& arr = doc["L_IRBrightness"];
-        for (Json::ArrayIndex i = 0; i < arr.size() && i < 3; i++) {
-            const Json::Value& item = arr[i];
-            conf_.l_ir_brightness[i].level = item["Level"].asInt();
-            conf_.l_ir_brightness[i].bright_min = item["BrightnessMin"].asInt();
-            conf_.l_ir_brightness[i].bright_max = item["BrightnessMax"].asInt();
-        }
-
+    // Check for L_ mode (optional)
+    {
+        const Json::Value& bri_arr = doc["L_IRBrightness"];
         const Json::Value& lux_arr = doc["L_LuxCoeffLIR"];
-        for (Json::ArrayIndex i = 0; i < lux_arr.size() && i < 3; i++) {
-            const Json::Value& item = lux_arr[i];
-            conf_.l_lux_coeff_lir[i].r = ParseFloat(item["ChannelR"]);
-            conf_.l_lux_coeff_lir[i].g = ParseFloat(item["ChannelG"]);
-            conf_.l_lux_coeff_lir[i].b = ParseFloat(item["ChannelB"]);
-            conf_.l_lux_coeff_lir[i].c = ParseFloat(item["ChannelC"]);
+        if (!bri_arr.isNull() && bri_arr.size() == lux_arr.size()) {
+            conf_.has_l_mode = true;
+            ParseBrightnessRanges(bri_arr, conf_.l_ir_brightness);
+            ParseLuxCoeff(lux_arr, conf_.l_lux_coeff_lir);
         }
     }
 
-    // Check for M_ mode
-    conf_.has_m_mode = doc.isMember("M_LuxCoeffLIR");
-    if (conf_.has_m_mode) {
-        const Json::Value& arr = doc["M_IRBrightness"];
-        for (Json::ArrayIndex i = 0; i < arr.size() && i < 3; i++) {
-            const Json::Value& item = arr[i];
-            conf_.m_ir_brightness[i].level = item["Level"].asInt();
-            conf_.m_ir_brightness[i].bright_min = item["BrightnessMin"].asInt();
-            conf_.m_ir_brightness[i].bright_max = item["BrightnessMax"].asInt();
-        }
-
+    // Check for M_ mode (optional)
+    {
+        const Json::Value& bri_arr = doc["M_IRBrightness"];
         const Json::Value& lux_arr = doc["M_LuxCoeffLIR"];
-        for (Json::ArrayIndex i = 0; i < lux_arr.size() && i < 3; i++) {
-            const Json::Value& item = lux_arr[i];
-            conf_.m_lux_coeff_lir[i].r = ParseFloat(item["ChannelR"]);
-            conf_.m_lux_coeff_lir[i].g = ParseFloat(item["ChannelG"]);
-            conf_.m_lux_coeff_lir[i].b = ParseFloat(item["ChannelB"]);
-            conf_.m_lux_coeff_lir[i].c = ParseFloat(item["ChannelC"]);
+        if (!bri_arr.isNull() && bri_arr.size() == lux_arr.size()) {
+            conf_.has_m_mode = true;
+            ParseBrightnessRanges(bri_arr, conf_.m_ir_brightness);
+            ParseLuxCoeff(lux_arr, conf_.m_lux_coeff_lir);
         }
     }
 
@@ -306,29 +279,14 @@ bool AlsCorrection::loadFusionLightConfig() {
     return true;
 }
 
-float AlsCorrection::applyLinearityCorrection(float raw_value, int brightness, int channel) {
-    // Find appropriate linearity function based on brightness
-    int func_idx = -1;
-    for (int i = 0; i < 9; i++) {
-        if (brightness >= conf_.linearity_ranges[i].bright_min &&
-            brightness <= conf_.linearity_ranges[i].bright_max) {
-            func_idx = i;
-            break;
-        }
-    }
-
-    if (func_idx < 0) return raw_value;
-
+float AlsCorrection::applyLinearityCorrection(float x, int linearity_level, int channel) {
     // Apply cubic polynomial: p3*x³ + p2*x² + p1*x + p0
-    const LinearityParams& params = conf_.linearity[func_idx].channels[channel];
-    float x = raw_value;
-    float corrected = params.p3 * x * x * x + params.p2 * x * x + params.p1 * x + params.p0;
-
-    return corrected;
+    const LinearityParams& params = conf_.linearity[linearity_level].channels[channel];
+    return params.p3 * x * x * x + params.p2 * x * x + params.p1 * x + params.p0;
 }
 
 int AlsCorrection::determineIRLevel(float brightness, float ir_ratio,
-                                    const IRBrightness* ir_bright) {
+                                    const BrightnessRange* ir_bright) {
     // Determine brightness range
     int brightness_level = -1;
     for (int i = 0; i < 3; i++) {
@@ -407,8 +365,19 @@ float AlsCorrection::process(const Event& event) {
     // Assume single clear channel like original code
     float raw_clear = event.u.scalar;
 
+    // Find appropriate linearity function based on brightness
+    auto it_range = std::find_if(
+            conf_.linearity_ranges.begin(), conf_.linearity_ranges.end(), [&](const auto& r) {
+                return brightness >= r.bright_min && brightness <= r.bright_max;
+            });
+    if (it_range == conf_.linearity_ranges.end()) {
+        return raw_clear;
+    };
+
+    int linearity_level = std::distance(conf_.linearity_ranges.begin(), it_range);
+
     // Apply linearity correction to clear channel (channel 3 = C/White)
-    float corrected_clear = applyLinearityCorrection(raw_clear, brightness, 3);
+    float corrected_clear = applyLinearityCorrection(raw_clear, linearity_level, 3);
 
     LOG(VERBOSE) << "Linearity corrected clear: " << corrected_clear;
 
@@ -416,19 +385,17 @@ float AlsCorrection::process(const Event& event) {
     float ir_ratio = 0.5;  // Default if we can't calculate
 
     // Determine display mode based on brightness
-    const IRBrightness* ir_bright = conf_.ir_brightness;
-    const LuxCoeff* lux_lir = conf_.lux_coeff_lir;
-
-    if (conf_.has_l_mode && brightness <= 1105) {
-        ir_bright = conf_.l_ir_brightness;
-        lux_lir = conf_.l_lux_coeff_lir;
-        LOG(VERBOSE) << "Using L_ mode (low brightness)";
-    } else if (conf_.has_m_mode && brightness > 1105 && brightness <= 1246) {
-        ir_bright = conf_.m_ir_brightness;
-        lux_lir = conf_.m_lux_coeff_lir;
-        LOG(VERBOSE) << "Using M_ mode (medium brightness)";
-    }
-
+    auto [ir_bright, lux_lir] = [&]() {
+        if (conf_.has_l_mode && brightness <= 1105) {
+            LOG(VERBOSE) << "Using L_ mode (low brightness)";
+            return std::make_pair(std::ref(conf_.l_ir_brightness), std::ref(conf_.l_lux_coeff_lir));
+        } else if (conf_.has_m_mode && brightness > 1105 && brightness <= 1246) {
+            LOG(VERBOSE) << "Using M_ mode (medium brightness)";
+            return std::make_pair(std::ref(conf_.m_ir_brightness), std::ref(conf_.m_lux_coeff_lir));
+        } else {
+            return std::make_pair(std::ref(conf_.ir_brightness), std::ref(conf_.lux_coeff_lir));
+        }
+    }();
     // Determine IR level (use brightness-based for now since we don't have true IR ratio)
     int ir_level = 0;
     for (int i = 0; i < 3; i++) {
@@ -495,18 +462,16 @@ float AlsCorrection::process(const Event& event) {
 
                 // Find appropriate CCT segment based on calculated_lux
                 const CCTSegment* active_segment = nullptr;
-                for (int i = 0; i < conf_.cct_segment_count; i++) {
+                for (const auto& seg : conf_.cct_segments) {
                     // For very low ambient (pitch black room), bias toward segment 0 threshold
                     // detection Use segment if calculated_lux is within 10 lux of min (helps
                     // catch edge cases)
-                    int min_threshold = std::max(0, conf_.cct_segments[i].lux_min - 10);
-                    if (calculated_lux >= min_threshold &&
-                        calculated_lux <= conf_.cct_segments[i].lux_max) {
-                        active_segment = &conf_.cct_segments[i];
-                        LOG(VERBOSE) << StringPrintf(
-                                "Selected CCT segment %d for lux %.2f (range %d-%d)", i,
-                                calculated_lux, conf_.cct_segments[i].lux_min,
-                                conf_.cct_segments[i].lux_max);
+                    int min_threshold = std::max(0, seg.lux_min - 10);
+                    if (calculated_lux >= min_threshold && calculated_lux <= seg.lux_max) {
+                        active_segment = &seg;
+                        LOG(VERBOSE)
+                                << StringPrintf("Selected CCT segment for lux %.2f (range %d-%d)",
+                                                calculated_lux, seg.lux_min, seg.lux_max);
                         break;
                     }
                 }
@@ -514,7 +479,10 @@ float AlsCorrection::process(const Event& event) {
                 // Estimate screen brightness contribution
                 float brightness_ratio =
                         static_cast<float>(brightness) / conf_.common.brightness_max;
-                float golden_scale = conf_.golden[3].w / 1000.0f;
+                float golden_scale = (conf_.light_leakage_golden.empty()
+                                              ? conf_.golden[3].w
+                                              : conf_.light_leakage_golden[linearity_level].w) /
+                                     1000.0f;
                 float base_contrib = luminance * brightness_ratio * golden_scale;
 
                 // Additional global boost for white pages in very dark rooms
@@ -525,8 +493,7 @@ float AlsCorrection::process(const Event& event) {
                 float leak_boost = 1.0f;
                 if (active_segment != nullptr) {
                     // Check if this qualifies as GREY_SCREEN or WHITE_BLACK_SCREEN
-                    for (int pc_idx = 0; pc_idx < active_segment->pure_color_count; pc_idx++) {
-                        const auto& pc = active_segment->pure_colors[pc_idx];
+                    for (const auto& pc : active_segment->pure_colors) {
                         // Match grey/white screens
                         if ((pc.color_name == "GREY_SCREEN" || pc.color_name == "GREYSCREEN" ||
                              pc.color_name == "WHITE_BLACK_SCREEN" ||
@@ -558,10 +525,9 @@ float AlsCorrection::process(const Event& event) {
                                 }
 
                                 LOG(VERBOSE) << StringPrintf(
-                                        "CCT leak boost: seg=%d, color=%s, rgb_delta=%.1f, "
+                                        "CCT leak boost: color=%s, rgb_delta=%.1f, "
                                         "leak_proxy=%.3f, boost=%.2f",
-                                        active_segment->level, pc.color_name.c_str(), rgb_delta,
-                                        leak_proxy, leak_boost);
+                                        pc.color_name.c_str(), rgb_delta, leak_proxy, leak_boost);
                                 break;
                             }
                         }
