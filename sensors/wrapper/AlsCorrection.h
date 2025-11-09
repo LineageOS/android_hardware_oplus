@@ -27,32 +27,22 @@ struct LinearityParams {
 };
 
 struct LinearityFunction {
-    int function;
     LinearityParams channels[4];  // RGBC
 };
 
 struct BrightnessRange {
-    int level;
     int bright_min, bright_max;
 };
 
 struct IRThreshold {
-    int level;
     float ir_min, ir_max;
 };
 
-struct IRBrightness {
-    int level;
-    int bright_min, bright_max;
-};
-
 struct Golden {
-    int channel;
     int r, g, b, w;
 };
 
 struct GrayScale {
-    int channel;
     float r, g, b;
 };
 
@@ -64,13 +54,11 @@ struct PureColorLeak {
 };
 
 struct CCTSegment {
-    int level;
     int lux_min, lux_max;
     float max_leak_ratio_threshold;
     float leak_ratio_threshold;
     // GREY, RED, GREEN, BLUE, YELLOW, PURPLE, CYAN, WHITE_BLACK, LOW_COLOR_SCALE:
-    PureColorLeak pure_colors[9];
-    int pure_color_count;
+    std::vector<PureColorLeak> pure_colors;
 };
 
 struct ScreenShotRect {
@@ -89,34 +77,33 @@ struct FusionLightConfig {
     CommonConfig common;
 
     // CCT leakage model
-    CCTSegment cct_segments[5];
-    int cct_segment_count;
+    std::vector<CCTSegment> cct_segments;
 
     // IR configuration
-    IRThreshold ir_thresholds[3];
-    IRBrightness ir_brightness[3];
+    std::vector<IRThreshold> ir_thresholds;
+    std::vector<BrightnessRange> ir_brightness;
 
     // Lux coefficients for default mode
-    LuxCoeff lux_coeff_lir[3];
-    LuxCoeff lux_coeff_hir[3];
-    LuxCoeff lux_coeff_super_hir[3];
+    std::vector<LuxCoeff> lux_coeff_lir;
+    std::vector<LuxCoeff> lux_coeff_hir;
+    std::vector<LuxCoeff> lux_coeff_super_hir;
 
     // Linearity correction
-    int linearity_type;
-    BrightnessRange linearity_ranges[9];
-    LinearityFunction linearity[9];
+    std::vector<BrightnessRange> linearity_ranges;
+    std::vector<LinearityFunction> linearity;
 
     // Calibration values
     Golden golden[4];
+    std::vector<Golden> light_leakage_golden;
     GrayScale grayscale[4];
 
     // Display mode variants (L_ and M_ prefixed)
     bool has_l_mode;
     bool has_m_mode;
-    IRBrightness l_ir_brightness[3];
-    IRBrightness m_ir_brightness[3];
-    LuxCoeff l_lux_coeff_lir[3];
-    LuxCoeff m_lux_coeff_lir[3];
+    std::vector<BrightnessRange> l_ir_brightness;
+    std::vector<BrightnessRange> m_ir_brightness;
+    std::vector<LuxCoeff> l_lux_coeff_lir;
+    std::vector<LuxCoeff> m_lux_coeff_lir;
 };
 
 using aidl::vendor::lineage::oplus_als::IAreaCapture;
@@ -128,8 +115,8 @@ class AlsCorrection {
 
   private:
     bool loadFusionLightConfig();
-    float applyLinearityCorrection(float raw_value, int brightness, int channel);
-    int determineIRLevel(float brightness, float ir_ratio, const IRBrightness* ir_bright);
+    float applyLinearityCorrection(float x, int linearity_level, int channel);
+    int determineIRLevel(float brightness, float ir_ratio, const BrightnessRange* ir_bright);
 
     FusionLightConfig conf_;
     std::shared_ptr<IAreaCapture> service_ = nullptr;
