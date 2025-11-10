@@ -8,8 +8,6 @@
 #include <aidl/vendor/lineage/oplus_als/BnAreaCapture.h>
 #include <android/hardware/sensors/2.1/types.h>
 
-#include <utils/Timers.h>
-
 namespace android {
 namespace hardware {
 namespace sensors {
@@ -42,7 +40,7 @@ struct Golden {
     int r, g, b, w;
 };
 
-struct GrayScale {
+struct GreyScale {
     float r, g, b;
 };
 
@@ -93,17 +91,9 @@ struct FusionLightConfig {
     std::vector<LinearityFunction> linearity;
 
     // Calibration values
-    Golden golden[4];
+    std::vector<Golden> golden;
     std::vector<Golden> light_leakage_golden;
-    GrayScale grayscale[4];
-
-    // Display mode variants (L_ and M_ prefixed)
-    bool has_l_mode;
-    bool has_m_mode;
-    std::vector<BrightnessRange> l_ir_brightness;
-    std::vector<BrightnessRange> m_ir_brightness;
-    std::vector<LuxCoeff> l_lux_coeff_lir;
-    std::vector<LuxCoeff> m_lux_coeff_lir;
+    std::vector<GreyScale> greyscale;
 };
 
 using aidl::vendor::lineage::oplus_als::IAreaCapture;
@@ -116,12 +106,11 @@ class AlsCorrection {
   private:
     bool loadFusionLightConfig();
     float applyLinearityCorrection(float x, int linearity_level, int channel);
-    int determineIRLevel(float brightness, float ir_ratio, const BrightnessRange* ir_bright);
 
     FusionLightConfig conf_;
     std::shared_ptr<IAreaCapture> service_ = nullptr;
 
-    nsecs_t last_update_ = 0, last_forced_update_;
+    int64_t last_update_ = 0, last_forced_update_;
     bool force_update_;
     float hyst_min_ = -1.f, hyst_max_ = -1.f;
     float last_corrected_value_;

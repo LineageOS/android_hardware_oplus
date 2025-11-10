@@ -14,6 +14,7 @@
 #include <android-base/stringprintf.h>
 #include <android/binder_manager.h>
 #include <json/json.h>
+#include <utils/Timers.h>
 
 using aidl::vendor::lineage::oplus_als::AreaRgbCaptureResult;
 using android::base::ReadFileToString;
@@ -47,22 +48,53 @@ int ParseInt(const Json::Value& val) {
     return val.asInt();
 }
 
-void ParseBrightnessRanges(const Json::Value& arr, std::vector<BrightnessRange>& out) {
+std::vector<BrightnessRange> ParseBrightnessRanges(const Json::Value& arr) {
+    std::vector<BrightnessRange> out;
     out.resize(arr.size());
     for (const Json::Value& item : arr) {
         int level = item["Level"].asInt();
         out[level] = {item["BrightnessMin"].asInt(), item["BrightnessMax"].asInt()};
     }
+    return out;
 }
 
-void ParseLuxCoeff(const Json::Value& arr, std::vector<LuxCoeff>& out) {
+std::vector<LuxCoeff> ParseLuxCoeff(const Json::Value& arr) {
+    std::vector<LuxCoeff> out;
     out.resize(arr.size());
     for (const Json::Value& item : arr) {
         int level = item["Level"].asInt();
         out[level] = {ParseFloat(item["ChannelR"]), ParseFloat(item["ChannelG"]),
                       ParseFloat(item["ChannelB"]), ParseFloat(item["ChannelC"])};
     }
+    return out;
 }
+
+std::vector<Golden> ParseGolden(const Json::Value& arr) {
+    std::vector<Golden> out;
+    out.resize(arr.size());
+    for (const Json::Value& item : arr) {
+        int ch = item["Channel"].asInt();
+        out[ch] = {ParseInt(item["RGolden"]), ParseInt(item["GGolden"]), ParseInt(item["BGolden"]),
+                   ParseInt(item["WGolden"])};
+    }
+    return out;
+}
+
+std::vector<GreyScale> ParseGreyScale(const Json::Value& arr) {
+    std::vector<GreyScale> out;
+    out.resize(arr.size());
+    for (const Json::Value& item : arr) {
+        int ch = item["Channel"].asInt();
+        out[ch] = {ParseFloat(item["RGreyscale"]), ParseFloat(item["GGreyscale"]),
+                   ParseFloat(item["BGreyscale"])};
+    }
+    return out;
+}
+
+float SrgbToLinear(float x) {
+    x = x / 255.0f;
+    return (x <= 0.04045f) ? (x / 12.92f) : std::pow((x + 0.055f) / 1.055f, 2.4f);
+};
 
 }  // anonymous namespace
 
@@ -146,25 +178,38 @@ bool AlsCorrection::loadFusionLightConfig() {
     }
 
     // Parse IRBrightness
-    ParseBrightnessRanges(
-            doc.isMember("IRBrightness") ? doc["IRBrightness"] : doc["IRBrightness_V2_1"],
-            conf_.ir_brightness);
+    {
+        auto res = ParseBrightnessRanges(doc.isMember("IRBrightness") ? doc["IRBrightness"]
+                                                                      : doc["IRBrightness_V2_1"]);
+        std::move(res.begin(), res.end(), std::back_inserter(conf_.ir_brightness));
+    }
 
     // Parse LuxCoeffLIR
-    ParseLuxCoeff(doc.isMember("LuxCoeffLIR") ? doc["LuxCoeffLIR"] : doc["LuxCoeffLIR_V2_1"],
-                  conf_.lux_coeff_lir);
+    {
+        auto res = ParseLuxCoeff(doc.isMember("LuxCoeffLIR") ? doc["LuxCoeffLIR"]
+                                                             : doc["LuxCoeffLIR_V2_1"]);
+        std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_lir));
+    }
 
     // Parse LuxCoeffHIR
-    ParseLuxCoeff(doc.isMember("LuxCoeffHIR") ? doc["LuxCoeffHIR"] : doc["LuxCoeffHIR_V2_1"],
-                  conf_.lux_coeff_hir);
+    {
+        auto res = ParseLuxCoeff(doc.isMember("LuxCoeffHIR") ? doc["LuxCoeffHIR"]
+                                                             : doc["LuxCoeffHIR_V2_1"]);
+        std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_hir));
+    }
 
     // Parse LuxCoeffSuperHIR
-    ParseLuxCoeff(doc.isMember("LuxCoeffSuperHIR") ? doc["LuxCoeffSuperHIR"]
-                                                   : doc["LuxCoeffSuperHIR_V2_1"],
-                  conf_.lux_coeff_super_hir);
+    {
+        auto res = ParseLuxCoeff(doc.isMember("LuxCoeffSuperHIR") ? doc["LuxCoeffSuperHIR"]
+                                                                  : doc["LuxCoeffSuperHIR_V2_1"]);
+        std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_super_hir));
+    }
 
     // Parse LinearityBrightnessRange
-    ParseBrightnessRanges(doc["LinearityBrightnessRange"], conf_.linearity_ranges);
+    {
+        auto res = ParseBrightnessRanges(doc["LinearityBrightnessRange"]);
+        std::move(res.begin(), res.end(), std::back_inserter(conf_.linearity_ranges));
+    }
 
     // Parse Linearity
     {
@@ -208,12 +253,8 @@ bool AlsCorrection::loadFusionLightConfig() {
     // Parse Golden
     {
         if (doc.isMember("Golden")) {
-            const Json::Value& arr = doc["Golden"];
-            for (const Json::Value& item : arr) {
-                int ch = item["Channel"].asInt();
-                conf_.golden[ch] = {ParseInt(item["RGolden"]), ParseInt(item["GGolden"]),
-                                    ParseInt(item["BGolden"]), ParseInt(item["WGolden"])};
-            }
+            auto res = ParseGolden(doc["Golden"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.golden));
         } else if (doc.isMember("LightLeakageGolden")) {
             const Json::Value& arr = doc["LightLeakageGolden"];
             if (conf_.linearity_ranges.size() != arr.size()) {
@@ -237,42 +278,70 @@ bool AlsCorrection::loadFusionLightConfig() {
     {
         const Json::Value& arr = doc["GreyScale"];
         if (!arr.isNull()) {
-            for (const Json::Value& item : arr) {
-                int ch = item["Channel"].asInt();
-                conf_.grayscale[ch] = {ParseFloat(item["RGreyscale"]),
-                                       ParseFloat(item["GGreyscale"]),
-                                       ParseFloat(item["BGreyscale"])};
-            }
+            auto res = ParseGreyScale(arr);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.greyscale));
         }
     }
 
     // Check for L_ mode (optional)
-    {
-        const Json::Value& bri_arr = doc["L_IRBrightness"];
-        const Json::Value& lux_arr = doc["L_LuxCoeffLIR"];
-        if (!bri_arr.isNull() && bri_arr.size() == lux_arr.size()) {
-            conf_.has_l_mode = true;
-            ParseBrightnessRanges(bri_arr, conf_.l_ir_brightness);
-            ParseLuxCoeff(lux_arr, conf_.l_lux_coeff_lir);
+    if (doc.isMember("L_IRBrightness")) {
+        {
+            auto res = ParseBrightnessRanges(doc["L_IRBrightness"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.ir_brightness));
+        }
+        {
+            auto res = ParseLuxCoeff(doc["L_LuxCoeffLIR"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_lir));
+        }
+        {
+            auto res = ParseLuxCoeff(doc["L_LuxCoeffHIR"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_hir));
+        }
+        {
+            auto res = ParseLuxCoeff(doc["L_LuxCoeffSuperHIR"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_super_hir));
+        }
+        {
+            auto res = ParseGolden(doc["L_Golden"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.golden));
+        }
+        if (!conf_.greyscale.empty()) {
+            auto res = ParseGreyScale(doc["L_GreyScale"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.greyscale));
         }
     }
 
     // Check for M_ mode (optional)
-    {
-        const Json::Value& bri_arr = doc["M_IRBrightness"];
-        const Json::Value& lux_arr = doc["M_LuxCoeffLIR"];
-        if (!bri_arr.isNull() && bri_arr.size() == lux_arr.size()) {
-            conf_.has_m_mode = true;
-            ParseBrightnessRanges(bri_arr, conf_.m_ir_brightness);
-            ParseLuxCoeff(lux_arr, conf_.m_lux_coeff_lir);
+    if (doc.isMember("M_IRBrightness")) {
+        {
+            auto res = ParseBrightnessRanges(doc["M_IRBrightness"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.ir_brightness));
+        }
+        {
+            auto res = ParseLuxCoeff(doc["M_LuxCoeffLIR"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_lir));
+        }
+        {
+            auto res = ParseLuxCoeff(doc["M_LuxCoeffHIR"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_hir));
+        }
+        {
+            auto res = ParseLuxCoeff(doc["M_LuxCoeffSuperHIR"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_super_hir));
+        }
+        {
+            auto res = ParseGolden(doc["M_Golden"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.golden));
+        }
+        if (!conf_.greyscale.empty()) {
+            auto res = ParseGreyScale(doc["M_GreyScale"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.greyscale));
         }
     }
 
     LOG(INFO) << StringPrintf(
-            "FusionLight config loaded: brightness_max=%d, has_l_mode=%d, has_m_mode=%d",
-            conf_.common.brightness_max, conf_.has_l_mode, conf_.has_m_mode);
-    LOG(INFO) << StringPrintf(
-            "Screen location: (%d,%d) to (%d,%d)", conf_.common.screenshot_rect.left_top_x,
+            "FusionLight config loaded: brightness_max=%d, Screenshot location: (%d,%d) to (%d,%d)",
+            conf_.common.brightness_max, conf_.common.screenshot_rect.left_top_x,
             conf_.common.screenshot_rect.left_top_y, conf_.common.screenshot_rect.right_bottom_x,
             conf_.common.screenshot_rect.right_bottom_y);
 
@@ -283,27 +352,6 @@ float AlsCorrection::applyLinearityCorrection(float x, int linearity_level, int 
     // Apply cubic polynomial: p3*x³ + p2*x² + p1*x + p0
     const LinearityParams& params = conf_.linearity[linearity_level].channels[channel];
     return params.p3 * x * x * x + params.p2 * x * x + params.p1 * x + params.p0;
-}
-
-int AlsCorrection::determineIRLevel(float brightness, float ir_ratio,
-                                    const BrightnessRange* ir_bright) {
-    // Determine brightness range
-    int brightness_level = -1;
-    for (int i = 0; i < 3; i++) {
-        if (brightness >= ir_bright[i].bright_min && brightness <= ir_bright[i].bright_max) {
-            brightness_level = i;
-            break;
-        }
-    }
-
-    // Verify with IR ratio
-    for (int i = 0; i < 3; i++) {
-        if (ir_ratio >= conf_.ir_thresholds[i].ir_min && ir_ratio < conf_.ir_thresholds[i].ir_max) {
-            return i;
-        }
-    }
-
-    return brightness_level >= 0 ? brightness_level : 0;
 }
 
 bool AlsCorrection::init() {
@@ -344,84 +392,73 @@ float AlsCorrection::process(const Event& event) {
     else
         LOG(ERROR) << "Failed to read screen brightness, assuming 0";
 
-    nsecs_t now = systemTime(SYSTEM_TIME_BOOTTIME);
     if (last_update_ == 0) {
-        last_update_ = now;
-        last_forced_update_ = now;
+        last_update_ = event.timestamp;
+        last_forced_update_ = event.timestamp;
         force_update_ = true;
     } else {
-        if (brightness > 0.0 && (now - last_forced_update_) > s2ns(3)) {
+        if (brightness > 0 && (event.timestamp - last_forced_update_) > s2ns(3)) {
             LOG(VERBOSE) << "Forcing screenshot";
-            last_forced_update_ = now;
+            last_forced_update_ = event.timestamp;
             force_update_ = true;
         }
-        if ((now - last_update_) < ms2ns(100)) {
+        if ((event.timestamp - last_update_) < ms2ns(100)) {
             LOG(WARNING) << "Events coming too fast, dropping";
             return -1.f;
         }
-        last_update_ = now;
+        last_update_ = event.timestamp;
     }
 
     // Assume single clear channel like original code
     float raw_clear = event.u.scalar;
 
-    // Find appropriate linearity function based on brightness
-    auto it_range = std::find_if(
-            conf_.linearity_ranges.begin(), conf_.linearity_ranges.end(), [&](const auto& r) {
-                return brightness >= r.bright_min && brightness <= r.bright_max;
-            });
-    if (it_range == conf_.linearity_ranges.end()) {
-        return raw_clear;
+    // Find appropriate linearity function based on brightness. Both open and closed intervals are
+    // observed on shipped devices, so we need to handle both cases.
+    auto it_lin_range = std::find_if(
+            conf_.linearity_ranges.begin(), conf_.linearity_ranges.end(),
+            [&](const auto& r) { return brightness >= r.bright_min && brightness < r.bright_max; });
+    if (it_lin_range == conf_.linearity_ranges.end()) {
+        it_lin_range = std::find_if(
+                conf_.linearity_ranges.begin(), conf_.linearity_ranges.end(), [&](const auto& r) {
+                    return brightness >= r.bright_min && brightness <= r.bright_max;
+                });
+        if (it_lin_range == conf_.linearity_ranges.end()) {
+            return raw_clear;
+        };
     };
-
-    int linearity_level = std::distance(conf_.linearity_ranges.begin(), it_range);
+    int linearity_level = std::distance(conf_.linearity_ranges.begin(), it_lin_range);
 
     // Apply linearity correction to clear channel (channel 3 = C/White)
     float corrected_clear = applyLinearityCorrection(raw_clear, linearity_level, 3);
-
     LOG(VERBOSE) << "Linearity corrected clear: " << corrected_clear;
 
-    // For IR ratio calculation, we need RGB values
-    float ir_ratio = 0.5;  // Default if we can't calculate
-
-    // Determine display mode based on brightness
-    auto [ir_bright, lux_lir] = [&]() {
-        if (conf_.has_l_mode && brightness <= 1105) {
-            LOG(VERBOSE) << "Using L_ mode (low brightness)";
-            return std::make_pair(std::ref(conf_.l_ir_brightness), std::ref(conf_.l_lux_coeff_lir));
-        } else if (conf_.has_m_mode && brightness > 1105 && brightness <= 1246) {
-            LOG(VERBOSE) << "Using M_ mode (medium brightness)";
-            return std::make_pair(std::ref(conf_.m_ir_brightness), std::ref(conf_.m_lux_coeff_lir));
-        } else {
-            return std::make_pair(std::ref(conf_.ir_brightness), std::ref(conf_.lux_coeff_lir));
-        }
-    }();
     // Determine IR level (use brightness-based for now since we don't have true IR ratio)
-    int ir_level = 0;
-    for (int i = 0; i < 3; i++) {
-        if (brightness >= ir_bright[i].bright_min && brightness <= ir_bright[i].bright_max) {
-            ir_level = i;
-            break;
-        }
-    }
+    auto it_ir_range = std::find_if(
+            conf_.ir_brightness.begin(), conf_.ir_brightness.end(),
+            [&](const auto& r) { return brightness >= r.bright_min && brightness < r.bright_max; });
+    if (it_ir_range == conf_.ir_brightness.end()) {
+        return raw_clear;
+    };
+    int ir_level = std::distance(conf_.ir_brightness.begin(), it_ir_range);
 
     // Select appropriate lux coefficients
     // Without true IR ratio, default to LIR for indoor, HIR for outdoor brightness levels
-    const LuxCoeff* lux_coeff;
-    if (brightness < 2000) {
-        lux_coeff = &lux_lir[ir_level];
-        LOG(VERBOSE) << "Using LIR coefficients (indoor brightness)";
-    } else if (brightness < 3000) {
-        lux_coeff = &conf_.lux_coeff_hir[ir_level];
-        LOG(VERBOSE) << "Using HIR coefficients (mid brightness)";
-    } else {
-        lux_coeff = &conf_.lux_coeff_super_hir[ir_level];
-        LOG(VERBOSE) << "Using SuperHIR coefficients (outdoor brightness)";
-    }
+    const auto& lux_coeff = [&]() -> auto& {
+        if (brightness < 2000) {
+            LOG(VERBOSE) << "Using LIR coefficients (indoor brightness)";
+            return conf_.lux_coeff_lir;
+        } else if (brightness < 3000) {
+            LOG(VERBOSE) << "Using HIR coefficients (mid brightness)";
+            return conf_.lux_coeff_hir;
+        } else {
+            LOG(VERBOSE) << "Using SuperHIR coefficients (outdoor brightness)";
+            return conf_.lux_coeff_super_hir;
+        }
+    }();
 
     // Calculate lux from corrected clear channel
     // Since we don't have separate RGB, use clear channel with C coefficient
-    float calculated_lux = corrected_clear * lux_coeff->c;
+    float calculated_lux = corrected_clear * lux_coeff[ir_level].c;
 
     LOG(VERBOSE) << "IR level: " << ir_level << ", Calculated lux: " << calculated_lux;
 
@@ -437,14 +474,9 @@ float AlsCorrection::process(const Event& event) {
                 LOG(VERBOSE) << "Screen color above sensor: " << screenshot.r << ", "
                              << screenshot.g << ", " << screenshot.b;
 
-                auto srgb_to_linear = [](float x) -> float {
-                    x = x / 255.0f;
-                    return (x <= 0.04045f) ? (x / 12.92f) : std::pow((x + 0.055f) / 1.055f, 2.4f);
-                };
-
-                float lin_r = srgb_to_linear(screenshot.r);
-                float lin_g = srgb_to_linear(screenshot.g);
-                float lin_b = srgb_to_linear(screenshot.b);
+                float lin_r = SrgbToLinear(screenshot.r);
+                float lin_g = SrgbToLinear(screenshot.g);
+                float lin_b = SrgbToLinear(screenshot.b);
 
                 // Check if this is grey/white
                 float rgb_delta = std::max({std::abs(screenshot.r - screenshot.g),
@@ -452,28 +484,12 @@ float AlsCorrection::process(const Event& event) {
                                             std::abs(screenshot.b - screenshot.r)});
 
                 float luminance;
-                if (conf_.grayscale[3].r > 0 || conf_.grayscale[3].g > 0 ||
-                    conf_.grayscale[3].b > 0) {
-                    luminance = lin_r * conf_.grayscale[3].r + lin_g * conf_.grayscale[3].g +
-                                lin_b * conf_.grayscale[3].b;
+                if (!conf_.greyscale.empty()) {
+                    luminance = lin_r * conf_.greyscale[ir_level].r +
+                                lin_g * conf_.greyscale[ir_level].g +
+                                lin_b * conf_.greyscale[ir_level].b;
                 } else {
                     luminance = lin_r * 0.2126f + lin_g * 0.7152f + lin_b * 0.0722f;
-                }
-
-                // Find appropriate CCT segment based on calculated_lux
-                const CCTSegment* active_segment = nullptr;
-                for (const auto& seg : conf_.cct_segments) {
-                    // For very low ambient (pitch black room), bias toward segment 0 threshold
-                    // detection Use segment if calculated_lux is within 10 lux of min (helps
-                    // catch edge cases)
-                    int min_threshold = std::max(0, seg.lux_min - 10);
-                    if (calculated_lux >= min_threshold && calculated_lux <= seg.lux_max) {
-                        active_segment = &seg;
-                        LOG(VERBOSE)
-                                << StringPrintf("Selected CCT segment for lux %.2f (range %d-%d)",
-                                                calculated_lux, seg.lux_min, seg.lux_max);
-                        break;
-                    }
                 }
 
                 // Estimate screen brightness contribution
@@ -491,7 +507,20 @@ float AlsCorrection::process(const Event& event) {
 
                 // Apply segment-specific leakage boost if color detected
                 float leak_boost = 1.0f;
-                if (active_segment != nullptr) {
+                // Find appropriate CCT segment based on calculated_lux
+                auto active_segment = std::find_if(
+                        conf_.cct_segments.begin(), conf_.cct_segments.end(),
+                        [&](const CCTSegment& seg) {
+                            // For very low ambient (pitch black room), bias toward segment 0
+                            // threshold detection Use segment if calculated_lux is within 10 lux of
+                            // min (helps catch edge cases)
+                            int min_threshold = std::max(0, seg.lux_min - 10);
+                            return calculated_lux >= min_threshold && calculated_lux <= seg.lux_max;
+                        });
+                if (active_segment != conf_.cct_segments.end()) {
+                    LOG(VERBOSE) << StringPrintf("Selected CCT segment for lux %.2f (range %d-%d)",
+                                                 calculated_lux, active_segment->lux_min,
+                                                 active_segment->lux_max);
                     // Check if this qualifies as GREY_SCREEN or WHITE_BLACK_SCREEN
                     for (const auto& pc : active_segment->pure_colors) {
                         // Match grey/white screens
