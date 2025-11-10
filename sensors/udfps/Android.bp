@@ -33,9 +33,3 @@ cc_library_shared {
     ],
     vendor: true,
 }
-
-cc_library_shared {
-    name: "sensors.ssc_custom_flag",
-    srcs: ["SensorsSscCustomFlag.cpp"],
-    vendor: true,
-}
