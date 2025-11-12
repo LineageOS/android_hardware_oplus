@@ -10,5 +10,5 @@ import vendor.lineage.oplus_als.AreaRgbCaptureResult;
 
 @VintfStability
 interface IAreaCapture {
-    AreaRgbCaptureResult getAreaBrightness();
+    AreaRgbCaptureResult getAreaBrightness(int topX, int topY, int bottomX, int bottomY);
 }
