@@ -469,7 +469,11 @@ float AlsCorrection::process(const Event& event) {
     if (service_ != nullptr && brightness > 0 &&
         (force_update_ || (calculated_lux < hyst_min_ || calculated_lux > hyst_max_))) {
         AreaRgbCaptureResult screenshot;
-        if (service_->getAreaBrightness(&screenshot).isOk()) {
+        if (service_->getAreaBrightness(conf_.common.screenshot_rect.left_top_x,
+                                        conf_.common.screenshot_rect.left_top_y,
+                                        conf_.common.screenshot_rect.right_bottom_x,
+                                        conf_.common.screenshot_rect.right_bottom_y, &screenshot)
+                    .isOk()) {
             if (screenshot.r + screenshot.g + screenshot.b > 0) {
                 LOG(VERBOSE) << "Screen color above sensor: " << screenshot.r << ", "
                              << screenshot.g << ", " << screenshot.b;

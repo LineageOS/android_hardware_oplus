@@ -20,7 +20,6 @@ cc_binary {
         "libgui",
         "libui",
         "libutils",
-        "liblog",
         "vendor.lineage.oplus_als-V1-ndk",
     ],
 }
