@@ -23,5 +23,5 @@
 package vendor.lineage.oplus_als;
 @VintfStability
 interface IAreaCapture {
-  vendor.lineage.oplus_als.AreaRgbCaptureResult getAreaBrightness();
+  vendor.lineage.oplus_als.AreaRgbCaptureResult getAreaBrightness(int topX, int topY, int bottomX, int bottomY);
 }
