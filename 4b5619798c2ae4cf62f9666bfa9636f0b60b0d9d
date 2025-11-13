@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d10e6a43_c3eaed36",
+        "filename": "interfaces/aidl_api/vendor.lineage.oplus_als/1/vendor/lineage/oplus_als/IAreaCapture.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-11-13T10:21:22Z",
+      "side": 1,
+      "message": "it is. i don\u0027t want to config with a separate system prop",
+      "parentUuid": "58522ec0_5fb216bc",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 27
+      },
+      "revId": "4b5619798c2ae4cf62f9666bfa9636f0b60b0d9d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0a7f4a9_c36fe942",
@@ -37,6 +61,30 @@
       "writtenOn": "2025-11-13T08:58:09Z",
       "side": 1,
       "message": "Same?",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 27
+      },
+      "revId": "4b5619798c2ae4cf62f9666bfa9636f0b60b0d9d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "141af74f_5cf15b5c",
+        "filename": "interfaces/aidl_api/vendor.lineage.oplus_als/current/vendor/lineage/oplus_als/IAreaCapture.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2025-11-13T10:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0a7f4a9_c36fe942",
       "range": {
         "startLine": 27,
         "startChar": 2,
