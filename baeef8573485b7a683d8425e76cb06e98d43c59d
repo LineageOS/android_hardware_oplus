@@ -34,6 +34,29 @@
       "parentUuid": "d4625e60_e0accdb3",
       "revId": "baeef8573485b7a683d8425e76cb06e98d43c59d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aadb172_922629af",
+        "filename": "vintf/device_framework_matrix.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-11-14T21:47:01Z",
+      "side": 1,
+      "message": "here",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 10
+      },
+      "revId": "baeef8573485b7a683d8425e76cb06e98d43c59d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
