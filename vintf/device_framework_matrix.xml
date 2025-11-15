@@ -280,7 +280,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.subsys_interface.subsys</name>
-        <version>1-4</version>
+        <version>1-5</version>
         <interface>
             <name>ISubsys</name>
             <instance>default</instance>
@@ -288,7 +288,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.subsys_interface.subsys_radio</name>
-        <version>1-6</version>
+        <version>1-8</version>
         <interface>
             <name>ISubsysRadio</name>
             <instance>slot1</instance>
