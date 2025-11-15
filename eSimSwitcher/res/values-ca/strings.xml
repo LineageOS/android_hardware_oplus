@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="esim_settings_title">Configuració eSIM</string>
+    <string name="esim_toggle_title">eSIM</string>
+    <string name="esim_toggle_summary">Baixa i activa un perfil d\'operador per utilitzar una targeta SIM virtual</string>
+    <string name="esim_toggle_dialog">La SIM 2 es desactivarà si activeu l\'eSIM. Voleu habilitar-la igualment?</string>
+    <string name="esim_toggle_dialog_cancel">Cancel·la</string>
+    <string name="esim_toggle_dialog_ok">Habilita</string>
+</resources>

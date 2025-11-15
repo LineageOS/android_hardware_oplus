@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="esim_settings_title">eSIM настройки</string>
+    <string name="esim_toggle_title">Дигитален SIM (eSIM)</string>
+    <string name="esim_toggle_summary">Изтеглете и активирайте файл на оператор, за да използвате виртуална SIM карта</string>
+    <string name="esim_toggle_dialog">SIM 2 ще бъде спряна, ако включите eSIM. Включване въпреки това?</string>
+    <string name="esim_toggle_dialog_cancel">Отказ</string>
+    <string name="esim_toggle_dialog_ok">Включване</string>
+</resources>

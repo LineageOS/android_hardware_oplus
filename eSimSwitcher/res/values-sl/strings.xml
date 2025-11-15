@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="esim_settings_title">Nastavitve eSIM</string>
+    <string name="esim_toggle_title">eSIM</string>
+    <string name="esim_toggle_summary">Prenesi in omogoči profil operaterja za uporabo navidezne kartice SIM</string>
+    <string name="esim_toggle_dialog">SIM 2 bo onemogočen, če omogočite eSIM. Omogoči vseeno?</string>
+    <string name="esim_toggle_dialog_cancel">Prekliči</string>
+    <string name="esim_toggle_dialog_ok">Omogoči</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="esim_settings_title">Socruithe eSIM</string>
+    <string name="esim_toggle_title">eSIM</string>
+    <string name="esim_toggle_summary">Íoslódáil agus gníomhaigh próifíl oibreora chun cárta SIM fíorúil a úsáid</string>
+    <string name="esim_toggle_dialog">Díchumasófar SIM 2 má chumasóidh tú eSIM. Ar mhaith leat é a chumasú ar aon nós?</string>
+    <string name="esim_toggle_dialog_cancel">Cealaigh</string>
+    <string name="esim_toggle_dialog_ok">Cumasaigh</string>
+</resources>

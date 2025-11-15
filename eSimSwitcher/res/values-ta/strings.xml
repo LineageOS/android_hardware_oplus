@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="esim_toggle_dialog_cancel">விலக்குக</string>
+    <string name="esim_toggle_dialog_ok">இயக்குக</string>
+</resources>

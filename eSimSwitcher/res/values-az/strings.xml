@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="esim_settings_title">eSIM ayarları</string>
+    <string name="esim_toggle_title">eSIM</string>
+    <string name="esim_toggle_summary">Virtual SIM kart istifadə etmək üçün operator profilini endirib aktivləşdirin</string>
+    <string name="esim_toggle_dialog">eSIM-i fəallaşdırsanız, SIM 2 sıradan çıxarılacaq. Yenə də fəallaşdırılsın?</string>
+    <string name="esim_toggle_dialog_cancel">İmtina</string>
+    <string name="esim_toggle_dialog_ok">Fəallaşdır</string>
+</resources>
