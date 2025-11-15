@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="esim_settings_title">Setări eSIM</string>
+    <string name="esim_toggle_title">eSIM</string>
+    <string name="esim_toggle_summary">Descărcați și activați un profil de operator pentru a utiliza o cartelă SIM virtuală</string>
+    <string name="esim_toggle_dialog">Cardul SIM 2 va fi dezactivat dacă activați eSIM. Îl activați oricum?</string>
+    <string name="esim_toggle_dialog_cancel">Anulare</string>
+    <string name="esim_toggle_dialog_ok">Activează</string>
+</resources>

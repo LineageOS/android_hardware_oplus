@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="esim_settings_title">eSIM-beállítások</string>
+    <string name="esim_toggle_title">eSIM</string>
+    <string name="esim_toggle_summary">A virtuális SIM használatához töltse le és aktiválja a kapott profilt</string>
+    <string name="esim_toggle_dialog">A 2.SIM letiltásra kerül, ha engedélyezi az eSIM-et. Engedélyezi?</string>
+    <string name="esim_toggle_dialog_cancel">Mégsem</string>
+    <string name="esim_toggle_dialog_ok">Engedélyezés</string>
+</resources>

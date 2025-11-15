@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="esim_settings_title">Definições do eSIM</string>
+    <string name="esim_toggle_title">eSIM</string>
+    <string name="esim_toggle_summary">Transferir e ativar um perfil de operador para usar um cartão SIM virtual</string>
+    <string name="esim_toggle_dialog">O SIM 2 será desativado se ativar o eSIM. Ativar mesmo assim?</string>
+    <string name="esim_toggle_dialog_cancel">Cancelar</string>
+    <string name="esim_toggle_dialog_ok">Ativar</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="esim_settings_title">Cài đặt eSIM</string>
+    <string name="esim_toggle_title">eSIM</string>
+    <string name="esim_toggle_summary">Tải và kích hoạt hồ sơ nhà mạng để sử dụng thẻ SIM ảo</string>
+    <string name="esim_toggle_dialog">SIM 2 sẽ bị vô hiệu hoá nếu như bạn bật eSIM. Bạn vẫn muốn bật chứ?</string>
+    <string name="esim_toggle_dialog_cancel">Huỷ</string>
+    <string name="esim_toggle_dialog_ok">Bật</string>
+</resources>
