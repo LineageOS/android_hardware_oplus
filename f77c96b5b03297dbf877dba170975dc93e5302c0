@@ -16,6 +16,24 @@
       "message": "Add \n```\n--- a/sepolicy/qti/private/compat/202404/202404.ignore.cil\n+++ b/sepolicy/qti/private/compat/202404/202404.ignore.cil\n@@ -12,4 +12,5 @@\n     system_oplus_project_prop\n     system_oplus_radio_prop\n     system_oplus_touch_prop\n-    vendor_persist_engineer_file))\n+    vendor_persist_engineer_file\n\n+    vendor_sensors_als_prop))\n```\n? otherwise SELinux is not happy...",
       "revId": "f77c96b5b03297dbf877dba170975dc93e5302c0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88d187a4_1c5a310f",
+        "filename": "sepolicy/common/public/property.te",
+        "patchSetId": 53
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-11-16T10:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c7b311b_1c9944c4",
+      "revId": "f77c96b5b03297dbf877dba170975dc93e5302c0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
