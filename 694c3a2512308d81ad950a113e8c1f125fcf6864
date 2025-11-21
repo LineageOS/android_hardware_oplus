@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63e539ec_e6298117",
+        "filename": "oplus-fwk/src/com/oplus/evolution/NetworklessDevice.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-11-21T22:42:13Z",
+      "side": 1,
+      "message": "```suggestion\n        mAbility \u003d ability;\n```\n\nand same for others.",
+      "revId": "694c3a2512308d81ad950a113e8c1f125fcf6864",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
