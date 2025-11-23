@@ -14,11 +14,15 @@ import android.os.Looper
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
-import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import com.android.settingslib.widget.MainSwitchPreference
+import com.android.settingslib.widget.SettingsBasePreferenceFragment
 
+<<<<<<< HEAD
 class DozeSettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChangeListener {
+=======
+class DozeSettingsFragment : SettingsBasePreferenceFragment(), Preference.OnPreferenceChangeListener {
+>>>>>>> e92c5b7 (doze: Convert DozeSettings for M3E support)
     private lateinit var alwaysOnDisplayPreference: SwitchPreferenceCompat
 
     private var pickUpPreference: ListPreference? = null
@@ -41,7 +45,11 @@ class DozeSettingsFragment : PreferenceFragmentCompat(), Preference.OnPreference
         }
 
         val dozeEnabled = Utils.isDozeEnabled(requireContext())
+<<<<<<< HEAD
         val switchBar: MainSwitchPreference = findPreference(Utils.DOZE_ENABLE)!!
+=======
+        switchBar = findPreference(Utils.DOZE_ENABLE)!!
+>>>>>>> e92c5b7 (doze: Convert DozeSettings for M3E support)
         switchBar.onPreferenceChangeListener = this
         switchBar.isChecked = dozeEnabled
 
