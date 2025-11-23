@@ -2,7 +2,6 @@
     public <init>(android.content.Context, android.util.AttributeSet);
 }
 
--keep class ** extends androidx.preference.PreferenceFragment
 -keep class org.lineageos.settings.doze.* {
   *;
 }
