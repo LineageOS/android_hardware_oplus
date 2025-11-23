@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2024 The LineageOS Project
+ * SPDX-FileCopyrightText: 2021-2025 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -15,11 +15,11 @@ import android.widget.CompoundButton
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
-import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import com.android.settingslib.widget.MainSwitchPreference
+import com.android.settingslib.widget.SettingsBasePreferenceFragment
 
-class DozeSettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChangeListener,
+class DozeSettingsFragment : SettingsBasePreferenceFragment(), Preference.OnPreferenceChangeListener,
     CompoundButton.OnCheckedChangeListener {
     private lateinit var alwaysOnDisplayPreference: SwitchPreferenceCompat
     private lateinit var switchBar: MainSwitchPreference
