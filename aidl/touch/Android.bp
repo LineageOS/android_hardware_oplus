@@ -7,13 +7,13 @@ cc_binary {
     name: "vendor.lineage.touch-service.oplus",
     init_rc: ["vendor.lineage.touch-service.oplus.rc"],
     vintf_fragments: select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_GM"), {
-        "true": ["vendor.lineage.touch-service.oplus-gm.xml"],
+        true: ["vendor.lineage.touch-service.oplus-gm.xml"],
         default: [],
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_HTPR"), {
-        "false": [],
+        false: [],
         default: ["vendor.lineage.touch-service.oplus-htpr.xml"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_TG"), {
-        "false": [],
+        false: [],
         default: ["vendor.lineage.touch-service.oplus-tg.xml"],
     }),
     vendor: true,
@@ -40,16 +40,16 @@ cc_binary {
         default: [],
     }),
     cflags: select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_GM"), {
-        "true": ["-DENABLE_GM=true"],
+        true: ["-DENABLE_GM=true"],
         default: ["-DENABLE_GM=false"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_HTPR"), {
-        "false": ["-DENABLE_HTPR=false"],
+        false: ["-DENABLE_HTPR=false"],
         default: ["-DENABLE_HTPR=true"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_TG"), {
-        "false": ["-DENABLE_TG=false"],
+        false: ["-DENABLE_TG=false"],
         default: ["-DENABLE_TG=true"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "USE_OPLUSTOUCH"), {
-        "true": ["-DUSE_OPLUSTOUCH=true"],
+        true: ["-DUSE_OPLUSTOUCH=true"],
         default: ["-DUSE_OPLUSTOUCH=false"],
     }),
 }
