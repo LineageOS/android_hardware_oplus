@@ -33,19 +33,19 @@ cc_binary {
     name: "vendor.lineage.livedisplay-service.oplus",
     init_rc: ["vendor.lineage.livedisplay-service.oplus.rc"],
     vintf_fragments: select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_AB"), {
-        "true": ["vendor.lineage.livedisplay-service.oplus-ab.xml"],
+        true: ["vendor.lineage.livedisplay-service.oplus-ab.xml"],
         default: [],
     }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_AF"), {
-        "true": ["vendor.lineage.livedisplay-service.oplus-af.xml"],
+        true: ["vendor.lineage.livedisplay-service.oplus-af.xml"],
         default: [],
     }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_DM"), {
-        "true": ["vendor.lineage.livedisplay-service.oplus-dm.xml"],
+        true: ["vendor.lineage.livedisplay-service.oplus-dm.xml"],
         default: [],
     }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_PA"), {
-        "false": [],
+        false: [],
         default: ["vendor.lineage.livedisplay-service.oplus-pa.xml"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_SE"), {
-        "false": [],
+        false: [],
         default: ["vendor.lineage.livedisplay-service.oplus-se.xml"],
     }),
     relative_install_path: "hw",
@@ -71,19 +71,19 @@ cc_binary {
         "vendor.lineage.livedisplay-oplus-headers",
     ],
     cflags: select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_AB"), {
-        "true": ["-DENABLE_AB=true"],
+        true: ["-DENABLE_AB=true"],
         default: ["-DENABLE_AB=false"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_AF"), {
-        "true": ["-DENABLE_AF=true"],
+        true: ["-DENABLE_AF=true"],
         default: ["-DENABLE_AF=false"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_DM"), {
-        "true": ["-DENABLE_DM=true"],
+        true: ["-DENABLE_DM=true"],
         default: ["-DENABLE_DM=false"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_PA"), {
-        "false": ["-DENABLE_PA=false"],
+        false: ["-DENABLE_PA=false"],
         default: ["-DENABLE_PA=true"],
     }) + select(soong_config_variable("OPLUS_LINEAGE_LIVEDISPLAY_HAL", "ENABLE_SE"), {
-        "false": ["-DENABLE_SE=false"],
+        false: ["-DENABLE_SE=false"],
         default: ["-DENABLE_SE=true"],
     }),
     proprietary: true,
