@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24b1db29_8c70532a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 38
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32837
+      },
+      "writtenOn": "2025-11-24T04:48:42Z",
+      "side": 1,
+      "message": "https://github.com/xiaomi-8550/android_device_xiaomi_sm8550-common/commit/d36bc65f772d0383cc7995e3d59d49c4827ac8d9\n\noriginal commit",
+      "revId": "881fa7ab5fed667cfcba1c1c26fe00aa93f386f6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": []
 }
