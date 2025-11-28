@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cb562b4_06198356",
+        "filename": "oplus-fwk/src/com/oplus/osense/OsenseResClient.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-11-28T16:12:27Z",
+      "side": 1,
+      "message": "`return new OsenseResClient();` maybe",
+      "revId": "07eabc660a5f8f766c430393acb05f91ff1c69e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
