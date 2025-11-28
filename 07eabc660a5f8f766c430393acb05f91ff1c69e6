@@ -16,6 +16,23 @@
       "message": "`return new OsenseResClient();` maybe",
       "revId": "07eabc660a5f8f766c430393acb05f91ff1c69e6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03928f43_3b634f4d",
+        "filename": "oplus-fwk/src/com/oplus/uifirst/OplusUIFirstManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-11-28T16:18:56Z",
+      "side": 1,
+      "message": "comes from IOplusUIFirstManager, should at least define an interface for it.",
+      "revId": "07eabc660a5f8f766c430393acb05f91ff1c69e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
