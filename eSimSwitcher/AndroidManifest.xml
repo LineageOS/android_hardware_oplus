@@ -13,7 +13,7 @@
         android:directBootAware="true"
         android:label="@string/device_settings_app_name"
         android:persistent="true"
-        android:theme="@style/Theme.SubSettingsBase">
+        android:theme="@style/Theme.SubSettingsBase.Expressive">
 
         <activity
             android:exported="false"
