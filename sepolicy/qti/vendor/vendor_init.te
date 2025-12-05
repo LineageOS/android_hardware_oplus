@@ -1,6 +1,8 @@
 allow vendor_init proc_sched:file w_file_perms;
 allow vendor_init vendor_proc_display:file w_file_perms;
 
+get_prop(vendor_init, system_oplus_thermal_prop)
+
 set_prop(vendor_init, system_oplus_project_prop)
 set_prop(vendor_init, vendor_camera_prop)
 set_prop(vendor_init, vendor_fingerprint_prop)

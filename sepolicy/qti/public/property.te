@@ -7,6 +7,9 @@ vendor_restricted_prop(system_fingerprint_prop)
 # Radio
 system_public_prop(system_oplus_radio_prop)
 
+# Thermal
+system_public_prop(system_oplus_thermal_prop)
+
 # Touch
 system_public_prop(system_oplus_touch_prop)
 
