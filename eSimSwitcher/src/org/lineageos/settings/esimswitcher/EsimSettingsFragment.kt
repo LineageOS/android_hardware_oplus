@@ -5,8 +5,8 @@
 
 package org.lineageos.settings.esimswitcher
 
-import android.app.AlertDialog
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import androidx.preference.SwitchPreferenceCompat
 import com.android.settingslib.widget.SettingsBasePreferenceFragment
