@@ -1,32 +1,17 @@
 //
-// Copyright (C) 2023-2025 The LineageOS Project
-//
+// SPDX-FileCopyrightText: 2023-2025 The LineageOS Project
 // SPDX-License-Identifier: Apache-2.0
 //
 
-android_app {
+phony {
     name: "OplusEuicc",
-
-    srcs: ["src/**/*.kt"],
-
-    sdk_version: "current",
-    product_specific: true,
-    certificate: "platform",
-    privileged: true,
-    privapp_allowlist: "org.lineageos.euicc.xml",
-
-    optimize: {
-        proguard_flags_files: ["proguard.flags"],
-    },
     required: [
-        "hidden-api-whitelist-org.lineageos.euicc.xml",
+        "EuiccPolicy",
+        "EuiccPolicyOplus",
     ],
 }
 
-prebuilt_etc {
-    name: "hidden-api-whitelist-org.lineageos.euicc.xml",
-    relative_install_path: "sysconfig",
-    filename: "hidden-api-whitelist-org.lineageos.euicc.xml",
-    src: "hidden-api-whitelist-org.lineageos.euicc.xml",
+runtime_resource_overlay {
+    name: "EuiccPolicyOplus",
     product_specific: true,
 }
