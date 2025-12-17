@@ -505,10 +505,6 @@ float AlsCorrection::process(const Event& event) {
                                      1000.0f;
                 float base_contrib = luminance * brightness_ratio * golden_scale;
 
-                // Additional global boost for white pages in very dark rooms
-                // This multiplier is applied on top of CCT segment boost
-                constexpr float kDarkRoomWhiteBoost = 1.35f;  // +35% extra for pitch-black + white
-
                 // Apply segment-specific leakage boost if color detected
                 float leak_boost = 1.0f;
                 // Find appropriate CCT segment based on calculated_lux
@@ -549,14 +545,6 @@ float AlsCorrection::process(const Event& event) {
                                 t = std::min(std::max(t, 0.0f), 1.0f);
                                 leak_boost = 1.0f + t * (pc.leak_ratio_max - 1.0f);
 
-                                // Apply extra dark room boost when ambient is very low and
-                                // white detected
-                                if (calculated_lux < 40.0f && luminance > 0.75f) {
-                                    leak_boost *= kDarkRoomWhiteBoost;
-                                    LOG(VERBOSE) << "Applied dark room white boost: "
-                                                 << kDarkRoomWhiteBoost;
-                                }
-
                                 LOG(VERBOSE) << StringPrintf(
                                         "CCT leak boost: color=%s, rgb_delta=%.1f, "
                                         "leak_proxy=%.3f, boost=%.2f",
@@ -568,7 +556,7 @@ float AlsCorrection::process(const Event& event) {
                 } else {
                     // No segment matched - very low ambient, apply conservative fallback boost
                     if (calculated_lux < 30.0f && rgb_delta <= 36 && luminance > 0.75f) {
-                        leak_boost = 1.5f * kDarkRoomWhiteBoost;
+                        leak_boost = 1.5f;
                         LOG(VERBOSE) << "Fallback dark room boost applied: " << leak_boost;
                     }
                 }
