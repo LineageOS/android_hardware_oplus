@@ -1,9 +1,12 @@
 /*
  * SPDX-FileCopyrightText: 2025 The LineageOS Project
+ * SPDX-FileCopyrightText: 2025 The YAAP Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #pragma once
+
+#include <vector>
 
 #include <aidl/vendor/lineage/oplus_als/BnAreaCapture.h>
 #include <android/hardware/sensors/2.1/types.h>
@@ -19,6 +22,8 @@ namespace wrapper {
 struct LuxCoeff {
     float r, g, b, c;
 };
+
+using CctCoeffTable = std::vector<std::vector<LuxCoeff>>;
 
 struct LinearityParams {
     float p0, p1, p2, p3;
@@ -86,6 +91,11 @@ struct FusionLightConfig {
     std::vector<LuxCoeff> lux_coeff_hir;
     std::vector<LuxCoeff> lux_coeff_super_hir;
 
+    // CCTCoeff tables
+    CctCoeffTable cct_coeff_lir;
+    CctCoeffTable cct_coeff_hir;
+    CctCoeffTable cct_coeff_super_hir;
+
     // Linearity correction
     std::vector<BrightnessRange> linearity_ranges;
     std::vector<LinearityFunction> linearity;
@@ -110,10 +120,11 @@ class AlsCorrection {
     FusionLightConfig conf_;
     std::shared_ptr<IAreaCapture> service_ = nullptr;
 
-    int64_t last_update_ = 0, last_forced_update_;
-    bool force_update_;
+    int64_t last_update_ = 0, last_forced_update_ = 0;
+    bool force_update_ = false;
     float hyst_min_ = -1.f, hyst_max_ = -1.f;
-    float last_corrected_value_;
+    float last_corrected_value_ = -1.f;
+    float last_calculated_lux_ = 0.0f;
 
     struct {
         float middle;

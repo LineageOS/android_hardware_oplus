@@ -6,6 +6,7 @@
 
 #include "AlsCorrection.h"
 
+#include <algorithm>
 #include <fstream>
 
 #include <android-base/file.h>
@@ -58,14 +59,35 @@ std::vector<BrightnessRange> ParseBrightnessRanges(const Json::Value& arr) {
     return out;
 }
 
-std::vector<LuxCoeff> ParseLuxCoeff(const Json::Value& arr) {
-    std::vector<LuxCoeff> out;
-    out.resize(arr.size());
+std::vector<std::vector<LuxCoeff>> ParseCctCoeff(const Json::Value& arr) {
+    std::vector<std::vector<LuxCoeff>> out;
+
+    if (arr.empty()) return out;
+
+    int max_level = 0;
+    for (const Json::Value& item : arr) {
+        max_level = std::max(max_level, item["Level"].asInt());
+    }
+    out.resize(max_level + 1);
+
+    for (auto& level_vec : out) {
+        level_vec.resize(3);
+    }
+
+    // Parse items with indexing
     for (const Json::Value& item : arr) {
         int level = item["Level"].asInt();
-        out[level] = {ParseFloat(item["ChannelR"]), ParseFloat(item["ChannelG"]),
-                      ParseFloat(item["ChannelB"]), ParseFloat(item["ChannelC"])};
+        int component = item["Component"].asInt();
+        if (level < static_cast<int>(out.size()) && component < 3) {
+            out[level][component] = {
+                ParseFloat(item["ChannelR"]),
+                ParseFloat(item["ChannelG"]),
+                ParseFloat(item["ChannelB"]),
+                ParseFloat(item["ChannelC"])
+            };
+        }
     }
+
     return out;
 }
 
@@ -146,7 +168,6 @@ bool AlsCorrection::loadFusionLightConfig() {
             for (const Json::Value& col : item["CCTPureColorParameter"]) {
                 auto name = col["PureColorName"].asString();
                 if (name == "SPECIAL_PICTURE") {
-                    // TODO: properly handle SPECIAL_PICTURE if needed
                     continue;
                 }
                 conf_.cct_segments[level].pure_colors.emplace_back(
@@ -184,25 +205,30 @@ bool AlsCorrection::loadFusionLightConfig() {
         std::move(res.begin(), res.end(), std::back_inserter(conf_.ir_brightness));
     }
 
-    // Parse LuxCoeffLIR
+    // Parse CCT coefficients
     {
-        auto res = ParseLuxCoeff(doc.isMember("LuxCoeffLIR") ? doc["LuxCoeffLIR"]
-                                                             : doc["LuxCoeffLIR_V2_1"]);
-        std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_lir));
+        if (doc.isMember("CCTCoeffLIR")) {
+            conf_.cct_coeff_lir = ParseCctCoeff(doc["CCTCoeffLIR"]);
+        } else if (doc.isMember("LCCTCoeffLIR")) {
+            conf_.cct_coeff_lir = ParseCctCoeff(doc["LCCTCoeffLIR"]);
+        } else {
+            conf_.cct_coeff_lir = ParseCctCoeff(Json::Value());
+        }
     }
 
-    // Parse LuxCoeffHIR
     {
-        auto res = ParseLuxCoeff(doc.isMember("LuxCoeffHIR") ? doc["LuxCoeffHIR"]
-                                                             : doc["LuxCoeffHIR_V2_1"]);
-        std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_hir));
+        if (doc.isMember("CCTCoeffHIR")) {
+            conf_.cct_coeff_hir = ParseCctCoeff(doc["CCTCoeffHIR"]);
+        } else if (doc.isMember("MCCTCoeffHIR")) {
+            conf_.cct_coeff_hir = ParseCctCoeff(doc["MCCTCoeffHIR"]);
+        } else {
+            conf_.cct_coeff_hir = ParseCctCoeff(Json::Value());
+        }
     }
 
-    // Parse LuxCoeffSuperHIR
     {
-        auto res = ParseLuxCoeff(doc.isMember("LuxCoeffSuperHIR") ? doc["LuxCoeffSuperHIR"]
-                                                                  : doc["LuxCoeffSuperHIR_V2_1"]);
-        std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_super_hir));
+        conf_.cct_coeff_super_hir =
+                ParseCctCoeff(doc.get("CCTCoeffSuperHIR", Json::Value()));
     }
 
     // Parse LinearityBrightnessRange
@@ -243,7 +269,6 @@ bool AlsCorrection::loadFusionLightConfig() {
             return false;
         }
 
-        // sanity check
         if (conf_.linearity_ranges.size() != conf_.linearity.size()) {
             LOG(ERROR) << "Linearity size and range mismatch";
             return false;
@@ -268,73 +293,24 @@ bool AlsCorrection::loadFusionLightConfig() {
                         ParseInt(item["RGolden"]), ParseInt(item["GGolden"]),
                         ParseInt(item["BGolden"]), ParseInt(item["CGolden"])};
             }
-        } else {
-            LOG(ERROR) << "No Golden or LightLeakageGolden found in config";
-            return false;
+        }
+
+        // WIP: Parse L_ and M_ variants for mode-specific golden values
+        if (doc.isMember("L_Golden")) {
+            auto res = ParseGolden(doc["L_Golden"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.golden));
+        }
+        if (doc.isMember("M_Golden")) {
+            auto res = ParseGolden(doc["M_Golden"]);
+            std::move(res.begin(), res.end(), std::back_inserter(conf_.golden));
         }
     }
 
-    // Parse GreyScale (optional)
+    // Parse GreyScale
     {
         const Json::Value& arr = doc["GreyScale"];
         if (!arr.isNull()) {
             auto res = ParseGreyScale(arr);
-            std::move(res.begin(), res.end(), std::back_inserter(conf_.greyscale));
-        }
-    }
-
-    // Check for L_ mode (optional)
-    if (doc.isMember("L_IRBrightness")) {
-        {
-            auto res = ParseBrightnessRanges(doc["L_IRBrightness"]);
-            std::move(res.begin(), res.end(), std::back_inserter(conf_.ir_brightness));
-        }
-        {
-            auto res = ParseLuxCoeff(doc["L_LuxCoeffLIR"]);
-            std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_lir));
-        }
-        {
-            auto res = ParseLuxCoeff(doc["L_LuxCoeffHIR"]);
-            std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_hir));
-        }
-        {
-            auto res = ParseLuxCoeff(doc["L_LuxCoeffSuperHIR"]);
-            std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_super_hir));
-        }
-        {
-            auto res = ParseGolden(doc["L_Golden"]);
-            std::move(res.begin(), res.end(), std::back_inserter(conf_.golden));
-        }
-        if (!conf_.greyscale.empty()) {
-            auto res = ParseGreyScale(doc["L_GreyScale"]);
-            std::move(res.begin(), res.end(), std::back_inserter(conf_.greyscale));
-        }
-    }
-
-    // Check for M_ mode (optional)
-    if (doc.isMember("M_IRBrightness")) {
-        {
-            auto res = ParseBrightnessRanges(doc["M_IRBrightness"]);
-            std::move(res.begin(), res.end(), std::back_inserter(conf_.ir_brightness));
-        }
-        {
-            auto res = ParseLuxCoeff(doc["M_LuxCoeffLIR"]);
-            std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_lir));
-        }
-        {
-            auto res = ParseLuxCoeff(doc["M_LuxCoeffHIR"]);
-            std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_hir));
-        }
-        {
-            auto res = ParseLuxCoeff(doc["M_LuxCoeffSuperHIR"]);
-            std::move(res.begin(), res.end(), std::back_inserter(conf_.lux_coeff_super_hir));
-        }
-        {
-            auto res = ParseGolden(doc["M_Golden"]);
-            std::move(res.begin(), res.end(), std::back_inserter(conf_.golden));
-        }
-        if (!conf_.greyscale.empty()) {
-            auto res = ParseGreyScale(doc["M_GreyScale"]);
             std::move(res.begin(), res.end(), std::back_inserter(conf_.greyscale));
         }
     }
@@ -409,11 +385,9 @@ float AlsCorrection::process(const Event& event) {
         last_update_ = event.timestamp;
     }
 
-    // Assume single clear channel like original code
     float raw_clear = event.u.scalar;
 
-    // Find appropriate linearity function based on brightness. Both open and closed intervals are
-    // observed on shipped devices, so we need to handle both cases.
+    // Find appropriate linearity function based on brightness
     auto it_lin_range = std::find_if(
             conf_.linearity_ranges.begin(), conf_.linearity_ranges.end(),
             [&](const auto& r) { return brightness >= r.bright_min && brightness < r.bright_max; });
@@ -424,7 +398,7 @@ float AlsCorrection::process(const Event& event) {
                 });
         if (it_lin_range == conf_.linearity_ranges.end()) {
             return raw_clear;
-        };
+        }
     };
     int linearity_level = std::distance(conf_.linearity_ranges.begin(), it_lin_range);
 
@@ -432,42 +406,58 @@ float AlsCorrection::process(const Event& event) {
     float corrected_clear = applyLinearityCorrection(raw_clear, linearity_level, 3);
     LOG(VERBOSE) << "Linearity corrected clear: " << corrected_clear;
 
-    // Determine IR level (use brightness-based for now since we don't have true IR ratio)
+    // Determine IR level based on brightness
     auto it_ir_range = std::find_if(
             conf_.ir_brightness.begin(), conf_.ir_brightness.end(),
             [&](const auto& r) { return brightness >= r.bright_min && brightness < r.bright_max; });
     if (it_ir_range == conf_.ir_brightness.end()) {
         return raw_clear;
-    };
+    }
     int ir_level = std::distance(conf_.ir_brightness.begin(), it_ir_range);
 
-    // Select appropriate lux coefficients
-    // Without true IR ratio, default to LIR for indoor, HIR for outdoor brightness levels
-    const auto& lux_coeff = [&]() -> auto& {
+    /* Hardcode LIR for now. TODO: determine how to utilize HIR/SuperHIR
+    const auto& cct_table = [&]() -> const std::vector<std::vector<LuxCoeff>>& {
         if (brightness < 2000) {
             LOG(VERBOSE) << "Using LIR coefficients (indoor brightness)";
-            return conf_.lux_coeff_lir;
+            return conf_.cct_coeff_lir;
         } else if (brightness < 3000) {
             LOG(VERBOSE) << "Using HIR coefficients (mid brightness)";
-            return conf_.lux_coeff_hir;
+            return conf_.cct_coeff_hir;
         } else {
             LOG(VERBOSE) << "Using SuperHIR coefficients (outdoor brightness)";
-            return conf_.lux_coeff_super_hir;
+            return conf_.cct_coeff_super_hir;
         }
     }();
+*/
+    const auto& cct_table = conf_.cct_coeff_lir;
 
     // Calculate lux from corrected clear channel
-    // Since we don't have separate RGB, use clear channel with C coefficient
-    float calculated_lux = corrected_clear * lux_coeff[ir_level].c;
-
-    LOG(VERBOSE) << "IR level: " << ir_level << ", Calculated lux: " << calculated_lux;
+    float coeff_c = 0.0f;
+    if (!cct_table.empty()) {
+        const int level = std::clamp(ir_level, 0, static_cast<int>(cct_table.size()) - 1);
+        if (!cct_table[level].empty())
+            coeff_c = cct_table[level][0].c;
+    }
+    float calculated_lux = corrected_clear * coeff_c;
+    LOG(VERBOSE) << "IR level: " << ir_level << ", Lux coeff(c0): " << coeff_c
+                 << ", Calculated lux: " << calculated_lux;
 
     // Apply screen brightness correction if needed
     float final_lux = calculated_lux;
-    float brightness_fullwhite = 0.0f;
+    float screen_correction_amount = 0.0f;
+    bool needs_screenshot = force_update_;
+    
+    // Trigger screenshot on significant lux change or forced update
+    if (!needs_screenshot && service_ != nullptr && brightness > 0) {
+        float lux_delta = std::abs(calculated_lux - last_calculated_lux_);
+        if (lux_delta > 5.0f) {  // Only take screenshot on >5 lux change
+            needs_screenshot = true;
+            LOG(VERBOSE) << "Screenshot triggered by lux change: " << last_calculated_lux_ 
+                         << " -> " << calculated_lux;
+        }
+    }
 
-    if (service_ != nullptr && brightness > 0 &&
-        (force_update_ || (calculated_lux < hyst_min_ || calculated_lux > hyst_max_))) {
+    if (service_ != nullptr && brightness > 0 && needs_screenshot) {
         AreaRgbCaptureResult screenshot;
         if (service_->getAreaBrightness(conf_.common.screenshot_rect.left_top_x,
                                         conf_.common.screenshot_rect.left_top_y,
@@ -487,115 +477,110 @@ float AlsCorrection::process(const Event& event) {
                                             std::abs(screenshot.g - screenshot.b),
                                             std::abs(screenshot.b - screenshot.r)});
 
-                float luminance;
-                if (!conf_.greyscale.empty()) {
-                    luminance = lin_r * conf_.greyscale[ir_level].r +
-                                lin_g * conf_.greyscale[ir_level].g +
-                                lin_b * conf_.greyscale[ir_level].b;
+                // Calculate screen luminance contribution
+                float screen_luminance;
+                if (conf_.greyscale.size() > 3) {
+                    screen_luminance = lin_r * conf_.greyscale[3].r +
+                                       lin_g * conf_.greyscale[3].g +
+                                       lin_b * conf_.greyscale[3].b;
                 } else {
-                    luminance = lin_r * 0.2126f + lin_g * 0.7152f + lin_b * 0.0722f;
+                    // Use standard Rec. 709 luminance
+                    screen_luminance = lin_r * 0.2126f + lin_g * 0.7152f + lin_b * 0.0722f;
                 }
 
-                // Estimate screen brightness contribution
-                float brightness_ratio =
-                        static_cast<float>(brightness) / conf_.common.brightness_max;
-                float golden_scale = (conf_.light_leakage_golden.empty()
-                                              ? conf_.golden[3].w
-                                              : conf_.light_leakage_golden[linearity_level].w) /
-                                     1000.0f;
-                float base_contrib = luminance * brightness_ratio * golden_scale;
+                // Calculate screen-induced ambient light
+                int golden_white = 0;
+                if (!conf_.light_leakage_golden.empty() &&
+                    linearity_level >= 0 &&
+                    linearity_level < static_cast<int>(conf_.light_leakage_golden.size())) {
+                    golden_white = conf_.light_leakage_golden[linearity_level].w;
+                } else if (conf_.golden.size() > 3) {
+                    golden_white = conf_.golden[3].w;
+                } else {
+                    LOG(WARNING) << "No usable Golden calibration present; disabling screen correction";
+                    final_lux = calculated_lux;
+                    last_corrected_value_ = final_lux;
+                    last_calculated_lux_ = calculated_lux;
+                    force_update_ = false;
+                    return final_lux;
+                }
 
-                // Apply segment-specific leakage boost if color detected
-                float leak_boost = 1.0f;
-                // Find appropriate CCT segment based on calculated_lux
+                if (golden_white <= 0) {
+                    LOG(WARNING) << "Invalid golden_white or coeff_c; disabling screen correction";
+                    final_lux = calculated_lux;
+                    last_corrected_value_ = final_lux;
+                    last_calculated_lux_ = calculated_lux;
+                    force_update_ = false;
+                    return final_lux;
+                }
+
+                // Screen brightness as 0-1 ratio
+                float brightness_ratio = static_cast<float>(brightness) / conf_.common.brightness_max;
+
+                float leak_ratio = 1.0f;
+
                 auto active_segment = std::find_if(
                         conf_.cct_segments.begin(), conf_.cct_segments.end(),
                         [&](const CCTSegment& seg) {
-                            // For very low ambient (pitch black room), bias toward segment 0
-                            // threshold detection Use segment if calculated_lux is within 10 lux of
-                            // min (helps catch edge cases)
-                            int min_threshold = std::max(0, seg.lux_min - 10);
-                            return calculated_lux >= min_threshold && calculated_lux <= seg.lux_max;
+                            return calculated_lux >= seg.lux_min && calculated_lux <= seg.lux_max;
                         });
+
                 if (active_segment != conf_.cct_segments.end()) {
-                    LOG(VERBOSE) << StringPrintf("Selected CCT segment for lux %.2f (range %d-%d)",
-                                                 calculated_lux, active_segment->lux_min,
-                                                 active_segment->lux_max);
-                    // Check if this qualifies as GREY_SCREEN or WHITE_BLACK_SCREEN
                     for (const auto& pc : active_segment->pure_colors) {
-                        // Match grey/white screens
                         if ((pc.color_name == "GREY_SCREEN" || pc.color_name == "GREYSCREEN" ||
-                             pc.color_name == "WHITE_BLACK_SCREEN" ||
-                             pc.color_name == "WHITEBLACKSCREEN") &&
+                             pc.color_name == "WHITE_BLACK_SCREEN" || pc.color_name == "WHITEBLACKSCREEN") &&
                             rgb_delta <= pc.grey_scale_delta_threshold) {
-                            // Calculate leak ratio proxy: luminance * brightness as fraction of
-                            // max leak
-                            float leak_proxy = luminance * brightness_ratio;
-                            float seg_leak_thresh = active_segment->leak_ratio_threshold;
-                            float seg_leak_max = active_segment->max_leak_ratio_threshold;
-                            // Lower threshold for dark room detection - be more aggressive
-                            float dark_room_thresh = seg_leak_thresh * 0.75f;  // Trigger earlier
 
-                            if (leak_proxy >= dark_room_thresh && pc.leak_ratio_max > 0.0f) {
-                                // Map leak_proxy to boost
-                                float t = (seg_leak_max > seg_leak_thresh)
-                                                  ? (leak_proxy - dark_room_thresh) /
-                                                            (seg_leak_max - dark_room_thresh)
-                                                  : 0.0f;
-                                t = std::min(std::max(t, 0.0f), 1.0f);
-                                leak_boost = 1.0f + t * (pc.leak_ratio_max - 1.0f);
+                            // Map screen luminance to leak ratio boost
+                            // Higher luminance = more light leak
+                            float leak_ratio_min = pc.leak_ratio_min;
+                            float leak_ratio_max = pc.leak_ratio_max;
 
-                                LOG(VERBOSE) << StringPrintf(
-                                        "CCT leak boost: color=%s, rgb_delta=%.1f, "
-                                        "leak_proxy=%.3f, boost=%.2f",
-                                        pc.color_name.c_str(), rgb_delta, leak_proxy, leak_boost);
-                                break;
-                            }
+                            // Interpolate based on screen luminance (0.0 = black, 1.0 = white)
+                            leak_ratio = leak_ratio_min + screen_luminance * (leak_ratio_max - leak_ratio_min);
+                            leak_ratio = std::clamp(leak_ratio, leak_ratio_min, leak_ratio_max);
+                            break;
                         }
                     }
-                } else {
-                    // No segment matched - very low ambient, apply conservative fallback boost
-                    if (calculated_lux < 30.0f && rgb_delta <= 36 && luminance > 0.75f) {
-                        leak_boost = 1.5f;
-                        LOG(VERBOSE) << "Fallback dark room boost applied: " << leak_boost;
-                    }
-                }
-                // Final screen contribution with leakage boost
-                float screen_lux_contrib = base_contrib * leak_boost;
-                brightness_fullwhite = brightness_ratio * golden_scale * leak_boost;
-
-                // Ensure minimum subtraction in pitch black + white scenario
-                if (calculated_lux < 50.0f && luminance > 0.70f) {
-                    screen_lux_contrib = std::max(screen_lux_contrib, base_contrib * 1.8f);
                 }
 
-                // Subtract screen contribution
-                final_lux = std::max(calculated_lux - screen_lux_contrib, 0.0f);
+                const float golden_lux = static_cast<float>(golden_white) * coeff_c;
+                const float screen_base_lux = screen_luminance * brightness_ratio * golden_lux;
+                screen_correction_amount = screen_base_lux * leak_ratio;
+                // Clamp for not removing all ambient lux
+                screen_correction_amount = std::min(screen_correction_amount, calculated_lux * 0.75f);
+                
+                final_lux = calculated_lux - screen_correction_amount;
+                // Clamp to prevent negative values from noise/errors
+                final_lux = std::max(0.5f, final_lux);
 
                 LOG(VERBOSE) << StringPrintf(
-                        "Screen: base=%.2f, boost=%.2f, contrib=%.2f lux, fullwhite=%.2f, "
-                        "final=%.2f",
-                        base_contrib, leak_boost, screen_lux_contrib, brightness_fullwhite,
-                        final_lux);
+                        "Screen correction: base_lux=%.2f, luminance=%.3f, leak_ratio=%.3f, "
+                        "corrected=%.2f lux (%.0f%%), final=%.2f lux",
+                        screen_base_lux, screen_luminance, leak_ratio,
+                        screen_correction_amount, (screen_correction_amount / calculated_lux) * 100.0f, final_lux);
             } else {
-                // Black screen, no correction needed
-                LOG(VERBOSE) << "Black screen, no correction";
+                LOG(VERBOSE) << "Black screen detected, no correction needed";
+                final_lux = calculated_lux;
             }
 
             // Update hysteresis range
             for (auto& range : hysteresis_ranges_) {
-                if (final_lux <= range.middle) {
+                if (calculated_lux <= range.middle) {
                     hyst_min_ = range.min;
-                    hyst_max_ = range.max + brightness_fullwhite;
+                    hyst_max_ = range.max;
                     break;
                 }
             }
 
             force_update_ = false;
             last_corrected_value_ = final_lux;
+            last_calculated_lux_ = calculated_lux;
         } else {
-            LOG(VERBOSE) << "Failed to get screen brightness, using calculated lux";
+            LOG(VERBOSE) << "Screenshot capture failed";
+            final_lux = calculated_lux;
             last_corrected_value_ = calculated_lux;
+            last_calculated_lux_ = calculated_lux;
         }
     } else if (calculated_lux >= hyst_min_ && calculated_lux <= hyst_max_) {
         // Within hysteresis range, use cached value for stability
@@ -603,11 +588,12 @@ float AlsCorrection::process(const Event& event) {
         LOG(VERBOSE) << StringPrintf("Within hysteresis (%.1f-%.1f), using cached: %.2f lux",
                                      hyst_min_, hyst_max_, final_lux);
     } else {
-        // Outside hysteresis but no screen update, use calculated
+        // Outside hysteresis and no screenshot, update cache
         last_corrected_value_ = calculated_lux;
         final_lux = calculated_lux;
+        last_calculated_lux_ = calculated_lux;
     }
-
+    
     LOG(VERBOSE) << "Final corrected lux: " << final_lux;
     return final_lux;
 }
