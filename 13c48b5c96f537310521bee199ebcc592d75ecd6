@@ -33,6 +33,24 @@
       "message": "@nreuter85@gmail.com wanna bump this? If I remember correctly, YAAP added landscape support as well, which was really the only blocker here.",
       "revId": "13c48b5c96f537310521bee199ebcc592d75ecd6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34205ba1_ad6c184f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 48
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2025-12-21T18:25:21Z",
+      "side": 1,
+      "message": "Yeah I can work on it this week, I also have a change which would inject this using IA settings and rename the preference to \"Alert slider\" and moves it to Sound. Seems like a better home to me. I will upload that as well and we can discuss if it would make a good fit.",
+      "parentUuid": "7a2002ea_7a56a709",
+      "revId": "13c48b5c96f537310521bee199ebcc592d75ecd6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
