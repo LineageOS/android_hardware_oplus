@@ -33,7 +33,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
     private val sharedPreferences
         get() = packageContext.getSharedPreferences(
             packageContext.packageName + "_preferences",
-            Context.MODE_PRIVATE or Context.MODE_MULTI_PROCESS
+            Context.MODE_PRIVATE
         )
 
     private val executorService = Executors.newSingleThreadExecutor()
