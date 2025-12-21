@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a51c0d32_4b24b63c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-21T18:32:37Z",
+      "side": 1,
+      "message": "It\u0027s not a no-op, actually. Gotta replace its usage properly.",
+      "revId": "611e688ddbce4559756934f4be6244f9a3bf269f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
