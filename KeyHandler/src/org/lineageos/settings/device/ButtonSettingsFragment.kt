@@ -10,6 +10,9 @@ import com.android.settingslib.widget.SettingsBasePreferenceFragment
 
 class ButtonSettingsFragment : SettingsBasePreferenceFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        preferenceManager.preferenceDataStore =
+            GlobalSettingsStore(requireContext().contentResolver)
+
         setPreferencesFromResource(R.xml.button_panel, rootKey)
     }
 }

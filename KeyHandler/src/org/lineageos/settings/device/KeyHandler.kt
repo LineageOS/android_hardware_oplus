@@ -10,6 +10,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.database.ContentObserver
 import android.media.AudioManager
 import android.media.AudioSystem
 import android.os.VibrationAttributes
@@ -27,16 +28,14 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
     private val notificationManager = context.getSystemService(NotificationManager::class.java)!!
     private val vibrator = context.getSystemService(Vibrator::class.java)!!
 
-    private val packageContext = context.createPackageContext(
-        KeyHandler::class.java.getPackage()!!.name, 0
-    )
-    private val sharedPreferences
-        get() = packageContext.getSharedPreferences(
-            packageContext.packageName + "_preferences",
-            Context.MODE_PRIVATE or Context.MODE_MULTI_PROCESS
-        )
-
     private val executorService = Executors.newSingleThreadExecutor()
+
+    private val resolver = context.contentResolver
+
+    @Volatile private var topMode = AudioManager.RINGER_MODE_SILENT
+    @Volatile private var middleMode = AudioManager.RINGER_MODE_VIBRATE
+    @Volatile private var bottomMode = AudioManager.RINGER_MODE_NORMAL
+    @Volatile private var muteMedia = false
 
     private var wasMuted = false
     private val broadcastReceiver = object : BroadcastReceiver() {
@@ -58,6 +57,27 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
     }
 
     init {
+        loadSettings()
+
+        val observer = object : ContentObserver(null) {
+            override fun onChange(selfChange: Boolean) {
+                loadSettings()
+            }
+        }
+
+        listOf(
+            ALERT_SLIDER_TOP_KEY,
+            ALERT_SLIDER_MIDDLE_KEY,
+            ALERT_SLIDER_BOTTOM_KEY,
+            MUTE_MEDIA_WITH_SILENT
+        ).forEach { key ->
+            resolver.registerContentObserver(
+                Settings.Global.getUriFor(key),
+                false,
+                observer
+            )
+        }
+
         context.registerReceiver(
             broadcastReceiver,
             IntentFilter().apply {
@@ -65,6 +85,10 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
                 addAction(Intent.ACTION_BOOT_COMPLETED)
             }
         )
+    }
+
+    private fun getInt(key: String, def: Int): Int {
+        return Settings.Global.getInt(resolver, key, def)
     }
 
     override fun handleKeyEvent(event: KeyEvent): KeyEvent? {
@@ -81,6 +105,13 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
         populateKeyState(true)
 
         return null
+    }
+
+    private fun loadSettings() {
+        topMode = getInt(ALERT_SLIDER_TOP_KEY, AudioManager.RINGER_MODE_SILENT)
+        middleMode = getInt(ALERT_SLIDER_MIDDLE_KEY, AudioManager.RINGER_MODE_VIBRATE)
+        bottomMode = getInt(ALERT_SLIDER_BOTTOM_KEY, AudioManager.RINGER_MODE_NORMAL)
+        muteMedia = getInt(MUTE_MEDIA_WITH_SILENT, 0) == 1
     }
 
     private fun populateKeyState(vibrate: Boolean) {
@@ -105,12 +136,10 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
     }
 
     private fun handleMode(position: Int, vibrate: Boolean) {
-        val muteMedia = sharedPreferences.getBoolean(MUTE_MEDIA_WITH_SILENT, false)
-
         val mode = when (position) {
-            POSITION_TOP -> sharedPreferences.getString(ALERT_SLIDER_TOP_KEY, "0")!!.toInt()
-            POSITION_MIDDLE -> sharedPreferences.getString(ALERT_SLIDER_MIDDLE_KEY, "1")!!.toInt()
-            POSITION_BOTTOM -> sharedPreferences.getString(ALERT_SLIDER_BOTTOM_KEY, "2")!!.toInt()
+            POSITION_TOP -> topMode
+            POSITION_MIDDLE -> middleMode
+            POSITION_BOTTOM -> bottomMode
             else -> return
         }
 
