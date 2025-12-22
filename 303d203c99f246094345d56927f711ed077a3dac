@@ -33,6 +33,24 @@
       "message": "Looks like it shifts flip from a pref to an overlay",
       "revId": "303d203c99f246094345d56927f711ed077a3dac",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aa51bb8_185ab3f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-22T02:22:16Z",
+      "side": 1,
+      "message": "Yes, and it makes no sense to keep that as an option after this orientation-aware revamp. The slider button postion never physically changes. The overlay part should be moved to the initial commit.",
+      "parentUuid": "788e1ffb_f171fb32",
+      "revId": "303d203c99f246094345d56927f711ed077a3dac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
