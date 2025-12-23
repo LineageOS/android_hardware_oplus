@@ -355,3 +355,24 @@ aidl_interface {
     ],
     frozen: true,
 }
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.olc2-V1-ndk_platform",
+    shared_libs: ["vendor.oplus.hardware.olc2-V1-ndk"],
+    system_ext_specific: true,
+    vendor_available: true,
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.osense.client-V1-ndk_platform",
+    shared_libs: ["vendor.oplus.hardware.osense.client-V1-ndk"],
+    system_ext_specific: true,
+    vendor_available: true,
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.performance-V1-ndk_platform",
+    shared_libs: ["vendor.oplus.hardware.performance-V1-ndk"],
+    system_ext_specific: true,
+    vendor_available: true,
+}
