@@ -363,3 +363,40 @@ aidl_interface {
     ],
     frozen: true,
 }
+
+cc_defaults {
+    name: "vendor.oplus.hardware.ndk_platform_shim_defaults",
+    shared_libs: ["libbinder_ndk"],
+    system_ext_specific: true,
+    vendor_available: true,
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.commondcs-V1-ndk_platform",
+    defaults: ["vendor.oplus.hardware.ndk_platform_shim_defaults"],
+    whole_static_libs: ["vendor.oplus.hardware.commondcs-V1-ndk"],
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.olc2-V1-ndk_platform",
+    defaults: ["vendor.oplus.hardware.ndk_platform_shim_defaults"],
+    whole_static_libs: ["vendor.oplus.hardware.olc2-V1-ndk"],
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.osense.client-V1-ndk_platform",
+    defaults: ["vendor.oplus.hardware.ndk_platform_shim_defaults"],
+    whole_static_libs: ["vendor.oplus.hardware.osense.client-V1-ndk"],
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.performance-V1-ndk_platform",
+    defaults: ["vendor.oplus.hardware.ndk_platform_shim_defaults"],
+    whole_static_libs: ["vendor.oplus.hardware.performance-V1-ndk"],
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.radio-V2-ndk_platform",
+    defaults: ["vendor.oplus.hardware.ndk_platform_shim_defaults"],
+    whole_static_libs: ["vendor.oplus.hardware.radio-V2-ndk"],
+}
