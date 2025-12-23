@@ -744,3 +744,43 @@ aidl_interface {
     ],
     frozen: true,
 }
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.camera.aon-V1-ndk_platform",
+    shared_libs: ["libbinder_ndk"],
+    system_ext_specific: true,
+    vendor_available: true,
+    whole_static_libs: ["vendor.oplus.hardware.camera.aon-V1-ndk"],
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.commondcs-V1-ndk_platform",
+    shared_libs: ["libbinder_ndk"],
+    system_ext_specific: true,
+    vendor_available: true,
+    whole_static_libs: ["vendor.oplus.hardware.commondcs-V1-ndk"],
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.olc2-V1-ndk_platform",
+    shared_libs: ["libbinder_ndk"],
+    system_ext_specific: true,
+    vendor_available: true,
+    whole_static_libs: ["vendor.oplus.hardware.olc2-V1-ndk"],
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.osense.client-V1-ndk_platform",
+    shared_libs: ["libbinder_ndk"],
+    system_ext_specific: true,
+    vendor_available: true,
+    whole_static_libs: ["vendor.oplus.hardware.osense.client-V1-ndk"],
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.performance-V1-ndk_platform",
+    shared_libs: ["libbinder_ndk"],
+    system_ext_specific: true,
+    vendor_available: true,
+    whole_static_libs: ["vendor.oplus.hardware.performance-V1-ndk"],
+}
