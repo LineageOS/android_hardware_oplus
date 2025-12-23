@@ -123,6 +123,14 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.display.MixLut3D</name>
+        <version>1</version>
+        <interface>
+            <name>IMixLut3D</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.displaycolorfeature</name>
         <version>1</version>
         <interface>
