@@ -16,6 +16,24 @@
       "message": "Not sorted.",
       "revId": "bb4a83c56ef8e60302da39d2e0e45c11815ad239",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02b8ab15_6000d10b",
+        "filename": "vintf/device_framework_matrix.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-31T10:10:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71962722_d736543c",
+      "revId": "bb4a83c56ef8e60302da39d2e0e45c11815ad239",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
