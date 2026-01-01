@@ -14,11 +14,12 @@ import android.os.PowerManager
 import android.os.SystemClock
 import android.util.Log
 import android.view.Display
-
 import java.util.concurrent.Executors
 
 class PickupSensor(
-    private val context: Context, sensorType: String, private val sensorValue: Float
+    private val context: Context,
+    sensorType: String,
+    private val sensorValue: Float,
 ) : SensorEventListener {
     private val powerManager = context.getSystemService(PowerManager::class.java)!!
     private val wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG)
@@ -43,7 +44,7 @@ class PickupSensor(
                     SystemClock.uptimeMillis(),
                     PowerManager.WAKE_REASON_GESTURE,
                     TAG,
-                    Display.DEFAULT_DISPLAY
+                    Display.DEFAULT_DISPLAY,
                 )
             } else {
                 Utils.launchDozePulse(context)
@@ -61,15 +62,12 @@ class PickupSensor(
                 sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
             }
         }
-
     }
 
     fun disable() {
         if (sensor != null) {
             Log.d(TAG, "Disabling")
-            executorService.submit {
-                sensorManager.unregisterListener(this, sensor)
-            }
+            executorService.submit { sensorManager.unregisterListener(this, sensor) }
         }
     }
 
