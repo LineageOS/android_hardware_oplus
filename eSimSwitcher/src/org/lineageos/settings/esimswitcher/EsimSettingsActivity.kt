@@ -16,8 +16,9 @@ class EsimSettingsActivity : CollapsingToolbarBaseActivity() {
             .replace(
                 com.android.settingslib.collapsingtoolbar.R.id.content_frame,
                 EsimSettingsFragment(),
-                TAG
-            ).commit()
+                TAG,
+            )
+            .commit()
     }
 
     companion object {

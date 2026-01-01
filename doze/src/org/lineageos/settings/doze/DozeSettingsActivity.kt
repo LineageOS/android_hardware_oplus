@@ -16,8 +16,9 @@ class DozeSettingsActivity : CollapsingToolbarBaseActivity() {
             .replace(
                 com.android.settingslib.collapsingtoolbar.R.id.content_frame,
                 DozeSettingsFragment(),
-                TAG
-            ).commit()
+                TAG,
+            )
+            .commit()
     }
 
     companion object {

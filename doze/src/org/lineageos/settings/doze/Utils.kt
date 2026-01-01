@@ -64,13 +64,19 @@ object Utils {
 
     fun enableAlwaysOn(context: Context, enable: Boolean): Boolean {
         return Settings.Secure.putIntForUser(
-            context.contentResolver, DOZE_ALWAYS_ON, if (enable) 1 else 0, UserHandle.USER_CURRENT
+            context.contentResolver,
+            DOZE_ALWAYS_ON,
+            if (enable) 1 else 0,
+            UserHandle.USER_CURRENT,
         )
     }
 
     fun isAlwaysOnEnabled(context: Context): Boolean {
         return Settings.Secure.getIntForUser(
-            context.contentResolver, DOZE_ALWAYS_ON, 0, UserHandle.USER_CURRENT
+            context.contentResolver,
+            DOZE_ALWAYS_ON,
+            0,
+            UserHandle.USER_CURRENT,
         ) != 0
     }
 
@@ -79,8 +85,7 @@ object Utils {
     }
 
     private fun isGestureEnabled(context: Context, gesture: String?): Boolean {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(gesture, false)
+        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(gesture, false)
     }
 
     fun isPickUpEnabled(context: Context): Boolean {
