@@ -111,6 +111,30 @@
       },
       "revId": "05683dfc9fab7755def07d6b6d891b9cc54bce05",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebd506c1_eba07f95",
+        "filename": "KeyHandler/res/xml/button_panel.xml",
+        "patchSetId": 64
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-01-01T15:11:16Z",
+      "side": 1,
+      "message": "That\u0027s overkill.",
+      "parentUuid": "804eb23c_2f426079",
+      "range": {
+        "startLine": 47,
+        "startChar": 34,
+        "endLine": 47,
+        "endChar": 38
+      },
+      "revId": "05683dfc9fab7755def07d6b6d891b9cc54bce05",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
