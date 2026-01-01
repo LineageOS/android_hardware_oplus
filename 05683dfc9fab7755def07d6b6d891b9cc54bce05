@@ -16,6 +16,29 @@
       "message": "meh on this",
       "revId": "05683dfc9fab7755def07d6b6d891b9cc54bce05",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed0dd212_c4f00e0d",
+        "filename": "KeyHandler/res/xml/button_panel.xml",
+        "patchSetId": 64
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-01-01T15:01:45Z",
+      "side": 1,
+      "message": "Do you prefer to make it disabled by default?",
+      "range": {
+        "startLine": 47,
+        "startChar": 34,
+        "endLine": 47,
+        "endChar": 38
+      },
+      "revId": "05683dfc9fab7755def07d6b6d891b9cc54bce05",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
