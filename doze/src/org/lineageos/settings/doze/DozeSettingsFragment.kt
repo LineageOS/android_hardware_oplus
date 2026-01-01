@@ -5,7 +5,6 @@
 
 package org.lineageos.settings.doze
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
@@ -104,5 +103,4 @@ class DozeSettingsFragment : PreferenceFragmentCompat(), Preference.OnPreference
         handler.post { Utils.checkDozeService(requireContext()) }
         return true
     }
-
 }

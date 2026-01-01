@@ -16,9 +16,10 @@ class BootCompletedReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         Log.d(TAG, "Received boot completed intent")
 
-        val hasNonRemovableEuicc = context.resources.getIntArray(
-            com.android.internal.R.array.non_removable_euicc_slots
-        ).isNotEmpty()
+        val hasNonRemovableEuicc =
+            context.resources
+                .getIntArray(com.android.internal.R.array.non_removable_euicc_slots)
+                .isNotEmpty()
 
         setComponentEnabled(context, EsimSettingsActivity::class.java.name, hasNonRemovableEuicc)
     }
@@ -26,11 +27,12 @@ class BootCompletedReceiver : BroadcastReceiver() {
     private fun setComponentEnabled(context: Context, component: String, enabled: Boolean) {
         val name = ComponentName(context, component)
         val pm = context.packageManager
-        val newState = if (enabled) {
-            PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-        } else {
-            PackageManager.COMPONENT_ENABLED_STATE_DISABLED
-        }
+        val newState =
+            if (enabled) {
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+            } else {
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+            }
 
         if (pm.getComponentEnabledSetting(name) != newState) {
             pm.setComponentEnabledSetting(name, newState, PackageManager.DONT_KILL_APP)

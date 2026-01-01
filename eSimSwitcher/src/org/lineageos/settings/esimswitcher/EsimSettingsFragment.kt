@@ -10,7 +10,6 @@ import android.os.Bundle
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
-import org.lineageos.settings.esimswitcher.R
 
 class EsimSettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChangeListener {
     private lateinit var controller: EsimController

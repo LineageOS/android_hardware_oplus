@@ -15,7 +15,6 @@ import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanFilter
 import android.bluetooth.le.ScanResult
 import android.bluetooth.le.ScanSettings
-import android.content.Context
 import android.content.Intent
 import android.database.ContentObserver
 import android.hardware.input.InputManager
@@ -31,41 +30,45 @@ class PenService : Service() {
     private val inputManager by lazy { getSystemService(InputManager::class.java) }
     private val notificationManager by lazy { getSystemService(NotificationManager::class.java) }
 
-    private val penSupportedRefreshRate by lazy { getString(R.string.config_penSupportedRefreshRate) }
+    private val penSupportedRefreshRate by lazy {
+        getString(R.string.config_penSupportedRefreshRate)
+    }
 
     private val handler by lazy { Handler(mainLooper) }
 
-    private val observer = object : UEventObserver() {
-        private val lock = Any()
+    private val observer =
+        object : UEventObserver() {
+            private val lock = Any()
 
-        override fun onUEvent(event: UEvent) {
-            synchronized(lock) {
-                val pencilStatus = event.get("pencil_status") ?: return
-                val pencilAddr = event.get("pencil_addr")?.chunked(2)?.joinToString(":") {
-                    it.uppercase()
-                } ?: return
+            override fun onUEvent(event: UEvent) {
+                synchronized(lock) {
+                    val pencilStatus = event.get("pencil_status") ?: return
+                    val pencilAddr =
+                        event.get("pencil_addr")?.chunked(2)?.joinToString(":") { it.uppercase() }
+                            ?: return
 
-                when (pencilStatus) {
-                    "0" -> notificationManager.cancel(NOTIFICATION_ID)
-                    "1" -> postNotification(pencilAddr)
+                    when (pencilStatus) {
+                        "0" -> notificationManager.cancel(NOTIFICATION_ID)
+                        "1" -> postNotification(pencilAddr)
+                    }
                 }
             }
         }
-    }
 
-    private val inputObserver = object : InputManager.InputDeviceListener {
-        override fun onInputDeviceAdded(deviceId: Int) {
-            overridePeakRefreshRateIfNeeded()
-        }
+    private val inputObserver =
+        object : InputManager.InputDeviceListener {
+            override fun onInputDeviceAdded(deviceId: Int) {
+                overridePeakRefreshRateIfNeeded()
+            }
 
-        override fun onInputDeviceRemoved(deviceId: Int) {
-            overridePeakRefreshRateIfNeeded()
-        }
+            override fun onInputDeviceRemoved(deviceId: Int) {
+                overridePeakRefreshRateIfNeeded()
+            }
 
-        override fun onInputDeviceChanged(deviceId: Int) {
-            // Do nothing
+            override fun onInputDeviceChanged(deviceId: Int) {
+                // Do nothing
+            }
         }
-    }
 
     private val peakRefreshRateSettingsObserver by lazy {
         object : ContentObserver(handler) {
@@ -78,9 +81,7 @@ class PenService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        intent?.getStringExtra(EXTRA_PENCIL_ADDR)?.let {
-            bondBtDevice(it)
-        }
+        intent?.getStringExtra(EXTRA_PENCIL_ADDR)?.let { bondBtDevice(it) }
 
         return START_STICKY
     }
@@ -94,7 +95,7 @@ class PenService : Service() {
             contentResolver.registerContentObserver(
                 Settings.System.getUriFor(PEAK_REFRESH_RATE),
                 false,
-                peakRefreshRateSettingsObserver
+                peakRefreshRateSettingsObserver,
             )
             peakRefreshRateSettingsObserver.onChange(true)
 
@@ -151,24 +152,27 @@ class PenService : Service() {
                     super.onScanFailed(errorCode)
                     scanner.stopScan(this)
                 }
-            }
+            },
         )
     }
 
     private fun overridePeakRefreshRateIfNeeded() {
-        val isPenConnected = inputManager.inputDeviceIds.firstOrNull {
-            val device = inputManager.getInputDevice(it) ?: return@firstOrNull false
-            if (device.vendorId != 0x22D9 && device.vendorId != 0x330A) {
-                // Not an OPPO/Maxeye vendor ID
-                return@firstOrNull false
-            }
-            if (device.bluetoothAddress?.startsWith("C0:87:06") == false &&
-                device.bluetoothAddress?.startsWith("F8:6F:DE") == false) {
-                // Not a Maxeye/Goodix MAC prefix
-                return@firstOrNull false
-            }
-            return@firstOrNull true
-        } != null
+        val isPenConnected =
+            inputManager.inputDeviceIds.firstOrNull {
+                val device = inputManager.getInputDevice(it) ?: return@firstOrNull false
+                if (device.vendorId != 0x22D9 && device.vendorId != 0x330A) {
+                    // Not an OPPO/Maxeye vendor ID
+                    return@firstOrNull false
+                }
+                if (
+                    device.bluetoothAddress?.startsWith("C0:87:06") == false &&
+                        device.bluetoothAddress?.startsWith("F8:6F:DE") == false
+                ) {
+                    // Not a Maxeye/Goodix MAC prefix
+                    return@firstOrNull false
+                }
+                return@firstOrNull true
+            } != null
         val peakRefreshRate = Settings.System.getString(contentResolver, PEAK_REFRESH_RATE)
 
         if (isPenConnected && peakRefreshRate == "Infinity") {
@@ -191,27 +195,29 @@ class PenService : Service() {
                 NotificationChannel(
                     NOTIFICATION_CHANNEL_ID,
                     NOTIFICATION_CHANNEL_ID,
-                    NotificationManager.IMPORTANCE_HIGH
+                    NotificationManager.IMPORTANCE_HIGH,
                 )
             )
         }
 
-        val contentIntent = PendingIntent.getService(
-            this,
-            0,
-            Intent(this, PenService::class.java).apply {
-                putExtra(EXTRA_PENCIL_ADDR, pencilAddr)
-            },
-            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-        )
+        val contentIntent =
+            PendingIntent.getService(
+                this,
+                0,
+                Intent(this, PenService::class.java).apply {
+                    putExtra(EXTRA_PENCIL_ADDR, pencilAddr)
+                },
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
+            )
 
-        val notification = Notification.Builder(this, NOTIFICATION_CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_stylus)
-            .setContentTitle(getString(R.string.pen_attached))
-            .setContentText(getString(R.string.tap_to_connect))
-            .setContentIntent(contentIntent)
-            .setAutoCancel(true)
-            .build()
+        val notification =
+            Notification.Builder(this, NOTIFICATION_CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_stylus)
+                .setContentTitle(getString(R.string.pen_attached))
+                .setContentText(getString(R.string.tap_to_connect))
+                .setContentIntent(contentIntent)
+                .setAutoCancel(true)
+                .build()
         notificationManager.notify(NOTIFICATION_ID, notification)
     }
 
