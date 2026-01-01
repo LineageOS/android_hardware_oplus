@@ -8,13 +8,10 @@ package org.lineageos.settings.esimswitcher
 import android.content.Context
 import android.os.ServiceManager
 import android.os.SystemProperties
-import android.se.omapi.Channel
-import android.se.omapi.Reader
 import android.se.omapi.SEService
-import android.se.omapi.Session
 import android.util.Log
-import kotlinx.coroutines.asExecutor
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.asExecutor
 import vendor.oplus.hardware.esim.IOplusEsim
 
 class EsimController(private val context: Context) {
@@ -49,33 +46,34 @@ class EsimController(private val context: Context) {
     private fun specialSetEsimGpio(state: Int) {
         var seService: SEService? = null
 
-        val listener = object : SEService.OnConnectedListener {
-            override fun onConnected() {
-                Log.d(TAG, "SEService connected")
+        val listener =
+            object : SEService.OnConnectedListener {
+                override fun onConnected() {
+                    Log.d(TAG, "SEService connected")
 
-                val service = seService ?: return
+                    val service = seService ?: return
 
-                try {
-                    val reader = service.readers.firstOrNull { it.name == "eSE1" }
-                    val session = reader?.openSession()
-                    val channel = session?.openLogicalChannel(null)
-
-                    oplusEsimService?.setEsimGpio(state)
-                    oplusEsimService?.setUimPower(1)
-
-                    channel?.close()
-                    session?.close()
-                } catch (e: Exception) {
-                    Log.e(TAG, "Failed to open eSE session", e)
-                } finally {
                     try {
-                        service.shutdown()
+                        val reader = service.readers.firstOrNull { it.name == "eSE1" }
+                        val session = reader?.openSession()
+                        val channel = session?.openLogicalChannel(null)
+
+                        oplusEsimService?.setEsimGpio(state)
+                        oplusEsimService?.setUimPower(1)
+
+                        channel?.close()
+                        session?.close()
                     } catch (e: Exception) {
-                        Log.e(TAG, "Failed to shutdown SEService", e)
+                        Log.e(TAG, "Failed to open eSE session", e)
+                    } finally {
+                        try {
+                            service.shutdown()
+                        } catch (e: Exception) {
+                            Log.e(TAG, "Failed to shutdown SEService", e)
+                        }
                     }
                 }
             }
-        }
 
         try {
             seService = SEService(context, Dispatchers.IO.asExecutor(), listener)
