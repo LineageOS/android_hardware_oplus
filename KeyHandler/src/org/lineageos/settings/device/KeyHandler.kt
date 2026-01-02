@@ -155,6 +155,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
                 }
                 ACTION_DND_MODE -> {
                     // --- UPDATED DND MODE HANDLING ---
+                    Log.d(TAG, "Handling custom DND action for key $dndKey ($actionKey)");
                     handleDndAction(dndKey)
                 }
             }
@@ -172,14 +173,16 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
     private fun handleDndAction(dndKey: String) {
         // 1. Get the ID of the user-selected Zen Rule.
         val selectedZenRuleId = sharedPreferences.getString(dndKey, null) ?: return
-
+        Log.d(TAG, "Activating DND rule with ID ($dndKey): $selectedZenRuleId")
         // 2. Ensure the global ringer mode is set to NORMAL for DND rules to apply.
-        //audioManager.ringerModeInternal = AudioManager.RINGER_MODE_NORMAL
-
+        //audioManager.ringerModeInternal = AudioManager.RINGER_MODE_NORMAL // disabled because we want the default notification mode (vibrate/sound/silent as set by the user) to persist when activating a DND rule
 
         // 4. Activate the user-selected DND rule using the correct API.
         //    This method is often used by system UIs to toggle Zen rule state.
         notificationManager.setAutomaticZenRuleState(selectedZenRuleId, Condition(Uri.Builder().scheme("content").authority("org.lineageos.settings.device").build(), "Tri-State Key position", Condition.STATE_TRUE))
+        Log.d(TAG, "Activated DND rule with ID: $selectedZenRuleId")
+        Log.d(TAG, notificationManager.getAutomaticZenRuleState(selectedZenRuleId).toString());
+        
     }
 
     private fun setZenMode(zenMode: Int) {

@@ -23,7 +23,8 @@
             android:defaultValue="0" />
         <ListPreference
             android:key="config_top_zen_mode"
-            android:title="Top DND Mode" />
+            android:title="Top DND Mode"
+            android:summary="%s" />
 
         <ListPreference
             android:key="config_middle_position"
@@ -36,7 +37,8 @@
 
         <ListPreference
             android:key="config_middle_zen_mode"
-            android:title="Middle DND Mode" />
+            android:title="Middle DND Mode" 
+            android:summary="%s"/>
 
         <ListPreference
             android:key="config_bottom_position"
@@ -49,7 +51,8 @@
 
         <ListPreference
             android:key="config_bottom_zen_mode"
-            android:title="Bottom DND Mode" />
+            android:title="Bottom DND Mode" 
+            android:summary="%s" />
 
         <ListPreference
             android:key="config_default_position"
@@ -62,7 +65,8 @@
 
         <ListPreference
             android:key="config_default_zen_mode"
-            android:title="Default DND Mode" />
+            android:title="Default DND Mode" 
+            android:summary="%s" />
 
     </PreferenceCategory>
 </PreferenceScreen>
