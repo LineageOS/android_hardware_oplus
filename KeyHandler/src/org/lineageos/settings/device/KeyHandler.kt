@@ -20,6 +20,9 @@ import android.view.KeyEvent
 import com.android.internal.os.DeviceKeyHandler
 import java.io.File
 import java.util.concurrent.Executors
+import android.service.notification.Condition
+import android.net.Uri
+import android.util.Log
 
 class KeyHandler(context: Context) : DeviceKeyHandler {
     private val audioManager = context.getSystemService(AudioManager::class.java)!!
@@ -87,6 +90,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
             "1" -> handleMode(POSITION_TOP, vibrate)
             "2" -> handleMode(POSITION_MIDDLE, vibrate)
             "3" -> handleMode(POSITION_BOTTOM, vibrate)
+            else -> handleMode(POSITION_DEFAULT, vibrate) // Default to middle
         }
     }
 
@@ -100,24 +104,34 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
     }
 
     private fun handleMode(position: Int, vibrate: Boolean) {
-        val muteMedia = sharedPreferences.getBoolean(MUTE_MEDIA_WITH_SILENT, false)
+        val actionKey = when (position) {
+            POSITION_TOP -> ALERT_SLIDER_TOP_KEY
+            POSITION_MIDDLE -> ALERT_SLIDER_MIDDLE_KEY
+            POSITION_BOTTOM -> ALERT_SLIDER_BOTTOM_KEY
+            POSITION_DEFAULT -> ALERT_SLIDER_DEFAULT_KEY
+            else -> return
+        }
 
-        val mode =
-            when (position) {
-                POSITION_TOP -> sharedPreferences.getString(ALERT_SLIDER_TOP_KEY, "0")!!.toInt()
-                POSITION_MIDDLE ->
-                    sharedPreferences.getString(ALERT_SLIDER_MIDDLE_KEY, "1")!!.toInt()
-                POSITION_BOTTOM ->
-                    sharedPreferences.getString(ALERT_SLIDER_BOTTOM_KEY, "2")!!.toInt()
-                else -> return
-            }
+        val dndKey = when (position) {
+            POSITION_TOP -> ALERT_SLIDER_TOP_DND_KEY
+            POSITION_MIDDLE -> ALERT_SLIDER_MIDDLE_DND_KEY
+            POSITION_BOTTOM -> ALERT_SLIDER_BOTTOM_DND_KEY
+            POSITION_DEFAULT -> ALERT_SLIDER_DEFAULT_DND_KEY
+            else -> return
+        }
+
+        // Action selected by the user (as a string)
+        val actionString = sharedPreferences.getString(actionKey, "0")
+        Log.d(TAG, "Handling position $position with action $actionString: $dndKey $actionKey")
+
+        val mode = actionString!!.toIntOrNull() ?: return // Convert to Int, use default if failed
 
         executorService.submit {
             when (mode) {
                 AudioManager.RINGER_MODE_SILENT -> {
                     setZenMode(Settings.Global.ZEN_MODE_OFF)
                     audioManager.ringerModeInternal = mode
-                    if (muteMedia) {
+                    if (sharedPreferences.getBoolean(MUTE_MEDIA_WITH_SILENT, false)) {
                         audioManager.adjustVolume(AudioManager.ADJUST_MUTE, 0)
                         wasMuted = true
                     }
@@ -126,7 +140,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
                 AudioManager.RINGER_MODE_NORMAL -> {
                     setZenMode(Settings.Global.ZEN_MODE_OFF)
                     audioManager.ringerModeInternal = mode
-                    if (muteMedia && wasMuted) {
+                    if (sharedPreferences.getBoolean(MUTE_MEDIA_WITH_SILENT, false) && wasMuted) {
                         audioManager.adjustVolume(AudioManager.ADJUST_UNMUTE, 0)
                     }
                 }
@@ -135,16 +149,37 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
                 ZEN_ALARMS_ONLY -> {
                     audioManager.ringerModeInternal = AudioManager.RINGER_MODE_NORMAL
                     setZenMode(mode - ZEN_OFFSET)
-                    if (muteMedia && wasMuted) {
+                    if (sharedPreferences.getBoolean(MUTE_MEDIA_WITH_SILENT, false) && wasMuted) {
                         audioManager.adjustVolume(AudioManager.ADJUST_UNMUTE, 0)
                     }
                 }
+                ACTION_DND_MODE -> {
+                    // --- UPDATED DND MODE HANDLING ---
+                    handleDndAction(dndKey)
+                }
             }
 
-            if (vibrate) {
+            if (vibrate && mode != ACTION_DND_MODE) {
                 vibrateIfNeeded(mode)
             }
         }
+    }
+
+    /**
+     * Handles the activation of a user-selected DND/Zen mode rule.
+     * This activates a rule and allows other active rules to remain active.
+     */
+    private fun handleDndAction(dndKey: String) {
+        // 1. Get the ID of the user-selected Zen Rule.
+        val selectedZenRuleId = sharedPreferences.getString(dndKey, null) ?: return
+
+        // 2. Ensure the global ringer mode is set to NORMAL for DND rules to apply.
+        //audioManager.ringerModeInternal = AudioManager.RINGER_MODE_NORMAL
+
+
+        // 4. Activate the user-selected DND rule using the correct API.
+        //    This method is often used by system UIs to toggle Zen rule state.
+        notificationManager.setAutomaticZenRuleState(selectedZenRuleId, Condition(Uri.Builder().scheme("content").authority("org.lineageos.settings.device").build(), "Tri-State Key position", Condition.STATE_TRUE))
     }
 
     private fun setZenMode(zenMode: Int) {
@@ -153,7 +188,7 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
 
         // Wait until zen mode change is committed
         while (notificationManager.zenMode != zenMode) {
-            Thread.sleep(10)
+            Thread.sleep(75)
         }
     }
 
@@ -164,14 +199,25 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
         private const val POSITION_TOP = 1
         private const val POSITION_MIDDLE = 2
         private const val POSITION_BOTTOM = 3
+        private const val POSITION_DEFAULT = 4
 
-        // Preference keys
+        // Action value for the user-selected DND/Zen rule
+        private const val ACTION_DND_MODE = 10 // Matches VALUE_DND_MODE_ACTION = "10"
+
+        // Preference keys (Action)
         private const val ALERT_SLIDER_TOP_KEY = "config_top_position"
         private const val ALERT_SLIDER_MIDDLE_KEY = "config_middle_position"
         private const val ALERT_SLIDER_BOTTOM_KEY = "config_bottom_position"
+        private const val ALERT_SLIDER_DEFAULT_KEY = "config_default_position"
         private const val MUTE_MEDIA_WITH_SILENT = "config_mute_media"
 
-        // ZEN constants
+        // Preference keys (Dependent DND/Zen Mode)
+        private const val ALERT_SLIDER_TOP_DND_KEY = "config_top_zen_mode"
+        private const val ALERT_SLIDER_MIDDLE_DND_KEY = "config_middle_zen_mode"
+        private const val ALERT_SLIDER_BOTTOM_DND_KEY = "config_bottom_zen_mode"
+        private const val ALERT_SLIDER_DEFAULT_DND_KEY = "config_default_zen_mode"
+
+        // ZEN constants (Existing built-in modes)
         private const val ZEN_OFFSET = 2
         private const val ZEN_PRIORITY_ONLY = 3
         private const val ZEN_TOTAL_SILENCE = 4

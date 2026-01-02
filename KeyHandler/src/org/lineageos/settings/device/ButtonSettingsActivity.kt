@@ -11,12 +11,11 @@ import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity
 class ButtonSettingsActivity : CollapsingToolbarBaseActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportFragmentManager
+        fragmentManager
             .beginTransaction()
             .replace(
                 com.android.settingslib.collapsingtoolbar.R.id.content_frame,
-                ButtonSettingsFragment(),
-                TAG,
+                ButtonSettingsFragmentA(),
             )
             .commit()
     }
