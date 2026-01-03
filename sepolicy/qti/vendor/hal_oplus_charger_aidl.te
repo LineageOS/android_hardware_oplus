@@ -10,6 +10,10 @@ hal_server_domain(hal_oplus_charger_aidl, vendor_hal_oplus_charger)
 
 hal_attribute_service(vendor_hal_oplus_charger, hal_oplus_charger_aidl_service)
 
+allow hal_oplus_charger_aidl fwk_sensor_hwservice:hwservice_manager find;
+binder_call(system_server, hal_oplus_charger_aidl)
+binder_call(hal_oplus_charger_aidl, system_server)
+
 allow hal_oplus_charger_aidl self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
 
 allow hal_oplus_charger_aidl oplus_charger_device:chr_file rw_file_perms;
