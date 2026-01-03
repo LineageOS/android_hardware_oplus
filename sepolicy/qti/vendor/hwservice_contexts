@@ -7,6 +7,7 @@ vendor.oplus.hardware.cameraMDM::IOPlusCameraMDM                       u:object_
 vendor.oplus.hardware.cammidasservice::IMIDASService                   u:object_r:hal_camera_hwservice:s0
 vendor.oplus.hardware.sendextcamcmd::ISendExtCamCmdService             u:object_r:hal_camera_hwservice:s0
 vendor.qti.hardware.camera.cameraextension::ICameraExtensionService    u:object_r:vendor_hal_camera_extension_hwservice:s0
+vendor.zeku.hardware.explorer::IMmsProvider                            u:object_r:vendor_hal_explorer_hwservice:s0
 
 # CommonDcs
 vendor.oplus.hardware.commondcs::ICommonDcsHalService    u:object_r:vendor_hal_commondcs_hwservice:s0
