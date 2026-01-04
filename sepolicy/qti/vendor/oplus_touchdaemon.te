@@ -11,6 +11,7 @@ add_service(oplus_touchdaemon, touchDeamonBinder_service)
 
 allow oplus_touchdaemon fwk_stats_service:service_manager find;
 allow oplus_touchdaemon hal_oplus_olc_aidl_service:service_manager find;
+allow oplus_touchdaemon hal_oplus_touch_aidl_service:service_manager find;
 
 allow oplus_touchdaemon oplus_touchdaemon:capability sys_nice;
 
