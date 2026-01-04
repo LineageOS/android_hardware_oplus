@@ -5,7 +5,7 @@
  */
 
 #define LOG_TAG "audio_amplifier"
-//#define LOG_NDEBUG 0
+// #define LOG_NDEBUG 0
 
 #include <cutils/str_parms.h>
 #include <dlfcn.h>
