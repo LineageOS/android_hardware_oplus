@@ -143,7 +143,7 @@ ndk::ScopedAStatus Vibrator::getCompositionSizeMax(int32_t* maxSize __unused) {
 }
 
 ndk::ScopedAStatus Vibrator::getSupportedPrimitives(
-    std::vector<CompositePrimitive>* supported __unused) {
+        std::vector<CompositePrimitive>* supported __unused) {
     return ndk::ScopedAStatus::ok();
 }
 
@@ -157,7 +157,8 @@ ndk::ScopedAStatus Vibrator::compose(const std::vector<CompositeEffect>& composi
     return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
 }
 
-ndk::ScopedAStatus Vibrator::getSupportedAlwaysOnEffects(std::vector<Effect>* _aidl_return __unused) {
+ndk::ScopedAStatus Vibrator::getSupportedAlwaysOnEffects(
+        std::vector<Effect>* _aidl_return __unused) {
     return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
 }
 
@@ -203,7 +204,8 @@ ndk::ScopedAStatus Vibrator::getSupportedBraking(std::vector<Braking>* supported
 }
 
 ndk::ScopedAStatus Vibrator::composePwle(const std::vector<PrimitivePwle>& composite __unused,
-                                         const std::shared_ptr<IVibratorCallback>& callback __unused) {
+                                         const std::shared_ptr<IVibratorCallback>& callback
+                                                 __unused) {
     return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
 }
 
