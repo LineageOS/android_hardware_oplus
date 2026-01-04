@@ -32,12 +32,12 @@
 #include <sys/types.h>
 
 struct effect_stream {
-    uint32_t   	    effect_id;
-    uint32_t        length;
-    uint32_t        play_rate_hz;
-    const int8_t    *data;
+    uint32_t effect_id;
+    uint32_t length;
+    uint32_t play_rate_hz;
+    const int8_t* data;
 };
 
-const struct effect_stream *get_effect_stream(uint32_t effect_id);
+const struct effect_stream* get_effect_stream(uint32_t effect_id);
 
 #endif
