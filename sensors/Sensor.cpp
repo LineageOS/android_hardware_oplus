@@ -25,7 +25,7 @@
 namespace {
 
 static bool readFpState(int fd, int& screenX, int& screenY) {
-    char buffer[512];
+     char buffer[512];
     int state = 0;
     int rc;
 
