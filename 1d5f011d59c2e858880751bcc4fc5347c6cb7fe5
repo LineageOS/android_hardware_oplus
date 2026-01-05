@@ -52,6 +52,24 @@
       "parentUuid": "599c87c8_8adec4c2",
       "revId": "1d5f011d59c2e858880751bcc4fc5347c6cb7fe5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7e9d3f8_f893ceeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-01-05T23:21:14Z",
+      "side": 1,
+      "message": "ifaa/euicc apps are around the same size too.",
+      "parentUuid": "b9134239_964f206e",
+      "revId": "1d5f011d59c2e858880751bcc4fc5347c6cb7fe5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
