@@ -84,10 +84,6 @@
                 android:entryValues="@array/alert_slider_ringer_mode_entry_values"
                 android:summary="%s" />
         </PreferenceCategory>
-        
-        <Preference 
-            android:key="debug_clear_ringer_prefs"
-            android:title="Clear Ringer Mode Preferences (Debug)" />
 
     </PreferenceCategory>
 </PreferenceScreen>
