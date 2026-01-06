@@ -21,4 +21,14 @@
     <string name="alert_slider_mode_dnd_custom_mode">Select Mode</string>
     <string name="alert_slider_mute_media_title">Mute media</string>
     <string name="alert_slider_mute_media_summary">Mute media when switching to silent</string>
+    <string name="alert_slider_top_position_category_title">Top position settings</string>
+    <string name="alert_slider_top_dnd_mode_title">Top DND Mode</string>
+    <string name="alert_slider_top_ringer_mode_title">Top Ringer Mode</string>
+    <string name="alert_slider_middle_position_category_title">Middle position settings</string>
+    <string name="alert_slider_middle_dnd_mode_title">Middle DND Mode</string>
+    <string name="alert_slider_middle_ringer_mode_title">Middle Ringer Mode</string>
+    <string name="alert_slider_bottom_position_category_title">Bottom position settings</string>
+    <string name="alert_slider_bottom_dnd_mode_title">Bottom DND Mode</string>
+    <string name="alert_slider_bottom_ringer_mode_title">Bottom Ringer Mode</string>
+    
 </resources>

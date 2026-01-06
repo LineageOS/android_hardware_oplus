@@ -21,8 +21,20 @@
         <item>1</item>
         <item>0</item>
         <item>3</item>
-	<item>4</item>
-	<item>5</item>
+	    <item>4</item>
+	    <item>5</item>
         <item>10</item>
+    </string-array>
+
+    <string-array name="alert_slider_ringer_mode_entries" translatable="false">
+        <item>@string/alert_slider_mode_normal</item>
+        <item>@string/alert_slider_mode_vibration</item>
+        <item>@string/alert_slider_mode_silent</item>
+    </string-array>
+
+    <string-array name="alert_slider_ringer_mode_entry_values" translatable="false">
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
     </string-array>
 </resources>

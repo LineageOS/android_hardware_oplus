@@ -9,6 +9,7 @@ import androidx.preference.Preference // Import base Preference
 import androidx.preference.PreferenceFragment
 import org.lineageos.settings.device.R
 import android.util.Log
+import android.widget.Toast
 
 class ButtonSettingsFragmentA : PreferenceFragment() {
 
@@ -33,27 +34,38 @@ class ButtonSettingsFragmentA : PreferenceFragment() {
         setupPreferenceLogic(
             KEY_POSITION_TOP_ACTION,
             KEY_POSITION_TOP_DND,
+            KEY_POSITION_TOP_RINGER,
             entriesArray,
             valuesArray
         )
         setupPreferenceLogic(
             KEY_POSITION_MIDDLE_ACTION,
             KEY_POSITION_MIDDLE_DND,
+            KEY_POSITION_MIDDLE_RINGER,
             entriesArray,
             valuesArray
         )
         setupPreferenceLogic(
             KEY_POSITION_BOTTOM_ACTION,
             KEY_POSITION_BOTTOM_DND,
+            KEY_POSITION_BOTTOM_RINGER,
             entriesArray,
             valuesArray
         )
-        setupPreferenceLogic(
-            KEY_POSITION_DEFAULT_ACTION,
-            KEY_POSITION_DEFAULT_DND,
-            entriesArray,
-            valuesArray
-        )
+
+        val btn = findPreference<Preference>("debug_clear_ringer_prefs")
+        btn?.setOnPreferenceClickListener {
+        // DEBUG: remove ringer mode sharedprefs
+            val prefs = androidx.preference.PreferenceManager.getDefaultSharedPreferences(mContext)
+            val editor = prefs.edit()
+            editor.remove(KEY_POSITION_TOP_RINGER)
+            editor.remove(KEY_POSITION_MIDDLE_RINGER)
+            editor.remove(KEY_POSITION_BOTTOM_RINGER)
+            editor.apply() 
+            Log.d("ButtonSettingsFragmentA", "Cleared ringer mode shared preferences")
+            Toast.makeText(mContext, "Cleared ringer mode shared preferences", Toast.LENGTH_SHORT).show()
+            true
+        }
 
     }
 
@@ -63,14 +75,17 @@ class ButtonSettingsFragmentA : PreferenceFragment() {
     private fun setupPreferenceLogic(
         controllerKey: String,
         dependentKey: String,
+        ringerKey: String,
         dndEntries: Array<CharSequence>,
         dndEntryValues: Array<CharSequence>
     ) {
         val controllerPref: ListPreference? = findPreference(controllerKey)
         val dependentDndPref: ListPreference? = findPreference(dependentKey)
+        val ringerPref: ListPreference? = findPreference(ringerKey)
 
-        if (controllerPref == null || dependentDndPref == null) {
+        if (controllerPref == null || dependentDndPref == null || ringerPref == null) {
             // Log error or return if preferences aren't found
+            Log.e("ButtonSettingsFragmentA", "Preferences not found for (at least one of these) keys: $controllerKey, $dependentKey, $ringerKey")
             return
         }
 
@@ -86,11 +101,34 @@ class ButtonSettingsFragmentA : PreferenceFragment() {
             // When the controller changes, update the dependent's visibility
             Log.d("ButtonSettingsFragmentA", "Controller $controllerKey changed to $newValue")
             updateDndPreferenceVisibility(dependentDndPref, newValue.toString())
+            updateRingerPreferenceVisibility(ringerPref, newValue.toString())
             true // Accept the change
         }
 
         // 5. Set the initial visibility when the screen loads
         updateDndPreferenceVisibility(dependentDndPref, controllerPref.value)
+        updateRingerPreferenceVisibility(ringerPref, controllerPref.value)
+    }
+
+    private fun updateRingerPreferenceVisibility(
+        ringerPreference: Preference,
+        controllerValue: String?
+    ) {
+        // Show the Ringer preference ONLY if the selected action is of ZEN_PRIORITY_ONLY, ZEN_ALARMS_ONLY, or DND_MODE
+        ringerPreference.isVisible = (controllerValue == ZEN_PRIORITY_ONLY_ACTION ||
+                                     controllerValue == ZEN_ALARMS_ONLY_ACTION ||
+                                     controllerValue == VALUE_DND_MODE_ACTION)
+        Log.d("ButtonSettingsFragmentA", "Ringer Preference ${ringerPreference.key} visibility set to ${ringerPreference.isVisible}")
+
+        // set default to normal mode (0) if it becomes visible and has no value
+        if (ringerPreference.isVisible) {
+            val listPref = ringerPreference as ListPreference
+            if (listPref.value == null || listPref.value!!.isEmpty()) {
+                val defaultRingerValue = "0" // Normal mode
+                listPref.value = defaultRingerValue
+                Log.d("ButtonSettingsFragmentA", "Ringer Preference ${ringerPreference.key} value set to $defaultRingerValue")
+            }
+        }
     }
 
     /**
@@ -168,6 +206,7 @@ class ButtonSettingsFragmentA : PreferenceFragment() {
                 return true
             }
         }
+        // TODO: fire an intent to trigger the immediate application of settings
         return super.onOptionsItemSelected(item)
     }
 
@@ -177,21 +216,25 @@ class ButtonSettingsFragmentA : PreferenceFragment() {
      */
     companion object {
         // The value of the "DND Mode" option in your controller ListPreference
-        const val VALUE_DND_MODE_ACTION = "10" // !! Check your XML for this value
+        const val VALUE_DND_MODE_ACTION = "10" // value from XML (arrays.xml)
+        private const val ZEN_PRIORITY_ONLY_ACTION = "3"
+        private const val ZEN_ALARMS_ONLY_ACTION = "5"
+
 
         // Keys for Top Position
         const val KEY_POSITION_TOP_ACTION = "config_top_position"
         const val KEY_POSITION_TOP_DND = "config_top_zen_mode"
+        const val KEY_POSITION_TOP_RINGER = "config_top_ringer_mode"
 
         // Keys for Middle Position
         const val KEY_POSITION_MIDDLE_ACTION = "config_middle_position"
         const val KEY_POSITION_MIDDLE_DND = "config_middle_zen_mode"
+        const val KEY_POSITION_MIDDLE_RINGER = "config_middle_ringer_mode"
 
         // Keys for Bottom Position
         const val KEY_POSITION_BOTTOM_ACTION = "config_bottom_position"
         const val KEY_POSITION_BOTTOM_DND = "config_bottom_zen_mode"
+        const val KEY_POSITION_BOTTOM_RINGER = "config_bottom_ringer_mode"
 
-        const val KEY_POSITION_DEFAULT_ACTION = "config_default_position"
-        const val KEY_POSITION_DEFAULT_DND = "config_default_zen_mode"
     }
 }
