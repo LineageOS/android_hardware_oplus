@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e331ce63_6fca133b",
+        "filename": "KeyHandler/res/values/arrays.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-07T20:31:17Z",
+      "side": 1,
+      "message": "spaces vs tabs...",
+      "revId": "d0e160887428797b6f607734367711ce3351a0e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4499e61c_1a540321",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-07T20:31:17Z",
+      "side": 1,
+      "message": "unrelated change",
+      "revId": "d0e160887428797b6f607734367711ce3351a0e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "883d7152_c1610576",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-07T20:31:17Z",
+      "side": 1,
+      "message": "unrelated?",
+      "revId": "d0e160887428797b6f607734367711ce3351a0e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f6e6468_ac7b36f5",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-07T20:31:17Z",
+      "side": 1,
+      "message": "Comment change unrelated?",
+      "revId": "d0e160887428797b6f607734367711ce3351a0e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
