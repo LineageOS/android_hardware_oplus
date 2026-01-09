@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d67d31f7_c9d35228",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-09T20:41:48Z",
+      "side": 1,
+      "message": "what do you mean? This is a loop waiting for the change. if its a 10ms cycle it\u0027s not coming earlier or later than when you wait 75ms per loop cycle",
+      "parentUuid": "46bd954f_aef77a0f",
+      "revId": "d0e160887428797b6f607734367711ce3351a0e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f6e6468_ac7b36f5",
         "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
         "patchSetId": 5
