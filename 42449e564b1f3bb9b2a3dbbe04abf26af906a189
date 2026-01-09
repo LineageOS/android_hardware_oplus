@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4a5cd92_cca4b997",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/ButtonSettingsFragment.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-09T20:50:03Z",
+      "side": 1,
+      "message": "Numbering your comments doesn\u0027t make sense. Imagine changing some logic later and inserting something - would you want to shift all comment numbers just because of that?",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c03cc6b_0123cd65",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/ButtonSettingsFragment.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-09T20:50:03Z",
+      "side": 1,
+      "message": "This comment is just saying the same as the function name - \"setupPreferenceLogic\" already contains exactly that",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28c06782_063080a9",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/ButtonSettingsFragment.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-09T20:50:03Z",
+      "side": 1,
+      "message": "again, that\u0027s already what the code directly below says",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22d6c7b7_9b7d87e6",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/ButtonSettingsFragment.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-09T20:50:03Z",
+      "side": 1,
+      "message": "...",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f761306a_e9a1c32a",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/ButtonSettingsFragment.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-09T20:50:03Z",
+      "side": 1,
+      "message": "...",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8be742d8_3a13dcd2",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/ButtonSettingsFragment.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-09T20:50:03Z",
+      "side": 1,
+      "message": "don\u0027t need this intermediate variable when you can assign that to listPref.value directly (and use listPref.value in the logging so you don\u0027t have to duplicate the \"0\")",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dd24975_fe4fca68",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-09T20:50:03Z",
+      "side": 1,
+      "message": "comment redundant, the code already shows it\u0027s the first thing you do",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3296bf7a_95762168",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-09T20:50:03Z",
+      "side": 1,
+      "message": "comment not needed",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f66060db_f78c5dc7",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-09T20:50:03Z",
+      "side": 1,
+      "message": "both comments not needed, (and \"number\" comment I made somewhere else also applies, technically)",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
