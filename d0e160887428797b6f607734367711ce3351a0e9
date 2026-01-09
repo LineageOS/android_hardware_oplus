@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb77905e_954cada1",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 36472
+      },
+      "writtenOn": "2026-01-09T21:07:23Z",
+      "side": 1,
+      "message": "I\u0027m really not sure, it just seems to work",
+      "parentUuid": "d67d31f7_c9d35228",
+      "revId": "d0e160887428797b6f607734367711ce3351a0e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f6e6468_ac7b36f5",
         "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
         "patchSetId": 5

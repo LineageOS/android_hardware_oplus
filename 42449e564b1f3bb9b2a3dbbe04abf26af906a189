@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73be600c_277bc933",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/ButtonSettingsFragment.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 36472
+      },
+      "writtenOn": "2026-01-09T21:07:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4a5cd92_cca4b997",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c03cc6b_0123cd65",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-01-09T20:50:03Z",
       "side": 1,
       "message": "This comment is just saying the same as the function name - \"setupPreferenceLogic\" already contains exactly that",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe5aa98b_1acb4193",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/ButtonSettingsFragment.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 36472
+      },
+      "writtenOn": "2026-01-09T21:07:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c03cc6b_0123cd65",
       "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
@@ -52,6 +88,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb808618_c4148706",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/ButtonSettingsFragment.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 36472
+      },
+      "writtenOn": "2026-01-09T21:07:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28c06782_063080a9",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22d6c7b7_9b7d87e6",
@@ -65,6 +119,24 @@
       "writtenOn": "2026-01-09T20:50:03Z",
       "side": 1,
       "message": "...",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d74abc0b_1d1c1b1b",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/ButtonSettingsFragment.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 36472
+      },
+      "writtenOn": "2026-01-09T21:07:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22d6c7b7_9b7d87e6",
       "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
@@ -86,6 +158,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2657b1a_6831293b",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/ButtonSettingsFragment.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 36472
+      },
+      "writtenOn": "2026-01-09T21:07:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f761306a_e9a1c32a",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8be742d8_3a13dcd2",
@@ -99,6 +189,24 @@
       "writtenOn": "2026-01-09T20:50:03Z",
       "side": 1,
       "message": "don\u0027t need this intermediate variable when you can assign that to listPref.value directly (and use listPref.value in the logging so you don\u0027t have to duplicate the \"0\")",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cea35cbd_e5b9bcd8",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/ButtonSettingsFragment.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 36472
+      },
+      "writtenOn": "2026-01-09T21:07:23Z",
+      "side": 1,
+      "message": "Done, removed the logging as it is unnecessary.",
+      "parentUuid": "8be742d8_3a13dcd2",
       "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
@@ -120,6 +228,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42cd3103_4c154836",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 36472
+      },
+      "writtenOn": "2026-01-09T21:07:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dd24975_fe4fca68",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3296bf7a_95762168",
@@ -137,6 +263,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acb58eae_4e28f312",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 36472
+      },
+      "writtenOn": "2026-01-09T21:07:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3296bf7a_95762168",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f66060db_f78c5dc7",
@@ -150,6 +294,24 @@
       "writtenOn": "2026-01-09T20:50:03Z",
       "side": 1,
       "message": "both comments not needed, (and \"number\" comment I made somewhere else also applies, technically)",
+      "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f5a5b7d_f84a88a5",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 36472
+      },
+      "writtenOn": "2026-01-09T21:07:23Z",
+      "side": 1,
+      "message": "Done, removed the other numbered comment as well.",
+      "parentUuid": "f66060db_f78c5dc7",
       "revId": "42449e564b1f3bb9b2a3dbbe04abf26af906a189",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
