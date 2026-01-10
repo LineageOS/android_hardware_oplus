@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f83f8799_bec7f3f9",
+        "filename": "overlay/generic/EuiccPolicyOplus/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2026-01-10T22:08:57Z",
+      "side": 1,
+      "message": "Yes, https://review.lineageos.org/c/LineageOS/scripts/+/466194 just needs some tweaks to tidy everything",
+      "parentUuid": "4e00e9c8_13c3af80",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 1
+      },
+      "revId": "37d5def961b2ea93bd47502218e5002283aa594c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9364563b_6dbb8c25",
         "filename": "overlay/generic/EuiccPolicyOplus/res/values/strings.xml",
         "patchSetId": 2
