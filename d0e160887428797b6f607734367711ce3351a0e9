@@ -162,6 +162,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0e2e1d2_3cef8952",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 36472
+      },
+      "writtenOn": "2026-01-11T23:42:21Z",
+      "side": 1,
+      "message": "What I meant was, immediately after I made this change, on my actual op9p, the key turned off zen more consistently than before. I was facing a bug where zen wouldn\u0027t turn off when switching to an audio manager mode if it was too fast of a switch, which got better when I made this change.",
+      "parentUuid": "f2ecb404_2fcd5711",
+      "revId": "d0e160887428797b6f607734367711ce3351a0e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f6e6468_ac7b36f5",
         "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
         "patchSetId": 5
