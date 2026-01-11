@@ -1,1 +1,5 @@
+add_service(hal_secure_element_default, hal_secure_element_extend_service)
+
 allow hal_secure_element_default nfc_device:chr_file rw_file_perms;
+
+set_prop(hal_secure_element_default, vendor_oplus_se_prop)
