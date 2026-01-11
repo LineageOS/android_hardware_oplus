@@ -148,8 +148,9 @@
 /mnt/vendor/oplusreserve/system/ssv(/.*)?                           u:object_r:oplus_reserve_system_ssv:s0
 
 # Secure Element
-/(odm|vendor/odm)/bin/hw/android\.hardware\.secure_element-service\.qti    u:object_r:hal_secure_element_default_exec:s0
-/(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service          u:object_r:hal_secure_element_default_exec:s0
+/(odm|vendor/odm)/bin/hw/android\.hardware\.secure_element@1\.2-service-goodix    u:object_r:hal_secure_element_default_exec:s0
+/(odm|vendor/odm)/bin/hw/android\.hardware\.secure_element-service\.qti           u:object_r:hal_secure_element_default_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service                 u:object_r:hal_secure_element_default_exec:s0
 
 # Sensors
 /(odm|vendor/odm)/bin/hw/vendor-oplus-hardware-oplusSensor-V1-service         u:object_r:hal_oplus_sensor_aidl_exec:s0

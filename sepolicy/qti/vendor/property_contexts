@@ -44,6 +44,9 @@ vendor.oplus.radio.            u:object_r:vendor_radio_prop:s0
 vendor.gsm.phoneserial    u:object_r:vendor_nw_exported_system_prop:s0
 vendor.gsm.serial         u:object_r:vendor_nw_exported_system_prop:s0
 
+# Secure Element
+vendor.oplus.secure_element.    u:object_r:vendor_oplus_se_prop:s0
+
 # Sensors
 ro.vendor.oplus.sensor.    u:object_r:vendor_sensors_prop:s0
 
