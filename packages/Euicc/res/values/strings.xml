@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2023-2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2023-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
@@ -13,6 +13,7 @@
                         \"OP5929L1\",
                         \"OP594DL1\",
                         \"OP595DL1\",
+                        \"OP5973L1\",
                         \"OP5CF9L1\",
                         \"OP5D0DL1\",
                         \"OP5D2BL1\",
@@ -25,6 +26,18 @@
             ]
         }
     </string>
+    <string name="sim_intro_illustration_lottie_mappings_json" translatable="false">
+        {
+            \"sim_illustration_lottie_mappings\": [
+                {
+                    \"devices\": [
+                        \"OP5973L1\"
+                    ],
+                    \"illustration_lottie\": \"esim_intro_illustration_lottie_fold\"
+                }
+            ]
+        }
+    </string>
     <string name="sim_slot_mappings_json" translatable="false">
         {
             \"sim-slot-mappings\": [
@@ -32,6 +45,7 @@
                     \"devices\": [
                         \"OP594DL1\",
                         \"OP595DL1\",
+                        \"OP5973L1\",
                         \"OP5D35L1\",
                         \"OP5D3BL1\",
                         \"OP5D55L1\"
