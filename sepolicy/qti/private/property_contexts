@@ -64,6 +64,9 @@ ro.sys.reserve.integrate            u:object_r:exported_system_prop:s0
 sys.oplus_boot_mode                 u:object_r:exported_system_prop:s0
 sys.oplus.radio.                    u:object_r:system_oplus_radio_prop:s0
 
+# Secure Element
+ro.oplus.normal_boot_mode    u:object_r:exported_system_prop:s0
+
 # SVN
 ro.build.version.ota      u:object_r:exported_system_prop:s0
 ro.build.version.svn      u:object_r:exported_system_prop:s0

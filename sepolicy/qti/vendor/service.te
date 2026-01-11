@@ -45,6 +45,9 @@ type hal_oplus_pogo_keyboard_aidl_service, hal_service_type, service_manager_typ
 # Project
 type hal_oplus_project_aidl_service, hal_service_type, service_manager_type;
 
+# Secure Element
+type hal_secure_element_extend_service, hal_service_type, service_manager_type;
+
 # Sensors
 type hal_oplus_sensor_aidl_service, hal_service_type, service_manager_type;
 
