@@ -19,6 +19,7 @@ using android::base::ParseInt;
 using android::base::Tokenize;
 
 using aidl::android::hardware::biometrics::fingerprint::FingerprintSensorType;
+using aidl::android::hardware::biometrics::fingerprint::SensorLocation;
 using aidl::android::hardware::biometrics::fingerprint::SensorProps;
 
 namespace {
@@ -37,9 +38,9 @@ SensorProps SensorPropsInit(SensorProps props) {
             props.sensorType = FingerprintSensorType::HOME_BUTTON;
     }
 
-    auto loc_prop = GetProperty("persist.vendor.fingerprint.optical.sensorlocation", "");
-    if (!loc_prop.empty()) {
-        auto loc = Tokenize(loc_prop, ":");
+    auto optical_loc_prop = GetProperty("persist.vendor.fingerprint.optical.sensorlocation", "");
+    if (!optical_loc_prop.empty()) {
+        auto loc = Tokenize(optical_loc_prop, ":");
         bool loc_parsed = false;
         if (loc.size() >= 2) {
             int32_t x, y;
@@ -49,7 +50,8 @@ SensorProps SensorPropsInit(SensorProps props) {
                 props.sensorLocations[0].sensorLocationY = y;
             }
         }
-        LOG_IF(WARNING, !loc_parsed) << "Invalid sensor location input (x::y): " << loc_prop;
+        LOG_IF(WARNING, !loc_parsed)
+                << "Invalid sensor location input (x::y): " << optical_loc_prop;
     }
 
     auto size = GetProperty("persist.vendor.fingerprint.optical.iconsize", "");
@@ -58,6 +60,34 @@ SensorProps SensorPropsInit(SensorProps props) {
             props.sensorLocations[0].sensorRadius /= 2;
         } else {
             LOG(WARNING) << "Invalid sensor size input: " << size;
+        }
+    }
+
+    auto side_loc_prop = GetProperty("persist.vendor.fingerprint.side.sensorlocation", "");
+    if (!side_loc_prop.empty()) {
+        auto locations = Tokenize(side_loc_prop, ";");
+        props.sensorLocations.clear();
+
+        for (const auto& location : locations) {
+            auto parts = Tokenize(location, "|");
+            bool loc_parsed = false;
+            if (parts.size() >= 2) {
+                int32_t x, y;
+                loc_parsed = ParseInt(parts[0], &x) && ParseInt(parts[1], &y);
+                if (loc_parsed) {
+                    SensorLocation loc;
+                    loc.sensorLocationX = x;
+                    loc.sensorLocationY = y;
+
+                    if (parts.size() >= 3) {
+                        loc.display = parts[2];
+                    }
+
+                    props.sensorLocations.push_back(loc);
+                }
+            }
+            LOG_IF(WARNING, !loc_parsed)
+                    << "Invalid sensor location input (x|y[|display]): " << side_loc_prop;
         }
     }
 
