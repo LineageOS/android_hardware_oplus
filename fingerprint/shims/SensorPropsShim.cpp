@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2025 The LineageOS Project
+ * SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -67,7 +67,7 @@ SensorProps SensorPropsInit(SensorProps props) {
     }
 
     auto size = GetProperty("persist.vendor.fingerprint.optical.iconsize", "");
-    if (!size.empty()) {
+    if (!size.empty() && !props.sensorLocations.empty()) {
         if (ParseInt(size, &props.sensorLocations[0].sensorRadius)) {
             props.sensorLocations[0].sensorRadius /= 2;
         } else {
