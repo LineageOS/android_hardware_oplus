@@ -44,10 +44,10 @@
             android:key="gesture_pick_up_type"
             android:defaultValue="0"
             android:icon="@drawable/ic_pickup"
-            android:title="@string/pick_up_gesture_title"
-            android:summary="%s"
             android:entries="@array/pick_up_gesture_entries"
-            android:entryValues="@array/pick_up_gesture_values" />
+            android:entryValues="@array/pick_up_gesture_values"
+            android:title="@string/pick_up_gesture_title"
+            app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
