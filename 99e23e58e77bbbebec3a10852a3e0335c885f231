@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fe726c7_3de1a341",
+        "filename": "sepolicy/qti/vendor/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-01-21T09:51:13Z",
+      "side": 0,
+      "message": "[0-9]+ covers all numbers, [0-10]+ just breaks the regex.",
+      "revId": "99e23e58e77bbbebec3a10852a3e0335c885f231",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
