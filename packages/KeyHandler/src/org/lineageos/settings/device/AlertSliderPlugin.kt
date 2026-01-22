@@ -1,7 +1,7 @@
 /*
  * SPDX-FileCopyrightText: 2019 CypherOS
  * SPDX-FileCopyrightText: 2014-2020 Paranoid Android
- * SPDX-FileCopyrightText: 2023 The LineageOS Project
+ * SPDX-FileCopyrightText: 2023-2026 The LineageOS Project
  * SPDX-FileCopyrightText: 2023 Yet Another AOSP Project
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -79,8 +79,10 @@ class AlertSliderPlugin : OverlayPlugin {
     private inner class NotificationHandler(var context: Context) :
         Handler(Looper.getMainLooper()) {
         private var dialog = AlertSliderDialog(context)
+        private var currDensity = context.resources.configuration.densityDpi
         private var currRotation = context.display.rotation
         private var currUIMode = context.resources.configuration.uiMode
+        private var lastInfo: NotificationInfo? = null
         private var showing = false
             set(value) {
                 synchronized(dialogLock) {
@@ -119,7 +121,9 @@ class AlertSliderPlugin : OverlayPlugin {
         }
 
         private fun handleDismiss() {
-            showing = false
+            if (dialog.isShowing) {
+                showing = false
+            }
         }
 
         private fun handleResetTimeout() {
@@ -134,6 +138,7 @@ class AlertSliderPlugin : OverlayPlugin {
 
         private fun handleUpdate(info: NotificationInfo) {
             synchronized(dialogLock) {
+                lastInfo = info
                 handleResetTimeout()
                 launchDozePulse()
                 dialog.setState(info.position, info.mode)
@@ -141,14 +146,26 @@ class AlertSliderPlugin : OverlayPlugin {
         }
 
         private fun handleRecreate() {
-            // Remake if theme or rotation changed
+            val config = context.resources.configuration
+            val density = config.densityDpi
             val rotation = context.display.rotation
-            val uiMode = context.resources.configuration.uiMode
-            val themeChanged = uiMode != currUIMode
+            val uiMode = config.uiMode
+
+            val densityChanged = density != currDensity
             val rotationChanged = rotation != currRotation
-            if (themeChanged || rotationChanged) {
+            val themeChanged = uiMode != currUIMode
+            if (densityChanged || rotationChanged || themeChanged) {
+                val wasShowing = showing
+
                 showing = false
                 dialog = AlertSliderDialog(context)
+                lastInfo?.let { dialog.setState(it.position, it.mode) }
+
+                if (wasShowing) {
+                    showing = true
+                }
+
+                currDensity = density
                 currRotation = rotation
                 currUIMode = uiMode
             }
