@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba1622b5_0c0b5008",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36472
+      },
+      "writtenOn": "2026-01-22T22:11:55Z",
+      "side": 1,
+      "message": "New patchset to fix merge conflicts",
+      "revId": "c01393c6762e64c15ad6001f1dc71c0b133999af",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
