@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2023 The LineageOS Project
+    SPDX-FileCopyrightText: 2023-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
@@ -13,4 +13,10 @@
          Should also match side of the device where the physical switch
          is located. -->
     <item name="alert_slider_dialog_left" type="bool">false</item>
+
+    <!-- Whether to show the notification dialog on the left side
+         when the device is unfolded.
+         Should also match side of the device where the physical switch
+         is located. -->
+    <item name="alert_slider_dialog_unfolded_left" type="bool">true</item>
 </resources>

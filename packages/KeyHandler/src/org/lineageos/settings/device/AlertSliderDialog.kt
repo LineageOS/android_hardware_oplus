@@ -32,7 +32,15 @@ class AlertSliderDialog(private val context: Context) :
 
     private val rotation: Int = context.getDisplay().getRotation()
     private val isLandscape = rotation == Surface.ROTATION_90 || rotation == Surface.ROTATION_270
-    private val flip = context.resources.getBoolean(R.bool.alert_slider_dialog_left)
+    private val isLargeScreen =
+        context.resources.configuration.smallestScreenWidthDp >=
+            WindowManager.LARGE_SCREEN_SMALLEST_SCREEN_WIDTH_DP
+    private val flip =
+        if (isLargeScreen) {
+            context.resources.getBoolean(R.bool.alert_slider_dialog_unfolded_left)
+        } else {
+            context.resources.getBoolean(R.bool.alert_slider_dialog_left)
+        }
 
     private val length: Int
     private val xPos: Int
