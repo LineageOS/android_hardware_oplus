@@ -81,6 +81,7 @@ class AlertSliderPlugin : OverlayPlugin {
         private var dialog = AlertSliderDialog(context)
         private var currDensity = context.resources.configuration.densityDpi
         private var currRotation = context.display.rotation
+        private var currSmallestWidth = context.resources.configuration.smallestScreenWidthDp
         private var currUIMode = context.resources.configuration.uiMode
         private var lastInfo: NotificationInfo? = null
         private var showing = false
@@ -147,12 +148,14 @@ class AlertSliderPlugin : OverlayPlugin {
             val config = context.resources.configuration
             val density = config.densityDpi
             val rotation = context.display.rotation
+            val smallestWidth = config.smallestScreenWidthDp
             val uiMode = config.uiMode
 
             val densityChanged = density != currDensity
+            val layoutChanged = smallestWidth != currSmallestWidth
             val rotationChanged = rotation != currRotation
             val themeChanged = uiMode != currUIMode
-            if (densityChanged || rotationChanged || themeChanged) {
+            if (densityChanged || layoutChanged || rotationChanged || themeChanged) {
                 val wasShowing = showing
 
                 showing = false
@@ -165,6 +168,7 @@ class AlertSliderPlugin : OverlayPlugin {
 
                 currDensity = density
                 currRotation = rotation
+                currSmallestWidth = smallestWidth
                 currUIMode = uiMode
             }
         }
