@@ -64,6 +64,9 @@ class LedVibratorDevice {
     bool mDetected;
     int write_value(const char* file, const char* value);
     int write_value(const char* file, int value);
+    int setAmplitude(float amplitude);
+  private:
+    int mSavedVmax;
 };
 
 class Vibrator : public BnVibrator {
