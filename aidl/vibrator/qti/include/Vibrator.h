@@ -58,12 +58,17 @@ class InputFFDevice {
 class LedVibratorDevice {
   public:
     LedVibratorDevice();
+    int playEffect(Effect effect, EffectStrength es);
     int on(int32_t timeoutMs);
     int onWaveform(int waveformIndex);
     int off();
     bool mDetected;
     int write_value(const char* file, const char* value);
     int write_value(const char* file, int value);
+    int setAmplitude(uint8_t amplitude);
+
+  private:
+    int mSavedVmax;
 };
 
 class Vibrator : public BnVibrator {
