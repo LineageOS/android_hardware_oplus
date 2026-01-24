@@ -37,6 +37,7 @@
 #include <log/log.h>
 #include <string.h>
 #include <sys/ioctl.h>
+#include <cmath>
 #include <thread>
 
 #include "include/Vibrator.h"
@@ -379,16 +380,12 @@ int LedVibratorDevice::on(int32_t timeoutMs) {
     int ret = 0;
     if (timeoutMs <= 0) {
         return ret;
-    } else if (timeoutMs <= 20) {
-        ret |= write_value(LED_DEVICE "/vmax", timeoutMs * 10);
-    } else {
-        ret |= write_value(LED_DEVICE "/vmax", 1600);
     }
+    ret |= write_value(LED_DEVICE "/vmax", mSavedVmax);
     ret |= write_value(LED_DEVICE "/waveform_index", 7);
     ret |= write_value(LED_DEVICE "/duration", timeoutMs);
     ret |= write_value(LED_DEVICE "/state", "1");
     ret |= write_value(LED_DEVICE "/activate", "1");
-    ret |= write_value(LED_DEVICE "/activate", "0");
 
     return ret;
 }
@@ -411,12 +408,19 @@ int LedVibratorDevice::off() {
     ret = write_value(file, "0");
     return ret;
 }
+int LedVibratorDevice::setAmplitude(uint8_t amplitude) {
+    int ret = 0;
+    mSavedVmax = (int)amplitude;
+    ret |= write_value(LED_DEVICE "/vmax", mSavedVmax);
+    return ret;
+}
 
 ndk::ScopedAStatus Vibrator::getCapabilities(int32_t* _aidl_return) {
     *_aidl_return = IVibrator::CAP_ON_CALLBACK;
 
     if (ledVib.mDetected) {
         *_aidl_return |= IVibrator::CAP_PERFORM_CALLBACK;
+        *_aidl_return |= IVibrator::CAP_AMPLITUDE_CONTROL;
         ALOGD("QTI Vibrator reporting capabilities: %d", *_aidl_return);
         return ndk::ScopedAStatus::ok();
     }
@@ -565,19 +569,21 @@ ndk::ScopedAStatus Vibrator::setAmplitude(float amplitude) {
     uint8_t tmp;
     int ret;
 
-    if (ledVib.mDetected)
-        return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
-
     ALOGD("Vibrator set amplitude: %f", amplitude);
 
     if (amplitude <= 0.0f || amplitude > 1.0f)
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_ILLEGAL_ARGUMENT));
 
-    if (ff.mInExternalControl)
-        return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
-
     tmp = (uint8_t)(amplitude * 0xff);
-    ret = ff.setAmplitude(tmp);
+
+    if (ledVib.mDetected) {
+        ret = ledVib.setAmplitude(tmp);
+    } else {
+        if (ff.mInExternalControl)
+            return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+        ret = ff.setAmplitude(tmp);
+    }
+
     if (ret != 0) return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_SERVICE_SPECIFIC));
 
     return ndk::ScopedAStatus::ok();
