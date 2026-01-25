@@ -1,0 +1,15 @@
+//
+// SPDX-FileCopyrightText: 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "xbl_arb_check",
+    srcs: [
+        "main.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+    ],
+    device_specific: true,
+}
