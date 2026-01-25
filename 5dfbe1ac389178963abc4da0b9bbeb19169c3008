@@ -16,6 +16,24 @@
       "message": "```suggestion\nsepolicy: qti: Label a few more properties\n```",
       "revId": "5dfbe1ac389178963abc4da0b9bbeb19169c3008",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d09d4bf6_9c9f24dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-01-25T23:02:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a446aa2_ce00548c",
+      "revId": "5dfbe1ac389178963abc4da0b9bbeb19169c3008",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
