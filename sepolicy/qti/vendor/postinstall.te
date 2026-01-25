@@ -1,0 +1,3 @@
+allow postinstall block_device:dir search;
+
+allow postinstall vendor_custom_ab_block_device:blk_file r_file_perms;
