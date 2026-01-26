@@ -34,6 +34,24 @@
       "parentUuid": "727ba90e_c83407cc",
       "revId": "5b957d996239604d7bd5120439388b07b2cba672",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5bc4280_ddf0e172",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2026-01-26T08:49:52Z",
+      "side": 1,
+      "message": "qcom tells oems to use 0x1 by default iirc\nso 0x2 would be the ARB was incrased indicator",
+      "parentUuid": "6c66106e_41ae909c",
+      "revId": "5b957d996239604d7bd5120439388b07b2cba672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
