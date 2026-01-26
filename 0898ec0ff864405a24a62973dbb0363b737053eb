@@ -124,6 +124,24 @@
       "parentUuid": "d8bc318d_8adcf62d",
       "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59c76727_bbabeefc",
+        "filename": "aidl/vibrator/qti/Vibrator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2026-01-26T11:00:58Z",
+      "side": 1,
+      "message": "Since I\u0027m also redoing the effects implementation to allow for setting effect strength (separate change, not part of this one), I think I might as well make changes to the kernel to drop \noplus\u0027s weird vmax/gain hybrid mixture so I can have the HAL directly \nset vmax and gain as separate values instead and not deal with these funny corner cases. Once I put up the kernel change, I\u0027ll update this change and put up the effects change to go along with the kernel change.",
+      "parentUuid": "0bfc6611_9f63da4c",
+      "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
