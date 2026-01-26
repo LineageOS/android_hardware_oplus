@@ -106,6 +106,24 @@
       "parentUuid": "38ad5431_df5371e6",
       "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bfc6611_9f63da4c",
+        "filename": "aidl/vibrator/qti/Vibrator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2026-01-26T10:20:22Z",
+      "side": 1,
+      "message": "I don\u0027t know what\u0027s correct, but it just seemed a weird behaviour to mention since you\u0027re now mixing the two interfaces.\n\nI think your solution is fine, if the HW behaves as you\u0027d expect that is.",
+      "parentUuid": "d8bc318d_8adcf62d",
+      "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
