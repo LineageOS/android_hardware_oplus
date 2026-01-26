@@ -70,6 +70,24 @@
       "parentUuid": "070c599a_ac058751",
       "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38ad5431_df5371e6",
+        "filename": "aidl/vibrator/qti/Vibrator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2026-01-26T09:53:52Z",
+      "side": 1,
+      "message": "Ok I see, so \u003c\u003d 255 changes only gain, while \u003e255 changes both gain and vmax.\n\nI\u0027m confused as to why there\u0027s a single interface to set those.\nwhat happens if you write a \"vmax\" right above 255, thus setting a low gain and vmax per the level mapping, and then write a vmax less than 255.\nYou end up with low gain and high vmax, I would expect a reset of the vmax in such cases, but I digress.",
+      "parentUuid": "a54e6af0_233f44f0",
+      "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
