@@ -34,6 +34,24 @@
       "parentUuid": "490a3fb2_65052ffb",
       "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "070c599a_ac058751",
+        "filename": "aidl/vibrator/qti/Vibrator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2026-01-26T09:13:45Z",
+      "side": 1,
+      "message": "You can see in LedVibratorDevice::on it uses 1600 already, so either that\u0027s wrong or this one is",
+      "parentUuid": "e8a97a7b_60b3d98b",
+      "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
