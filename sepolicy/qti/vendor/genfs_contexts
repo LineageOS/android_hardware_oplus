@@ -233,3 +233,14 @@ genfscon sysfs /devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qco
 genfscon sysfs /devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/soc:qcom,pmic_glink:qcom,battery_charger:oplus,pm8350_charger:oplus,mms_wired/oplus_mms/wired/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/usb/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/vendor/vendor:motor_pl/wakeup u:object_r:sysfs_wakeup:s0
+
+# Walt
+genfscon proc /sys/kernel/sched_boost u:object_r:proc_walt:s0
+genfscon proc /sys/kernel/sched_downmigrate u:object_r:proc_walt:s0
+genfscon proc /sys/kernel/sched_upmigrate u:object_r:proc_walt:s0
+genfscon proc /sys/kernel/sched_busy_hysteresis_enable_cpus u:object_r:proc_walt:s0
+genfscon proc /sys/kernel/sched_busy_hyst_ns u:object_r:proc_walt:s0
+genfscon proc /sys/kernel/sched_min_task_util_for_colocation u:object_r:proc_walt:s0
+genfscon proc /sys/kernel/sched_min_task_util_for_boost u:object_r:proc_walt:s0
+genfscon proc /sys/kernel/sched_prefer_spread u:object_r:proc_walt:s0
+genfscon proc /sys/walt u:object_r:proc_walt:s0

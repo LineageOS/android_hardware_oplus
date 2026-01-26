@@ -1,1 +1,3 @@
+allow vendor_qti_init_shell proc_walt:dir search;
+allow vendor_qti_init_shell proc_walt:file rw_file_perms;
 create_dir_file(vendor_qti_init_shell, vendor_persist_wcnss_service_file)
