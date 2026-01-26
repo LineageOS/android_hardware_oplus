@@ -52,6 +52,24 @@
       "parentUuid": "6c66106e_41ae909c",
       "revId": "5b957d996239604d7bd5120439388b07b2cba672",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a47000e_f6608010",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-01-26T08:50:46Z",
+      "side": 1,
+      "message": "well, oplus did 0x0 earlier.",
+      "parentUuid": "a5bc4280_ddf0e172",
+      "revId": "5b957d996239604d7bd5120439388b07b2cba672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
