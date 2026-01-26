@@ -142,6 +142,24 @@
       "parentUuid": "0bfc6611_9f63da4c",
       "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5329f702_ed7ed009",
+        "filename": "aidl/vibrator/qti/Vibrator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2026-01-26T11:11:28Z",
+      "side": 1,
+      "message": "Well, okay, turns out I would need to make that kernel for EVERY oplus kernel from sm8150 till sm8750, as they all have that exact weird vmax/gain hybrid interface change.\n\nI think I\u0027ll just stick to using the weird vmax/gain hybrid interface and upload my effects change later, which won\u0027t write any value larger than 255 to the vmax node so that I don\u0027t have to deal with that scenario you mentioned earlier.",
+      "parentUuid": "59c76727_bbabeefc",
+      "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
