@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "727ba90e_c83407cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2026-01-26T00:11:00Z",
+      "side": 1,
+      "message": "Would this be better off placed in hardware/qcom-caf/common? Seems like its generic enough",
+      "revId": "5b957d996239604d7bd5120439388b07b2cba672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
