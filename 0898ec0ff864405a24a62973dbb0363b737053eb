@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "490a3fb2_65052ffb",
+        "filename": "aidl/vibrator/qti/Vibrator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2026-01-26T08:51:47Z",
+      "side": 1,
+      "message": "I don\u0027t think amplitude can be used directly in vmax\nthe range are different",
+      "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
