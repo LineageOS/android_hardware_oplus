@@ -9,6 +9,8 @@ hal_client_domain(hal_camera_default, vendor_hal_oplus_performance)
 hal_client_domain(hal_camera_default, vendor_hal_oplus_urcc)
 hal_client_domain(hal_camera_default, vendor_hal_qspmhal)
 
+hal_client_domain(hal_camera_default, hal_power)
+
 add_service(hal_camera_default, hal_oplus_aon_aidl_service)
 
 allow hal_camera_default self:capability ipc_lock;
