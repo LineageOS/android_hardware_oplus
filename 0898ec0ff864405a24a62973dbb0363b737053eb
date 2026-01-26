@@ -88,6 +88,24 @@
       "parentUuid": "a54e6af0_233f44f0",
       "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8bc318d_8adcf62d",
+        "filename": "aidl/vibrator/qti/Vibrator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2026-01-26T10:15:10Z",
+      "side": 1,
+      "message": "Oh, huh, until you mentioned it, I didn\u0027t realize that this interface doesn\u0027t even set vmax at all if I write a value \u003c\u003d 255...\nSince the vmax store function prints logs with the actual saved vmax value, I do see that it\u0027s set to 0x16 if I never write any value above 255 to the \"vmax\" node, which matches what AW8697_HAPTIC_HIGH_LEVEL_REG_VAL is set to. I suppose I could just set the actual vmax to that particular value any time I write a value \u003c\u003d 255 to address the scenario you mentioned.",
+      "parentUuid": "38ad5431_df5371e6",
+      "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
