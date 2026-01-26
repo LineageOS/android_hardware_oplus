@@ -52,6 +52,24 @@
       "parentUuid": "e8a97a7b_60b3d98b",
       "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a54e6af0_233f44f0",
+        "filename": "aidl/vibrator/qti/Vibrator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2026-01-26T09:25:39Z",
+      "side": 1,
+      "message": "That\u0027s because OnePlus made modifications to their vmax store function (https://github.com/LineageOS/android_kernel_oneplus_sm8250/blob/c69941b2b9de824a1261136f74554f92c70c8696/drivers/misc/aw8697_haptic/aw8697.c#L7551) where if the value written is larger than 255, it would instead use a mapping for setting vmax and gain to various values based on the incoming vmax value. Otherwise, for values less than or equal to 255, it will use the vmax value as-is and calculate a gain value based off the vmax value.",
+      "parentUuid": "070c599a_ac058751",
+      "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
