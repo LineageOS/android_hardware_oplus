@@ -16,6 +16,24 @@
       "message": "Would this be better off placed in hardware/qcom-caf/common? Seems like its generic enough",
       "revId": "5b957d996239604d7bd5120439388b07b2cba672",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c66106e_41ae909c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-01-26T08:36:29Z",
+      "side": 1,
+      "message": "I guess? btw random xbl image i had has arb 0x1 too: `/mnt/data/stock-roms/xiaomi/dada_global-ota_full-OS2.0.217.0.WOCMIXM-user-16.0-0be7332545/xbl_config.img`, so I guess this is more common.",
+      "parentUuid": "727ba90e_c83407cc",
+      "revId": "5b957d996239604d7bd5120439388b07b2cba672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
