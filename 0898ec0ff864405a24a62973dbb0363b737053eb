@@ -16,6 +16,24 @@
       "message": "I don\u0027t think amplitude can be used directly in vmax\nthe range are different",
       "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8a97a7b_60b3d98b",
+        "filename": "aidl/vibrator/qti/Vibrator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2026-01-26T08:57:57Z",
+      "side": 1,
+      "message": "Vibrator::setAmplitude() handles taking the float value being passed in to the HAL and converting it to an int between 0 exclusive to 255 inclusive, before passing that over to LedVibrartorDevice::setAmplitude(). At least for android_kernel_oneplus_sm8250, vmax handles 0-255 just fine. I may need to check oneplus_sm8150 and oneplus_sm8350 though.",
+      "parentUuid": "490a3fb2_65052ffb",
+      "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
