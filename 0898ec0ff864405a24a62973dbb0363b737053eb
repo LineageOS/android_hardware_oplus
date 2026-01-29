@@ -160,6 +160,24 @@
       "parentUuid": "59c76727_bbabeefc",
       "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e333a842_e0e4d46d",
+        "filename": "aidl/vibrator/qti/Vibrator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2026-01-29T18:46:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5329f702_ed7ed009",
+      "revId": "0898ec0ff864405a24a62973dbb0363b737053eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
