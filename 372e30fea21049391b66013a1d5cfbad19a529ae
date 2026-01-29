@@ -52,6 +52,24 @@
       "parentUuid": "df3af973_2ad9919c",
       "revId": "372e30fea21049391b66013a1d5cfbad19a529ae",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d1e9ef2_ac2c2cd8",
+        "filename": "aidl/vibrator/qti/Vibrator.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2026-01-29T20:28:40Z",
+      "side": 1,
+      "message": "Discussed on Discord; Luca looked into the init code and concluded that it\u0027s possible for some on boot triggers to potentially end up running after a class hal service is started. Following Luca\u0027s suggestion, putting the needed chown commands under post-fs-data instead of boot sidesteps this issue entirely.",
+      "parentUuid": "0c560906_97e7ef90",
+      "revId": "372e30fea21049391b66013a1d5cfbad19a529ae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
