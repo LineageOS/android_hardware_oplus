@@ -34,6 +34,24 @@
       "parentUuid": "1776cf85_8fcd68cd",
       "revId": "372e30fea21049391b66013a1d5cfbad19a529ae",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c560906_97e7ef90",
+        "filename": "aidl/vibrator/qti/Vibrator.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2026-01-29T19:53:00Z",
+      "side": 1,
+      "message": "https://github.com/LineageOS/android_hardware_oplus/blob/372e30fea21049391b66013a1d5cfbad19a529ae/aidl/vibrator/qti/vendor.qti.hardware.vibrator.service.oplus.rc\n\nSo I see it\u0027s changing permissions on boot. Would it be okay if I set that to early-boot or something like that?",
+      "parentUuid": "df3af973_2ad9919c",
+      "revId": "372e30fea21049391b66013a1d5cfbad19a529ae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
