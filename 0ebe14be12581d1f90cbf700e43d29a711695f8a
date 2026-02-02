@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e57d84c4_c307c0cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2026-02-02T19:35:27Z",
+      "side": 1,
+      "message": "the mentioned commit has been there since 22.1, why would we encounter the issue in the first place if it plays a role?",
+      "revId": "0ebe14be12581d1f90cbf700e43d29a711695f8a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
