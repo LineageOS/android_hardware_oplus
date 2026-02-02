@@ -34,6 +34,8 @@ class PenService : Service() {
         getString(R.string.config_penSupportedRefreshRate)
     }
 
+    private var wasPenConnected = false
+
     private val handler by lazy { Handler(mainLooper) }
 
     private val observer =
@@ -175,9 +177,16 @@ class PenService : Service() {
             } != null
         val peakRefreshRate = Settings.System.getString(contentResolver, PEAK_REFRESH_RATE)
 
+        if (isPenConnected) {
+            wasPenConnected = true
+        }
+
         if (isPenConnected && peakRefreshRate == "Infinity") {
             Settings.System.putString(contentResolver, PEAK_REFRESH_RATE, penSupportedRefreshRate)
-        } else if (!isPenConnected && peakRefreshRate == penSupportedRefreshRate) {
+        } else if (
+            wasPenConnected && !isPenConnected && peakRefreshRate == penSupportedRefreshRate
+        ) {
+            wasPenConnected = false
             Settings.System.putString(contentResolver, PEAK_REFRESH_RATE, "Infinity")
         }
     }
