@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39283154_16e81b44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2026-02-02T18:20:18Z",
+      "side": 1,
+      "message": "Fine on sm8250, need sm8150 and sm8350 testing",
+      "revId": "69c2364b6740a1ffaeba66de0ba57edcc5018b36",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
