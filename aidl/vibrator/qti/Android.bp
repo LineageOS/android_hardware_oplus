@@ -16,7 +16,7 @@ cc_library_shared {
         "libutils",
         "liblog",
         "libbinder_ndk",
-        "android.hardware.vibrator-V1-ndk",
+        "android.hardware.vibrator-V2-ndk",
     ] + select(soong_config_variable("OPLUS_LINEAGE_VIBRATOR_HAL", "USE_EFFECT_STREAM"), {
         true: ["liboplusvibratoreffect"],
         default: [],
@@ -41,7 +41,7 @@ cc_binary {
         "libutils",
         "libbase",
         "libbinder_ndk",
-        "android.hardware.vibrator-V1-ndk",
+        "android.hardware.vibrator-V2-ndk",
         "vendor.qti.hardware.vibrator.impl.oplus",
     ],
 }
