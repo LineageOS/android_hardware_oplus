@@ -37,6 +37,8 @@
 #include <log/log.h>
 #include <string.h>
 #include <sys/ioctl.h>
+#include <cmath>
+#include <cstdlib>
 #include <thread>
 
 #include "include/Vibrator.h"
@@ -73,6 +75,8 @@ namespace vibrator {
 #define test_bit(bit, array) ((array)[(bit) / 8] & (1 << ((bit) % 8)))
 
 #define LED_DEVICE "/sys/class/leds/vibrator"
+#define LED_MAX_COMPOSITION_DELAY_MS 1000
+#define LED_MAX_COMPOSITION_SIZE 256
 
 InputFFDevice::InputFFDevice() {
     DIR* dp;
@@ -340,22 +344,27 @@ LedVibratorDevice::LedVibratorDevice() {
         return;
     }
 
+    mDetected = true;
+
+    mWriteToken = std::rand();
+    mComposeToken = std::rand();
     /* vmax sysfs node doesn't actually directly control vmax.
        values 800 - 1500 will set actual vmax to 0 while values
        0 - 255 actually controls gain. Write 800 so we can guarantee
        actual vmax stays 0. */
-    ret = write_value(LED_DEVICE "/vmax", "800");
+    ret = write_value(mWriteToken, LED_DEVICE "/vmax", "800");
     if (ret != 0) {
         ALOGD("writing 800 to vmax in constructor failed, ret = %d", ret);
     }
     mSavedVmax = 255;
-
-    mDetected = true;
 }
 
-int LedVibratorDevice::write_value(const char* file, const char* value) {
+int LedVibratorDevice::write_value(int writeToken, const char* file, const char* value) {
     int fd;
     int ret;
+
+    // Don't return error value for mismatched token; just make it a no-op.
+    if (writeToken != mWriteToken) return 0;
 
     fd = TEMP_FAILURE_RETRY(open(file, O_WRONLY));
     if (fd < 0) {
@@ -382,48 +391,75 @@ int LedVibratorDevice::write_value(const char* file, const char* value) {
     return ret;
 }
 
-int LedVibratorDevice::write_value(const char* file, int value) {
-    return write_value(file, std::to_string(value).c_str());
+int LedVibratorDevice::write_value(int writeToken, const char* file, int value) {
+    return write_value(writeToken, file, std::to_string(value).c_str());
 }
 
 int LedVibratorDevice::on(int32_t timeoutMs) {
     int ret = 0;
+    int writeToken = mWriteToken;
     if (timeoutMs <= 0) {
         return ret;
     }
-    ret |= write_value(LED_DEVICE "/rtp", "0");
-    ret |= write_value(LED_DEVICE "/vmax", mSavedVmax);
-    ret |= write_value(LED_DEVICE "/duration", timeoutMs);
-    ret |= write_value(LED_DEVICE "/activate", "1");
+    ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+    ret |= write_value(writeToken, LED_DEVICE "/vmax", mSavedVmax);
+    ret |= write_value(writeToken, LED_DEVICE "/duration", timeoutMs);
+    ret |= write_value(writeToken, LED_DEVICE "/activate", "1");
 
     return ret;
 }
 
 int LedVibratorDevice::onWaveform(int waveformIndex) {
     int ret = 0;
-    ret |= write_value(LED_DEVICE "/rtp", "0");
-    ret |= write_value(LED_DEVICE "/vmax", "255");
-    ret |= write_value(LED_DEVICE "/waveform_index", waveformIndex);
-    ret |= write_value(LED_DEVICE "/brightness", "1");
+    int writeToken = mWriteToken;
+    ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+    ret |= write_value(writeToken, LED_DEVICE "/vmax", "255");
+    ret |= write_value(writeToken, LED_DEVICE "/waveform_index", waveformIndex);
+    ret |= write_value(writeToken, LED_DEVICE "/brightness", "1");
     return ret;
 }
 
 int LedVibratorDevice::off() {
     int ret = 0;
-
-    ret |= write_value(LED_DEVICE "/rtp", "0");
+    // change all tokens to stop/no-op existing effects
+    mWriteToken = std::rand();
+    mComposeToken = std::rand();
+    ret |= write_value(mWriteToken, LED_DEVICE "/rtp", "0");
     return ret;
 }
 int LedVibratorDevice::setAmplitude(uint8_t amplitude) {
     int ret = 0;
+    int writeToken = mWriteToken;
     mSavedVmax = (int)amplitude;
-    ret |= write_value(LED_DEVICE "/vmax", mSavedVmax);
+    ret |= write_value(writeToken, LED_DEVICE "/vmax", mSavedVmax);
+    return ret;
+}
+
+int LedVibratorDevice::compose(const std::vector<CompositeEffect>& composite,
+                               const std::shared_ptr<IVibratorCallback>& callback) {
+    int ret = 0;
+    int composeToken = mComposeToken;
+
+    ALOGD("Vibrator compose length %zu", composite.size());
+    for (const CompositeEffect& effect : composite) {
+        if (composeToken != mComposeToken) break;
+        if (effect.delayMs > 0) {
+            ALOGD("Vibrator perform primitive effect delay %d", effect.delayMs);
+            usleep(effect.delayMs * 1000);
+        }
+        ALOGD("Vibrator perform primitive effect %d, %f", effect.primitive, effect.scale);
+        ret |= playPrimitive(effect.primitive, effect.scale);
+    }
+
+    if (callback != nullptr) callback->onComplete();
+
     return ret;
 }
 
 int LedVibratorDevice::playEffect(Effect effect, EffectStrength es) {
     int ret = 0;
     int vmax = 255;
+    int writeToken = mWriteToken;
 
     /* reduce strength to match with the scale percentage fw/b uses for
        setAmplitude by default for LIGHT, MEDIUM, and STRONG. */
@@ -440,44 +476,152 @@ int LedVibratorDevice::playEffect(Effect effect, EffectStrength es) {
 
     switch (effect) {
         case Effect::CLICK:
-            ret |= write_value(LED_DEVICE "/rtp", "0");
-            ret |= write_value(LED_DEVICE "/vmax", vmax);
-            ret |= write_value(LED_DEVICE "/waveform_index", "6");
-            ret |= write_value(LED_DEVICE "/brightness", "1");
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax);
+            ret |= write_value(writeToken, LED_DEVICE "/waveform_index", "6");
+            ret |= write_value(writeToken, LED_DEVICE "/brightness", "1");
             break;
         case Effect::DOUBLE_CLICK:
-            ret |= write_value(LED_DEVICE "/rtp", "0");
-            ret |= write_value(LED_DEVICE "/vmax", vmax);
-            ret |= write_value(LED_DEVICE "/waveform_index", "6");
-            ret |= write_value(LED_DEVICE "/brightness", "1");
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax);
+            ret |= write_value(writeToken, LED_DEVICE "/waveform_index", "6");
+            ret |= write_value(writeToken, LED_DEVICE "/brightness", "1");
             usleep(100 * 1000);
-            ret |= write_value(LED_DEVICE "/rtp", "0");
-            ret |= write_value(LED_DEVICE "/vmax", vmax);
-            ret |= write_value(LED_DEVICE "/waveform_index", "6");
-            ret |= write_value(LED_DEVICE "/brightness", "1");
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax);
+            ret |= write_value(writeToken, LED_DEVICE "/waveform_index", "6");
+            ret |= write_value(writeToken, LED_DEVICE "/brightness", "1");
             break;
         case Effect::TICK:
-            ret |= write_value(LED_DEVICE "/rtp", "0");
-            ret |= write_value(LED_DEVICE "/vmax", vmax);
-            ret |= write_value(LED_DEVICE "/waveform_index", "1");
-            ret |= write_value(LED_DEVICE "/brightness", "1");
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax);
+            ret |= write_value(writeToken, LED_DEVICE "/waveform_index", "1");
+            ret |= write_value(writeToken, LED_DEVICE "/brightness", "1");
             break;
         case Effect::HEAVY_CLICK:
-            ret |= write_value(LED_DEVICE "/rtp", "0");
-            ret |= write_value(LED_DEVICE "/vmax", vmax);
-            ret |= write_value(LED_DEVICE "/waveform_index", "4");
-            ret |= write_value(LED_DEVICE "/brightness", "1");
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax);
+            ret |= write_value(writeToken, LED_DEVICE "/waveform_index", "4");
+            ret |= write_value(writeToken, LED_DEVICE "/brightness", "1");
             break;
         case Effect::TEXTURE_TICK:
             vmax *= 0.2;
-            ret |= write_value(LED_DEVICE "/rtp", "0");
-            ret |= write_value(LED_DEVICE "/vmax", vmax);
-            ret |= write_value(LED_DEVICE "/waveform_index", "4");
-            ret |= write_value(LED_DEVICE "/brightness", "1");
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax);
+            ret |= write_value(writeToken, LED_DEVICE "/waveform_index", "4");
+            ret |= write_value(writeToken, LED_DEVICE "/brightness", "1");
             break;
         default:
             break;
     }
+
+    return ret;
+}
+
+int LedVibratorDevice::playPrimitive(CompositePrimitive primitive, float scale) {
+    int ret = 0;
+    int vmax = 255;
+    int writeToken = mWriteToken;
+    float sweepScale;
+
+    vmax *= std::pow(scale, 0.6);
+
+    switch (primitive) {
+        case CompositePrimitive::NOOP:
+            break;
+        case CompositePrimitive::CLICK:
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax);
+            ret |= write_value(writeToken, LED_DEVICE "/waveform_index", "6");
+            ret |= write_value(writeToken, LED_DEVICE "/brightness", "1");
+            break;
+        case CompositePrimitive::THUD:
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax);
+            ret |= write_value(writeToken, LED_DEVICE "/waveform_index", "4");
+            ret |= write_value(writeToken, LED_DEVICE "/brightness", "1");
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax * 0.05);
+            ret |= write_value(writeToken, LED_DEVICE "/duration", "300");
+            ret |= write_value(writeToken, LED_DEVICE "/activate", "1");
+            usleep(10 * 1000);
+            for (int i = 3; i >= 1; i--) {
+                sweepScale = std::pow((i / 4.0f), 3);
+                ret |= write_value(writeToken, LED_DEVICE "/vmax", sweepScale * vmax * 0.05);
+                usleep(10 * 1000);
+            }
+            for (int i = 4; i >= 1; i--) {
+                sweepScale = std::pow((i / 16.0f), 3);
+                ret |= write_value(writeToken, LED_DEVICE "/vmax", sweepScale * vmax * 0.05);
+                usleep(10 * 1000);
+            }
+            break;
+        case CompositePrimitive::SPIN:
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax * 0.35);
+            ret |= write_value(writeToken, LED_DEVICE "/duration", "50");
+            ret |= write_value(writeToken, LED_DEVICE "/activate", "1");
+            usleep(10 * 1000);
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax * 0.025);
+            usleep(10 * 1000);
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax * 0.15);
+            ret |= write_value(writeToken, LED_DEVICE "/duration", "80");
+            ret |= write_value(writeToken, LED_DEVICE "/activate", "1");
+            usleep(10 * 1000);
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax * 0.0125);
+            break;
+        case CompositePrimitive::QUICK_RISE:
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/duration", "150");
+            ret |= write_value(writeToken, LED_DEVICE "/activate", "1");
+            for (int i = 1; i <= 4; i++) {
+                sweepScale = std::pow((i / 4.0f), 0.7);
+                ret |= write_value(writeToken, LED_DEVICE "/vmax", sweepScale * vmax);
+                usleep(10 * 1000);
+            }
+            break;
+        case CompositePrimitive::SLOW_RISE:
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/duration", "500");
+            ret |= write_value(writeToken, LED_DEVICE "/activate", "1");
+            for (int i = 1; i <= 17; i++) {
+                sweepScale = std::pow((i / 18.0f), 1.2);
+                ret |= write_value(writeToken, LED_DEVICE "/vmax", sweepScale * vmax);
+                usleep(10 * 1000);
+            }
+            break;
+        case CompositePrimitive::QUICK_FALL:
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", 0.5 * vmax);
+            ret |= write_value(writeToken, LED_DEVICE "/duration", "150");
+            ret |= write_value(writeToken, LED_DEVICE "/activate", "1");
+            usleep(10 * 1000);
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", 0.75 * vmax);
+            usleep(10 * 1000);
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", 0.25 * vmax);
+            usleep(10 * 1000);
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", 0.0625 * vmax);
+            usleep(10 * 1000);
+            break;
+        case CompositePrimitive::LIGHT_TICK:
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax);
+            ret |= write_value(writeToken, LED_DEVICE "/waveform_index", "1");
+            ret |= write_value(writeToken, LED_DEVICE "/brightness", "1");
+            break;
+        case CompositePrimitive::LOW_TICK:
+            vmax *= 0.35;
+            ret |= write_value(writeToken, LED_DEVICE "/rtp", "0");
+            ret |= write_value(writeToken, LED_DEVICE "/vmax", vmax);
+            ret |= write_value(writeToken, LED_DEVICE "/waveform_index", "4");
+            ret |= write_value(writeToken, LED_DEVICE "/brightness", "1");
+            break;
+        default:
+            break;
+    };
 
     return ret;
 }
@@ -488,6 +632,7 @@ ndk::ScopedAStatus Vibrator::getCapabilities(int32_t* _aidl_return) {
     if (ledVib.mDetected) {
         *_aidl_return |= IVibrator::CAP_PERFORM_CALLBACK;
         *_aidl_return |= IVibrator::CAP_AMPLITUDE_CONTROL;
+        *_aidl_return |= IVibrator::CAP_COMPOSE_EFFECTS;
         ALOGD("QTI Vibrator reporting capabilities: %d", *_aidl_return);
         return ndk::ScopedAStatus::ok();
     }
@@ -645,27 +790,95 @@ ndk::ScopedAStatus Vibrator::setExternalControl(bool enabled) {
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Vibrator::getCompositionDelayMax(int32_t* maxDelayMs __unused) {
-    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+ndk::ScopedAStatus Vibrator::getCompositionDelayMax(int32_t* maxDelayMs) {
+    if (ledVib.mDetected) {
+        *maxDelayMs = LED_MAX_COMPOSITION_DELAY_MS;
+    } else {
+        return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+    }
+    return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Vibrator::getCompositionSizeMax(int32_t* maxSize __unused) {
-    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+ndk::ScopedAStatus Vibrator::getCompositionSizeMax(int32_t* maxSize) {
+    if (ledVib.mDetected) {
+        *maxSize = LED_MAX_COMPOSITION_SIZE;
+    } else {
+        return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+    }
+    return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Vibrator::getSupportedPrimitives(
-        std::vector<CompositePrimitive>* supported __unused) {
-    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+ndk::ScopedAStatus Vibrator::getSupportedPrimitives(std::vector<CompositePrimitive>* _aidl_return) {
+    if (ledVib.mDetected) {
+        *_aidl_return = {CompositePrimitive::NOOP,       CompositePrimitive::CLICK,
+                         CompositePrimitive::THUD,       CompositePrimitive::SPIN,
+                         CompositePrimitive::QUICK_RISE, CompositePrimitive::SLOW_RISE,
+                         CompositePrimitive::QUICK_FALL, CompositePrimitive::LIGHT_TICK,
+                         CompositePrimitive::LOW_TICK};
+    } else {
+        return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+    }
+    return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Vibrator::getPrimitiveDuration(CompositePrimitive primitive __unused,
-                                                  int32_t* durationMs __unused) {
-    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+ndk::ScopedAStatus Vibrator::getPrimitiveDuration(CompositePrimitive primitive,
+                                                  int32_t* durationMs) {
+    if (ledVib.mDetected) {
+        switch (primitive) {
+            case CompositePrimitive::NOOP:
+                *durationMs = 0;
+                break;
+            case CompositePrimitive::CLICK:
+                *durationMs = 15;
+                break;
+            case CompositePrimitive::THUD:
+                *durationMs = 300;
+                break;
+            case CompositePrimitive::SPIN:
+                *durationMs = 150;
+                break;
+            case CompositePrimitive::QUICK_RISE:
+                *durationMs = 150;
+                break;
+            case CompositePrimitive::SLOW_RISE:
+                *durationMs = 500;
+                break;
+            case CompositePrimitive::QUICK_FALL:
+                *durationMs = 150;
+                break;
+            case CompositePrimitive::LIGHT_TICK:
+                *durationMs = 15;
+                break;
+            case CompositePrimitive::LOW_TICK:
+                *durationMs = 15;
+                break;
+            default:
+                return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+        };
+    } else {
+        return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+    }
+    return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Vibrator::compose(const std::vector<CompositeEffect>& composite __unused,
-                                     const std::shared_ptr<IVibratorCallback>& callback __unused) {
-    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+ndk::ScopedAStatus Vibrator::compose(const std::vector<CompositeEffect>& composite,
+                                     const std::shared_ptr<IVibratorCallback>& callback) {
+    if (ledVib.mDetected) {
+        if (composite.size() > LED_MAX_COMPOSITION_SIZE)
+            return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_ILLEGAL_ARGUMENT));
+        for (const CompositeEffect& effect : composite) {
+            if (effect.primitive > CompositePrimitive::LOW_TICK)
+                return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_ILLEGAL_ARGUMENT));
+            if (effect.delayMs > LED_MAX_COMPOSITION_DELAY_MS)
+                return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_ILLEGAL_ARGUMENT));
+            if (effect.scale < 0.0f || effect.scale > 1.0f)
+                return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_ILLEGAL_ARGUMENT));
+        }
+        std::thread([=] { ledVib.compose(composite, callback); }).detach();
+    } else {
+        return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+    }
+    return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus Vibrator::getSupportedAlwaysOnEffects(
@@ -679,6 +892,44 @@ ndk::ScopedAStatus Vibrator::alwaysOnEnable(int32_t id __unused, Effect effect _
 }
 
 ndk::ScopedAStatus Vibrator::alwaysOnDisable(int32_t id __unused) {
+    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+}
+
+ndk::ScopedAStatus Vibrator::getResonantFrequency(float* resonantFreqHz __unused) {
+    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+}
+
+ndk::ScopedAStatus Vibrator::getQFactor(float* qFactor __unused) {
+    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+}
+
+ndk::ScopedAStatus Vibrator::getFrequencyResolution(float* freqResolutionHz __unused) {
+    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+}
+
+ndk::ScopedAStatus Vibrator::getFrequencyMinimum(float* freqMinimumHz __unused) {
+    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+}
+
+ndk::ScopedAStatus Vibrator::getBandwidthAmplitudeMap(std::vector<float>* _aidl_return __unused) {
+    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+}
+
+ndk::ScopedAStatus Vibrator::getPwlePrimitiveDurationMax(int32_t* durationMs __unused) {
+    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+}
+
+ndk::ScopedAStatus Vibrator::getPwleCompositionSizeMax(int32_t* maxSize __unused) {
+    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+}
+
+ndk::ScopedAStatus Vibrator::getSupportedBraking(std::vector<Braking>* supported __unused) {
+    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+}
+
+ndk::ScopedAStatus Vibrator::composePwle(const std::vector<PrimitivePwle>& composite __unused,
+                                         const std::shared_ptr<IVibratorCallback>& callback
+                                                 __unused) {
     return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
 }
 
