@@ -59,16 +59,21 @@ class LedVibratorDevice {
   public:
     LedVibratorDevice();
     int playEffect(Effect effect, EffectStrength es);
+    int playPrimitive(CompositePrimitive primitive, float scale);
     int on(int32_t timeoutMs);
     int onWaveform(int waveformIndex);
     int off();
     bool mDetected;
-    int write_value(const char* file, const char* value);
-    int write_value(const char* file, int value);
+    int write_value(int writeToken, const char* file, const char* value);
+    int write_value(int writeToken, const char* file, int value);
     int setAmplitude(uint8_t amplitude);
+    int compose(const std::vector<CompositeEffect>& composite,
+                const std::shared_ptr<IVibratorCallback>& callback);
 
   private:
     int mSavedVmax;
+    int mWriteToken;
+    int mComposeToken;
 };
 
 class Vibrator : public BnVibrator {
@@ -96,6 +101,16 @@ class Vibrator : public BnVibrator {
     ndk::ScopedAStatus getSupportedAlwaysOnEffects(std::vector<Effect>* _aidl_return) override;
     ndk::ScopedAStatus alwaysOnEnable(int32_t id, Effect effect, EffectStrength strength) override;
     ndk::ScopedAStatus alwaysOnDisable(int32_t id) override;
+    ndk::ScopedAStatus getResonantFrequency(float* resonantFreqHz) override;
+    ndk::ScopedAStatus getQFactor(float* qFactor) override;
+    ndk::ScopedAStatus getFrequencyResolution(float* freqResolutionHz) override;
+    ndk::ScopedAStatus getFrequencyMinimum(float* freqMinimumHz) override;
+    ndk::ScopedAStatus getBandwidthAmplitudeMap(std::vector<float>* _aidl_return) override;
+    ndk::ScopedAStatus getPwlePrimitiveDurationMax(int32_t* durationMs) override;
+    ndk::ScopedAStatus getPwleCompositionSizeMax(int32_t* maxSize) override;
+    ndk::ScopedAStatus getSupportedBraking(std::vector<Braking>* supported) override;
+    ndk::ScopedAStatus composePwle(const std::vector<PrimitivePwle>& composite,
+                                   const std::shared_ptr<IVibratorCallback>& callback) override;
 };
 
 }  // namespace vibrator
