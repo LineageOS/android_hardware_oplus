@@ -98,6 +98,9 @@ genfscon sysfs /devices/platform/soc/988000.i2c/i2c-1/1-005a/leds/vibrator    u:
 genfscon sysfs /devices/platform/soc/a8c000.i2c/i2c-5/5-005a/leds/vibrator    u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/soc/a8c000.i2c/i2c-6/6-005a/leds/vibrator    u:object_r:sysfs_vibrator:s0
 
+# Walt
+genfscon proc /sys/walt u:object_r:proc_sched_walt:s0
+
 # Wakeup (https://lkml.org/lkml/2019/8/6/1275)
 genfscon sysfs /devices/platform/soc/4a80000.i2c/i2c-3/3-0028/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/4a80000.spi/spi_master/spi0/spi0.0/wakeup u:object_r:sysfs_wakeup:s0
