@@ -29,4 +29,4 @@ allow hal_oplus_urcc_aidl vendor_sysfs_cb:file w_file_perms;
 allow hal_oplus_urcc_aidl vendor_sysfs_msm_perf:file rw_file_perms;
 
 # Access to /proc/sys/walt/ nodes
-allow hal_oplus_urcc_aidl proc:file rw_file_perms;
+allow hal_oplus_urcc_aidl proc_sched_walt:file rw_file_perms;
