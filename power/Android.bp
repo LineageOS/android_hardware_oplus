@@ -10,8 +10,8 @@ cc_library_static {
     srcs: [
         "power-mode.cpp",
     ],
-    cppflags: select(soong_config_variable("power_libperfmgr", "mode_extension_lib"), {
-        any: ["-DLIBPERFMGR_EXT"],
+    cppflags: select(soong_config_variable("power_libperfmgr", "oplus_mode_extension_lib"), {
+        true: ["-DLIBPERFMGR_EXT"],
         default: [],
     }),
     header_libs: [
