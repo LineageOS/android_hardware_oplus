@@ -1,0 +1,13 @@
+install_symlink {
+    name: "rfs_mdm_mpss_readonly_dycnvbk_symlink",
+    vendor: true,
+    installed_location: "rfs/mdm/mpss/readonly/dycnvbk",
+    symlink_target: "/mnt/vendor/persist/modem/dycnvbk",
+}
+
+install_symlink {
+    name: "rfs_msm_mpss_readonly_dycnvbk_symlink",
+    vendor: true,
+    installed_location: "rfs/msm/mpss/readonly/dycnvbk",
+    symlink_target: "/mnt/vendor/persist/modem/dycnvbk",
+}
