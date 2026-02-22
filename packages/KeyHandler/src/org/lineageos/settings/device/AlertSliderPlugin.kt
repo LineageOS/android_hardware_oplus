@@ -156,6 +156,7 @@ class AlertSliderPlugin : OverlayPlugin {
                 val wasShowing = showing
 
                 showing = false
+                context = context.createConfigurationContext(config)
                 dialog = AlertSliderDialog(context)
                 lastInfo?.let { dialog.setState(it.position, it.mode) }
 
