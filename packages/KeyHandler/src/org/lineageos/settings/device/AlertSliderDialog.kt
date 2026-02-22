@@ -124,6 +124,7 @@ class AlertSliderDialog(private val context: Context) :
         }
 
         frameView.setBackgroundResource(backgroundFor(rotation, position, flip))
+        textView.setTextColor(context.getColor(R.color.alert_slider_text_color))
 
         iconView.setImageResource(
             when (ringerMode) {
