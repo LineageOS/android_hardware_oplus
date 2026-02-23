@@ -16,6 +16,24 @@
       "message": "https://katb.in/dazahamequd/raw",
       "revId": "50cc6cd58c0b8bba2dcb0525a5979c90c7ffc911",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eb5dc5b_75b1f994",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26672
+      },
+      "writtenOn": "2026-02-23T10:47:32Z",
+      "side": 1,
+      "message": "maybe this?\n\nrw_dir_file(hal_power_default, proc)",
+      "parentUuid": "3b2694b0_611aed41",
+      "revId": "50cc6cd58c0b8bba2dcb0525a5979c90c7ffc911",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
