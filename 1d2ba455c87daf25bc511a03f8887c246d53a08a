@@ -16,6 +16,24 @@
       "message": "cat /sys/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a8c000.i2c/i2c-8/8-000e/name",
       "revId": "1d2ba455c87daf25bc511a03f8887c246d53a08a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8dff407_dd45bd8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32253
+      },
+      "writtenOn": "2026-02-26T11:29:16Z",
+      "side": 1,
+      "message": "```\npiloti / # cat /sys/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a8c000.i2c/i2c-8/8-000e/name\nwcd939x-i2c\n\n```",
+      "parentUuid": "6f03d418_9d064c96",
+      "revId": "1d2ba455c87daf25bc511a03f8887c246d53a08a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
