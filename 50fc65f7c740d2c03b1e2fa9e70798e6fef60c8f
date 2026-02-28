@@ -16,6 +16,23 @@
       "message": "Tested on OnePlus 7T Pro (hotdog), works well.",
       "revId": "50fc65f7c740d2c03b1e2fa9e70798e6fef60c8f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0feb3703_0bbec870",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16779
+      },
+      "writtenOn": "2026-02-28T16:58:48Z",
+      "side": 1,
+      "message": "In light mode the text is white, and when you switch back to dark mode it\u0027s black until you reboot",
+      "revId": "50fc65f7c740d2c03b1e2fa9e70798e6fef60c8f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
