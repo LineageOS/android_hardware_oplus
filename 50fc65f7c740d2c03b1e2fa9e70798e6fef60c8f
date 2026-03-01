@@ -69,6 +69,24 @@
       "parentUuid": "0c2c76d5_eae9c02b",
       "revId": "50fc65f7c740d2c03b1e2fa9e70798e6fef60c8f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ec8f73d_a8fb3315",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-03-01T18:52:27Z",
+      "side": 1,
+      "message": "The icon yes, but not the text.",
+      "parentUuid": "7df1be84_28d00292",
+      "revId": "50fc65f7c740d2c03b1e2fa9e70798e6fef60c8f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
