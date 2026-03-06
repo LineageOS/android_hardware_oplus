@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2017 The Android Open Source Project
+    SPDX-FileCopyrightText: 2025 The Android Open Source Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
-    android:viewportHeight="24"
-    android:viewportWidth="24">
+    android:width="20dp"
+    android:height="20dp"
+    android:viewportWidth="20"
+    android:viewportHeight="20">
+  <group>
+    <clip-path
+        android:pathData="M0,0h20v20h-20z"/>
     <path
-        android:fillColor="@color/alert_slider_icon_color"
-        android:pathData="M18,17v-6c0,-3.07 -1.63,-5.64 -4.5,-6.32V4c0,-0.83 -0.67,-1.5 -1.5,-1.5S10.5,3.17 10.5,4v0.68C7.64,5.36 6,7.92 6,11v6H4v2h10h0.38H20v-2H18zM16,17H8v-6c0,-2.48 1.51,-4.5 4,-4.5s4,2.02 4,4.5V17z" />
-    <path
-        android:fillColor="@color/alert_slider_icon_color"
-        android:pathData="M12,22c1.1,0 2,-0.9 2,-2h-4C10,21.1 10.9,22 12,22z" />
+        android:pathData="M11.5,16.833V15.271C12.694,14.951 13.66,14.306 14.396,13.333C15.132,12.347 15.5,11.236 15.5,10C15.5,8.764 15.125,7.667 14.375,6.708C13.639,5.736 12.681,5.069 11.5,4.708V3.146C13.111,3.493 14.431,4.306 15.458,5.583C16.486,6.861 17,8.326 17,9.979C17,11.632 16.486,13.104 15.458,14.396C14.444,15.674 13.125,16.486 11.5,16.833ZM3,11.979V7.979H6L10,3.979V15.979L6,11.979H3ZM11.5,13.125V6.833C12.125,7.111 12.611,7.535 12.958,8.104C13.319,8.674 13.5,9.299 13.5,9.979C13.5,10.66 13.319,11.285 12.958,11.854C12.611,12.41 12.125,12.833 11.5,13.125Z"
+        android:fillColor="@color/alert_slider_icon_color"/>
+  </group>
 </vector>
