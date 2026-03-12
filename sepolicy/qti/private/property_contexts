@@ -82,6 +82,7 @@ persist.sys.tpic.        u:object_r:system_oplus_touch_prop:s0
 sys.touch.game_mode      u:object_r:system_oplus_touch_prop:s0
 
 # Version
-ro.build.release_type      u:object_r:exported_system_prop:s0
-ro.separate.soft           u:object_r:system_oplus_project_prop:s0
-ro.version.confidential    u:object_r:exported_system_prop:s0
+ro.build.release_type            u:object_r:exported_system_prop:s0
+ro.oplusupgrade.alpha.version    u:object_r:exported_system_prop:s0
+ro.separate.soft                 u:object_r:system_oplus_project_prop:s0
+ro.version.confidential          u:object_r:exported_system_prop:s0
