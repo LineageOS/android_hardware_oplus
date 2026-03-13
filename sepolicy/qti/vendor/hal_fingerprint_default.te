@@ -25,6 +25,8 @@ allow hal_fingerprint_default uhid_device:chr_file rw_file_perms;
 
 allow hal_fingerprint_default mnt_vendor_file:dir search;
 
+allowxperm hal_fingerprint_default fingerprint_vendor_data_file:file ioctl DMA_BUF_IOCTL_SYNC;
+
 rw_dir_file(hal_fingerprint_default, vendor_persist_fingerprint_file)
 rw_dir_file(hal_fingerprint_default, vendor_proc_display)
 rw_dir_file(hal_fingerprint_default, vendor_sysfs_graphics)
