@@ -16,6 +16,24 @@
       "message": "too generic, can you send the avc denied log?",
       "revId": "e2545bbaa9cd6e3935576782f277188e260d2e84",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbe3921e_2c679639",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33843
+      },
+      "writtenOn": "2026-03-13T13:20:39Z",
+      "side": 1,
+      "message": "```\n03-11 21:56:19.018  2014  2014 I LightningLaunc: type\u003d1400 audit(0.0:47062): avc:  denied  { read } for  name\u003d\"cmdline\" dev\u003d\"proc\" ino\u003d71476 scontext\u003du:r:vendor_hal_perf_default:s0 tcontext\u003du:r:system_server:s0 tclass\u003dfile permissive\u003d1\n03-11 21:56:19.018  2014  2014 I LightningLaunc: type\u003d1400 audit(0.0:47063): avc:  denied  { open } for  path\u003d\"/proc/3468/cmdline\" dev\u003d\"proc\" ino\u003d71476 scontext\u003du:r:vendor_hal_perf_default:s0 tcontext\u003du:r:system_server:s0 tclass\u003dfile permissive\u003d1\n03-11 21:56:19.018  2014  2014 I LightningLaunc: type\u003d1400 audit(0.0:47064): avc:  denied  { getattr } for  path\u003d\"/proc/3468/cmdline\" dev\u003d\"proc\" ino\u003d71476 scontext\u003du:r:vendor_hal_perf_default:s0 tcontext\u003du:r:system_server:s0 tclass\u003dfile permissive\u003d1\n```",
+      "parentUuid": "98844db4_a5b40f61",
+      "revId": "e2545bbaa9cd6e3935576782f277188e260d2e84",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
