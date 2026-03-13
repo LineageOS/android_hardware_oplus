@@ -16,6 +16,24 @@
       "message": "what",
       "revId": "e8294eddc4b9668009c4393c74c1fc110ffe7492",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "076d823e_308769fc",
+        "filename": "sepolicy/qti/vendor/hal_fingerprint_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 33843
+      },
+      "writtenOn": "2026-03-13T16:59:46Z",
+      "side": 1,
+      "message": "```\n03-11 18:36:01.180  2769  2769 W vendor.oplus.ha: type\u003d1400 audit(0.0:116): avc:  denied  { ioctl } for  path\u003d\"/data/vendor/fingerprint_ori/record_running_info.fptar\" dev\u003d\"dm-48\" ino\u003d6962 ioctlcmd\u003d0x6200 scontext\u003du:r:hal_fingerprint_default:s0 tcontext\u003du:object_r:fingerprint_vendor_data_file:s0 tclass\u003dfile permissive\u003d0\n\n03-11 18:35:55.348  1038  1038 W qseecomd: type\u003d1400 audit(0.0:115): avc:  denied  { create } for  name\u003d\"qfs4008\" scontext\u003du:r:tee:s0 tcontext\u003du:object_r:fingerprint_vendor_data_file:s0 tclass\u003ddir permissive\u003d0\n```",
+      "parentUuid": "e01f3c1a_ab982cc5",
+      "revId": "e8294eddc4b9668009c4393c74c1fc110ffe7492",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
