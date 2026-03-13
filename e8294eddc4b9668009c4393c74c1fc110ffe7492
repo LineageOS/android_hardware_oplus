@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e01f3c1a_ab982cc5",
+        "filename": "sepolicy/qti/vendor/hal_fingerprint_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-03-13T16:54:05Z",
+      "side": 1,
+      "message": "what",
+      "revId": "e8294eddc4b9668009c4393c74c1fc110ffe7492",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
