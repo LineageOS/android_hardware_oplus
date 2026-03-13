@@ -34,6 +34,24 @@
       "parentUuid": "e01f3c1a_ab982cc5",
       "revId": "e8294eddc4b9668009c4393c74c1fc110ffe7492",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3374ce2c_92dabbad",
+        "filename": "sepolicy/qti/vendor/hal_fingerprint_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-03-13T22:53:11Z",
+      "side": 1,
+      "message": "maybe something like this would be better https://review.lineageos.org/c/LineageOS/android_hardware_oplus/+/477562?",
+      "parentUuid": "076d823e_308769fc",
+      "revId": "e8294eddc4b9668009c4393c74c1fc110ffe7492",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
