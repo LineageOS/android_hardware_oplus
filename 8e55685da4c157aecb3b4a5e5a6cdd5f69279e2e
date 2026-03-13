@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64f1d014_5a7e95b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-03-13T23:00:34Z",
+      "side": 1,
+      "message": "please verify that this addresses your denial.\n\nalso, there are supposedly some log messages you might see with/without this change:\n\n[%s] DMA_BUF_IOCTL_SYNC end failed, status \u003d %d, errno \u003d %d\n[%s] DMA_BUF_IOCTL_SYNC start failed, status \u003d %d, errno \u003d %d\n[%s] DMA_BUF_IOCTL_SYNC success, ION_QSECOM_HEAP_ID \u003d %d",
+      "revId": "8e55685da4c157aecb3b4a5e5a6cdd5f69279e2e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
