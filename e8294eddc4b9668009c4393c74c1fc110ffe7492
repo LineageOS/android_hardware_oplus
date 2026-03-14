@@ -52,6 +52,24 @@
       "parentUuid": "076d823e_308769fc",
       "revId": "e8294eddc4b9668009c4393c74c1fc110ffe7492",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a3638df_76e23ba2",
+        "filename": "sepolicy/qti/vendor/hal_fingerprint_default.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 33843
+      },
+      "writtenOn": "2026-03-14T03:17:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3374ce2c_92dabbad",
+      "revId": "e8294eddc4b9668009c4393c74c1fc110ffe7492",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
