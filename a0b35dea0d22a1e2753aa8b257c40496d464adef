@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "003da07c_7e1651eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-03-14T08:24:54Z",
+      "side": 1,
+      "message": "stock allows file create too:\n\nvendor_sepolicy.cil:(allow tee_202404 oppo_fingerprint_file (dir (ioctl read write create getattr setattr lock rename open watch watch_reads add_name remove_name reparent search rmdir)))\nvendor_sepolicy.cil:(allow tee_202404 oppo_fingerprint_file (file (ioctl read write create getattr setattr lock append map unlink rename open watch watch_reads)))",
+      "revId": "a0b35dea0d22a1e2753aa8b257c40496d464adef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
