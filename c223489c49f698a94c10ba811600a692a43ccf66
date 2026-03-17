@@ -16,6 +16,24 @@
       "message": "While doing further testing I noticed that the re-activation isn\u0027t committed if the slider is changed too fast. This is very similar to the AudioManager.ringerModeInternal bug that I fixed using the while loop to wait until the change is commited. I could re-use the idea for AudioManager and setZenMode where it blocks until the change is committed, if you think this would work.",
       "revId": "c223489c49f698a94c10ba811600a692a43ccf66",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa294d53_efe78f23",
+        "filename": "KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 8
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 36472
+      },
+      "writtenOn": "2026-03-17T18:26:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "139807b6_cb1921d9",
+      "revId": "c223489c49f698a94c10ba811600a692a43ccf66",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
