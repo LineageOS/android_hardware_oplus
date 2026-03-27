@@ -1,3 +1,5 @@
 hal_client_domain(vendor_hal_perf_default, vendor_hal_oplus_urcc)
 
 r_dir_file(vendor_hal_perf_default, vendor_sysfs_usb_supply)
+
+allow vendor_hal_perf_default proc_sched:file rw_file_perms;
