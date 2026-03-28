@@ -33,23 +33,33 @@ ndk::ScopedAStatus HighTouchPollingRate::getEnabled(bool* _aidl_return) {
     std::string value;
 
     if (mOplusTouch) {
-        mOplusTouch->touchReadNodeFile(OplusTouchConstants::DEFAULT_TP_IC_ID,
-                                       OplusTouchConstants::GAME_SWITCH_ENABLE_NODE, &value);
+        ndk::ScopedAStatus status =
+                mOplusTouch->touchReadNodeFile(OplusTouchConstants::DEFAULT_TP_IC_ID,
+                                               OplusTouchConstants::HTPR_ENABLE_NODE, &value);
+        if (!status.isOk()) {
+            LOG(ERROR) << "Failed to read current AIDL HighTouchPollingRate state";
+            return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+        }
     } else if (!ReadFileToString(kGameSwitchEnablePath, &value)) {
         LOG(ERROR) << "Failed to read current HighTouchPollingRate state";
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
 
-    *_aidl_return = value[0] != '0';
+    *_aidl_return = !value.empty() && value[0] != '0';
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus HighTouchPollingRate::setEnabled(bool enable) {
     if (mOplusTouch) {
         int aidl_return = 0;
-        mOplusTouch->touchWriteNodeFile(OplusTouchConstants::DEFAULT_TP_IC_ID,
-                                        OplusTouchConstants::GAME_SWITCH_ENABLE_NODE,
-                                        enable ? "1" : "0", &aidl_return);
+
+        ndk::ScopedAStatus status = mOplusTouch->touchWriteNodeFile(
+                OplusTouchConstants::DEFAULT_TP_IC_ID, OplusTouchConstants::HTPR_ENABLE_NODE,
+                enable ? HTPR_ENABLE_VALUE : "0", &aidl_return);
+        if (!status.isOk() || aidl_return < 0) {
+            LOG(ERROR) << "Failed to write AIDL HighTouchPollingRate state";
+            return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+        }
     } else if (!WriteStringToFile(enable ? "1" : "0", kGameSwitchEnablePath, true)) {
         LOG(ERROR) << "Failed to write HighTouchPollingRate state";
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
