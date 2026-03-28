@@ -12,6 +12,8 @@
 | OPLUS_LINEAGE_TOUCH_HAL | ENABLE_GM | Enable GloveMode feature | false |
 | OPLUS_LINEAGE_TOUCH_HAL | ENABLE_HTPR | Enable HighTouchPollingRate feature | true |
 | OPLUS_LINEAGE_TOUCH_HAL | ENABLE_TG | Enable TouchscreenGesture feature | true |
+| OPLUS_LINEAGE_TOUCH_HAL | HTPR_ENABLE_NODE | HighTouchPollingRate enable node | GAME_SWITCH_ENABLE_NODE |
+| OPLUS_LINEAGE_TOUCH_HAL | HTPR_ENABLE_VALUE | HighTouchPollingRate enable value | 1 |
 | OPLUS_LINEAGE_TOUCH_HAL | INCLUDE_DIR | Device specific include dir path | |
 | OPLUS_LINEAGE_TOUCH_HAL | USE_OPLUSTOUCH | Use and interface with stock OplusTouch | false |
 | OPLUS_LINEAGE_VIBRATOR_HAL | INCLUDE_DIR | Device specific include dir path | |
