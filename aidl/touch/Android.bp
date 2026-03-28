@@ -48,6 +48,12 @@ cc_binary {
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_TG"), {
         false: ["-DENABLE_TG=false"],
         default: ["-DENABLE_TG=true"],
+    }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "HTPR_ENABLE_NODE"), {
+        any @ node: ["-DHTPR_ENABLE_NODE=" + node],
+        default: ["-DHTPR_ENABLE_NODE=GAME_SWITCH_ENABLE_NODE"],
+    }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "HTPR_ENABLE_VALUE"), {
+        any @ value: ["-DHTPR_ENABLE_VALUE=\"" + value + "\""],
+        default: ["-DHTPR_ENABLE_VALUE=\"1\""],
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "USE_OPLUSTOUCH"), {
         true: ["-DUSE_OPLUSTOUCH=true"],
         default: ["-DUSE_OPLUSTOUCH=false"],
