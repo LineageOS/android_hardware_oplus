@@ -17,5 +17,18 @@ binder_call(hal_oplus_touch_aidl, oplus_touchdaemon)
 
 unix_socket_send(hal_oplus_touch_aidl, oplus_touchdaemon, oplus_touchdaemon)
 
+allow hal_oplus_touch_aidl input_device:dir search;
+allow hal_oplus_touch_aidl input_device:chr_file rw_file_perms;
+
+allow hal_oplus_touch_aidl oplus_touchdaemon_device:chr_file rw_file_perms;
+
+allow hal_oplus_touch_aidl proc_bus_input:file r_file_perms;
+allow hal_oplus_touch_aidl proc_horae:file r_file_perms;
+
+create_dir_file(hal_oplus_touch_aidl, vendor_persist_oplus_touch_file)
 rw_dir_file(hal_oplus_touch_aidl, oplus_touchdaemon_device)
 rw_dir_file(hal_oplus_touch_aidl, vendor_proc_display)
+rw_dir_file(hal_oplus_touch_aidl, vendor_sysfs_usb_supply)
+
+set_prop(hal_oplus_touch_aidl, system_oplus_touch_prop)
+set_prop(hal_oplus_touch_aidl, vendor_oplus_touch_prop)
