@@ -7,6 +7,8 @@ allow hal_audio_default vendor_proc_mm_fb:file rw_file_perms;
 
 hal_client_domain(hal_audio_default, vendor_hal_oplus_charger)
 
+rw_dir_file(hal_audio_default, vendor_proc_oplus_frame_boost)
+rw_dir_file(hal_audio_default, vendor_proc_oplus_scheduler)
 rw_dir_file(hal_audio_default, vendor_sysfs_battery_supply)
 rw_dir_file(hal_audio_default, vendor_sysfs_usb_supply)
 
