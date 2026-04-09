@@ -2,6 +2,7 @@ type oplus_touchdaemon, domain;
 binder_use(oplus_touchdaemon)
 vndbinder_use(oplus_touchdaemon)
 
+binder_call(oplus_touchdaemon, hal_oplus_touch_aidl)
 binder_call(oplus_touchdaemon, system_server)
 
 type oplus_touchdaemon_exec, file_type, exec_type, vendor_file_type;
