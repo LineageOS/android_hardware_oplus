@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__ida-pro-mcp__instance_list",
+      "mcp__ida-pro-mcp__list_funcs",
+      "mcp__ida-pro-mcp__decompile",
+      "Bash(pip show:*)",
+      "Read(//d/work/**)",
+      "Read(//c/Users/nonnon/**)",
+      "Bash(git clone:*)",
+      "mcp__jadx-mcp-server__get_all_classes",
+      "mcp__jadx-mcp-server__search_classes_by_keyword",
+      "mcp__jadx-mcp-server__get_class_source"
+    ]
+  }
+}
