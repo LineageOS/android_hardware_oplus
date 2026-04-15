@@ -1,0 +1,26 @@
+/*
+ * SPDX-FileCopyrightText: 2026 The LineageOS Project
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+package vendor.oplus.hardware.cwb@1.0;
+
+import @1.0::types;
+import @1.0::ICwbCallback;
+
+interface ICwbService {
+    getRGBValue(CwbRect rect) generates (Error error, Rgb rgb);
+    getRGBValues(vec<CwbRect> rects) generates (Error error, vec<Rgb> rgbs);
+    getLumasValue(CwbRect rect) generates (Error error, float lumas);
+    getHistogramValue(CwbRect rect) generates (Error error, Histogram histogram);
+    getCwbBuffer(CwbRect rect, oplus_cwb_buffer buffer) generates (Error error);
+    getCwbPostProcessStatus() generates (bool status);
+    setCwbPostProcessStatus(bool status) generates (Error error);
+
+    registerCallback(ICwbCallback callback) generates (Error error);
+    unregisterCallback(ICwbCallback callback) generates (Error error);
+
+    enable() generates (bool status);
+    disable() generates (bool status);
+    setDebug(vec<int32_t> values) generates (Error error);
+};
