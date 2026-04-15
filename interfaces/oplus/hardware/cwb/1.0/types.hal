@@ -1,0 +1,28 @@
+/*
+ * SPDX-FileCopyrightText: 2026 The LineageOS Project
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+package vendor.oplus.hardware.cwb@1.0;
+
+enum Error : int32_t {
+    NONE = 0,
+    RESOUCE_BUSY = 1,
+    INPUT_ERROR = 2,
+    SCREEN_STAT_OFF = 3,
+};
+
+typedef uint8_t[3] Rgb;
+typedef int32_t[256][3] Histogram;
+
+struct CwbRect {
+    int32_t left;
+    int32_t top;
+    int32_t right;
+    int32_t bottom;
+};
+
+struct oplus_cwb_buffer {
+    handle bufferHandler;
+    int32_t bufferSize;
+};
