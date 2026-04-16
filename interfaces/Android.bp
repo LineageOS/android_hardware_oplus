@@ -386,6 +386,35 @@ aidl_interface {
 }
 
 aidl_interface {
+    name: "vendor.oplus.hardware.sendextcamcmd",
+    system_ext_specific: true,
+    odm_available: true,
+    local_include_dir: "aidl",
+    srcs: ["aidl/vendor/oplus/hardware/sendextcamcmd/*.aidl"],
+    stability: "vintf",
+    owner: "oplus",
+
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            enabled: false,
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+        {
+            version: "2",
+            imports: [],
+        },
+    ],
+}
+
+aidl_interface {
     name: "vendor.oplus.hardware.stability.oplus_project",
     system_ext_specific: true,
     vendor_available: true,
@@ -593,4 +622,10 @@ cc_library_shared {
     name: "vendor.oplus.hardware.radio-V2-ndk_platform",
     defaults: ["vendor.oplus.hardware.ndk_platform_shim_defaults"],
     whole_static_libs: ["vendor.oplus.hardware.radio-V2-ndk"],
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.sendextcamcmd-V1-ndk_platform",
+    defaults: ["vendor.oplus.hardware.ndk_platform_shim_defaults"],
+    whole_static_libs: ["vendor.oplus.hardware.sendextcamcmd-V1-ndk"],
 }
