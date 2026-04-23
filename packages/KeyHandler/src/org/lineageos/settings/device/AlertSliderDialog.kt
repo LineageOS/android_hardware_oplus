@@ -13,6 +13,7 @@ import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
 import android.app.Dialog
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.PixelFormat
 import android.graphics.drawable.ColorDrawable
@@ -27,7 +28,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 
-class AlertSliderDialog(private val context: Context) :
+class AlertSliderDialog(private val context: Context, private val sysuiContext: Context) :
     Dialog(context, R.style.alert_slider_theme) {
     private val dialogView by lazy { findViewById<LinearLayout>(R.id.alert_slider_dialog)!! }
     private val frameView by lazy { findViewById<ViewGroup>(R.id.alert_slider_view)!! }
@@ -180,6 +181,34 @@ class AlertSliderDialog(private val context: Context) :
         animator.start()
     }
 
+    private fun applyUiTheme() {
+        val currentUiMode = sysuiContext.resources.configuration.uiMode
+        val isDark =
+            (currentUiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK) ==
+                android.content.res.Configuration.UI_MODE_NIGHT_YES
+
+        val bgResId =
+            if (isDark) {
+                android.R.color.system_neutral1_800
+            } else {
+                android.R.color.system_neutral1_100
+            }
+
+        val accentResId =
+            if (isDark) {
+                android.R.color.system_accent1_100
+            } else {
+                android.R.color.system_accent1_500
+            }
+
+        val bgColor = sysuiContext.getColor(bgResId)
+        val accentColor = sysuiContext.getColor(accentResId)
+
+        frameView.backgroundTintList = ColorStateList.valueOf(bgColor)
+        iconView.imageTintList = ColorStateList.valueOf(accentColor)
+        textView.setTextColor(accentColor)
+    }
+
     private fun applyUiMode(ringerMode: Int) {
         iconView.setImageResource(
             when (ringerMode) {
@@ -204,7 +233,7 @@ class AlertSliderDialog(private val context: Context) :
                 else -> R.string.alert_slider_mode_none
             }
         )
-        textView.setTextColor(context.getColor(R.color.alert_slider_text_color))
+        applyUiTheme()
     }
 
     private fun applyPositionAndBackground(endX: Int, endY: Int, position: Int) {
