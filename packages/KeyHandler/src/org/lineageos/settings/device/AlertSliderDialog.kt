@@ -8,8 +8,12 @@
 
 package org.lineageos.settings.device
 
+import android.animation.Animator
+import android.animation.PropertyValuesHolder
+import android.animation.ValueAnimator
 import android.app.Dialog
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.PixelFormat
 import android.graphics.drawable.ColorDrawable
@@ -19,15 +23,13 @@ import android.view.Surface
 import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
+import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.animation.Animator
-import android.animation.PropertyValuesHolder
-import android.animation.ValueAnimator
-import android.view.animation.OvershootInterpolator
+import androidx.core.graphics.ColorUtils
 
-class AlertSliderDialog(private val context: Context) :
+class AlertSliderDialog(private val context: Context, private val sysuiContext: Context) :
     Dialog(context, R.style.alert_slider_theme) {
     private val dialogView by lazy { findViewById<LinearLayout>(R.id.alert_slider_dialog)!! }
     private val frameView by lazy { findViewById<ViewGroup>(R.id.alert_slider_view)!! }
@@ -174,6 +176,32 @@ class AlertSliderDialog(private val context: Context) :
         animator.start()
     }
 
+    private fun applyMonetColors() {
+        val currentUiMode = sysuiContext.resources.configuration.uiMode
+        val isDark = (currentUiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK) ==
+                android.content.res.Configuration.UI_MODE_NIGHT_YES
+
+        val bgResId = if (isDark) {
+            android.R.color.system_neutral1_800
+        } else {
+            android.R.color.system_neutral1_100
+        }
+
+        val accentResId = if (isDark) {
+            android.R.color.system_accent1_100
+        } else {
+            android.R.color.system_accent1_500
+        }
+
+        val bgColor = sysuiContext.getColor(bgResId)
+        val accentColor = sysuiContext.getColor(accentResId)
+        val tonalColor = getTonalTextColor(bgColor, accentColor)
+
+        frameView.backgroundTintList = ColorStateList.valueOf(bgColor)
+        iconView.imageTintList = ColorStateList.valueOf(tonalColor)
+        textView.setTextColor(tonalColor)
+    }
+
     private fun applyUiMode(ringerMode: Int) {
         iconView.setImageResource(
             when (ringerMode) {
@@ -198,7 +226,7 @@ class AlertSliderDialog(private val context: Context) :
                 else -> R.string.alert_slider_mode_none
             }
         )
-        textView.setTextColor(context.getColor(R.color.alert_slider_text_color))
+        applyMonetColors()
     }
 
     private fun applyPositionAndBackground(endX: Int, endY: Int, position: Int) {
@@ -208,6 +236,7 @@ class AlertSliderDialog(private val context: Context) :
                 y = endY
             }
         }
+
         frameView.setBackgroundResource(backgroundFor(rotation, position, flip))
     }
 
@@ -250,5 +279,28 @@ class AlertSliderDialog(private val context: Context) :
 
     companion object {
         private const val TAG = "AlertSliderDialog"
+        
+        private fun getTonalTextColor(bgColor: Int, accentColor: Int): Int {
+            val bgLum = ColorUtils.calculateLuminance(bgColor)
+            val isBgLight = bgLum > 0.5
+            val targetColor = if (isBgLight) android.graphics.Color.BLACK else android.graphics.Color.WHITE
+
+            val minContrast = 6.5
+            var blendRatio = 0.0f
+
+            if (ColorUtils.calculateContrast(accentColor, bgColor) >= minContrast) {
+                return accentColor
+            }
+
+            while (blendRatio <= 1.0f) {
+                val newColorArgb = ColorUtils.blendARGB(accentColor, targetColor, blendRatio)
+                if (ColorUtils.calculateContrast(newColorArgb, bgColor) >= minContrast) {
+                    return newColorArgb
+                }
+                blendRatio += 0.05f
+            }
+
+            return targetColor
+        }
     }
 }
