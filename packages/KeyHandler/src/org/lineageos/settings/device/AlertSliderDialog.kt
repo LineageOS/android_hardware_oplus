@@ -13,6 +13,7 @@ import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
 import android.app.Dialog
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.PixelFormat
 import android.graphics.drawable.ColorDrawable
@@ -26,8 +27,9 @@ import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.graphics.ColorUtils
 
-class AlertSliderDialog(private val context: Context) :
+class AlertSliderDialog(private val context: Context, private val sysuiContext: Context) :
     Dialog(context, R.style.alert_slider_theme) {
     private val dialogView by lazy { findViewById<LinearLayout>(R.id.alert_slider_dialog)!! }
     private val frameView by lazy { findViewById<ViewGroup>(R.id.alert_slider_view)!! }
@@ -180,6 +182,35 @@ class AlertSliderDialog(private val context: Context) :
         animator.start()
     }
 
+    private fun applyUiTheme() {
+        val currentUiMode = sysuiContext.resources.configuration.uiMode
+        val isDark =
+            (currentUiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK) ==
+                android.content.res.Configuration.UI_MODE_NIGHT_YES
+
+        val bgResId =
+            if (isDark) {
+                android.R.color.system_neutral1_800
+            } else {
+                android.R.color.system_neutral1_100
+            }
+
+        val accentResId =
+            if (isDark) {
+                android.R.color.system_accent1_100
+            } else {
+                android.R.color.system_accent1_500
+            }
+
+        val bgColor = sysuiContext.getColor(bgResId)
+        val accentColor = sysuiContext.getColor(accentResId)
+        val tonalColor = getContrastingForegroundColor(bgColor, accentColor, isDark)
+
+        frameView.backgroundTintList = ColorStateList.valueOf(bgColor)
+        iconView.imageTintList = ColorStateList.valueOf(tonalColor)
+        textView.setTextColor(tonalColor)
+    }
+
     private fun applyUiMode(ringerMode: Int) {
         iconView.setImageResource(
             when (ringerMode) {
@@ -204,7 +235,7 @@ class AlertSliderDialog(private val context: Context) :
                 else -> R.string.alert_slider_mode_none
             }
         )
-        textView.setTextColor(context.getColor(R.color.alert_slider_text_color))
+        applyUiTheme()
     }
 
     private fun applyPositionAndBackground(endX: Int, endY: Int, position: Int) {
@@ -253,6 +284,31 @@ class AlertSliderDialog(private val context: Context) :
                 }
             else -> base(position) // ROTATION_0 / ROTATION_180
         }
+    }
+
+    private fun getContrastingForegroundColor(
+        bgColor: Int,
+        accentColor: Int,
+        isDark: Boolean,
+    ): Int {
+        val targetColor = if (isDark) android.graphics.Color.WHITE else android.graphics.Color.BLACK
+
+        val minContrast = 6.5
+        var blendRatio = 0.0f
+
+        if (ColorUtils.calculateContrast(accentColor, bgColor) >= minContrast) {
+            return accentColor
+        }
+
+        while (blendRatio <= 1.0f) {
+            val newColorArgb = ColorUtils.blendARGB(accentColor, targetColor, blendRatio)
+            if (ColorUtils.calculateContrast(newColorArgb, bgColor) >= minContrast) {
+                return newColorArgb
+            }
+            blendRatio += 0.05f
+        }
+
+        return targetColor
     }
 
     companion object {
