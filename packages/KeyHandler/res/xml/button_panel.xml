@@ -49,5 +49,12 @@
             android:summary="@string/alert_slider_notification_dialog_summary"
             android:defaultValue="true" />
 
+        <SwitchPreferenceCompat
+            android:key="config_invert_colors"
+            android:title="@string/alert_slider_invert_colors_title"
+            android:summary="@string/alert_slider_invert_colors_summary"
+            android:dependency="config_show_dialog"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 </PreferenceScreen>
