@@ -27,7 +27,11 @@ class AlertSliderPlugin : OverlayPlugin {
     private lateinit var handler: NotificationHandler
     private val dialogLock = Any()
 
-    private data class NotificationInfo(val position: Int, val mode: Int)
+    private data class NotificationInfo(
+        val position: Int,
+        val mode: Int,
+        val invertColors: Boolean,
+    )
 
     private val updateReceiver: BroadcastReceiver =
         object : BroadcastReceiver() {
@@ -41,12 +45,15 @@ class AlertSliderPlugin : OverlayPlugin {
                             val ringer =
                                 intent.getIntExtra("mode", NONE).takeIf { it != NONE } ?: return
 
+                            val invert = intent.getBooleanExtra("invertColors", false)
+
                             handler
                                 .obtainMessage(
                                     MSG_DIALOG_UPDATE,
                                     NotificationInfo(
                                         intent.getIntExtra("position", KeyHandler.POSITION_BOTTOM),
                                         ringer,
+                                        invert,
                                     ),
                                 )
                                 .sendToTarget()
@@ -142,7 +149,7 @@ class AlertSliderPlugin : OverlayPlugin {
                 lastInfo = info
                 handleResetTimeout()
                 launchDozePulse()
-                dialog.setState(info.position, info.mode)
+                dialog.setState(info.position, info.mode, info.invertColors)
             }
         }
 
@@ -162,7 +169,7 @@ class AlertSliderPlugin : OverlayPlugin {
 
                 showing = false
                 dialog = AlertSliderDialog(context, sysuiContext)
-                lastInfo?.let { dialog.setState(it.position, it.mode) }
+                lastInfo?.let { dialog.setState(it.position, it.mode, it.invertColors) }
 
                 if (wasShowing) {
                     showing = true
