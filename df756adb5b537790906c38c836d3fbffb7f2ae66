@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e03fd83_902ec36a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2026-04-25T20:51:51Z",
+      "side": 1,
+      "message": "Just a few nit picks",
+      "revId": "df756adb5b537790906c38c836d3fbffb7f2ae66",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6833168_41c7ffac",
+        "filename": "packages/KeyHandler/src/org/lineageos/settings/device/AlertSliderDialog.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2026-04-25T20:51:51Z",
+      "side": 1,
+      "message": "```suggestion\n    private fun applyUiTheme() {\n```",
+      "revId": "df756adb5b537790906c38c836d3fbffb7f2ae66",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bc44c0c_e27f9812",
+        "filename": "packages/KeyHandler/src/org/lineageos/settings/device/AlertSliderDialog.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2026-04-25T20:51:51Z",
+      "side": 1,
+      "message": "```suggestion\n        applyUiTheme()\n```",
+      "revId": "df756adb5b537790906c38c836d3fbffb7f2ae66",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f09b5550_a3fb0759",
+        "filename": "packages/KeyHandler/src/org/lineageos/settings/device/AlertSliderDialog.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2026-04-25T20:51:51Z",
+      "side": 1,
+      "message": "Remove this",
+      "revId": "df756adb5b537790906c38c836d3fbffb7f2ae66",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
