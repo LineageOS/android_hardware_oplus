@@ -16,6 +16,24 @@
       "message": "These resources should be moved to packages/resources/devicesettings. When done, add a topic to both repos",
       "revId": "ab7eb53812c8d77d6147a9071cecdf56954aaa32",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a786e8d5_435ffdb2",
+        "filename": "packages/KeyHandler/res/values/strings.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 36976
+      },
+      "writtenOn": "2026-04-25T22:42:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd909c03_ce590ac2",
+      "revId": "ab7eb53812c8d77d6147a9071cecdf56954aaa32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
