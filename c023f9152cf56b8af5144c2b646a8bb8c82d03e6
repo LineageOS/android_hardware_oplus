@@ -16,6 +16,24 @@
       "message": "Whitespace",
       "revId": "c023f9152cf56b8af5144c2b646a8bb8c82d03e6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc5d59fc_f5756628",
+        "filename": "packages/KeyHandler/src/org/lineageos/settings/device/AlertSliderDialog.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 36976
+      },
+      "writtenOn": "2026-04-25T19:46:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95787e97_6957aa44",
+      "revId": "c023f9152cf56b8af5144c2b646a8bb8c82d03e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
