@@ -158,6 +158,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41f85445_d1e4dc8f",
+        "filename": "packages/KeyHandler/src/org/lineageos/settings/device/AlertSliderPlugin.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 36976
+      },
+      "writtenOn": "2026-04-25T21:40:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "780b500b_e80a9787",
+      "revId": "df756adb5b537790906c38c836d3fbffb7f2ae66",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41897ce3_9429794d",
@@ -171,6 +189,24 @@
       "writtenOn": "2026-04-25T20:57:32Z",
       "side": 1,
       "message": "Not needed",
+      "revId": "df756adb5b537790906c38c836d3fbffb7f2ae66",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92d19b03_2a9aec20",
+        "filename": "packages/KeyHandler/src/org/lineageos/settings/device/AlertSliderPlugin.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 36976
+      },
+      "writtenOn": "2026-04-25T21:40:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41897ce3_9429794d",
       "revId": "df756adb5b537790906c38c836d3fbffb7f2ae66",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
@@ -192,6 +228,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6716c51_79055878",
+        "filename": "packages/KeyHandler/src/org/lineageos/settings/device/AlertSliderPlugin.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 36976
+      },
+      "writtenOn": "2026-04-25T21:40:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b254d06d_00c73205",
+      "revId": "df756adb5b537790906c38c836d3fbffb7f2ae66",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3f1ea11_f2475c1d",
@@ -205,6 +259,24 @@
       "writtenOn": "2026-04-25T20:57:32Z",
       "side": 1,
       "message": "```suggestion\n    private inner class NotificationHandler(var context: Context, private var sysuiContext: Context) :\n```",
+      "revId": "df756adb5b537790906c38c836d3fbffb7f2ae66",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23c3d56c_f2e63e65",
+        "filename": "packages/KeyHandler/src/org/lineageos/settings/device/AlertSliderPlugin.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 36976
+      },
+      "writtenOn": "2026-04-25T21:40:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3f1ea11_f2475c1d",
       "revId": "df756adb5b537790906c38c836d3fbffb7f2ae66",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
