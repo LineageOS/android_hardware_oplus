@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95787e97_6957aa44",
+        "filename": "packages/KeyHandler/src/org/lineageos/settings/device/AlertSliderDialog.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2026-04-25T19:25:21Z",
+      "side": 1,
+      "message": "Whitespace",
+      "revId": "c023f9152cf56b8af5144c2b646a8bb8c82d03e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
