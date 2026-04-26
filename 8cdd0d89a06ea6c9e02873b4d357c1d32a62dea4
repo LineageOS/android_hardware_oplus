@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01b635c2_830aac07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36976
+      },
+      "writtenOn": "2026-04-26T13:52:03Z",
+      "side": 1,
+      "message": "screenshots/demonstration: https://panz-development.ddns.net/s/yH8EqAjXbE5E6Lk",
+      "revId": "8cdd0d89a06ea6c9e02873b4d357c1d32a62dea4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
