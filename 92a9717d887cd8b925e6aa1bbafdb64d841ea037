@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a92d4e07_e18cdc96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36976
+      },
+      "writtenOn": "2026-04-29T15:09:20Z",
+      "side": 1,
+      "message": "tested on: OnePlus 7: hotdog, guacamole\nOnePlus 8: instantnoodlep\nOnePlus 12: waffle",
+      "revId": "92a9717d887cd8b925e6aa1bbafdb64d841ea037",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
