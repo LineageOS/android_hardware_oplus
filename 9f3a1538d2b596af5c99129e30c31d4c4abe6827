@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b200676_4d0d3b7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36976
+      },
+      "writtenOn": "2026-04-29T15:07:58Z",
+      "side": 1,
+      "message": "verified on \nOnePlus 7: guacamole, hotdog\nOnePlus 8: instantnoodlep\nOnePlus 12: waffle",
+      "revId": "9f3a1538d2b596af5c99129e30c31d4c4abe6827",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
