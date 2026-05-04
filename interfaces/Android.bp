@@ -599,6 +599,68 @@ aidl_interface {
 }
 
 aidl_interface {
+    name: "vendor.oplus.hardware.subsys_radio",
+    system_ext_specific: true,
+    odm_available: true,
+    local_include_dir: "aidl",
+    srcs: ["aidl/vendor/oplus/hardware/subsys_interface/subsys_radio/*.aidl"],
+    stability: "vintf",
+    owner: "oplus",
+
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            enabled: false,
+        },
+    },
+    imports: [
+        "vendor.oplus.hardware.subsys-V5",
+    ],
+    versions_with_info: [
+        {
+            version: "1",
+            imports: ["vendor.oplus.hardware.subsys-V1"],
+        },
+        {
+            version: "2",
+            imports: ["vendor.oplus.hardware.subsys-V1"],
+        },
+        {
+            version: "3",
+            imports: ["vendor.oplus.hardware.subsys-V2"],
+        },
+        {
+            version: "4",
+            imports: ["vendor.oplus.hardware.subsys-V3"],
+        },
+        {
+            version: "5",
+            imports: ["vendor.oplus.hardware.subsys-V4"],
+        },
+        {
+            version: "6",
+            imports: ["vendor.oplus.hardware.subsys-V4"],
+        },
+        {
+            version: "7",
+            imports: ["vendor.oplus.hardware.subsys-V4"],
+        },
+        {
+            version: "8",
+            imports: ["vendor.oplus.hardware.subsys-V5"],
+        },
+        {
+            version: "9",
+            imports: ["vendor.oplus.hardware.subsys-V5"],
+        },
+
+    ],
+    frozen: true,
+}
+
+aidl_interface {
     name: "vendor.oplus.hardware.touch",
     system_ext_specific: true,
     vendor_available: true,
