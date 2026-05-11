@@ -37,10 +37,12 @@ vendor.modem_dump_action    u:object_r:vendor_modem_prop:s0
 vendor.oplus.nfc.fw.version    u:object_r:vendor_nfc_nq_prop:s0
 
 # Radio
-odm.ril.radio.status.          u:object_r:vendor_radio_prop:s0
-persist.vendor.oplus.radio.    u:object_r:vendor_radio_prop:s0
-ro.vendor.oplus.radio.         u:object_r:vendor_radio_prop:s0
-vendor.oplus.radio.            u:object_r:vendor_radio_prop:s0
+odm.ril.radio.status.                 u:object_r:vendor_radio_prop:s0
+persist.vendor.oplus.radio.           u:object_r:vendor_radio_prop:s0
+ro.vendor.oplus.mdmfeature            u:object_r:vendor_radio_prop:s0
+ro.vendor.oplus.radio.                u:object_r:vendor_radio_prop:s0
+ro.vendor.oplus.uniform_single_sim    u:object_r:vendor_radio_prop:s0
+vendor.oplus.radio.                   u:object_r:vendor_radio_prop:s0
 
 # RIL
 vendor.gsm.phoneserial    u:object_r:vendor_nw_exported_system_prop:s0
