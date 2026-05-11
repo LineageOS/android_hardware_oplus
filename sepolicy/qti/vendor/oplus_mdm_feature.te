@@ -1,0 +1,23 @@
+type oplus_mdm_feature, domain;
+binder_use(oplus_mdm_feature)
+
+type oplus_mdm_feature_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(oplus_mdm_feature)
+
+allow oplus_mdm_feature block_device:dir r_dir_perms;
+allow oplus_mdm_feature vendor_modem_efs_partition_device:blk_file r_file_perms;
+allow oplus_mdm_feature vendor_reserve_partition:blk_file rw_file_perms;
+
+allow oplus_mdm_feature oplus_mdmfeature_device:chr_file rw_file_perms;
+
+allow oplus_mdm_feature vendor_sysfs_soc_sensitive:file r_file_perms;
+
+allow oplus_mdm_feature mnt_vendor_file:dir search;
+allow oplus_mdm_feature oplus_reserve_file_type:dir search;
+
+r_dir_file(oplus_mdm_feature, vendor_proc_engineer)
+rw_dir_file(oplus_mdm_feature, oplus_reserve_radio_file_type)
+rw_dir_file(oplus_mdm_feature, vendor_olog_file)
+
+set_prop(oplus_mdm_feature, vendor_nw_exported_system_prop)
+set_prop(oplus_mdm_feature, vendor_radio_prop)
