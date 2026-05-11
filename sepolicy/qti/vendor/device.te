@@ -19,6 +19,9 @@ type fingerprint_device, dev_type;
 # IR
 type oplus_consumer_ir_device, dev_type;
 
+# MDM feature
+type oplus_mdmfeature_device, dev_type;
+
 # NVRAM
 type nvram_device, dev_type;
 

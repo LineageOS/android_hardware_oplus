@@ -80,6 +80,10 @@
 /dev/block/platform/soc/1d84000\.ufshc/by-name/mdmddr             u:object_r:vendor_efs_boot_dev:s0
 /dev/block/platform/soc/4804000\.ufshc/by-name/mdm1oemnvbktmp     u:object_r:vendor_modem_efs_partition_device:s0
 
+# MDM feature
+/(odm|vendor/odm)/bin/hw/mdm_feature    u:object_r:oplus_mdm_feature_exec:s0
+/dev/mdmfeature                         u:object_r:oplus_mdmfeature_device:s0
+
 # NFC
 /dev/pn553    u:object_r:nfc_device:s0
 
