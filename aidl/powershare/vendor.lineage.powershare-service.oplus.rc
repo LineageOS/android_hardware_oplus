@@ -1,4 +1,4 @@
-on init
+on property:sys.boot_completed=1
     chown system system /proc/wireless/enable_tx
 
 service vendor.powershare-hal /vendor/bin/hw/vendor.lineage.powershare-service.oplus
