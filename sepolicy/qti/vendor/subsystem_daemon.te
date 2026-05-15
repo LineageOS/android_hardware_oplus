@@ -11,13 +11,20 @@ binder_call(vendor_hal_subsys_server, vendor_hal_subsys_client)
 
 hal_attribute_service(vendor_hal_subsys, hal_subsys_service)
 
-allow subsystem_daemon block_device:dir r_dir_perms;
 allow subsystem_daemon self:qipcrtr_socket create_socket_perms_no_ioctl;
+
+allow subsystem_daemon block_device:dir r_dir_perms;
+allow subsystem_daemon vendor_modem_efs_partition_device:blk_file r_file_perms;
 allow subsystem_daemon vendor_reserve_partition:blk_file r_file_perms;
+
+allow subsystem_daemon mnt_vendor_file:dir search;
+allow subsystem_daemon oplus_reserve_file_type:dir search;
+
 allow subsystem_daemon vendor_sysfs_soc_sensitive:file r_file_perms;
 
 set_prop(subsystem_daemon, vendor_nw_exported_system_prop)
 set_prop(subsystem_daemon, vendor_radio_prop)
 
 r_dir_file(subsystem_daemon, vendor_proc_engineer)
+rw_dir_file(subsystem_daemon, oplus_reserve_radio_file_type)
 rw_dir_file(subsystem_daemon, vendor_olog_file)
