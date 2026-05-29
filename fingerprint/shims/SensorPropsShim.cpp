@@ -7,6 +7,7 @@
 
 #include <aidl/android/hardware/biometrics/fingerprint/SensorProps.h>
 
+#include <android-base/file.h>
 #include <android-base/logging.h>
 #include <android-base/parseint.h>
 #include <android-base/properties.h>
@@ -14,15 +15,43 @@
 
 #include <dlfcn.h>
 
+using android::base::GetIntProperty;
 using android::base::GetProperty;
 using android::base::ParseInt;
+using android::base::ReadFileToString;
+using android::base::Split;
 using android::base::Tokenize;
+using android::base::Trim;
 
 using aidl::android::hardware::biometrics::fingerprint::FingerprintSensorType;
 using aidl::android::hardware::biometrics::fingerprint::SensorLocation;
 using aidl::android::hardware::biometrics::fingerprint::SensorProps;
 
 namespace {
+std::optional<std::pair<int32_t, int32_t>> GetScreenResolution() {
+    std::string value;
+    if (!ReadFileToString("/sys/class/drm/card0-DSI-1/modes", &value)) {
+        return {};
+    }
+
+    auto lines = Split(Trim(value), "\n");
+    if (lines.empty()) {
+        return {};
+    }
+
+    auto parts = Split(lines.back(), "x");
+    if (parts.size() < 2) {
+        return {};
+    }
+
+    int32_t width, height;
+    if (!ParseInt(parts[0], &width) || !ParseInt(parts[1], &height)) {
+        return {};
+    }
+
+    return std::make_pair(width, height);
+}
+
 SensorProps SensorPropsInit(SensorProps props) {
     auto type = GetProperty("persist.vendor.fingerprint.sensor_type", "");
     if (!type.empty()) {
@@ -38,9 +67,18 @@ SensorProps SensorPropsInit(SensorProps props) {
             props.sensorType = FingerprintSensorType::HOME_BUTTON;
     }
 
+    auto icon_loc_prop = GetIntProperty("persist.vendor.fingerprint.optical.iconlocation", 0);
     auto loc_prop = GetProperty("persist.vendor.fingerprint.optical.sensorlocation",
                                 GetProperty("persist.vendor.fingerprint.side.sensorlocation", ""));
-    if (!loc_prop.empty()) {
+    auto screen_resolution = GetScreenResolution();
+    if (icon_loc_prop > 0 && screen_resolution &&
+        (props.sensorType == FingerprintSensorType::UNDER_DISPLAY_ULTRASONIC ||
+         props.sensorType == FingerprintSensorType::UNDER_DISPLAY_OPTICAL)) {
+        SensorLocation loc;
+        loc.sensorLocationX = screen_resolution->first / 2;
+        loc.sensorLocationY = screen_resolution->second - icon_loc_prop;
+        props.sensorLocations = {loc};
+    } else if (!loc_prop.empty()) {
         auto locations = Tokenize(loc_prop, "|");
         props.sensorLocations.clear();
 
