@@ -1,0 +1,6 @@
+service vendor.hbp-setup /system/bin/hbp-setup
+    class hal
+    user root
+    group root
+    seclabel u:r:hbp_setup:s0
+    oneshot
