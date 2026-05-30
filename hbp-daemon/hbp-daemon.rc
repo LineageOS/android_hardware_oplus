@@ -1,0 +1,5 @@
+service vendor.hbp-daemon /system/bin/hbp-daemon
+    class hal
+    user root
+    group root
+    seclabel u:r:hbp_daemon:s0
