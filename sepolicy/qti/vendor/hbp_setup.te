@@ -1,0 +1,7 @@
+recovery_only(`
+type hbp_setup, domain, coredomain;
+
+domain_trans(init, rootfs, hbp_setup)
+
+allow hbp_setup oplus_touchdaemon_device:chr_file rw_file_perms;
+')

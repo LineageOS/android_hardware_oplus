@@ -1,0 +1,16 @@
+//
+// SPDX-FileCopyrightText: 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "hbp-setup",
+    init_rc: ["hbp-setup.rc"],
+    recovery: true,
+    srcs: [
+        "main.cpp",
+    ],
+    header_libs: [
+        "kernel_headers.oplus",
+    ],
+}
