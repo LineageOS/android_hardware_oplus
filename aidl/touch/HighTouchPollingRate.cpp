@@ -46,9 +46,10 @@ ndk::ScopedAStatus HighTouchPollingRate::getEnabled(bool* _aidl_return) {
 
 ndk::ScopedAStatus HighTouchPollingRate::setEnabled(bool enable) {
     if (mOplusTouch) {
-        mOplusTouch->touchWriteNodeFileOneWay(OplusTouchConstants::DEFAULT_TP_IC_ID,
-                                              OplusTouchConstants::GAME_SWITCH_ENABLE_NODE,
-                                              enable ? "1" : "0");
+        int aidl_return = 0;
+        mOplusTouch->touchWriteNodeFile(OplusTouchConstants::DEFAULT_TP_IC_ID,
+                                        OplusTouchConstants::GAME_SWITCH_ENABLE_NODE,
+                                        enable ? "1" : "0", &aidl_return);
     } else if (!WriteStringToFile(enable ? "1" : "0", kGameSwitchEnablePath, true)) {
         LOG(ERROR) << "Failed to write HighTouchPollingRate state";
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);

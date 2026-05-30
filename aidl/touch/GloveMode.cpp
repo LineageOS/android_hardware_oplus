@@ -46,9 +46,10 @@ ndk::ScopedAStatus GloveMode::getEnabled(bool* _aidl_return) {
 
 ndk::ScopedAStatus GloveMode::setEnabled(bool enable) {
     if (mOplusTouch) {
-        mOplusTouch->touchWriteNodeFileOneWay(OplusTouchConstants::DEFAULT_TP_IC_ID,
-                                              OplusTouchConstants::GLOVE_MODE_ENABLE_NODE,
-                                              enable ? "1" : "0");
+        int aidl_return = 0;
+        mOplusTouch->touchWriteNodeFile(OplusTouchConstants::DEFAULT_TP_IC_ID,
+                                        OplusTouchConstants::GLOVE_MODE_ENABLE_NODE,
+                                        enable ? "1" : "0", &aidl_return);
     } else if (!WriteStringToFile(enable ? "1" : "0", kGloveModeEnablePath, true)) {
         LOG(ERROR) << "Failed to write GloveMode state";
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
