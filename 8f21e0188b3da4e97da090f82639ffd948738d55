@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15f2ef56_01e8a227",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-06-11T16:55:11Z",
+      "side": 1,
+      "message": "Probably just means that the other change shouldn\u0027t have been merged to common policy. Otherwise, why would we have several other qupv3_2_geni_se labels here?",
+      "revId": "8f21e0188b3da4e97da090f82639ffd948738d55",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
