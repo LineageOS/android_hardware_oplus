@@ -464,6 +464,31 @@ aidl_interface {
 }
 
 aidl_interface {
+    name: "vendor.oplus.hardware.pogo_keyboard",
+    system_ext_specific: true,
+    odm_available: true,
+    local_include_dir: "aidl",
+    srcs: ["aidl/vendor/oplus/hardware/pogo_keyboard/*.aidl"],
+    stability: "vintf",
+    owner: "oplus",
+
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            enabled: false,
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+}
+
+aidl_interface {
     name: "vendor.oplus.hardware.radio",
     system_ext_specific: true,
     vendor_available: true,
@@ -816,6 +841,12 @@ cc_library_shared {
     name: "vendor.oplus.hardware.performance-V1-ndk_platform",
     defaults: ["vendor.oplus.hardware.ndk_platform_shim_defaults"],
     whole_static_libs: ["vendor.oplus.hardware.performance-V1-ndk"],
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.pogo_keyboard-V1-ndk_platform",
+    defaults: ["vendor.oplus.hardware.ndk_platform_shim_defaults"],
+    whole_static_libs: ["vendor.oplus.hardware.pogo_keyboard-V1-ndk"],
 }
 
 cc_library_shared {
