@@ -331,6 +331,31 @@ aidl_interface {
 }
 
 aidl_interface {
+    name: "vendor.oplus.hardware.display.MixLut3D",
+    system_ext_specific: true,
+    odm_available: true,
+    local_include_dir: "aidl",
+    srcs: ["aidl/vendor/oplus/hardware/display/MixLut3D/*.aidl"],
+    stability: "vintf",
+    owner: "oplus",
+
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            sdk_version: "module_current",
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+}
+
+aidl_interface {
     name: "vendor.oplus.hardware.displaypanelfeature",
     system_ext_specific: true,
     odm_available: true,
@@ -823,6 +848,12 @@ cc_library_shared {
     name: "vendor.oplus.hardware.commondcs-V1-ndk_platform",
     defaults: ["vendor.oplus.hardware.ndk_platform_shim_defaults"],
     whole_static_libs: ["vendor.oplus.hardware.commondcs-V1-ndk"],
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.display.MixLut3D-V1-ndk_platform",
+    defaults: ["vendor.oplus.hardware.ndk_platform_shim_defaults"],
+    whole_static_libs: ["vendor.oplus.hardware.display.MixLut3D-V1-ndk"],
 }
 
 cc_library_shared {
