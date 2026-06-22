@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3931e7d5_f489d643",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2026-06-22T16:45:54Z",
+      "side": 1,
+      "message": "This smoothes out the background change during the animation. Currently it has a hard jump visible at the end of the animation.",
+      "revId": "138c96ebd24cd6370599543d9532b34b5b875c60",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
