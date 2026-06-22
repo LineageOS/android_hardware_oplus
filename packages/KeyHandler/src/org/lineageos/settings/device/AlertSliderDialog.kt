@@ -16,6 +16,7 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.PixelFormat
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.TransitionDrawable
 import android.media.AudioManager
 import android.view.Gravity
 import android.view.Surface
@@ -167,6 +168,19 @@ class AlertSliderDialog(private val context: Context) :
                 override fun onAnimationStart(animation: Animator) {
                     isAnimating = true
                     applyUiMode(ringerMode)
+                    val transition =
+                        TransitionDrawable(
+                            arrayOf(
+                                frameView.background,
+                                context.resources.getDrawable(
+                                    backgroundFor(rotation, position, flip),
+                                    null,
+                                ),
+                            )
+                        )
+                    frameView.background = transition
+                    transition.setCrossFadeEnabled(true)
+                    transition.startTransition(30)
                 }
 
                 override fun onAnimationEnd(animation: Animator) {
