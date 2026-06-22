@@ -22,6 +22,8 @@ import android.view.Surface
 import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.DecelerateInterpolator
 import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -253,6 +255,27 @@ class AlertSliderDialog(private val context: Context) :
                 }
             else -> base(position) // ROTATION_0 / ROTATION_180
         }
+    }
+
+    override fun show() {
+        dialogView.alpha = 0f
+        super.show()
+        dialogView
+            .animate()
+            .alpha(1f)
+            .setDuration(200)
+            .setInterpolator(DecelerateInterpolator())
+            .start()
+    }
+
+    override fun dismiss() {
+        dialogView
+            .animate()
+            .alpha(0f)
+            .setDuration(200)
+            .setInterpolator(AccelerateInterpolator())
+            .withEndAction { super.dismiss() }
+            .start()
     }
 
     companion object {
