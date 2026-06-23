@@ -12,6 +12,8 @@
         <item>@string/alert_slider_mode_dnd_priority_only</item>
         <item>@string/alert_slider_mode_dnd_total_silence</item>
         <item>@string/alert_slider_mode_dnd_alarms_only</item>
+        <item>@string/alert_slider_mode_torch_on</item>
+        <item>@string/alert_slider_mode_torch_off</item>
     </string-array>
 
     <string-array name="alert_slider_action_entry_values" translatable="false">
@@ -22,5 +24,7 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>8</item>
+        <item>9</item>
     </string-array>
 </resources>

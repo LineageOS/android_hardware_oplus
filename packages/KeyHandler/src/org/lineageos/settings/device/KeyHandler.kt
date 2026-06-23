@@ -10,6 +10,8 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.hardware.camera2.CameraCharacteristics
+import android.hardware.camera2.CameraManager
 import android.media.AudioManager
 import android.media.AudioSystem
 import android.os.VibrationAttributes
@@ -23,6 +25,7 @@ import java.util.concurrent.Executors
 
 class KeyHandler(private val context: Context) : DeviceKeyHandler {
     private val audioManager = context.getSystemService(AudioManager::class.java)!!
+    private val cameraManager = context.getSystemService(CameraManager::class.java)!!
     private val notificationManager = context.getSystemService(NotificationManager::class.java)!!
     private val vibrator = context.getSystemService(Vibrator::class.java)!!
 
@@ -140,6 +143,18 @@ class KeyHandler(private val context: Context) : DeviceKeyHandler {
                         audioManager.adjustVolume(AudioManager.ADJUST_UNMUTE, 0)
                     }
                 }
+                TORCH_ON,
+                TORCH_OFF -> {
+                    val cameraId =
+                        cameraManager.cameraIdList.firstOrNull { id ->
+                            cameraManager
+                                .getCameraCharacteristics(id)
+                                .get(CameraCharacteristics.FLASH_INFO_AVAILABLE) == true
+                        }
+                    if (cameraId != null) {
+                        cameraManager.setTorchMode(cameraId, mode == TORCH_ON)
+                    }
+                }
             }
 
             if (!firstRun) {
@@ -191,6 +206,11 @@ class KeyHandler(private val context: Context) : DeviceKeyHandler {
         const val ZEN_PRIORITY_ONLY = 3
         const val ZEN_TOTAL_SILENCE = 4
         const val ZEN_ALARMS_ONLY = 5
+
+        // Torch constants
+        private const val TORCH_OFFSET = 8
+        const val TORCH_ON = TORCH_OFFSET + 0
+        const val TORCH_OFF = TORCH_OFFSET + 1
 
         // Vibration attributes
         private val HARDWARE_FEEDBACK_VIBRATION_ATTRIBUTES =
