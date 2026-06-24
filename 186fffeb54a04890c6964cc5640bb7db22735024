@@ -106,6 +106,23 @@
       "parentUuid": "0bfa0e6a_cdf90404",
       "revId": "186fffeb54a04890c6964cc5640bb7db22735024",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa9c500e_1ffe2e75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-06-24T11:56:16Z",
+      "side": 1,
+      "message": "does it turn it to max if you write something stupid like \"ff\"?",
+      "revId": "186fffeb54a04890c6964cc5640bb7db22735024",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
