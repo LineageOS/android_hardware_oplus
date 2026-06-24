@@ -34,6 +34,24 @@
       "parentUuid": "36249f85_36981d1c",
       "revId": "186fffeb54a04890c6964cc5640bb7db22735024",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbac9c8a_e82016c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33843
+      },
+      "writtenOn": "2026-06-24T11:28:02Z",
+      "side": 1,
+      "message": "```\n            mOplusTouch-\u003etouchReadNodeFile(OplusTouchConstants::DEFAULT_TP_IC_ID,\n                                           OplusTouchConstants::GAME_SWITCH_ENABLE_NODE, \u0026ret);\n            LOG(INFO) \u003c\u003c \"HighTouchPollingRate read ret: \" \u003c\u003c ret;\n```",
+      "parentUuid": "36249f85_36981d1c",
+      "revId": "186fffeb54a04890c6964cc5640bb7db22735024",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
