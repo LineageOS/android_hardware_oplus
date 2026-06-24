@@ -16,6 +16,23 @@
       "message": "should we just try to determine highest supported value in the constructor?",
       "revId": "cb2209d6469f027526fa5bfcc5bca00844098939",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ff7e34a_cc12befa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-06-24T08:58:20Z",
+      "side": 1,
+      "message": "try this https://review.lineageos.org/c/LineageOS/android_hardware_oplus/+/491910",
+      "revId": "cb2209d6469f027526fa5bfcc5bca00844098939",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
