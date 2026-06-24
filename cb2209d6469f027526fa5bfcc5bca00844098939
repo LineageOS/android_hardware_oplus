@@ -121,6 +121,24 @@
       "parentUuid": "b58f2145_41bcb76c",
       "revId": "cb2209d6469f027526fa5bfcc5bca00844098939",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "024fb68b_490cecc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33843
+      },
+      "writtenOn": "2026-06-24T12:24:23Z",
+      "side": 1,
+      "message": "Just waiting for others to test whether 10/11 works. If so we can just hard code it.\nDevices without oplus touch hal use 1 in WriteStringToFile is enough ig.",
+      "parentUuid": "8a340777_110bfb6e",
+      "revId": "cb2209d6469f027526fa5bfcc5bca00844098939",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
