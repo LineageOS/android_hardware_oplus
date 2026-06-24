@@ -141,6 +141,24 @@
       "parentUuid": "fa9c500e_1ffe2e75",
       "revId": "186fffeb54a04890c6964cc5640bb7db22735024",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1bb9aff_e80aaea5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-06-24T12:09:00Z",
+      "side": 1,
+      "message": "that looks like it wrote ff and read back 255, but what does getevent -r show afterwards when you use the ts?",
+      "parentUuid": "21554433_de4d2bfe",
+      "revId": "186fffeb54a04890c6964cc5640bb7db22735024",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
