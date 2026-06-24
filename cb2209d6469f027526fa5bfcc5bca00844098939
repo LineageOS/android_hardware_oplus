@@ -33,6 +33,23 @@
       "message": "try this https://review.lineageos.org/c/LineageOS/android_hardware_oplus/+/491910",
       "revId": "cb2209d6469f027526fa5bfcc5bca00844098939",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74001e09_32c21627",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-06-24T12:11:56Z",
+      "side": 1,
+      "message": "this should be a soong var and default to something that works across all current oplus touch users",
+      "revId": "cb2209d6469f027526fa5bfcc5bca00844098939",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
