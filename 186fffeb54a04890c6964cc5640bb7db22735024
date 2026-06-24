@@ -70,6 +70,24 @@
       "parentUuid": "fbac9c8a_e82016c0",
       "revId": "186fffeb54a04890c6964cc5640bb7db22735024",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bfa0e6a_cdf90404",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33843
+      },
+      "writtenOn": "2026-06-24T11:45:37Z",
+      "side": 1,
+      "message": "https://gist.githubusercontent.com/kmiit/f4f459a13af381022ae803e6b135f810/raw/c254d2a20eb92ca109e97ad878e13f8c04cd2749/gistfile1.txt\n\nIt is hex, but the ret is quoted",
+      "parentUuid": "142eda61_e4821b4d",
+      "revId": "186fffeb54a04890c6964cc5640bb7db22735024",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
