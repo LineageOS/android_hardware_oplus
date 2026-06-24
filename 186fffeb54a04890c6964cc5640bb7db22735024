@@ -88,6 +88,24 @@
       "parentUuid": "142eda61_e4821b4d",
       "revId": "186fffeb54a04890c6964cc5640bb7db22735024",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c80b8e6d_c93349fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-06-24T11:47:03Z",
+      "side": 1,
+      "message": "eh it looks like it accepts all values... i guess we\u0027d want it customizable with sane default.",
+      "parentUuid": "0bfa0e6a_cdf90404",
+      "revId": "186fffeb54a04890c6964cc5640bb7db22735024",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
