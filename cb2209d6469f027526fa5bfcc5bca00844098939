@@ -68,6 +68,24 @@
       "parentUuid": "74001e09_32c21627",
       "revId": "cb2209d6469f027526fa5bfcc5bca00844098939",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91d9294e_e4c167f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-06-24T12:14:57Z",
+      "side": 1,
+      "message": "would prefer if you just added soong var similar to how ENABLE_HTPR is handled",
+      "parentUuid": "83b31533_dc79cd38",
+      "revId": "cb2209d6469f027526fa5bfcc5bca00844098939",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
