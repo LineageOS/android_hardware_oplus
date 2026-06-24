@@ -23,7 +23,10 @@ class HighTouchPollingRate : public BnHighTouchPollingRate {
     ndk::ScopedAStatus setEnabled(bool enabled) override;
 
   private:
+    std::string highestSupportedMode();
+
     std::shared_ptr<IOplusTouch> mOplusTouch;
+    std::string mHighestSupportedMode;
 };
 
 }  // namespace touch
