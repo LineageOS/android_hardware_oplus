@@ -50,6 +50,24 @@
       "message": "this should be a soong var and default to something that works across all current oplus touch users",
       "revId": "cb2209d6469f027526fa5bfcc5bca00844098939",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83b31533_dc79cd38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33843
+      },
+      "writtenOn": "2026-06-24T12:13:39Z",
+      "side": 1,
+      "message": "I wanted to use a prop to define it before",
+      "parentUuid": "74001e09_32c21627",
+      "revId": "cb2209d6469f027526fa5bfcc5bca00844098939",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
