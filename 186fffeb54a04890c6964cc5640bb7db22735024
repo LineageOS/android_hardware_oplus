@@ -52,6 +52,24 @@
       "parentUuid": "36249f85_36981d1c",
       "revId": "186fffeb54a04890c6964cc5640bb7db22735024",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "142eda61_e4821b4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-06-24T11:33:54Z",
+      "side": 1,
+      "message": "```diff\ndiff --git a/aidl/touch/HighTouchPollingRate.cpp b/aidl/touch/HighTouchPollingRate.cpp\nindex b8861b8..a4a1816 100644\n--- a/aidl/touch/HighTouchPollingRate.cpp\n+++ b/aidl/touch/HighTouchPollingRate.cpp\n@@ -9,6 +9,7 @@\n \n #include \u003candroid-base/file.h\u003e\n #include \u003candroid-base/logging.h\u003e\n+#include \u003cformat\u003e\n \n #include \u003cOplusTouchConstants.h\u003e\n \n@@ -71,17 +72,19 @@ std::string HighTouchPollingRate::highestSupportedMode() {\n         // Find highest supported game switch mode\n         std::string ret;\n \n-        for (int i \u003d 20; i \u003e 0; i--) {\n+        for (int i \u003d 32; i \u003e 0; i--) {\n             std::string value \u003d std::to_string(i);\n+            std::string valueHex \u003d std::format(\"{:x}\", i);\n \n             mOplusTouch-\u003etouchWriteNodeFile(OplusTouchConstants::DEFAULT_TP_IC_ID,\n-                                            OplusTouchConstants::GAME_SWITCH_ENABLE_NODE, value,\n+                                            OplusTouchConstants::GAME_SWITCH_ENABLE_NODE, valueHex,\n                                             \u0026aidl_return);\n             mOplusTouch-\u003etouchReadNodeFile(OplusTouchConstants::DEFAULT_TP_IC_ID,\n                                            OplusTouchConstants::GAME_SWITCH_ENABLE_NODE, \u0026ret);\n \n             if (value \u003d\u003d ret) {\n                 LOG(INFO) \u003c\u003c \"HighTouchPollingRate highest supported mode \u003d \" \u003c\u003c value;\n+                ret \u003d valueHex;\n                 break;\n             }\n         }\n```",
+      "parentUuid": "fbac9c8a_e82016c0",
+      "revId": "186fffeb54a04890c6964cc5640bb7db22735024",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
