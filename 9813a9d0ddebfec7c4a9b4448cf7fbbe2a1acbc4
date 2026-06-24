@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51172183_54b44f21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2026-06-24T06:57:29Z",
+      "side": 1,
+      "message": "Works on FP6, is that interesting for you too?",
+      "revId": "9813a9d0ddebfec7c4a9b4448cf7fbbe2a1acbc4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
