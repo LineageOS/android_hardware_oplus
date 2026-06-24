@@ -123,6 +123,24 @@
       "message": "does it turn it to max if you write something stupid like \"ff\"?",
       "revId": "186fffeb54a04890c6964cc5640bb7db22735024",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21554433_de4d2bfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33843
+      },
+      "writtenOn": "2026-06-24T12:07:46Z",
+      "side": 1,
+      "message": "```\nRE6018L1:/ # service call vendor.oplus.hardware.touch.IOplusTouch/default 4 i32 0 i32 26 s16 FF\nResult: Parcel( 00000000 00000002   \u0027........\u0027)\nRE6018L1:/ # service call vendor.oplus.hardware.touch.IOplusTouch/default 3 i32 0 i32 26\nResult: Parcel(\n0x00000000: 00000000 0000002d 00350032 002c0035 \u0027....-...2.5.5.,.\u0027\n0x00000010: 00680020 00670069 005f0068 00720066 \u0027 .h.i.g.h._.f.r.\u0027\n0x00000020: 006d0061 005f0065 00750073 00700070 \u0027a.m.e._.s.u.p.p.\u0027\n0x00000030: 0072006f 003a0074 002c0031 00680020 \u0027o.r.t.:.1.,. .h.\u0027\n0x00000040: 00670069 005f0068 00720066 006d0061 \u0027i.g.h._.f.r.a.m.\u0027\n0x00000050: 005f0065 00610076 0075006c 003a0065 \u0027e._.v.a.l.u.e.:.\u0027\n0x00000060: 00000030                            \u00270...            \u0027)\n```\n\nlooks like t can only handle some specific values",
+      "parentUuid": "fa9c500e_1ffe2e75",
+      "revId": "186fffeb54a04890c6964cc5640bb7db22735024",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
