@@ -52,6 +52,9 @@ type vendor_sysfs_cb, fs_type, sysfs_type;
 # Pogo pin keyboard
 type vendor_proc_oplus_pogo_keyboard, fs_type, proc_type;
 
+# Powerstats
+type vendor_sysfs_powercap, fs_type, sysfs_type;
+
 # Reserve
 type oplus_reserve_connectivity_felicalock, file_type;
 type oplus_reserve_connectivity_file, file_type;

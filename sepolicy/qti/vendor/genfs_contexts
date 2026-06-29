@@ -70,6 +70,10 @@ genfscon sysfs /module/cpufreq_bouncing                            u:object_r:ve
 # Pogo pin keyboard
 genfscon proc /pogopin    u:object_r:vendor_proc_oplus_pogo_keyboard:s0
 
+# Powerstats
+genfscon sysfs /devices/virtual/powercap     u:object_r:vendor_sysfs_powercap:s0
+genfscon sysfs /class/powercap               u:object_r:vendor_sysfs_powercap:s0
+
 # Secure
 genfscon proc /oplus_secure_common    u:object_r:vendor_proc_oppo_secure_common_file:s0
 
