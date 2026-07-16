@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e6f51a2_b8751ed6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-07-16T20:28:20Z",
+      "side": 1,
+      "message": "Place this after adding Charger v11 and MixLut V2 interfaces.",
+      "revId": "fc9ea0b842cb3fae485fd25dc2ade82763a8f1eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
