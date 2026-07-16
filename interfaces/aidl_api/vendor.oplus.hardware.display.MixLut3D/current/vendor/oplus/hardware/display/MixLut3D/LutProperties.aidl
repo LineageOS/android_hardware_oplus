@@ -22,8 +22,8 @@
 
 package vendor.oplus.hardware.display.MixLut3D;
 @VintfStability
-interface IMixLut3D {
-  int set(int panelId, int cmd);
-  int sencept(int panelId, int cmd, in int[] vals, inout int[] data);
-  void getDisplayLut(int panelId, out vendor.oplus.hardware.display.MixLut3D.Luts luts);
+parcelable LutProperties {
+  byte type;
+  int size;
+  byte[] data;
 }

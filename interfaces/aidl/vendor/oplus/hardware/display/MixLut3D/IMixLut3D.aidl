@@ -5,6 +5,8 @@
 
 package vendor.oplus.hardware.display.MixLut3D;
 
+import vendor.oplus.hardware.display.MixLut3D.Luts;
+
 @VintfStability
 interface IMixLut3D {
     int set(int panelId, int cmd);
@@ -15,4 +17,6 @@ interface IMixLut3D {
         in int[] vals,
         inout int[] data
     );
+
+    void getDisplayLut(int panelId, out Luts luts);
 }
