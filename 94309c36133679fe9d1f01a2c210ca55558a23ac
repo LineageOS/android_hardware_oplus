@@ -16,6 +16,23 @@
       "message": "fine on waffle",
       "revId": "94309c36133679fe9d1f01a2c210ca55558a23ac",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36b8bbe0_715ce060",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35825
+      },
+      "writtenOn": "2026-07-19T07:23:11Z",
+      "side": 1,
+      "message": "Fine on avalon",
+      "revId": "94309c36133679fe9d1f01a2c210ca55558a23ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
