@@ -24,6 +24,7 @@ import android.os.UEventObserver
 import android.provider.Settings
 import android.provider.Settings.System.PEAK_REFRESH_RATE
 import android.util.Log
+import android.view.MotionEvent
 
 class PenService : Service() {
     private val bluetoothManager by lazy { getSystemService(BluetoothManager::class.java) }
@@ -171,6 +172,10 @@ class PenService : Service() {
                         device.bluetoothAddress?.startsWith("F8:6F:DE") == false
                 ) {
                     // Not a Maxeye/Goodix MAC prefix
+                    return@firstOrNull false
+                }
+                if (device.getMotionRange(MotionEvent.AXIS_PRESSURE) == null) {
+                    // Not a pen device
                     return@firstOrNull false
                 }
                 return@firstOrNull true
