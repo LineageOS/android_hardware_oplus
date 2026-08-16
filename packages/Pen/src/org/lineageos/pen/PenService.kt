@@ -166,6 +166,10 @@ class PenService : Service() {
                     // Not an OPPO/Maxeye vendor ID
                     return@firstOrNull false
                 }
+                if (device.bluetoothAddress == null) {
+                    // Not a Bluetooth device
+                    return@firstOrNull false
+                }
                 if (
                     device.bluetoothAddress?.startsWith("C0:87:06") == false &&
                         device.bluetoothAddress?.startsWith("F8:6F:DE") == false
