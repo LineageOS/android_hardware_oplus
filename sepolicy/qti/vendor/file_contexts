@@ -84,7 +84,9 @@
 /dev/block/platform/soc/4804000\.ufshc/by-name/mdm1oemnvbktmp     u:object_r:vendor_modem_efs_partition_device:s0
 
 # NFC
-/dev/pn553    u:object_r:nfc_device:s0
+/(odm|vendor/odm)/bin/hw/android\.hardware\.nfc-service-tms    u:object_r:hal_nfc_default_exec:s0
+/dev/pn553                                                     u:object_r:nfc_device:s0
+/dev/tms_nfc                                                   u:object_r:nfc_device:s0
 
 # NVRAM
 /(odm|vendor/odm)/bin/nvram_qmi                               u:object_r:nvram_exec:s0
@@ -155,7 +157,7 @@
 
 # Secure Element
 /(odm|vendor/odm)/bin/hw/android\.hardware\.secure_element@1\.2-service-goodix    u:object_r:hal_secure_element_default_exec:s0
-/(odm|vendor/odm)/bin/hw/android\.hardware\.secure_element-service\.qti           u:object_r:hal_secure_element_default_exec:s0
+/(odm|vendor/odm)/bin/hw/android\.hardware\.secure_element-service(\.qti|-tms)    u:object_r:hal_secure_element_default_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service                 u:object_r:hal_secure_element_default_exec:s0
 
 # Sensors

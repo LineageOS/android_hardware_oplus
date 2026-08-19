@@ -50,6 +50,10 @@ genfscon proc /shell-temp    u:object_r:proc_horae:s0
 # Multimedia feedback
 genfscon proc /mm_fb    u:object_r:vendor_proc_mm_fb:s0
 
+# NFC
+genfscon proc /oplus_nfc/chipset    u:object_r:hal_tms_nfc_chip_name:s0
+genfscon proc /tmsdev/logger        u:object_r:proc_tms_logger:s0
+
 # Performance
 genfscon proc /oplus_scheduler                                     u:object_r:vendor_proc_oplus_scheduler:s0
 genfscon proc /task_info/task_sched_info/d_backtrace               u:object_r:vendor_proc_oplus_ctp:s0
