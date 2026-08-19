@@ -5,3 +5,6 @@ allow tee vendor_persist_fingerprint_file:file create_file_perms;
 
 allow tee fingerprint_vendor_data_file:dir create_dir_perms;
 allow tee fingerprint_vendor_data_file:file create_file_perms;
+
+allow tee vendor_data_file:dir r_dir_perms;
+allow tee vendor_data_file:file r_file_perms;
