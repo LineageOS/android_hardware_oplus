@@ -1,3 +1,11 @@
 allow hal_nfc_default vendor_nfc_vendor_data_file:dir search;
 
 set_prop(hal_nfc_default, vendor_nfc_nq_prop)
+
+add_service(hal_nfc_default, hal_nfc_service)
+add_service(hal_nfc_default, hal_oplus_nfc_tms_service)
+
+binder_call(hal_nfc_default, servicemanager)
+
+allow hal_nfc_default hal_tms_nfc_chip_name:file r_file_perms;
+allow hal_nfc_default proc_tms_logger:file r_file_perms;

@@ -33,6 +33,9 @@ type hal_fingerprintpay_service, hal_service_type, service_manager_type;
 # ImsRtp
 type hal_imsrtp_service, hal_service_type, service_manager_type;
 
+# NFC (TMS)
+type hal_oplus_nfc_tms_service, hal_service_type, service_manager_type;
+
 # OLC
 type hal_oplus_olc_aidl_service, hal_service_type, service_manager_type;
 
