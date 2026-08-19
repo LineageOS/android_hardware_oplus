@@ -41,6 +41,9 @@
 # Engineering
 /mnt/vendor/persist/engineermode(/.*)?    u:object_r:vendor_persist_engineer_file:s0
 
+# EID
+/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.eid@1\.0-service    u:object_r:hal_oplus_eid_exec:s0
+
 # eSIM
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.esim@1\.0-service    u:object_r:hal_oplus_esim_aidl_exec:s0
 /dev/esim-det                                                          u:object_r:esim_det_device:s0
