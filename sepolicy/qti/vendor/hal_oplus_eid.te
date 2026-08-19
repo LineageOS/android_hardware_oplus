@@ -1,0 +1,13 @@
+type hal_oplus_eid, domain;
+binder_use(hal_oplus_eid)
+
+hal_server_domain(hal_oplus_eid, vendor_hal_oplus_eid)
+
+type hal_oplus_eid_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oplus_eid)
+
+binder_call(vendor_hal_oplus_eid_client, vendor_hal_oplus_eid_server)
+
+hal_attribute_service(vendor_hal_oplus_eid, hal_oplus_eid_service)
+
+allow hal_oplus_eid nfc_device:chr_file r_file_perms;
