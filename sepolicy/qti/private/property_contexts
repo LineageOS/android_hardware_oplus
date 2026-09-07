@@ -91,3 +91,6 @@ ro.build.release_type            u:object_r:exported_system_prop:s0
 ro.oplusupgrade.alpha.version    u:object_r:exported_system_prop:s0
 ro.separate.soft                 u:object_r:system_oplus_project_prop:s0
 ro.version.confidential          u:object_r:exported_system_prop:s0
+
+# Vibrator
+persist.sys.vibrator.        u:object_r:system_oplus_vibrator_prop:s0
