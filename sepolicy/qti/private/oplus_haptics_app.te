@@ -1,0 +1,7 @@
+type oplus_haptics_app, domain, coredomain;
+
+app_domain(oplus_haptics_app)
+
+allow oplus_haptics_app app_api_service:service_manager find;
+
+set_prop(oplus_haptics_app, system_oplus_vibrator_prop)
