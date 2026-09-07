@@ -1,5 +1,10 @@
 allow vendor_init proc_sched:file w_file_perms;
 allow vendor_init vendor_proc_display:file w_file_perms;
+allow vendor_init vendor_proc_vibrator:file rw_file_perms;
+allow vendor_init sysfs_vibrator:file setattr;
+
+
+get_prop(vendor_init, system_oplus_vibrator_prop)
 
 set_prop(vendor_init, system_oplus_project_prop)
 set_prop(vendor_init, vendor_camera_prop)

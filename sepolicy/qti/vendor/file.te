@@ -96,3 +96,6 @@ type vendor_proc_ultrasound, fs_type, proc_type;
 
 # Versioning
 type vendor_proc_oplus_version, fs_type, proc_type;
+
+# Vibrator
+type vendor_proc_vibrator, fs_type, proc_type;
