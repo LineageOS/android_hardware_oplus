@@ -1,0 +1,23 @@
+#
+# SPDX-FileCopyrightText: 2026 The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+on boot
+    chown system system /sys/class/leds/vibrator/duration
+    chmod 0660 /sys/class/leds/vibrator/duration
+    chown system system /sys/class/leds/vibrator/oplus_duration
+    chmod 0660 /sys/class/leds/vibrator/oplus_duration
+    chown system system /sys/class/leds/vibrator/activate
+    chmod 0660 /sys/class/leds/vibrator/activate
+    chown system system /sys/class/leds/vibrator/oplus_activate
+    chmod 0660 /sys/class/leds/vibrator/oplus_activate
+    chown system system /sys/class/leds/vibrator/vmax
+
+on property:persist.sys.vibrator.touch_style=*
+    write /proc/vibrator/touch_style ${persist.sys.vibrator.touch_style}
+
+service vendor.vibrator /vendor/bin/hw/android.hardware.vibrator.service.oplus-livetap
+    class late_start
+    user system
+    group system input
