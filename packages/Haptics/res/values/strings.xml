@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Haptic style / vibration feel -->
+    <string name="haptic_style_title">Haptic feel</string>
+    <string name="haptic_style_summary">Choose between Crisp and Gentle vibration feedback</string>
+    <string name="haptic_style_intro_text">Adjust the vibration feel for touches, gestures, and system feedback.</string>
+    <string name="haptic_style_crisp">Crisp</string>
+    <string name="haptic_style_crisp_summary">Shorter, punchier mechanical feedback</string>
+    <string name="haptic_style_gentle">Gentle</string>
+    <string name="haptic_style_gentle_summary">Softer, cushioned feedback</string>
+</resources>
