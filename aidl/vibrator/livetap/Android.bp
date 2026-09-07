@@ -1,0 +1,33 @@
+//
+// Copyright (C) 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "android.hardware.vibrator.service.oplus-livetap",
+    vendor: true,
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-DLOG_TAG=\"android.hardware.vibrator.service.oplus-livetap\"",
+    ] + select(soong_config_variable("OPLUS_LINEAGE_VIBRATOR_HAL", "LIVETAP_F0_CFLAG"), {
+        any @ flag: [flag],
+        default: ["-DLIVETAP_DEFAULT_F0=170"],
+    }),
+    relative_install_path: "hw",
+    init_rc: ["android.hardware.vibrator.service.oplus-livetap.rc"],
+    vintf_fragments: [
+        "android.hardware.vibrator.service.oplus-livetap.xml",
+    ],
+    srcs: [
+        "service.cpp",
+        "Vibrator.cpp",
+    ],
+    shared_libs: [
+        "libutils",
+        "liblog",
+        "libbase",
+        "libbinder_ndk",
+        "android.hardware.vibrator-V2-ndk",
+    ],
+}

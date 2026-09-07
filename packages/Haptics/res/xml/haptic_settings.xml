@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="@string/haptic_style_title">
+
+    <com.android.settingslib.widget.TopIntroPreference
+        android:key="haptic_style_intro"
+        android:title="@string/haptic_style_intro_text" />
+
+    <ListPreference
+        android:key="haptic_style"
+        android:title="@string/haptic_style_title"
+        android:dialogTitle="@string/haptic_style_title"
+        android:entries="@array/haptic_style_entries"
+        android:entryValues="@array/haptic_style_values"
+        android:defaultValue="0"
+        app:useSimpleSummaryProvider="true" />
+
+</PreferenceScreen>
