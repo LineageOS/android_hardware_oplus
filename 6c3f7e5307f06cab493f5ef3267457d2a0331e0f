@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97b9525c_2d783337",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24438
+      },
+      "writtenOn": "2026-09-10T20:27:15Z",
+      "side": 1,
+      "message": "Fixes:\n```\nFAILED: out/soong/.intermediates/system/sepolicy/vendor_sepolicy.unversioned.cil/android_common/dodge/vendor_sepolicy.unversioned.cil\nout/host/linux-x86/bin/checkpolicy -C -M -L -c 30 -o out/soong/.intermediates/system/sepolicy/vendor_sepolicy.unversioned.cil/android_common/dodge/vendor_sepolicy.unversioned.cil out/soong/.intermediates/system/sepolicy/vendor_sepolicy.conf/android_common/dodge/vendor_sepolicy.conf \u0026\u0026 out/host/linux-x86/bin/build_sepolicy filter_out -f out/soong/.intermediates/system/sepolicy/reqd_policy_mask.cil/android_common/reqd_policy_mask.cil -t out/soong/.intermediates/system/sepolicy/vendor_sepolicy.unversioned.cil/android_common/dodge/vendor_sepolicy.unversioned.cil # hash of input list: 6f8b02b0e0e62e2bd887ecc51d28ae42b32b1e5997b336970e2c1ac1d3917865\nstderr:\nsystem/sepolicy/vendor/hal_vm_capabilities_default.te:10:WARNING \u0027omitting avrule with no permission set\u0027 at token \u0027;\u0027 on line 20991:\nallow hal_vm_capabilities_default crosvm_vendor:fd use;\nneverallow hal_vm_capabilities_default crosvm_vendor:fd ~use;\nhardware/oplus/sepolicy/qti/vendor/vendor_poweroffalarm_app.te:1:ERROR \u0027unknown type vendor_poweroffalarm_app\u0027 at token \u0027;\u0027 on line 91243:\n#line 1 \"hardware/oplus/sepolicy/qti/vendor/vendor_poweroffalarm_app.te\"\nallow vendor_poweroffalarm_app mnt_vendor_file:dir search;\ncheckpolicy:  error(s) encountered while parsing configuration\n```",
+      "revId": "6c3f7e5307f06cab493f5ef3267457d2a0331e0f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
