@@ -18,4 +18,6 @@ binder_call(hal_oplus_touch_aidl, oplus_touchdaemon)
 unix_socket_send(hal_oplus_touch_aidl, oplus_touchdaemon, oplus_touchdaemon)
 
 rw_dir_file(hal_oplus_touch_aidl, oplus_touchdaemon_device)
+allow hal_oplus_touch_aidl oplus_touchdaemon_device:chr_file rw_file_perms;
+allow hal_oplus_touch_aidl { oplus_touchdaemon_device device }:lnk_file r_file_perms;
 rw_dir_file(hal_oplus_touch_aidl, vendor_proc_display)

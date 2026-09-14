@@ -21,6 +21,7 @@ allow oplus_touchdaemon input_device:dir search;
 allow oplus_touchdaemon input_device:chr_file rw_file_perms;
 
 allow oplus_touchdaemon oplus_touchdaemon_device:chr_file rw_file_perms;
+allow oplus_touchdaemon { oplus_touchdaemon_device device }:lnk_file r_file_perms;
 
 allow oplus_touchdaemon vendor_persist_oplus_touch_file:dir rw_dir_perms;
 allow oplus_touchdaemon vendor_persist_oplus_touch_file:file create_file_perms;
