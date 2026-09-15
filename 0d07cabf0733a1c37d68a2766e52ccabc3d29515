@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9812b76_6936e1a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2026-09-15T17:06:55Z",
+      "side": 1,
+      "message": "why? this changes already merged in 24.0 branch",
+      "revId": "0d07cabf0733a1c37d68a2766e52ccabc3d29515",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
