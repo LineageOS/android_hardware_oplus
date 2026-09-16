@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15541ce5_c1c4305e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-09-16T07:39:36Z",
+      "side": 1,
+      "message": "Update commit message to look like the rest? See merged piloti or pista changes.",
+      "revId": "9227c3f452926c13e096df1a2cf4da93bbc57437",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
