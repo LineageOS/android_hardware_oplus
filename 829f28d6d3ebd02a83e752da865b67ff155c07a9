@@ -16,6 +16,23 @@
       "message": "dropping https://github.com/LineageOS/charter/blob/main/ai-coding-assistants.md just in case",
       "revId": "829f28d6d3ebd02a83e752da865b67ff155c07a9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7db02670_309a7f81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-09-20T08:36:11Z",
+      "side": 1,
+      "message": "adding bgcngm as i don\u0027t have affected device",
+      "revId": "829f28d6d3ebd02a83e752da865b67ff155c07a9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
