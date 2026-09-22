@@ -34,12 +34,11 @@ class EsimController(private val context: Context) {
             return
         }
 
-        oplusEsimService?.setUimPower(0)
-
         if (hasSN220Chipset) {
             specialSetEsimGpio(if (gpioState == 0) 1 else 0)
             /* oplusEsimService?.setUimPower(1) done via SEService.OnConnectedListener */
         } else {
+            oplusEsimService?.setUimPower(0)
             updateSimType(state)
             oplusEsimService?.setEsimGpio(if (gpioState == 0) 1 else 0)
             oplusEsimService?.setUimPower(1)
@@ -61,9 +60,20 @@ class EsimController(private val context: Context) {
                         val session = reader?.openSession()
                         val channel = session?.openLogicalChannel(null)
 
+                        if (state == 0) {
+                            setSimPower(TelephonyManager.CARD_POWER_DOWN)
+                            Thread.sleep(SIM_SWITCH_DELAY_MS)
+                        }
                         updateSimType(state)
                         oplusEsimService?.setEsimGpio(state)
-                        oplusEsimService?.setUimPower(1)
+                        if (state != 0) {
+                            Thread.sleep(SIM_SWITCH_DELAY_MS)
+                            oplusEsimService?.setHotswap()
+                            Thread.sleep(SIM_SWITCH_DELAY_MS)
+                            oplusEsimService?.setUimPower(1)
+                            Thread.sleep(SIM_SWITCH_DELAY_MS)
+                            setSimPower(TelephonyManager.CARD_POWER_UP)
+                        }
 
                         channel?.close()
                         session?.close()
@@ -94,25 +104,16 @@ class EsimController(private val context: Context) {
                     .single()
             val telephony = context.getSystemService(TelephonyManager::class.java)
             val current = telephony.simSlotMapping
-            check(current.any { it.physicalSlotIndex == slot }) { "eSIM slot is not mapped" }
-            val simType =
-                if (state == 1) {
-                    TelephonyManager.SIM_TYPE_EMBEDDED
-                } else {
-                    TelephonyManager.SIM_TYPE_PHYSICAL
-                }
+            val enabled = state == 1
             val updated =
-                current.map {
-                    if (it.physicalSlotIndex == slot) {
-                        UiccSlotMapping(
-                            it.portIndex,
-                            it.physicalSlotIndex,
-                            it.logicalSlotIndex,
-                            simType,
-                        )
-                    } else {
-                        it
-                    }
+                List(telephony.activeModemCount) { logicalSlot ->
+                    UiccSlotMapping(
+                        if (enabled) logicalSlot else 0,
+                        if (enabled) slot else logicalSlot,
+                        logicalSlot,
+                        if (enabled) TelephonyManager.SIM_TYPE_EMBEDDED
+                        else TelephonyManager.SIM_TYPE_PHYSICAL,
+                    )
                 }
             if (updated.toSet() != current.toSet()) {
                 telephony.setSimSlotMapping(updated)
@@ -122,9 +123,19 @@ class EsimController(private val context: Context) {
         }
     }
 
+    private fun setSimPower(state: Int) {
+        val telephony = context.getSystemService(TelephonyManager::class.java) ?: return
+        for (slot in 0 until telephony.activeModemCount) {
+            telephony.setSimPowerStateForSlot(slot, state)
+            Thread.sleep(SIM_POWER_SLOT_DELAY_MS)
+        }
+    }
+
     companion object {
         private const val TAG = "OplusEsimController"
 
         private const val NFC_CONFIG_FILE_NAME_PROP = "persist.vendor.nfc.config_file_name"
+        private const val SIM_SWITCH_DELAY_MS = 200L
+        private const val SIM_POWER_SLOT_DELAY_MS = 50L
     }
 }
