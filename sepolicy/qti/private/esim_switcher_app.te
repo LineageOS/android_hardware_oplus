@@ -6,5 +6,6 @@ hal_client_domain(esim_switcher_app, vendor_hal_qspmhal)
 
 allow esim_switcher_app app_api_service:service_manager find;
 allow esim_switcher_app radio_service:service_manager find;
+binder_call(esim_switcher_app, radio)
 
 get_prop(esim_switcher_app, vendor_persist_nfc_prop)
