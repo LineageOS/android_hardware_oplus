@@ -84,10 +84,21 @@ class EsimController(private val context: Context) {
                         val session = reader?.openSession()
                         val channel = session?.openLogicalChannel(null)
 
+                        if (state == 0) {
+                            setSimPower(TelephonyManager.CARD_POWER_DOWN)
+                            Thread.sleep(SIM_SWITCH_DELAY_MS)
+                        }
                         updateModemFeature(state)
                         updateSimType(state, slotMapping)
                         oplusEsimService?.setEsimGpio(state)
-                        oplusEsimService?.setUimPower(1)
+                        if (state != 0) {
+                            Thread.sleep(SIM_SWITCH_DELAY_MS)
+                            oplusEsimService?.setHotswap()
+                            Thread.sleep(SIM_SWITCH_DELAY_MS)
+                            oplusEsimService?.setUimPower(1)
+                            Thread.sleep(SIM_SWITCH_DELAY_MS)
+                            setSimPower(TelephonyManager.CARD_POWER_UP)
+                        }
                         restoreSimSlotMapping(slotMapping)
 
                         channel?.close()
@@ -199,11 +210,21 @@ class EsimController(private val context: Context) {
         }
     }
 
+    private fun setSimPower(state: Int) {
+        val telephony = context.getSystemService(TelephonyManager::class.java) ?: return
+        for (slot in 0 until telephony.activeModemCount) {
+            telephony.setSimPowerStateForSlot(slot, state)
+            Thread.sleep(SIM_POWER_SLOT_DELAY_MS)
+        }
+    }
+
     companion object {
         private const val TAG = "OplusEsimController"
 
         private val modemRequestSerial = AtomicInteger(0x45530000)
 
         private const val NFC_CONFIG_FILE_NAME_PROP = "persist.vendor.nfc.config_file_name"
+        private const val SIM_SWITCH_DELAY_MS = 200L
+        private const val SIM_POWER_SLOT_DELAY_MS = 50L
     }
 }
