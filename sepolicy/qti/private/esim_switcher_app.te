@@ -4,6 +4,8 @@ app_domain(esim_switcher_app)
 hal_client_domain(esim_switcher_app, vendor_hal_oplus_esim)
 hal_client_domain(esim_switcher_app, vendor_hal_qspmhal)
 
+binder_call(esim_switcher_app, radio)
+
 allow esim_switcher_app app_api_service:service_manager find;
 allow esim_switcher_app radio_service:service_manager find;
 
