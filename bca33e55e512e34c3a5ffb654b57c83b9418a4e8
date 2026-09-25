@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab43af6d_3feefc90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-09-25T09:46:27Z",
+      "side": 1,
+      "message": "Please follow the usual commit message style for these wakeup node changes. See the recently merged ones, that include the cat output.",
+      "revId": "bca33e55e512e34c3a5ffb654b57c83b9418a4e8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
