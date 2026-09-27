@@ -1,0 +1,18 @@
+type hal_oplus_face, domain;
+binder_use(hal_oplus_face)
+
+type hal_oplus_face_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oplus_face)
+
+binder_call(vendor_hal_oplus_face_client, vendor_hal_oplus_face_server)
+
+hal_client_domain(hal_oplus_face, vendor_hal_oplus_commondcs)
+hal_server_domain(hal_oplus_face, hal_face)
+hal_server_domain(hal_oplus_face, vendor_hal_oplus_face)
+
+allow hal_oplus_face hal_oplus_commondcs_aidl_service:service_manager find;
+allow hal_oplus_face hal_oplus_olc_aidl_service:service_manager find;
+
+allow hal_oplus_face tee_device:chr_file rw_file_perms;
+
+get_prop(hal_oplus_face, system_oplus_project_prop)
