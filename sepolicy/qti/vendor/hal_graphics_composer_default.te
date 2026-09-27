@@ -2,6 +2,7 @@ binder_call(hal_graphics_composer_default, hal_graphics_composer_default)
 
 add_service(hal_graphics_composer_default, hal_display_iris_aidl_service)
 add_service(hal_graphics_composer_default, hal_oplus_cwb_aidl_service)
+add_service(hal_graphics_composer_default, hal_oplus_display_mixlut3d_service)
 add_service(hal_graphics_composer_default, hal_oplus_displaycolor_aidl_service)
 
 allow hal_graphics_composer_default fwk_sensor_service:service_manager find;

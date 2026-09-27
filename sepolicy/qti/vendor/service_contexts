@@ -18,6 +18,7 @@ vendor.oplus.hardware.commondcs.ICommonDcsAidlHalService/default    u:object_r:h
 vendor.oplus.hardware.cwb.ICwbService/default    u:object_r:hal_oplus_cwb_aidl_service:s0
 
 # Display
+vendor.oplus.hardware.display.MixLut3D.IMixLut3D/default                 u:object_r:hal_oplus_display_mixlut3d_service:s0
 vendor.oplus.hardware.displaycolorfeature.IDisplayColorFeature/default   u:object_r:hal_oplus_displaycolor_aidl_service:s0
 vendor.oplus.hardware.displaypanelfeature.IDisplayPanelFeature/default   u:object_r:hal_oplus_displaypanel_aidl_service:s0
 
