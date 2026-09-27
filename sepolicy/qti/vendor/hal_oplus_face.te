@@ -1,0 +1,9 @@
+type hal_oplus_face, domain;
+binder_use(hal_oplus_face)
+
+hal_server_domain(hal_oplus_face, vendor_hal_oplus_face)
+
+type hal_oplus_face_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oplus_face)
+
+binder_call(vendor_hal_oplus_face_client, vendor_hal_oplus_face_server)
