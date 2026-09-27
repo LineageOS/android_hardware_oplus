@@ -15,6 +15,7 @@ type hal_oplus_commondcs_aidl_service, hal_service_type, service_manager_type;
 type hal_oplus_cwb_aidl_service, hal_service_type, service_manager_type;
 
 # Display
+type hal_oplus_display_mixlut3d_service, hal_service_type, service_manager_type;
 type hal_oplus_displaycolor_aidl_service, hal_service_type, service_manager_type;
 type hal_oplus_displaypanel_aidl_service, hal_service_type, service_manager_type;
 
