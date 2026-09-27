@@ -1,0 +1,37 @@
+type hal_oplus_face, domain;
+binder_use(hal_oplus_face)
+
+type hal_oplus_face_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oplus_face)
+
+binder_call(vendor_hal_oplus_face_client, vendor_hal_oplus_face_server)
+
+hal_client_domain(hal_oplus_face, hal_graphics_allocator)
+hal_client_domain(hal_oplus_face, vendor_hal_oplus_commondcs)
+hal_server_domain(hal_oplus_face, hal_face)
+hal_server_domain(hal_oplus_face, vendor_hal_oplus_face)
+
+allow hal_oplus_face fwk_camera_service:service_manager find;
+allow hal_oplus_face fwk_sensor_service:service_manager find;
+allow hal_oplus_face fwk_stats_service:service_manager find;
+allow hal_oplus_face hal_graphics_allocator_service:service_manager find;
+allow hal_oplus_face hal_oplus_commondcs_aidl_service:service_manager find;
+allow hal_oplus_face hal_oplus_olc_aidl_service:service_manager find;
+allow hal_oplus_face osense_service:service_manager find;
+
+allow hal_oplus_face fwk_camera_hwservice:hwservice_manager find;
+allow hal_oplus_face hal_graphics_allocator_hwservice:hwservice_manager find;
+allow hal_oplus_face hal_graphics_mapper_hwservice:hwservice_manager find;
+allow hal_oplus_face hidl_token_hwservice:hwservice_manager find;
+allow hal_oplus_face vendor_hal_orms_hwservice:hwservice_manager find;
+allow hal_oplus_face vendor_hal_osense_hwservice:hwservice_manager find;
+
+allow hal_oplus_face gpu_device:chr_file rw_file_perms;
+allow hal_oplus_face tee_device:chr_file rw_file_perms;
+
+allow hal_oplus_face face_picture_file:dir create_dir_perms;
+allow hal_oplus_face face_picture_file:file create_file_perms;
+
+get_prop(hal_oplus_face, camera_config_prop)
+get_prop(hal_oplus_face, system_oplus_project_prop)
+set_prop(hal_oplus_face, vendor_face_prop)

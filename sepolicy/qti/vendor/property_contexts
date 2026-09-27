@@ -15,6 +15,11 @@ vendor.dps.dump.composerpid    u:object_r:vendor_display_prop:s0
 # eSIM
 ro.vendor.oplus.esim.support    u:object_r:vendor_oplus_esim_prop:s0
 
+# Face unlock
+persist.vendor.face.          u:object_r:vendor_face_prop:s0
+persist.vendor.oplus.face.    u:object_r:vendor_face_prop:s0
+vendor.oplus.face.            u:object_r:vendor_face_prop:s0
+
 # Fingerprint
 persist.vendor.fingerprint.                    u:object_r:vendor_fingerprint_prop:s0
 persist.vendor.side.fp.near.feature.support    u:object_r:vendor_fingerprint_prop:s0
