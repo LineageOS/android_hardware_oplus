@@ -14,3 +14,4 @@ add_service(hal_oplus_displaypanelfeature_aidl, dpa_service)
 allow hal_oplus_displaypanelfeature_aidl graphics_device:chr_file rw_file_perms;
 
 get_prop(hal_oplus_displaypanelfeature_aidl, boot_status_prop)
+get_prop(hal_oplus_displaypanelfeature_aidl, vendor_display_prop)
