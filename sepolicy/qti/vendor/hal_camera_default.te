@@ -45,6 +45,7 @@ allow hal_camera_default vendor_persist_explorer_file:file create_file_perms;
 
 r_dir_file(hal_camera_default, input_device)
 r_dir_file(hal_camera_default, proc_version)
+r_dir_file(hal_camera_default, vendor_persist_camera_file)
 r_dir_file(hal_camera_default, vendor_proc_oplus_version)
 r_dir_file(hal_camera_default, vendor_sysfs_usb_supply)
 rw_dir_file(hal_camera_default, vendor_proc_camera)
