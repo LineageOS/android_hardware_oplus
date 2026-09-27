@@ -17,6 +17,8 @@ binder_call(hal_oplus_touch_aidl, oplus_touchdaemon)
 
 unix_socket_send(hal_oplus_touch_aidl, oplus_touchdaemon, oplus_touchdaemon)
 
+allow hal_oplus_touch_aidl self:capability sys_nice;
+
 allow hal_oplus_touch_aidl input_device:dir search;
 allow hal_oplus_touch_aidl input_device:chr_file rw_file_perms;
 
