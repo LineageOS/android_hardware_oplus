@@ -50,6 +50,9 @@
 /dev/esim-en                                                           u:object_r:esim_en_device:s0
 /dev/esim-gpio                                                         u:object_r:esim_gpio_device:s0
 
+# Face unlock
+/(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.biometrics\.face@1\.0-service(_uff)?    u:object_r:hal_oplus_face_exec:s0
+
 # Fingerprint
 /data/vendor/fingerprint(_ori)?(/.*)?                                                            u:object_r:fingerprint_vendor_data_file:s0
 /mnt/vendor/persist/fingerprint(/.*)?                                                            u:object_r:vendor_persist_fingerprint_file:s0
