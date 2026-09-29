@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "804381c6_cb0f0c67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-09-29T11:08:28Z",
+      "side": 1,
+      "message": "i pulled a bunch of rules from stock sepolicy that made sense",
+      "revId": "b02a534af4f4d8f100f446587abd33e019ddba68",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
