@@ -33,6 +33,24 @@
       "message": "sepolicy works on waffle with additional fixes.\nhttps://github.com/aospa-op12/android_hardware_oplus/commit/efec3f55bdb93ef92b34bdde627611b8a53c17db",
       "revId": "37ec72e7cb2af7ed215beb19b7a76ec1abe5de9d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e156681_ad561924",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-09-29T00:14:50Z",
+      "side": 1,
+      "message": "I already added that here by myself.",
+      "parentUuid": "7829e6af_68d4e0ba",
+      "revId": "37ec72e7cb2af7ed215beb19b7a76ec1abe5de9d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
