@@ -16,6 +16,23 @@
       "message": "hold off, needs to strip verbose debugging stuff",
       "revId": "eb8f06d23e93ddd629a48a4d20f551cb118bed2e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "182bd478_d5bcee84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-09-29T21:23:53Z",
+      "side": 1,
+      "message": "Ahh, indeed. I saw some verbosing output on logcat.",
+      "revId": "eb8f06d23e93ddd629a48a4d20f551cb118bed2e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
