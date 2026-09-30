@@ -6,6 +6,8 @@ init_daemon_domain(hal_oplus_pogo_keyboard_aidl)
 
 add_service(hal_oplus_pogo_keyboard_aidl, hal_oplus_pogo_keyboard_aidl_service)
 
+allow hal_oplus_pogo_keyboard_aidl hal_oplus_pogo_keyboard_aidl:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
 allow hal_oplus_pogo_keyboard_aidl oplus_pogo_keyboard_device:chr_file rw_file_perms;
 
 r_dir_file(hal_oplus_pogo_keyboard_aidl, vendor_proc_oplus_pogo_keyboard)
