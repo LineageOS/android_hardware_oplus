@@ -19,6 +19,7 @@ cc_binary {
     srcs: [
         "service.cpp",
         "Vibrator.cpp",
+        "RichtapVibrator.cpp",
     ],
     shared_libs: [
         "libcutils",
@@ -28,6 +29,7 @@ cc_binary {
         "libbinder_ndk",
         "libaacvibrator",
         "android.hardware.vibrator-V2-ndk",
+        "vendor.aac.hardware.richtap.vibrator-V2-ndk",
     ],
 }
 

@@ -3,6 +3,9 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#define HAPTIC_PARAM_DRC_MARK 0x01
+#define HAPTIC_PARAM_MAX_DRC 0x03
+
 enum PATTERN_PERFORM_STATE {
     PATTERN_PERFORM_START = 1,
     PATTERN_PERFORM_INTERRUPT,
@@ -26,6 +29,8 @@ extern int aac_vibra_performHe_with_len(void* he, int32_t len);
 extern int aac_vibra_dynamic_scale(uint8_t scale);
 extern int aac_vibra_setting_f0(int f0);
 extern int aac_vibra_stop(int32_t* index);
+extern bool aac_vibra_set_drc_mode(int mode);
+extern int aac_vibra_update_parameter(const int32_t* data, int32_t length);
 }
 
 extern void aac_vibra_looper_start();
