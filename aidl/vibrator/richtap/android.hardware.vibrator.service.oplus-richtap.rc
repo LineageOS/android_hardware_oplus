@@ -2,6 +2,9 @@ on boot
     chown system system /dev/awinic_haptic
     chmod 0600 /dev/awinic_haptic
 
+on property:sys.boot_completed=1
+    setprop vendor.haptic.calibrate.done 1
+
 service vendor.vibrator /vendor/bin/hw/android.hardware.vibrator.service.oplus-richtap
     class late_start
     user system
