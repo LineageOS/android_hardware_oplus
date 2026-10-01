@@ -8,6 +8,7 @@ binder_call(vendor_hal_oplus_face_client, vendor_hal_oplus_face_server)
 
 hal_client_domain(hal_oplus_face, hal_graphics_allocator)
 hal_client_domain(hal_oplus_face, vendor_hal_oplus_commondcs)
+hal_client_domain(hal_oplus_face, vendor_hal_oplus_osense)
 hal_server_domain(hal_oplus_face, hal_face)
 hal_server_domain(hal_oplus_face, vendor_hal_oplus_face)
 
@@ -17,6 +18,7 @@ allow hal_oplus_face fwk_stats_service:service_manager find;
 allow hal_oplus_face hal_graphics_allocator_service:service_manager find;
 allow hal_oplus_face hal_oplus_commondcs_aidl_service:service_manager find;
 allow hal_oplus_face hal_oplus_olc_aidl_service:service_manager find;
+allow hal_oplus_face hal_oplus_osense_aidl_service:service_manager find;
 allow hal_oplus_face osense_service:service_manager find;
 
 allow hal_oplus_face fwk_camera_hwservice:hwservice_manager find;
