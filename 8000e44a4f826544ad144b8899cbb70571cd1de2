@@ -16,6 +16,24 @@
       "message": "there are ioctl commands as on stock as well on stock which needs to be looked.",
       "revId": "8000e44a4f826544ad144b8899cbb70571cd1de2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ccec275_7f3f9db6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35436
+      },
+      "writtenOn": "2026-10-02T08:59:24Z",
+      "side": 1,
+      "message": "there are alot of framework classes on stock for that so i think we can proceed with this only for now.",
+      "parentUuid": "33038835_0d8ca6be",
+      "revId": "8000e44a4f826544ad144b8899cbb70571cd1de2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
