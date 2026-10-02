@@ -33,6 +33,23 @@
       "message": "@goncaalagul51@gmail.com ???",
       "revId": "1d1f6fea82731ed672dc77f42fec233926190cf9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ae09c9c_73c67df9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-02T21:15:42Z",
+      "side": 1,
+      "message": "verified that it falls to L3 on my device.",
+      "revId": "1d1f6fea82731ed672dc77f42fec233926190cf9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
