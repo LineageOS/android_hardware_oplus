@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00f2b3aa_9ec0dfbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-10-03T18:53:05Z",
+      "side": 1,
+      "message": "Works fine for OnePlus Pad 4",
+      "revId": "28a46bf96f7b9a188df0c13c6f983c4229bd5550",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
