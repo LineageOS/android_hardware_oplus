@@ -8,6 +8,10 @@ android_app {
 
     srcs: ["src/**/*.kt"],
 
+    static_libs: [
+        "vendor.oplus.hardware.touch-V3-java",
+    ],
+
     certificate: "platform",
     platform_apis: true,
     privileged: true,
