@@ -6,6 +6,7 @@
 
 package vendor.oplus.hardware.touch;
 
+import vendor.oplus.hardware.touch.IOplusTouchEventCallback;
 import vendor.oplus.hardware.touch.OplusTouchInfo;
 
 @VintfStability
@@ -17,4 +18,6 @@ interface IOplusTouch {
     int touchWriteBtInfo(int deviceId, int nodeFlag, String info);
     void touchWriteNodeFileOneWay(int deviceId, int nodeFlag, String info);
     int touchNotifyClient(int clientFlag, in OplusTouchInfo info);
+    int registerEventCallback(in IOplusTouchEventCallback callback);
+    int unregisterEventCallback(in IOplusTouchEventCallback callback);
 }
