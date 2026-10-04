@@ -8,6 +8,7 @@ type hal_oplus_touch_aidl_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(hal_oplus_touch_aidl)
 
 binder_call(vendor_hal_oplus_touch_client, vendor_hal_oplus_touch_server)
+binder_call(vendor_hal_oplus_touch_server, vendor_hal_oplus_touch_client)
 
 add_service(hal_oplus_touch_aidl, hal_oplus_touch_aidl_service)
 

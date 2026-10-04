@@ -34,6 +34,10 @@ class PenService : Service() {
         getString(R.string.config_penSupportedRefreshRate).toFloatOrNull()
     }
 
+    private val penRelay by lazy {
+        if (resources.getBoolean(R.bool.config_penPressureRelay)) PenRelay(this) else null
+    }
+
     private val handler by lazy { Handler(mainLooper) }
 
     private val observer =
@@ -87,6 +91,8 @@ class PenService : Service() {
         }
 
         observer.startObserving("DEVPATH=/devices/virtual/oplus_wireless/pencil")
+
+        penRelay?.start()
     }
 
     override fun onDestroy() {
@@ -98,6 +104,8 @@ class PenService : Service() {
         }
 
         observer.stopObserving()
+
+        penRelay?.stop()
     }
 
     private fun bondBtDevice(pencilAddr: String) {
