@@ -24,7 +24,7 @@
 package vendor.oplus.hardware.touch;
 @VintfStability
 interface IOplusTouch {
-  int initialize();
+  vendor.oplus.hardware.touch.OplusTouchStatus initialize();
   int isTouchNodeSupport(int deviceId, int nodeFlag);
   String touchReadNodeFile(int deviceId, int nodeFlag);
   int touchWriteNodeFile(int deviceId, int nodeFlag, String info);
