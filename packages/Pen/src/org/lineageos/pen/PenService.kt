@@ -36,7 +36,7 @@ class PenService : Service() {
 
     private val penRelay by lazy { PenRelay(this) }
 
-    private var wasPenConnected = false
+    private val prefs by lazy { getSharedPreferences(PREFS_NAME, MODE_PRIVATE) }
 
     private val handler by lazy { Handler(mainLooper) }
 
@@ -188,16 +188,27 @@ class PenService : Service() {
         val peakRefreshRate = Settings.System.getString(contentResolver, PEAK_REFRESH_RATE)
 
         if (isPenConnected) {
-            wasPenConnected = true
-        }
-
-        if (isPenConnected && peakRefreshRate == "Infinity") {
-            Settings.System.putString(contentResolver, PEAK_REFRESH_RATE, penSupportedRefreshRate)
-        } else if (
-            wasPenConnected && !isPenConnected && peakRefreshRate == penSupportedRefreshRate
-        ) {
-            wasPenConnected = false
-            Settings.System.putString(contentResolver, PEAK_REFRESH_RATE, "Infinity")
+            val peak = peakRefreshRate?.toFloatOrNull() ?: Float.POSITIVE_INFINITY
+            if (peak > penSupportedRefreshRate.toFloat()) {
+                prefs
+                    .edit()
+                    .putString(KEY_SAVED_PEAK_REFRESH_RATE, peakRefreshRate ?: "Infinity")
+                    .apply()
+                Settings.System.putString(
+                    contentResolver,
+                    PEAK_REFRESH_RATE,
+                    penSupportedRefreshRate,
+                )
+            }
+        } else if (prefs.contains(KEY_SAVED_PEAK_REFRESH_RATE)) {
+            if (peakRefreshRate == penSupportedRefreshRate) {
+                Settings.System.putString(
+                    contentResolver,
+                    PEAK_REFRESH_RATE,
+                    prefs.getString(KEY_SAVED_PEAK_REFRESH_RATE, null) ?: "Infinity",
+                )
+            }
+            prefs.edit().remove(KEY_SAVED_PEAK_REFRESH_RATE).apply()
         }
     }
 
@@ -247,5 +258,8 @@ class PenService : Service() {
 
         private const val NOTIFICATION_CHANNEL_ID = "OplusPen"
         private const val NOTIFICATION_ID = 1000
+
+        private const val PREFS_NAME = "pen"
+        private const val KEY_SAVED_PEAK_REFRESH_RATE = "saved_peak_refresh_rate"
     }
 }
