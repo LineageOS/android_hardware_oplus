@@ -25,6 +25,9 @@ vendor.oplus.hardware.displaypanelfeature.IDisplayPanelFeature/default   u:objec
 # Display (Pixelworks)
 vendor.pixelworks.hardware.display.IIris/default    u:object_r:hal_display_iris_aidl_service:s0
 
+# Dolby Vision
+vendor.dolby.dvs.IDvs/default    u:object_r:hal_dolby_dvs_aidl_service:s0
+
 # EID
 vendor.oplus.hardware.eid.IEidDevice/default    u:object_r:hal_oplus_eid_service:s0
 
