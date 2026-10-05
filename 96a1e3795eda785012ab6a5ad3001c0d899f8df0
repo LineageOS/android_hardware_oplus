@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af6a0ddb_73f51bd6",
+        "filename": "interfaces/aidl/vendor/oplus/hardware/touch/OplusTouchInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-05T08:47:25Z",
+      "side": 1,
+      "message": "i think whoever wrote this parcelable just copied variables as is without checking writeToParcel() order? https://i.imgur.com/ez547ae.png",
+      "revId": "96a1e3795eda785012ab6a5ad3001c0d899f8df0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
