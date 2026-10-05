@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50a28c47_e5dea5d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-05T21:07:09Z",
+      "side": 1,
+      "message": "idk what stock rule grants this, but at least prebuilt contains references to it.",
+      "revId": "60ce2d53d43593a28c10dcd99af0096d435a30c0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
