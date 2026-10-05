@@ -1,0 +1,20 @@
+type hal_dolby_dvs_aidl, domain;
+binder_use(hal_dolby_dvs_aidl)
+
+allow hal_dolby_dvs_aidl fwk_sensor_hwservice:hwservice_manager find;
+allow hal_dolby_dvs_aidl fwk_sensor_service:service_manager find;
+binder_call(hal_dolby_dvs_aidl, system_server)
+
+hal_server_domain(hal_dolby_dvs_aidl, vendor_hal_dolby_dvs)
+
+type hal_dolby_dvs_aidl_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_dolby_dvs_aidl)
+
+binder_call(vendor_hal_dolby_dvs_client, vendor_hal_dolby_dvs_server)
+binder_call(vendor_hal_dolby_dvs_server, vendor_hal_dolby_dvs_client)
+
+hal_attribute_service(vendor_hal_dolby_dvs, hal_dolby_dvs_aidl_service)
+
+r_dir_file(hal_dolby_dvs_aidl, vendor_sysfs_graphics)
+
+set_prop(hal_dolby_dvs_aidl, vendor_dolby_vision_prop)

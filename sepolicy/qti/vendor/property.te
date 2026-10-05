@@ -1,3 +1,6 @@
+# Dolby Vision
+vendor_internal_prop(vendor_dolby_vision_prop)
+
 # eSIM
 vendor_internal_prop(vendor_oplus_esim_prop)
 
