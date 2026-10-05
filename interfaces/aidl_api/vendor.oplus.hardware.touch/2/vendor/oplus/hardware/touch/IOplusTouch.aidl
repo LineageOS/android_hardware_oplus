@@ -29,6 +29,8 @@ interface IOplusTouch {
   String touchReadNodeFile(int deviceId, int nodeFlag);
   int touchWriteNodeFile(int deviceId, int nodeFlag, String info);
   int touchWriteBtInfo(int deviceId, int nodeFlag, String info);
-  void touchWriteNodeFileOneWay(int deviceId, int nodeFlag, String info);
-  int touchNotifyClient(int clientFlag, in vendor.oplus.hardware.touch.OplusTouchInfo info);
+  oneway void touchWriteNodeFileOneWay(int deviceId, int nodeFlag, String info);
+  vendor.oplus.hardware.touch.OplusTouchStatus touchNotifyClient(int clientFlag, in vendor.oplus.hardware.touch.OplusTouchInfo info);
+  vendor.oplus.hardware.touch.OplusTouchStatus registerEventCallback(vendor.oplus.hardware.touch.IOplusTouchEventCallback callback);
+  vendor.oplus.hardware.touch.OplusTouchStatus unregisterEventCallback(vendor.oplus.hardware.touch.IOplusTouchEventCallback callback);
 }

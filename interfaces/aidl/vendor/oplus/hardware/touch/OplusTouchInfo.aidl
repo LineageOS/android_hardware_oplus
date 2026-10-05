@@ -8,9 +8,9 @@ package vendor.oplus.hardware.touch;
 
 @VintfStability
 parcelable OplusTouchInfo {
-    String info;
     long time;
     int deviceId;
     int nodeFlag;
     int data;
+    String info;
 }
