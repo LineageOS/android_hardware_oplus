@@ -1,5 +1,13 @@
 <compatibility-matrix version="4.0" type="framework">
     <hal format="aidl" optional="true">
+        <name>vendor.dolby.dvs</name>
+        <version>1</version>
+        <interface>
+            <name>IDvs</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.appradioaidl</name>
         <version>1</version>
         <interface>
