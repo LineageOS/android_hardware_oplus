@@ -18,7 +18,10 @@ import android.os.Handler
 import android.os.HandlerThread
 import android.os.Process
 
-class PenRelay(private val context: Context) {
+class PenRelay(
+    private val context: Context,
+    private val onPencilStatusChanged: (Boolean?) -> Unit,
+) {
     private val bluetoothManager by lazy { context.getSystemService(BluetoothManager::class.java) }
 
     private val thread = HandlerThread(TAG, Process.THREAD_PRIORITY_URGENT_DISPLAY)
@@ -81,6 +84,10 @@ class PenRelay(private val context: Context) {
         thread.quitSafely()
     }
 
+    fun sendPencilStatusAck(isActive: Boolean) {
+        session?.sendPencilStatusAck(isActive)
+    }
+
     // GATT callbacks stop once Bluetooth goes down, so sessions must be dropped explicitly
     private fun closeAll() {
         probing.values.toList().forEach { it.close() }
@@ -95,7 +102,14 @@ class PenRelay(private val context: Context) {
             return
         }
         val newSession =
-            PenGattSession(device, touchHal, handler, ::onSessionReady, ::onSessionClosed)
+            PenGattSession(
+                device,
+                touchHal,
+                handler,
+                ::onSessionReady,
+                ::onSessionClosed,
+                ::onPencilStatus,
+            )
         probing[device.address] = newSession
         newSession.open()
     }
@@ -104,12 +118,20 @@ class PenRelay(private val context: Context) {
         probing.remove(ready.device.address)
         session?.takeIf { it !== ready }?.close()
         session = ready
+        onPencilStatusChanged(ready.isPencilActive ?: false)
     }
 
     private fun onSessionClosed(closed: PenGattSession) {
         probing.remove(closed.device.address)
         if (session === closed) {
             session = null
+            onPencilStatusChanged(null)
+        }
+    }
+
+    private fun onPencilStatus(from: PenGattSession, isActive: Boolean) {
+        if (session === from) {
+            onPencilStatusChanged(isActive)
         }
     }
 
