@@ -17,6 +17,7 @@ import android.bluetooth.le.ScanResult
 import android.bluetooth.le.ScanSettings
 import android.content.Intent
 import android.database.ContentObserver
+import android.hardware.display.DisplayManager
 import android.hardware.input.InputManager
 import android.os.Handler
 import android.os.IBinder
@@ -24,9 +25,11 @@ import android.os.UEventObserver
 import android.provider.Settings
 import android.provider.Settings.System.PEAK_REFRESH_RATE
 import android.util.Log
+import android.view.Display
 
 class PenService : Service() {
     private val bluetoothManager by lazy { getSystemService(BluetoothManager::class.java) }
+    private val displayManager by lazy { getSystemService(DisplayManager::class.java) }
     private val inputManager by lazy { getSystemService(InputManager::class.java) }
     private val notificationManager by lazy { getSystemService(NotificationManager::class.java) }
 
@@ -34,11 +37,33 @@ class PenService : Service() {
         getString(R.string.config_penSupportedRefreshRate)
     }
 
-    private val penRelay by lazy { PenRelay(this) }
+    private val penRelay by lazy {
+        PenRelay(this) { isActive -> handler.post { onPencilStatusChanged(isActive) } }
+    }
 
     private val prefs by lazy { getSharedPreferences(PREFS_NAME, MODE_PRIVATE) }
 
     private val handler by lazy { Handler(mainLooper) }
+
+    private var pencilStatus: Boolean? = null
+    private var isActiveAckSent = false
+
+    private val displayListener =
+        object : DisplayManager.DisplayListener {
+            override fun onDisplayAdded(displayId: Int) {
+                // Do nothing
+            }
+
+            override fun onDisplayRemoved(displayId: Int) {
+                // Do nothing
+            }
+
+            override fun onDisplayChanged(displayId: Int) {
+                if (displayId == Display.DEFAULT_DISPLAY) {
+                    ackActivePencilIfNeeded()
+                }
+            }
+        }
 
     private val observer =
         object : UEventObserver() {
@@ -109,6 +134,11 @@ class PenService : Service() {
         observer.startObserving("DEVPATH=/devices/virtual/oplus_wireless/pencil")
 
         if (resources.getBoolean(R.bool.config_penPressureRelay)) {
+            displayManager.registerDisplayListener(
+                displayListener,
+                handler,
+                DisplayManager.EVENT_TYPE_DISPLAY_REFRESH_RATE,
+            )
             penRelay.start()
         }
     }
@@ -124,8 +154,37 @@ class PenService : Service() {
         observer.stopObserving()
 
         if (resources.getBoolean(R.bool.config_penPressureRelay)) {
+            displayManager.unregisterDisplayListener(displayListener)
             penRelay.stop()
         }
+    }
+
+    private fun onPencilStatusChanged(isActive: Boolean?) {
+        if (pencilStatus != isActive) {
+            pencilStatus = isActive
+            if (!penSupportedRefreshRate.isEmpty()) {
+                overridePeakRefreshRateIfNeeded()
+            }
+        }
+        isActiveAckSent = false
+        when (isActive) {
+            true -> ackActivePencilIfNeeded()
+            false -> penRelay.sendPencilStatusAck(false)
+            null -> {}
+        }
+    }
+
+    private fun ackActivePencilIfNeeded() {
+        if (pencilStatus != true || isActiveAckSent) {
+            return
+        }
+        val rate = displayManager.getDisplay(Display.DEFAULT_DISPLAY)?.refreshRate ?: return
+        val maxRate = penSupportedRefreshRate.toFloatOrNull() ?: Float.POSITIVE_INFINITY
+        if (rate > maxRate + REFRESH_RATE_TOLERANCE) {
+            return
+        }
+        isActiveAckSent = true
+        penRelay.sendPencilStatusAck(true)
     }
 
     private fun bondBtDevice(pencilAddr: String) {
@@ -169,25 +228,10 @@ class PenService : Service() {
     }
 
     private fun overridePeakRefreshRateIfNeeded() {
-        val isPenConnected =
-            inputManager.inputDeviceIds.firstOrNull {
-                val device = inputManager.getInputDevice(it) ?: return@firstOrNull false
-                if (device.vendorId != 0x22D9 && device.vendorId != 0x330A) {
-                    // Not an OPPO/Maxeye vendor ID
-                    return@firstOrNull false
-                }
-                if (
-                    device.bluetoothAddress?.startsWith("C0:87:06") == false &&
-                        device.bluetoothAddress?.startsWith("F8:6F:DE") == false
-                ) {
-                    // Not a Maxeye/Goodix MAC prefix
-                    return@firstOrNull false
-                }
-                return@firstOrNull true
-            } != null
+        val isPenInUse = pencilStatus ?: isPenConnected()
         val peakRefreshRate = Settings.System.getString(contentResolver, PEAK_REFRESH_RATE)
 
-        if (isPenConnected) {
+        if (isPenInUse) {
             val peak = peakRefreshRate?.toFloatOrNull() ?: Float.POSITIVE_INFINITY
             if (peak > penSupportedRefreshRate.toFloat()) {
                 prefs
@@ -211,6 +255,23 @@ class PenService : Service() {
             prefs.edit().remove(KEY_SAVED_PEAK_REFRESH_RATE).apply()
         }
     }
+
+    private fun isPenConnected() =
+        inputManager.inputDeviceIds.firstOrNull {
+            val device = inputManager.getInputDevice(it) ?: return@firstOrNull false
+            if (device.vendorId != 0x22D9 && device.vendorId != 0x330A) {
+                // Not an OPPO/Maxeye vendor ID
+                return@firstOrNull false
+            }
+            if (
+                device.bluetoothAddress?.startsWith("C0:87:06") == false &&
+                    device.bluetoothAddress?.startsWith("F8:6F:DE") == false
+            ) {
+                // Not a Maxeye/Goodix MAC prefix
+                return@firstOrNull false
+            }
+            return@firstOrNull true
+        } != null
 
     private fun postNotification(pencilAddr: String) {
         val adapter = bluetoothManager.adapter
@@ -261,5 +322,7 @@ class PenService : Service() {
 
         private const val PREFS_NAME = "pen"
         private const val KEY_SAVED_PEAK_REFRESH_RATE = "saved_peak_refresh_rate"
+
+        private const val REFRESH_RATE_TOLERANCE = 0.5f
     }
 }
