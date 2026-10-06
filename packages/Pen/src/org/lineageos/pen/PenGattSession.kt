@@ -22,10 +22,17 @@ class PenGattSession(
     private val handler: Handler,
     private val onReady: (PenGattSession) -> Unit,
     private val onClosed: (PenGattSession) -> Unit,
+    private val onPencilStatus: (PenGattSession, Boolean) -> Unit,
 ) {
     private var gatt: BluetoothGatt? = null
     private var pressChar: BluetoothGattCharacteristic? = null
     private var speedChar: BluetoothGattCharacteristic? = null
+    private var interfaceChar: BluetoothGattCharacteristic? = null
+
+    private val pendingCccs = ArrayDeque<BluetoothGattDescriptor>()
+
+    var isPencilActive: Boolean? = null
+        private set
 
     private var isReady = false
     private var isClosed = false
@@ -57,19 +64,30 @@ class PenGattSession(
                 val service = gatt.getService(PenProtocol.SERVICE_UUID)
                 val press = service?.getCharacteristic(PenProtocol.PRESS_CHAR_UUID)
                 val ccc = press?.getDescriptor(PenProtocol.CCC_DESCRIPTOR_UUID)
-                if (press == null || ccc == null) {
-                    Log.d(TAG, "${device.address} has no pen press service")
+                if (press != null && ccc != null) {
+                    pressChar = press
+                    speedChar = service.getCharacteristic(PenProtocol.SPEED_CHAR_UUID)
+                    gatt.setCharacteristicNotification(press, true)
+                    pendingCccs.addLast(ccc)
+                }
+
+                val iface =
+                    gatt
+                        .getService(PenProtocol.INTERFACE_SERVICE_UUID)
+                        ?.getCharacteristic(PenProtocol.INTERFACE_CHAR_UUID)
+                val ifaceCcc = iface?.getDescriptor(PenProtocol.CCC_DESCRIPTOR_UUID)
+                if (iface != null && ifaceCcc != null) {
+                    interfaceChar = iface
+                    gatt.setCharacteristicNotification(iface, true)
+                    pendingCccs.addLast(ifaceCcc)
+                }
+
+                if (pendingCccs.isEmpty()) {
+                    Log.d(TAG, "${device.address} has no pen services")
                     close()
                     return
                 }
-                pressChar = press
-                speedChar = service.getCharacteristic(PenProtocol.SPEED_CHAR_UUID)
-
-                gatt.setCharacteristicNotification(press, true)
-                val ret =
-                    gatt.writeDescriptor(ccc, BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE)
-                if (ret != BluetoothStatusCodes.SUCCESS) {
-                    Log.e(TAG, "Failed to enable pen press notifications: $ret")
+                if (!writeNextCcc(gatt)) {
                     close()
                 }
             }
@@ -80,8 +98,21 @@ class PenGattSession(
                 status: Int,
             ) {
                 if (status != BluetoothGatt.GATT_SUCCESS) {
-                    Log.e(TAG, "CCC write failed: $status")
-                    close()
+                    if (
+                        descriptor.characteristic.uuid != PenProtocol.INTERFACE_CHAR_UUID ||
+                            pressChar == null
+                    ) {
+                        Log.e(TAG, "CCC write failed: $status")
+                        close()
+                        return
+                    }
+                    Log.w(TAG, "Pencil status notifications unavailable: $status")
+                    interfaceChar = null
+                }
+                if (pendingCccs.isNotEmpty()) {
+                    if (!writeNextCcc(gatt)) {
+                        close()
+                    }
                     return
                 }
                 if (!gatt.requestMtu(PenProtocol.MTU)) {
@@ -100,6 +131,14 @@ class PenGattSession(
                 characteristic: BluetoothGattCharacteristic,
                 value: ByteArray,
             ) {
+                if (characteristic.uuid == PenProtocol.INTERFACE_CHAR_UUID) {
+                    PenProtocol.parsePencilStatus(value)?.let {
+                        Log.d(TAG, "Pencil ${if (it) "active" else "idle"}")
+                        isPencilActive = it
+                        onPencilStatus(this@PenGattSession, it)
+                    }
+                    return
+                }
                 if (characteristic.uuid != PenProtocol.PRESS_CHAR_UUID) {
                     return
                 }
@@ -159,6 +198,15 @@ class PenGattSession(
         }
     }
 
+    fun sendPencilStatusAck(isActive: Boolean) {
+        handler.post {
+            if (!isReady) {
+                return@post
+            }
+            interfaceChar?.let { enqueueWrite(it, PenProtocol.pencilStatusAck(isActive)) }
+        }
+    }
+
     fun close() {
         if (isClosed) {
             return
@@ -166,12 +214,15 @@ class PenGattSession(
         isClosed = true
         if (isReady) {
             isReady = false
-            touchHal.writeBtInfo(PenProtocol.PRESSURE_CLEAR)
-            touchHal.writeNode(PenProtocol.NODE_PENCIL_CONNECTED, "0")
-            touchHal.unregisterCallback()
+            if (pressChar != null) {
+                touchHal.writeBtInfo(PenProtocol.PRESSURE_CLEAR)
+                touchHal.writeNode(PenProtocol.NODE_PENCIL_CONNECTED, "0")
+                touchHal.unregisterCallback()
+            }
             Log.i(TAG, "Pen ${device.address} disconnected")
         }
         pendingWrites.clear()
+        pendingCccs.clear()
         gatt?.close()
         gatt = null
         onClosed(this)
@@ -183,11 +234,23 @@ class PenGattSession(
         }
         isReady = true
         pressPacketCount = 0
-        touchHal.registerCallback()
-        touchHal.writeNode(PenProtocol.NODE_PENCIL_CONNECTED, "0")
-        touchHal.writeNode(PenProtocol.NODE_PENCIL_CONNECTED, "1")
+        if (pressChar != null) {
+            touchHal.registerCallback()
+            touchHal.writeNode(PenProtocol.NODE_PENCIL_CONNECTED, "0")
+            touchHal.writeNode(PenProtocol.NODE_PENCIL_CONNECTED, "1")
+        }
         Log.i(TAG, "Pen ${device.address} ready")
         onReady(this)
+    }
+
+    private fun writeNextCcc(gatt: BluetoothGatt): Boolean {
+        val ccc = pendingCccs.removeFirst()
+        val ret = gatt.writeDescriptor(ccc, BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE)
+        if (ret != BluetoothStatusCodes.SUCCESS) {
+            Log.e(TAG, "Failed to enable notifications on ${ccc.characteristic.uuid}: $ret")
+            return false
+        }
+        return true
     }
 
     private fun enqueueWrite(characteristic: BluetoothGattCharacteristic, value: ByteArray) {
