@@ -35,10 +35,34 @@ class PenService : Service() {
     }
 
     private val penRelay by lazy {
-        if (resources.getBoolean(R.bool.config_penPressureRelay)) PenRelay(this) else null
+        if (resources.getBoolean(R.bool.config_penPressureRelay)) {
+            PenRelay(this) { isActive -> handler.post { onPencilStatusChanged(isActive) } }
+        } else {
+            null
+        }
     }
 
     private val handler by lazy { Handler(mainLooper) }
+
+    private var pencilStatus: Boolean? = null
+    private var isActiveAckSent = false
+
+    private val displayListener =
+        object : DisplayManager.DisplayListener {
+            override fun onDisplayAdded(displayId: Int) {
+                // Do nothing
+            }
+
+            override fun onDisplayRemoved(displayId: Int) {
+                // Do nothing
+            }
+
+            override fun onDisplayChanged(displayId: Int) {
+                if (displayId == Display.DEFAULT_DISPLAY) {
+                    ackActivePencilIfNeeded()
+                }
+            }
+        }
 
     private val observer =
         object : UEventObserver() {
@@ -92,7 +116,14 @@ class PenService : Service() {
 
         observer.startObserving("DEVPATH=/devices/virtual/oplus_wireless/pencil")
 
-        penRelay?.start()
+        penRelay?.let {
+            displayManager.registerDisplayListener(
+                displayListener,
+                handler,
+                DisplayManager.EVENT_TYPE_DISPLAY_REFRESH_RATE,
+            )
+            it.start()
+        }
     }
 
     override fun onDestroy() {
@@ -105,7 +136,36 @@ class PenService : Service() {
 
         observer.stopObserving()
 
-        penRelay?.stop()
+        penRelay?.let {
+            displayManager.unregisterDisplayListener(displayListener)
+            it.stop()
+        }
+    }
+
+    private fun onPencilStatusChanged(isActive: Boolean?) {
+        if (pencilStatus != isActive) {
+            pencilStatus = isActive
+            updateRefreshRateCap()
+        }
+        isActiveAckSent = false
+        when (isActive) {
+            true -> ackActivePencilIfNeeded()
+            false -> penRelay?.sendPencilStatusAck(false)
+            null -> {}
+        }
+    }
+
+    private fun ackActivePencilIfNeeded() {
+        if (pencilStatus != true || isActiveAckSent) {
+            return
+        }
+        val rate = displayManager.getDisplay(Display.DEFAULT_DISPLAY)?.refreshRate ?: return
+        val maxRate = penSupportedRefreshRate ?: Float.POSITIVE_INFINITY
+        if (rate > maxRate + REFRESH_RATE_TOLERANCE) {
+            return
+        }
+        isActiveAckSent = true
+        penRelay?.sendPencilStatusAck(true)
     }
 
     private fun bondBtDevice(pencilAddr: String) {
@@ -170,7 +230,7 @@ class PenService : Service() {
 
         displayManager.requestMaxRefreshRate(
             Display.DEFAULT_DISPLAY,
-            if (isPenConnected) maxRefreshRate else 0f,
+            if (pencilStatus ?: isPenConnected) maxRefreshRate else 0f,
         )
     }
 
@@ -220,5 +280,7 @@ class PenService : Service() {
 
         private const val NOTIFICATION_CHANNEL_ID = "OplusPen"
         private const val NOTIFICATION_ID = 1000
+
+        private const val REFRESH_RATE_TOLERANCE = 0.5f
     }
 }
