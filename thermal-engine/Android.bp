@@ -1,0 +1,16 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libshims_thermal-engine.oplus",
+    srcs: ["ThermalEngineShim.cpp"],
+    shared_libs: [
+        "libbase",
+        "libcrypto",
+        "libjsoncpp",
+        "libtinyxml2",
+    ],
+    vendor: true,
+}
