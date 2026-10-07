@@ -2,6 +2,9 @@
 ro.vendor.oplus.audiodriver.operator    u:object_r:vendor_audio_debug_prop:s0
 ro.vendor.oplus.regionmark              u:object_r:vendor_audio_debug_prop:s0
 
+# Bluetooth
+persist.bluetooth.a2dp_aac_abr.enable    u:object_r:exported_bluetooth_prop:s0
+
 # Camera
 ro.vendor.camera.res.          u:object_r:vendor_camera_prop:s0
 ro.vendor.oplus.camera.        u:object_r:vendor_camera_prop:s0
