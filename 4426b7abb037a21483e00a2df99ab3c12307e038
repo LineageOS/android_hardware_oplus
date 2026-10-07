@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60371df5_fed078e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-10-07T03:23:58Z",
+      "side": 1,
+      "message": "Now when the pen is detached from the top tablet magnetic mount, the refresh caps at 120 and if the underlying was 144, if you attach back the pen, it switches back to 144, just like how stock does",
+      "revId": "4426b7abb037a21483e00a2df99ab3c12307e038",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
