@@ -7,7 +7,8 @@ oplus.autotest.                u:object_r:exported_system_prop:s0
 persist.sys.oplus.autotest.    u:object_r:exported_system_prop:s0
 
 # Bluetooth
-persist.sys.bt.a2dp.pendingtime    u:object_r:exported_system_prop:s0
+persist.bluetooth.a2dp_aac_abr.enable    u:object_r:exported_bluetooth_prop:s0
+persist.sys.bt.a2dp.pendingtime          u:object_r:exported_system_prop:s0
 
 # Camera
 cam.algo.                        u:object_r:exported_system_prop:s0
