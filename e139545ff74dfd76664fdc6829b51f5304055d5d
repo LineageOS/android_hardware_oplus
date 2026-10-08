@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1aa616d2_4efabb03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-10-08T15:19:09Z",
+      "side": 1,
+      "message": "Can be abandoned as @priv.luk@gmail.com \u0027s patch is a better change than this, keeping it active as caihong test is pending",
+      "revId": "e139545ff74dfd76664fdc6829b51f5304055d5d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
