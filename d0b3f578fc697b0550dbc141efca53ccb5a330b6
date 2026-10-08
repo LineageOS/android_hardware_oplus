@@ -16,6 +16,24 @@
       "message": "@bgcngm@gmail.com i think this should be true by default?\n@mail@inferno0230.in if you could verify it on caihong.",
       "revId": "d0b3f578fc697b0550dbc141efca53ccb5a330b6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e5e1c63_ea54071c",
+        "filename": "packages/Pen/res/values/config.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 32811
+      },
+      "writtenOn": "2026-10-08T15:59:14Z",
+      "side": 1,
+      "message": "I can\u0027t really check it, my pen broke",
+      "parentUuid": "94963bf6_a681db4d",
+      "revId": "d0b3f578fc697b0550dbc141efca53ccb5a330b6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
