@@ -16,25 +16,23 @@ import android.bluetooth.le.ScanFilter
 import android.bluetooth.le.ScanResult
 import android.bluetooth.le.ScanSettings
 import android.content.Intent
-import android.database.ContentObserver
+import android.hardware.display.DisplayManager
 import android.hardware.input.InputManager
 import android.os.Handler
 import android.os.IBinder
 import android.os.UEventObserver
-import android.provider.Settings
-import android.provider.Settings.System.PEAK_REFRESH_RATE
 import android.util.Log
+import android.view.Display
 
 class PenService : Service() {
     private val bluetoothManager by lazy { getSystemService(BluetoothManager::class.java) }
+    private val displayManager by lazy { getSystemService(DisplayManager::class.java) }
     private val inputManager by lazy { getSystemService(InputManager::class.java) }
     private val notificationManager by lazy { getSystemService(NotificationManager::class.java) }
 
     private val penSupportedRefreshRate by lazy {
-        getString(R.string.config_penSupportedRefreshRate)
+        getString(R.string.config_penSupportedRefreshRate).toFloatOrNull()
     }
-
-    private var wasPenConnected = false
 
     private val handler by lazy { Handler(mainLooper) }
 
@@ -60,27 +58,17 @@ class PenService : Service() {
     private val inputObserver =
         object : InputManager.InputDeviceListener {
             override fun onInputDeviceAdded(deviceId: Int) {
-                overridePeakRefreshRateIfNeeded()
+                updateRefreshRateCap()
             }
 
             override fun onInputDeviceRemoved(deviceId: Int) {
-                overridePeakRefreshRateIfNeeded()
+                updateRefreshRateCap()
             }
 
             override fun onInputDeviceChanged(deviceId: Int) {
                 // Do nothing
             }
         }
-
-    private val peakRefreshRateSettingsObserver by lazy {
-        object : ContentObserver(handler) {
-            override fun onChange(selfChange: Boolean) {
-                super.onChange(selfChange)
-
-                overridePeakRefreshRateIfNeeded()
-            }
-        }
-    }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         intent?.getStringExtra(EXTRA_PENCIL_ADDR)?.let { bondBtDevice(it) }
@@ -93,14 +81,8 @@ class PenService : Service() {
     override fun onCreate() {
         super.onCreate()
 
-        if (!penSupportedRefreshRate.isEmpty()) {
-            contentResolver.registerContentObserver(
-                Settings.System.getUriFor(PEAK_REFRESH_RATE),
-                false,
-                peakRefreshRateSettingsObserver,
-            )
-            peakRefreshRateSettingsObserver.onChange(true)
-
+        if (penSupportedRefreshRate != null) {
+            updateRefreshRateCap()
             inputManager.registerInputDeviceListener(inputObserver, handler)
         }
 
@@ -110,9 +92,9 @@ class PenService : Service() {
     override fun onDestroy() {
         super.onDestroy()
 
-        if (!penSupportedRefreshRate.isEmpty()) {
-            contentResolver.unregisterContentObserver(peakRefreshRateSettingsObserver)
+        if (penSupportedRefreshRate != null) {
             inputManager.unregisterInputDeviceListener(inputObserver)
+            displayManager.requestMaxRefreshRate(Display.DEFAULT_DISPLAY, 0f)
         }
 
         observer.stopObserving()
@@ -158,7 +140,9 @@ class PenService : Service() {
         )
     }
 
-    private fun overridePeakRefreshRateIfNeeded() {
+    private fun updateRefreshRateCap() {
+        val maxRefreshRate = penSupportedRefreshRate ?: return
+
         val isPenConnected =
             inputManager.inputDeviceIds.firstOrNull {
                 val device = inputManager.getInputDevice(it) ?: return@firstOrNull false
@@ -175,20 +159,11 @@ class PenService : Service() {
                 }
                 return@firstOrNull true
             } != null
-        val peakRefreshRate = Settings.System.getString(contentResolver, PEAK_REFRESH_RATE)
 
-        if (isPenConnected) {
-            wasPenConnected = true
-        }
-
-        if (isPenConnected && peakRefreshRate == "Infinity") {
-            Settings.System.putString(contentResolver, PEAK_REFRESH_RATE, penSupportedRefreshRate)
-        } else if (
-            wasPenConnected && !isPenConnected && peakRefreshRate == penSupportedRefreshRate
-        ) {
-            wasPenConnected = false
-            Settings.System.putString(contentResolver, PEAK_REFRESH_RATE, "Infinity")
-        }
+        displayManager.requestMaxRefreshRate(
+            Display.DEFAULT_DISPLAY,
+            if (isPenConnected) maxRefreshRate else 0f,
+        )
     }
 
     private fun postNotification(pencilAddr: String) {
