@@ -4,7 +4,6 @@
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
-    <dimen name="pen_popup_shadow_inset">16dp</dimen>
     <dimen name="pen_popup_margin_top">8dp</dimen>
     <dimen name="pen_popup_height">64dp</dimen>
     <dimen name="pen_popup_min_width">240dp</dimen>
