@@ -31,6 +31,15 @@ class PenPopupContents(private val context: Context) {
             durationMs = BATTERY_DURATION_MS,
         )
 
+    fun connected(name: String, level: Int) =
+        PenPopupContent(
+            title = name,
+            subtitle = context.getString(R.string.pen_connected),
+            levelText = formatLevel(level),
+            isCharging = true,
+            durationMs = BATTERY_DURATION_MS,
+        )
+
     fun lowBattery(name: String, level: Int) =
         PenPopupContent(
             title = name,
@@ -38,6 +47,29 @@ class PenPopupContents(private val context: Context) {
             levelText = formatLevel(level),
             isError = true,
             durationMs = LOW_BATTERY_DURATION_MS,
+        )
+
+    fun pair(onClick: () -> Unit) =
+        PenPopupContent(
+            title = context.getString(R.string.pen_attached),
+            subtitle = context.getString(R.string.tap_to_connect),
+            durationMs = PAIR_DURATION_MS,
+            onClick = onClick,
+        )
+
+    fun connecting() =
+        PenPopupContent(
+            title = context.getString(R.string.pen_attached),
+            subtitle = context.getString(R.string.pen_connecting),
+        )
+
+    fun connectFailed(onClick: () -> Unit) =
+        PenPopupContent(
+            title = context.getString(R.string.pen_connect_failed),
+            subtitle = context.getString(R.string.pen_tap_to_retry),
+            isError = true,
+            durationMs = PAIR_DURATION_MS,
+            onClick = onClick,
         )
 
     private fun formatLevel(level: Int) =
@@ -52,5 +84,6 @@ class PenPopupContents(private val context: Context) {
 
         private const val BATTERY_DURATION_MS = 2500L
         private const val LOW_BATTERY_DURATION_MS = 4000L
+        private const val PAIR_DURATION_MS = 8000L
     }
 }
