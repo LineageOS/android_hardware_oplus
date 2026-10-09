@@ -19,6 +19,7 @@ import java.text.NumberFormat
 class PenBatteryMonitor(
     private val context: Context,
     private val handler: Handler,
+    private val onLevelChanged: (BluetoothDevice, Int) -> Unit,
     private val onLowBattery: (BluetoothDevice, Int) -> Unit,
 ) {
     private val notificationManager by lazy {
@@ -54,7 +55,7 @@ class PenBatteryMonitor(
                 if (!device.address.equals(penAddress, ignoreCase = true)) {
                     return
                 }
-                onLevelChanged(
+                updateLevel(
                     device,
                     intent.getIntExtra(
                         BluetoothDevice.EXTRA_BATTERY_LEVEL,
@@ -78,10 +79,11 @@ class PenBatteryMonitor(
         context.unregisterReceiver(receiver)
     }
 
-    private fun onLevelChanged(device: BluetoothDevice, level: Int) {
+    private fun updateLevel(device: BluetoothDevice, level: Int) {
         if (level !in 0..100) {
             return
         }
+        onLevelChanged(device, level)
 
         if (level > LOW_BATTERY_LEVEL) {
             if (isLowBatteryWarned) {
