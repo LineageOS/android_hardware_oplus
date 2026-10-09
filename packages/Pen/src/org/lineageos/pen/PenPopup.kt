@@ -22,7 +22,7 @@ import android.view.animation.PathInterpolator
 import android.widget.ImageView
 import android.widget.TextView
 
-class PenPopup(context: Context) {
+class PenPopup(context: Context, private val onDismissed: () -> Unit) {
     private val windowContext by lazy {
         val display =
             context.getSystemService(DisplayManager::class.java).getDisplay(Display.DEFAULT_DISPLAY)
@@ -92,6 +92,7 @@ class PenPopup(context: Context) {
             pill = null
             layoutParams = null
             content = null
+            onDismissed()
         }
     }
 
@@ -241,7 +242,7 @@ class PenPopup(context: Context) {
     companion object {
         private const val TAG = "OplusPenPopup"
 
-        private const val WINDOW_TYPE = WindowManager.LayoutParams.TYPE_SECURE_SYSTEM_OVERLAY
+        private const val WINDOW_TYPE = WindowManager.LayoutParams.TYPE_STATUS_BAR_SUB_PANEL
 
         private const val ENTER_DURATION_MS = 450L
         private const val EXIT_DURATION_MS = 200L
