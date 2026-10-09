@@ -3,8 +3,17 @@
     SPDX-FileCopyrightText: 2025 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" translatable="false">OplusPen</string>
     <string name="pen_attached">Pen attached</string>
     <string name="tap_to_connect">Tap to connect</string>
+
+    <string name="pen_default_name">Pen</string>
+    <string name="pen_charging">Charging</string>
+    <string name="pen_fully_charged">Fully charged</string>
+    <string name="pen_battery_low">Battery low</string>
+
+    <string name="pen_battery_channel_name">Pen battery</string>
+    <string name="pen_battery_low_title">Pen battery low</string>
+    <string name="pen_battery_low_text"><xliff:g id="percentage" example="15%">%1$s</xliff:g> remaining. Attach the pen to charge it.</string>
 </resources>
