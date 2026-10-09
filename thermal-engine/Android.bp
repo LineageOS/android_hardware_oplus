@@ -1,0 +1,28 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_defaults {
+    name: "thermal-engine_config_defaults.oplus",
+    srcs: ["ThermalEngineConfig.cpp"],
+    shared_libs: [
+        "libbase",
+        "libcrypto",
+        "libjsoncpp",
+        "libtinyxml2",
+    ],
+}
+
+cc_library_shared {
+    name: "libshims_thermal-engine.oplus",
+    defaults: ["thermal-engine_config_defaults.oplus"],
+    srcs: ["ThermalEngineShim.cpp"],
+    vendor: true,
+}
+
+cc_binary_host {
+    name: "thermal-engine-config.oplus",
+    defaults: ["thermal-engine_config_defaults.oplus"],
+    srcs: ["ThermalEngineConfigTool.cpp"],
+}
