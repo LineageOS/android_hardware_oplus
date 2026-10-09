@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54ed26dc_d126393e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-10-09T06:28:38Z",
+      "side": 1,
+      "message": "Reference vid for the two changes: https://drive.google.com/file/d/1Mn3pG-ARit9-9hoNnE9xLx6dz6utQFqv/view?usp\u003dsharing",
+      "revId": "e2f8f0bc663b19b5922c094553fad4f7351c4c9c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
