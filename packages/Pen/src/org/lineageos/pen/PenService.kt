@@ -5,32 +5,27 @@
 
 package org.lineageos.pen
 
-import android.app.Notification
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
+import android.app.KeyguardManager
 import android.app.Service
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
-import android.bluetooth.le.ScanCallback
-import android.bluetooth.le.ScanFilter
-import android.bluetooth.le.ScanResult
-import android.bluetooth.le.ScanSettings
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.hardware.display.DisplayManager
 import android.hardware.input.InputManager
 import android.os.Handler
 import android.os.IBinder
 import android.os.PowerManager
 import android.os.UEventObserver
-import android.util.Log
 import android.view.Display
 
 class PenService : Service() {
     private val bluetoothManager by lazy { getSystemService(BluetoothManager::class.java) }
     private val displayManager by lazy { getSystemService(DisplayManager::class.java) }
     private val inputManager by lazy { getSystemService(InputManager::class.java) }
-    private val notificationManager by lazy { getSystemService(NotificationManager::class.java) }
+    private val keyguardManager by lazy { getSystemService(KeyguardManager::class.java) }
     private val powerManager by lazy { getSystemService(PowerManager::class.java) }
 
     private val penSupportedRefreshRate by lazy {
@@ -47,16 +42,43 @@ class PenService : Service() {
 
     private val handler by lazy { Handler(mainLooper) }
 
-    private val popup by lazy { PenPopup(this) }
+    private val popup by lazy { PenPopup(this) { batteryPopupUpdate = null } }
     private val popupContents by lazy { PenPopupContents(this) }
 
+    private var batteryPopupUpdate: Pair<String, (Int) -> PenPopupContent>? = null
+
+    private var pendingPairAddress: String? = null
+
     private val batteryMonitor by lazy {
-        PenBatteryMonitor(this, handler) { device, level ->
-            if (powerManager.isInteractive) {
-                popup.show(popupContents.lowBattery(getPenName(device), level))
+        PenBatteryMonitor(
+            this,
+            handler,
+            onLevelChanged = { device, level ->
+                batteryPopupUpdate?.let { (address, update) ->
+                    if (address.equals(device.address, ignoreCase = true)) {
+                        popup.show(update(level))
+                    }
+                }
+            },
+            onLowBattery = { device, level ->
+                if (powerManager.isInteractive) {
+                    showPopup(popupContents.lowBattery(getPenName(device), level))
+                }
+            },
+        )
+    }
+
+    private val pairing by lazy { PenPairing(this, handler, ::onPairingFinished) }
+
+    private val screenOnReceiver =
+        object : BroadcastReceiver() {
+            override fun onReceive(context: Context, intent: Intent) {
+                pendingPairAddress?.let {
+                    pendingPairAddress = null
+                    showPairPopup(it)
+                }
             }
         }
-    }
 
     private var pencilStatus: Boolean? = null
     private var isActiveAckSent = false
@@ -90,10 +112,7 @@ class PenService : Service() {
                             ?: return
 
                     when (pencilStatus) {
-                        "0" -> {
-                            notificationManager.cancel(NOTIFICATION_ID)
-                            handler.post { batteryMonitor.isAttached = false }
-                        }
+                        "0" -> handler.post { onPencilDetached() }
                         "1" -> handler.post { onPencilAttached(pencilAddr) }
                     }
                 }
@@ -116,7 +135,7 @@ class PenService : Service() {
         }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        intent?.getStringExtra(EXTRA_PENCIL_ADDR)?.let { bondBtDevice(it) }
+        intent?.getStringExtra(EXTRA_PENCIL_ADDR)?.let { startPairing(it) }
 
         return START_STICKY
     }
@@ -132,6 +151,13 @@ class PenService : Service() {
         }
 
         batteryMonitor.start()
+        registerReceiver(
+            screenOnReceiver,
+            IntentFilter(Intent.ACTION_SCREEN_ON),
+            null,
+            handler,
+            RECEIVER_NOT_EXPORTED,
+        )
         observer.startObserving("DEVPATH=/devices/virtual/oplus_wireless/pencil")
 
         penRelay?.let {
@@ -153,7 +179,9 @@ class PenService : Service() {
         }
 
         observer.stopObserving()
+        unregisterReceiver(screenOnReceiver)
         batteryMonitor.stop()
+        pairing.stop()
         popup.dismissNow()
 
         penRelay?.let {
@@ -188,46 +216,6 @@ class PenService : Service() {
         penRelay?.sendPencilStatusAck(true)
     }
 
-    private fun bondBtDevice(pencilAddr: String) {
-        val adapter = bluetoothManager.adapter
-        @Suppress("DEPRECATION") adapter.enable()
-
-        val scanner = run {
-            repeat(50) {
-                adapter.bluetoothLeScanner?.let {
-                    return@run it
-                }
-                Thread.sleep(100)
-            }
-            return@run null
-        }
-        scanner?.startScan(
-            listOf(ScanFilter.Builder().setDeviceAddress(pencilAddr).build()),
-            ScanSettings.Builder()
-                .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)
-                .setReportDelay(0L)
-                .build(),
-            object : ScanCallback() {
-                override fun onScanResult(callbackType: Int, result: ScanResult) {
-                    super.onScanResult(callbackType, result)
-                    scanner.stopScan(this)
-
-                    result.device.createBond()
-                }
-
-                override fun onBatchScanResults(results: MutableList<ScanResult>) {
-                    super.onBatchScanResults(results)
-                    scanner.stopScan(this)
-                }
-
-                override fun onScanFailed(errorCode: Int) {
-                    super.onScanFailed(errorCode)
-                    scanner.stopScan(this)
-                }
-            },
-        )
-    }
-
     private fun updateRefreshRateCap() {
         val maxRefreshRate = penSupportedRefreshRate ?: return
 
@@ -255,68 +243,92 @@ class PenService : Service() {
     }
 
     private fun onPencilAttached(pencilAddr: String) {
-        val device = bluetoothManager.adapter.getRemoteDevice(pencilAddr)
-        if (device.bondState != BluetoothDevice.BOND_BONDED) {
-            postNotification(pencilAddr)
+        val adapter = bluetoothManager.adapter
+        val device = adapter.getRemoteDevice(pencilAddr)
+        if (!adapter.isEnabled || device.bondState != BluetoothDevice.BOND_BONDED) {
+            if (powerManager.isInteractive) {
+                showPairPopup(pencilAddr)
+            } else {
+                pendingPairAddress = pencilAddr
+            }
             return
         }
 
         batteryMonitor.penAddress = device.address
         batteryMonitor.isAttached = true
         if (powerManager.isInteractive) {
-            popup.show(popupContents.attached(getPenName(device), device.batteryLevel))
+            showBatteryPopup(device, device.batteryLevel, popupContents::attached)
         }
+    }
+
+    private fun onPencilDetached() {
+        batteryMonitor.isAttached = false
+        pendingPairAddress = null
+        if (popup.content?.onClick != null && !pairing.isPairing) {
+            popup.dismiss()
+        }
+    }
+
+    private fun showPairPopup(pencilAddr: String) {
+        showPopup(popupContents.pair { onPairTapped(pencilAddr) })
+    }
+
+    private fun onPairTapped(pencilAddr: String) {
+        if (pairing.isPairing) {
+            return
+        }
+        if (keyguardManager.isKeyguardLocked) {
+            popup.dismiss()
+            startActivity(
+                Intent(this, PenUnlockActivity::class.java).apply {
+                    putExtra(EXTRA_PENCIL_ADDR, pencilAddr)
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
+            )
+            return
+        }
+        startPairing(pencilAddr)
+    }
+
+    private fun startPairing(pencilAddr: String) {
+        if (pairing.isPairing) {
+            return
+        }
+        showPopup(popupContents.connecting())
+        pairing.start(pencilAddr)
+    }
+
+    private fun onPairingFinished(device: BluetoothDevice, isBonded: Boolean) {
+        if (!isBonded) {
+            showPopup(popupContents.connectFailed { onPairTapped(device.address) })
+            return
+        }
+
+        batteryMonitor.penAddress = device.address
+        batteryMonitor.isAttached = true
+        showBatteryPopup(device, device.batteryLevel, popupContents::connected)
+    }
+
+    private fun showPopup(content: PenPopupContent) {
+        batteryPopupUpdate = null
+        popup.show(content)
+    }
+
+    private fun showBatteryPopup(
+        device: BluetoothDevice,
+        level: Int,
+        content: (String, Int) -> PenPopupContent,
+    ) {
+        val name = getPenName(device)
+        popup.show(content(name, level))
+        batteryPopupUpdate = device.address to { newLevel -> content(name, newLevel) }
     }
 
     private fun getPenName(device: BluetoothDevice) =
         device.alias ?: getString(R.string.pen_default_name)
 
-    private fun postNotification(pencilAddr: String) {
-        val adapter = bluetoothManager.adapter
-
-        if (adapter.bondedDevices.contains(adapter.getRemoteDevice(pencilAddr))) {
-            Log.e(TAG, "$pencilAddr already bonded, bailing out")
-            return
-        }
-
-        if (notificationManager.getNotificationChannel(NOTIFICATION_CHANNEL_ID) == null) {
-            notificationManager.createNotificationChannel(
-                NotificationChannel(
-                    NOTIFICATION_CHANNEL_ID,
-                    NOTIFICATION_CHANNEL_ID,
-                    NotificationManager.IMPORTANCE_HIGH,
-                )
-            )
-        }
-
-        val contentIntent =
-            PendingIntent.getService(
-                this,
-                0,
-                Intent(this, PenService::class.java).apply {
-                    putExtra(EXTRA_PENCIL_ADDR, pencilAddr)
-                },
-                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
-            )
-
-        val notification =
-            Notification.Builder(this, NOTIFICATION_CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_stylus)
-                .setContentTitle(getString(R.string.pen_attached))
-                .setContentText(getString(R.string.tap_to_connect))
-                .setContentIntent(contentIntent)
-                .setAutoCancel(true)
-                .build()
-        notificationManager.notify(NOTIFICATION_ID, notification)
-    }
-
     companion object {
-        private const val TAG = "OplusPenService"
-
-        private const val EXTRA_PENCIL_ADDR = "pencil_addr"
-
-        private const val NOTIFICATION_CHANNEL_ID = "OplusPen"
-        private const val NOTIFICATION_ID = 1000
+        const val EXTRA_PENCIL_ADDR = "pencil_addr"
 
         private const val REFRESH_RATE_TOLERANCE = 0.5f
     }
