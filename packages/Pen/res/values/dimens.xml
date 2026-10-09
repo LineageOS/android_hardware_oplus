@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <dimen name="pen_popup_margin_top">8dp</dimen>
+    <dimen name="pen_popup_height">64dp</dimen>
+    <dimen name="pen_popup_min_width">240dp</dimen>
+    <dimen name="pen_popup_corner_radius">32dp</dimen>
+    <dimen name="pen_popup_elevation">6dp</dimen>
+    <dimen name="pen_popup_padding_start">10dp</dimen>
+    <dimen name="pen_popup_padding_end">18dp</dimen>
+    <dimen name="pen_popup_icon_container_size">44dp</dimen>
+    <dimen name="pen_popup_icon_size">24dp</dimen>
+    <dimen name="pen_popup_text_gap">14dp</dimen>
+    <dimen name="pen_popup_level_gap">20dp</dimen>
+    <dimen name="pen_popup_bolt_size">22dp</dimen>
+    <dimen name="pen_popup_bolt_gap">4dp</dimen>
+    <dimen name="pen_popup_enter_offset">-12dp</dimen>
+</resources>

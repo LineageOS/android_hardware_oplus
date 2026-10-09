@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pill"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:accessibilityLiveRegion="polite"
+    android:background="@drawable/pen_popup_background"
+    android:elevation="@dimen/pen_popup_elevation"
+    android:gravity="center_vertical"
+    android:minWidth="@dimen/pen_popup_min_width"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/pen_popup_padding_start"
+    android:paddingEnd="@dimen/pen_popup_padding_end">
+
+    <FrameLayout
+        android:id="@+id/icon_container"
+        android:layout_width="@dimen/pen_popup_icon_container_size"
+        android:layout_height="@dimen/pen_popup_icon_container_size"
+        android:background="@drawable/pen_popup_icon_background"
+        android:importantForAccessibility="no">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/pen_popup_icon_size"
+            android:layout_height="@dimen/pen_popup_icon_size"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_stylus" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/pen_popup_text_gap"
+        android:layout_marginEnd="@dimen/pen_popup_level_gap"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+            android:textColor="@color/pen_popup_on_surface"
+            android:textFontWeight="500"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+            android:textColor="@color/pen_popup_on_surface_variant"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/bolt"
+        android:layout_width="@dimen/pen_popup_bolt_size"
+        android:layout_height="@dimen/pen_popup_bolt_size"
+        android:layout_marginEnd="@dimen/pen_popup_bolt_gap"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_bolt" />
+
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFeatureSettings="tnum"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+        android:textFontWeight="500"
+        android:textSize="24sp" />
+</LinearLayout>

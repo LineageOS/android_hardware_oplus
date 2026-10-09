@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <color name="pen_popup_surface">@android:color/system_surface_container_high_dark</color>
+    <color name="pen_popup_on_surface">@android:color/system_on_surface_dark</color>
+    <color name="pen_popup_on_surface_variant">@android:color/system_on_surface_variant_dark</color>
+    <color name="pen_popup_primary">@android:color/system_primary_dark</color>
+    <color name="pen_popup_primary_container">@android:color/system_primary_container_dark</color>
+    <color name="pen_popup_on_primary_container">@android:color/system_on_primary_container_dark</color>
+    <color name="pen_popup_error">@android:color/system_error_dark</color>
+    <color name="pen_popup_error_container">@android:color/system_error_container_dark</color>
+    <color name="pen_popup_on_error_container">@android:color/system_on_error_container_dark</color>
+</resources>
