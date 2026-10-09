@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2025 The LineageOS Project
+ * SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -34,14 +34,23 @@ class EsimSettingsFragment :
                 }
                 .setPositiveButton(R.string.esim_toggle_dialog_ok) { dialog, _ ->
                     dialog.dismiss()
-                    controller.toggleEsimState(1)
-                    (preference as? SwitchPreferenceCompat)?.isChecked = true
+                    toggleEsimState(preference, true)
                 }
                 .show()
             return false
         } else {
-            controller.toggleEsimState(0)
-            return true
+            toggleEsimState(preference, false)
+            return false
+        }
+    }
+
+    private fun toggleEsimState(preference: Preference, enable: Boolean) {
+        preference.isEnabled = false
+        controller.toggleEsimState(if (enable) 1 else 0) { success ->
+            if (success) {
+                (preference as? SwitchPreferenceCompat)?.isChecked = enable
+            }
+            preference.isEnabled = true
         }
     }
 
