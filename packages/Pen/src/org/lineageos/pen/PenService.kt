@@ -10,6 +10,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
+import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanFilter
@@ -20,6 +21,7 @@ import android.hardware.display.DisplayManager
 import android.hardware.input.InputManager
 import android.os.Handler
 import android.os.IBinder
+import android.os.PowerManager
 import android.os.UEventObserver
 import android.util.Log
 import android.view.Display
@@ -29,6 +31,7 @@ class PenService : Service() {
     private val displayManager by lazy { getSystemService(DisplayManager::class.java) }
     private val inputManager by lazy { getSystemService(InputManager::class.java) }
     private val notificationManager by lazy { getSystemService(NotificationManager::class.java) }
+    private val powerManager by lazy { getSystemService(PowerManager::class.java) }
 
     private val penSupportedRefreshRate by lazy {
         getString(R.string.config_penSupportedRefreshRate).toFloatOrNull()
@@ -43,6 +46,17 @@ class PenService : Service() {
     }
 
     private val handler by lazy { Handler(mainLooper) }
+
+    private val popup by lazy { PenPopup(this) }
+    private val popupContents by lazy { PenPopupContents(this) }
+
+    private val batteryMonitor by lazy {
+        PenBatteryMonitor(this, handler) { device, level ->
+            if (powerManager.isInteractive) {
+                popup.show(popupContents.lowBattery(getPenName(device), level))
+            }
+        }
+    }
 
     private var pencilStatus: Boolean? = null
     private var isActiveAckSent = false
@@ -76,8 +90,11 @@ class PenService : Service() {
                             ?: return
 
                     when (pencilStatus) {
-                        "0" -> notificationManager.cancel(NOTIFICATION_ID)
-                        "1" -> postNotification(pencilAddr)
+                        "0" -> {
+                            notificationManager.cancel(NOTIFICATION_ID)
+                            handler.post { batteryMonitor.isAttached = false }
+                        }
+                        "1" -> handler.post { onPencilAttached(pencilAddr) }
                     }
                 }
             }
@@ -114,6 +131,7 @@ class PenService : Service() {
             inputManager.registerInputDeviceListener(inputObserver, handler)
         }
 
+        batteryMonitor.start()
         observer.startObserving("DEVPATH=/devices/virtual/oplus_wireless/pencil")
 
         penRelay?.let {
@@ -135,6 +153,8 @@ class PenService : Service() {
         }
 
         observer.stopObserving()
+        batteryMonitor.stop()
+        popup.dismissNow()
 
         penRelay?.let {
             displayManager.unregisterDisplayListener(displayListener)
@@ -233,6 +253,23 @@ class PenService : Service() {
             if (pencilStatus ?: isPenConnected) maxRefreshRate else 0f,
         )
     }
+
+    private fun onPencilAttached(pencilAddr: String) {
+        val device = bluetoothManager.adapter.getRemoteDevice(pencilAddr)
+        if (device.bondState != BluetoothDevice.BOND_BONDED) {
+            postNotification(pencilAddr)
+            return
+        }
+
+        batteryMonitor.penAddress = device.address
+        batteryMonitor.isAttached = true
+        if (powerManager.isInteractive) {
+            popup.show(popupContents.attached(getPenName(device), device.batteryLevel))
+        }
+    }
+
+    private fun getPenName(device: BluetoothDevice) =
+        device.alias ?: getString(R.string.pen_default_name)
 
     private fun postNotification(pencilAddr: String) {
         val adapter = bluetoothManager.adapter
