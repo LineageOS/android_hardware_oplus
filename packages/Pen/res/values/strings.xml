@@ -13,6 +13,11 @@
     <string name="pen_fully_charged">Fully charged</string>
     <string name="pen_battery_low">Battery low</string>
 
+    <string name="pen_connecting">Connecting…</string>
+    <string name="pen_connected">Connected</string>
+    <string name="pen_connect_failed">Couldn’t connect</string>
+    <string name="pen_tap_to_retry">Tap to try again</string>
+
     <string name="pen_battery_channel_name">Pen battery</string>
     <string name="pen_battery_low_title">Pen battery low</string>
     <string name="pen_battery_low_text"><xliff:g id="percentage" example="15%">%1$s</xliff:g> remaining. Attach the pen to charge it.</string>
