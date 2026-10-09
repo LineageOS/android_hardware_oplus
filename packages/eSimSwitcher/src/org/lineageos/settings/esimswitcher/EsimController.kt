@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2025 The LineageOS Project
+ * SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -23,27 +23,38 @@ class EsimController(private val context: Context) {
 
     fun currentGpioState() = oplusEsimService?.esimGpio ?: 0
 
-    fun toggleEsimState(state: Int) {
-        val gpioState = currentGpioState()
-        Log.d(TAG, "Current eSIM status = $gpioState")
-
-        if (state == gpioState) {
-            Log.d(TAG, "No need to change eSIM state")
-            return
+    fun toggleEsimState(state: Int, onComplete: (Boolean) -> Unit) {
+        val complete: (Boolean) -> Unit = { success ->
+            context.mainExecutor.execute { onComplete(success) }
         }
+        try {
+            checkNotNull(oplusEsimService) { "eSIM service is unavailable" }
+            val gpioState = currentGpioState()
+            Log.d(TAG, "Current eSIM status = $gpioState")
 
-        oplusEsimService?.setUimPower(0)
+            if (state == gpioState) {
+                Log.d(TAG, "No need to change eSIM state")
+                complete(true)
+                return
+            }
 
-        if (hasSN220Chipset) {
-            specialSetEsimGpio(if (gpioState == 0) 1 else 0)
-            /* oplusEsimService?.setUimPower(1) done via SEService.OnConnectedListener */
-        } else {
-            oplusEsimService?.setEsimGpio(if (gpioState == 0) 1 else 0)
-            oplusEsimService?.setUimPower(1)
+            oplusEsimService?.setUimPower(0)
+
+            if (hasSN220Chipset) {
+                specialSetEsimGpio(if (gpioState == 0) 1 else 0, complete)
+                /* oplusEsimService?.setUimPower(1) done via SEService.OnConnectedListener */
+            } else {
+                oplusEsimService?.setEsimGpio(if (gpioState == 0) 1 else 0)
+                oplusEsimService?.setUimPower(1)
+                complete(currentGpioState() == state)
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to switch eSIM state", e)
+            complete(false)
         }
     }
 
-    private fun specialSetEsimGpio(state: Int) {
+    private fun specialSetEsimGpio(state: Int, onComplete: (Boolean) -> Unit) {
         var seService: SEService? = null
 
         val listener =
@@ -51,7 +62,12 @@ class EsimController(private val context: Context) {
                 override fun onConnected() {
                     Log.d(TAG, "SEService connected")
 
-                    val service = seService ?: return
+                    val service = seService
+                    if (service == null) {
+                        onComplete(false)
+                        return
+                    }
+                    var success = false
 
                     try {
                         val reader = service.readers.firstOrNull { it.name == "eSE1" }
@@ -63,6 +79,7 @@ class EsimController(private val context: Context) {
 
                         channel?.close()
                         session?.close()
+                        success = currentGpioState() == state
                     } catch (e: Exception) {
                         Log.e(TAG, "Failed to open eSE session", e)
                     } finally {
@@ -71,6 +88,7 @@ class EsimController(private val context: Context) {
                         } catch (e: Exception) {
                             Log.e(TAG, "Failed to shutdown SEService", e)
                         }
+                        onComplete(success)
                     }
                 }
             }
@@ -79,6 +97,7 @@ class EsimController(private val context: Context) {
             seService = SEService(context, Dispatchers.IO.asExecutor(), listener)
         } catch (e: Exception) {
             Log.e(TAG, "Failed to start SEService", e)
+            onComplete(false)
         }
     }
 
