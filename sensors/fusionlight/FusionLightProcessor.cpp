@@ -28,6 +28,7 @@ struct PendingEvent {
     Event event;
     Channels raw_channels = Channels::Zero();
     int32_t brightness = 0;
+    bool dc_mode = false;
 };
 
 int FindRange(const std::vector<ValueRange>& ranges, double value) {
@@ -45,6 +46,31 @@ int FindRange(const std::vector<ValueRange>& ranges, double value) {
         }
     }
     return -1;
+}
+
+// The view model matches brightness above each lower bound, except for the
+// first IR brightness range. Unmatched brightness falls back to the first range.
+int FindViewRange(const std::vector<ValueRange>& ranges, double value, bool include_first_min) {
+    for (int level = 0; level < ranges.size(); ++level) {
+        const bool above_min = value > ranges[level].min ||
+                               (include_first_min && level == 0 && value == ranges[level].min);
+        if (above_min && value <= ranges[level].max) {
+            return level;
+        }
+    }
+    return 0;
+}
+
+// FusionLightBrightnesses lists the upper brightness of the default, medium and
+// low brightness segments.
+int FindViewSegment(const FusionConfig& config, int32_t brightness) {
+    if (config.segments.size() != kIrBandCount) {
+        return 0;
+    }
+    if (brightness <= config.segment_brightness[2]) {
+        return 2;
+    }
+    return brightness <= config.segment_brightness[1] ? 1 : 0;
 }
 
 int FindIrBand(const std::vector<ValueRange>& thresholds, double ratio) {
@@ -83,17 +109,31 @@ int FindCZeroLevel(const FusionConfig& config, double clear) {
     return level;
 }
 
-double IrRatio(const Channels& channels) {
+bool HasAbsoluteIrRatio(int32_t sensor_module_id) {
+    constexpr int32_t kModules[] = {4, 5, 6, 8, 11};
+    return std::find(std::begin(kModules), std::end(kModules), sensor_module_id) !=
+           std::end(kModules);
+}
+
+double IrRatio(const FusionConfig& config, const Channels& channels) {
     if (channels[3] <= 0.0) {
         return 0.0;
     }
-    return std::max((channels[0] + channels[1] + channels[2] - channels[3]) / channels[3] * 0.5,
-                    0.0);
+    double ratio = (channels[0] + channels[1] + channels[2] - channels[3]) / channels[3] * 0.5;
+    // Stock folds negative view model ratios back for these sensor modules.
+    if (!config.screenshot_v2_1_supported && HasAbsoluteIrRatio(config.sensor_module_id)) {
+        ratio = std::abs(ratio);
+    }
+    return std::max(ratio, 0.0);
+}
+
+double EvaluatePolynomial(const Polynomial& polynomial, double x) {
+    return ((polynomial[0] * x + polynomial[1]) * x + polynomial[2]) * x + polynomial[3];
 }
 
 std::optional<double> CalculateLux(const FusionConfig& config, const Channels& channels,
                                    int32_t brightness, bool screen_off) {
-    const int band = FindIrBand(config.ir_thresholds, IrRatio(channels));
+    const int band = FindIrBand(config.ir_thresholds, IrRatio(config, channels));
     if (band < 0 || band >= kIrBandCount) {
         return std::nullopt;
     }
@@ -110,17 +150,27 @@ std::optional<double> CalculateLux(const FusionConfig& config, const Channels& c
         level = FindChannelPolicy(config, channels);
         if (level >= 0) {
             table = &config.channel_count_coefficients[band];
-        } else {
+        } else if (config.screenshot_v2_1_supported) {
             table = &config.lux_coefficients[band];
             level = FindRange(config.ir_brightness, brightness);
+        } else {
+            const auto& segment = config.segments[FindViewSegment(config, brightness)];
+            table = &segment.lux_coefficients[band];
+            level = FindViewRange(segment.ir_brightness, brightness, true);
         }
     }
 
     if (level < 0 || level >= table->size()) {
         return std::nullopt;
     }
-    const double lux = channels.dot((*table)[level]);
-    return std::isfinite(lux) ? std::optional(std::max(lux, 0.0)) : std::nullopt;
+    double lux = channels.dot((*table)[level]);
+    if (!std::isfinite(lux)) {
+        return std::nullopt;
+    }
+    if (!config.screenshot_v2_1_supported && lux < config.low_light_accuracy) {
+        lux = 0.0;
+    }
+    return std::max(lux, 0.0);
 }
 
 LeakageModel LeakageTerms(double linearity, double r, double g, double b) {
@@ -165,13 +215,61 @@ std::optional<double> CalculateCorrectedLux(const FusionConfig& config,
     for (int channel = 0; channel < kChannelCount; ++channel) {
         const auto& polynomial = config.linearity[level][channel];
         const double x = brightness;
-        const double linearity =
-                ((polynomial[0] * x + polynomial[1]) * x + polynomial[2]) * x + polynomial[3];
+        const double linearity = EvaluatePolynomial(polynomial, x);
         const auto leakage_basis = LeakageTerms(linearity, sample.r, sample.g, sample.b);
         const double parameter = config.leakage[level][channel].dot(leakage_basis);
         const double ratio = config.leakage_ratio[level][channel].dot(ratio_basis);
         const double leakage = std::max(parameter * ratio * calibration[level][channel], 0.0);
         compensated[channel] = std::max(raw_channels[channel] - leakage, 0.0);
+    }
+    return CalculateLux(config, compensated, brightness, false);
+}
+
+Channels CalculateViewLinearity(const FusionConfig& config, int32_t brightness, bool dc_mode) {
+    if (brightness == 0) {
+        return Channels::Zero();
+    }
+    if (dc_mode && !config.fod_linearity_segment_supported) {
+        return config.fod_linearity_constant;
+    }
+    const auto& functions = dc_mode ? config.fod_linearity : config.linearity;
+    int level = FindViewRange(config.linearity_brightness, brightness, false);
+    if (level >= functions.size()) {
+        level = 0;
+    }
+    Channels linearity;
+    for (int channel = 0; channel < kChannelCount; ++channel) {
+        linearity[channel] = EvaluatePolynomial(functions[level][channel], brightness);
+    }
+    return linearity;
+}
+
+std::optional<double> CalculateViewLux(const FusionConfig& config,
+                                       const std::vector<ViewCalibration>& calibration,
+                                       const PendingEvent& pending_event, const CwbSample& sample) {
+    const int32_t brightness = pending_event.brightness;
+    const int segment_index = FindViewSegment(config, brightness);
+    if (segment_index >= calibration.size()) {
+        return std::nullopt;
+    }
+    const auto& segment = config.segments[segment_index];
+    const Eigen::Vector3d screen(sample.r, sample.g, sample.b);
+    const Channels linearity = CalculateViewLinearity(config, brightness, pending_event.dc_mode);
+
+    Channels compensated;
+    for (int channel = 0; channel < kChannelCount; ++channel) {
+        // R, G and B views add their leakage; the white view, driven by the
+        // channel's grey level, removes the overlap between them.
+        double leakage = 0.0;
+        for (int view = 0; view < kChannelCount; ++view) {
+            const bool white = view == kChannelCount - 1;
+            const double x = white ? segment.grey_scale[channel].dot(screen) : screen[view];
+            const double term = EvaluatePolynomial(segment.leakage[channel][view], x) *
+                                calibration[segment_index](channel, view);
+            leakage += white ? -term : term;
+        }
+        leakage = std::max(leakage * linearity[channel], 0.0);
+        compensated[channel] = std::max(pending_event.raw_channels[channel] - leakage, 0.0);
     }
     return CalculateLux(config, compensated, brightness, false);
 }
@@ -232,7 +330,10 @@ struct FusionLightProcessor::SharedState {
     }
 
     void calibrateWithSampleLocked(PendingEvent& pending_event, const CwbSample& sample) {
-        const auto lux = CalculateCorrectedLux(config, calibration, pending_event, sample);
+        const auto lux =
+                config.screenshot_v2_1_supported
+                        ? CalculateCorrectedLux(config, calibration, pending_event, sample)
+                        : CalculateViewLux(config, view_calibration, pending_event, sample);
         if (lux.has_value()) {
             pending_event.event.u.scalar = *lux;
         } else {
@@ -302,6 +403,7 @@ struct FusionLightProcessor::SharedState {
     EmitCallback emit;
     FusionConfig config;
     std::vector<Channels> calibration;
+    std::vector<ViewCalibration> view_calibration;
     std::optional<PendingEvent> waiting_for_sample;
     std::deque<Event> delivery;
     std::deque<CwbSample> screen_samples;
@@ -331,18 +433,24 @@ bool FusionLightProcessor::initializeLocked() {
 
     auto config = profile_sensor_name_.empty() ? std::optional<FusionConfig>{}
                                                : LoadConfig(profile_sensor_name_);
-    if (!config.has_value() || !config->cwb_supported || !config->fusion_rgb_supported ||
-        !config->screenshot_v2_1_supported) {
-        LOG(WARNING) << "FusionLight V2.1 is disabled or unavailable; passing raw lux";
+    if (!config.has_value() || !config->cwb_supported || !config->fusion_rgb_supported) {
+        LOG(WARNING) << "FusionLight is disabled or unavailable; passing raw lux";
         return false;
     }
 
-    std::vector<Channels> calibration = LoadCalibration(*config);
+    std::vector<Channels> calibration;
+    std::vector<ViewCalibration> view_calibration;
+    if (config->screenshot_v2_1_supported) {
+        calibration = LoadCalibration(*config);
+    } else {
+        view_calibration = LoadViewCalibration(*config);
+    }
     sampler_.setConfig(config->cwb);
     {
         std::lock_guard lock(state_->mutex);
         state_->config = std::move(*config);
         state_->calibration = std::move(calibration);
+        state_->view_calibration = std::move(view_calibration);
         state_->available = true;
     }
     return true;
@@ -439,6 +547,8 @@ void FusionLightProcessor::process(const Event& event, int32_t fusion_light_hand
         }
     }
     const int32_t brightness = event.u.data[3];
+    // Bit 1 of the event flags reports DC dimming.
+    const bool dc_mode = static_cast<int32_t>(event.u.data[2]) & 0x2;
 
     bool available;
     {
@@ -493,7 +603,8 @@ void FusionLightProcessor::process(const Event& event, int32_t fusion_light_hand
             return;
         }
         state_->finishWaitingLocked();
-        PendingEvent pending_event{std::move(fusion_light_event), raw_channels, brightness};
+        PendingEvent pending_event{std::move(fusion_light_event), raw_channels, brightness,
+                                   dc_mode};
         if (state_->updateCalibrationLocked(pending_event)) {
             state_->enqueueDeliveryLocked(std::move(pending_event.event));
         } else if (state_->cwb_failed) {
