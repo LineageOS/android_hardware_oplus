@@ -34,6 +34,7 @@ constexpr int32_t kPanelInfoFeature = 9;
 constexpr int32_t kMainPanelStageFeature = 0x22;
 constexpr int32_t kDefaultPanelStage = 4;
 constexpr auto kCwbWeightsPath = "/odm/etc/display/cwb_weightspos.json";
+constexpr auto kDefaultScreenshotPeriod = 250ms;
 
 bool ReadNumber(const Json::Value& value, double& result) {
     if (value.isString()) {
@@ -377,12 +378,24 @@ bool ParseV21Model(const Json::Value& root, FusionConfig& config, std::string& e
         !ParseRanges(root["IRBrightness_V2_1"], "BrightnessMin", "BrightnessMax",
                      config.ir_brightness) ||
         !ParseRanges(root["IRThreshold_V2_1"], "IR_Ratio_Min", "IR_Ratio_Max",
-                     config.ir_thresholds) ||
-        !ParseChannelModels(root["LinearityCompensation"], config.linearity) ||
-        !ParseChannelModels(root["LightLeakageCalculation"], config.leakage) ||
-        !ParseChannelModels(root["LightLeakageRatio"], config.leakage_ratio) ||
-        !ParseGolden(root["LightLeakageGolden"], config.leakage_golden)) {
+                     config.ir_thresholds)) {
         error = "invalid V2.1 model";
+        return false;
+    }
+
+    // Profiles may omit the leakage model entirely. Stock then keeps zeroed
+    // tables, which leaves the raw channels uncompensated.
+    constexpr const char* kLeakageTables[] = {"LinearityCompensation", "LightLeakageCalculation",
+                                              "LightLeakageRatio", "LightLeakageGolden"};
+    const bool has_leakage_model =
+            std::any_of(std::begin(kLeakageTables), std::end(kLeakageTables),
+                        [&](const char* name) { return !root[name].isNull(); });
+    if (has_leakage_model &&
+        (!ParseChannelModels(root["LinearityCompensation"], config.linearity) ||
+         !ParseChannelModels(root["LightLeakageCalculation"], config.leakage) ||
+         !ParseChannelModels(root["LightLeakageRatio"], config.leakage_ratio) ||
+         !ParseGolden(root["LightLeakageGolden"], config.leakage_golden))) {
+        error = "invalid V2.1 leakage model";
         return false;
     }
 
@@ -396,8 +409,9 @@ bool ParseV21Model(const Json::Value& root, FusionConfig& config, std::string& e
     }
 
     const size_t levels = config.linearity_brightness.size();
-    if (config.linearity.size() != levels || config.leakage.size() != levels ||
-        config.leakage_ratio.size() != levels || config.leakage_golden.size() != levels ||
+    if ((has_leakage_model &&
+         (config.linearity.size() != levels || config.leakage.size() != levels ||
+          config.leakage_ratio.size() != levels || config.leakage_golden.size() != levels)) ||
         config.ir_brightness.empty()) {
         error = "inconsistent V2.1 model dimensions";
         return false;
@@ -412,18 +426,6 @@ bool ParseV21Model(const Json::Value& root, FusionConfig& config, std::string& e
 }
 
 bool ParseViewModel(const Json::Value& root, FusionConfig& config, std::string& error) {
-    const auto& common = root["CommonConfig"];
-    int32_t ir_ratio_formula = 0;
-    if (common.isMember("IRRatioFormulaType") &&
-        !ReadInt(common["IRRatioFormulaType"], ir_ratio_formula)) {
-        error = "invalid IRRatioFormulaType";
-        return false;
-    }
-    if (ir_ratio_formula != 0) {
-        error = "unsupported IR ratio formula " + std::to_string(ir_ratio_formula);
-        return false;
-    }
-
     if (!ParseRanges(root["LinearityBrightnessRange"], "BrightnessMin", "BrightnessMax",
                      config.linearity_brightness) ||
         !ParseRanges(root["IRThreshold"], "IR_Ratio_Min", "IR_Ratio_Max", config.ir_thresholds) ||
@@ -478,10 +480,20 @@ bool ParseConfig(std::istream& stream, FusionConfig& config, std::string& error)
         !ReadRequiredInt(crop, "RightBottomY", config.cwb.crop_bottom) ||
         !ReadRequiredInt(resolution, "Width", config.cwb.reference_width) ||
         !ReadRequiredInt(resolution, "Height", config.cwb.reference_height) ||
-        !ReadRequiredDuration(common, "CWBScreenshotPeriod", config.cwb.screenshot_period) ||
+        (common.isMember("CWBScreenshotPeriod") &&
+         !ReadRequiredDuration(common, "CWBScreenshotPeriod", config.cwb.screenshot_period)) ||
+        (common.isMember("IRRatioFormulaType") &&
+         !ReadInt(common["IRRatioFormulaType"], config.ir_ratio_formula)) ||
         (common.isMember("LowLightAccuracy") &&
          !ReadNumber(common["LowLightAccuracy"], config.low_light_accuracy))) {
         error = "invalid CommonConfig";
+        return false;
+    }
+    if (!common.isMember("CWBScreenshotPeriod")) {
+        config.cwb.screenshot_period = kDefaultScreenshotPeriod;
+    }
+    if (config.ir_ratio_formula != 0 && config.ir_ratio_formula != 2) {
+        error = "unsupported IR ratio formula " + std::to_string(config.ir_ratio_formula);
         return false;
     }
 
