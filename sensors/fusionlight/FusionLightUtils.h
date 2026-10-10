@@ -60,10 +60,12 @@ struct ViewSegment {
 
 struct FusionConfig {
     int32_t sensor_module_id = 0;
+    int32_t ir_ratio_formula = 0;
     double low_light_accuracy = 0.0;
 
     bool fusion_rgb_supported = false;
     bool cwb_supported = false;
+    bool black_frame_supported = false;
     bool screenshot_v2_1_supported = false;
     bool screen_off_lux_supported = false;
     bool channel_count_policy_supported = false;
