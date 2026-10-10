@@ -116,15 +116,28 @@ bool HasAbsoluteIrRatio(int32_t sensor_module_id) {
 }
 
 double IrRatio(const FusionConfig& config, const Channels& channels) {
+    if (config.ir_ratio_formula == 2) {
+        if (channels[3] <= 0.0) {
+            return 1.0;
+        }
+        return std::max(1.0 - (channels[0] * 0.4379 + channels[1] * 0.243 + channels[2] * 0.2435) /
+                                        channels[3],
+                        0.0);
+    }
     if (channels[3] <= 0.0) {
         return 0.0;
     }
     double ratio = (channels[0] + channels[1] + channels[2] - channels[3]) / channels[3] * 0.5;
-    // Stock folds negative view model ratios back for these sensor modules.
-    if (!config.screenshot_v2_1_supported && HasAbsoluteIrRatio(config.sensor_module_id)) {
+    // Stock folds negative ratios back for these sensor modules.
+    if (HasAbsoluteIrRatio(config.sensor_module_id)) {
         ratio = std::abs(ratio);
     }
     return std::max(ratio, 0.0);
+}
+
+// V2.1 profiles without a leakage model report lux from the raw channels.
+bool HasScreenLeakage(const FusionConfig& config) {
+    return !config.screenshot_v2_1_supported || !config.leakage.empty();
 }
 
 double EvaluatePolynomial(const Polynomial& polynomial, double x) {
@@ -167,7 +180,7 @@ std::optional<double> CalculateLux(const FusionConfig& config, const Channels& c
     if (!std::isfinite(lux)) {
         return std::nullopt;
     }
-    if (!config.screenshot_v2_1_supported && lux < config.low_light_accuracy) {
+    if (lux < config.low_light_accuracy) {
         lux = 0.0;
     }
     return std::max(lux, 0.0);
@@ -440,7 +453,9 @@ bool FusionLightProcessor::initializeLocked() {
 
     std::vector<Channels> calibration;
     std::vector<ViewCalibration> view_calibration;
-    if (config->screenshot_v2_1_supported) {
+    if (!HasScreenLeakage(*config)) {
+        LOG(INFO) << "FusionLight profile has no screen leakage model";
+    } else if (config->screenshot_v2_1_supported) {
         calibration = LoadCalibration(*config);
     } else {
         view_calibration = LoadViewCalibration(*config);
@@ -551,14 +566,24 @@ void FusionLightProcessor::process(const Event& event, int32_t fusion_light_hand
     const bool dc_mode = static_cast<int32_t>(event.u.data[2]) & 0x2;
 
     bool available;
+    bool screen_leakage = false;
     {
         std::lock_guard lock(state_->mutex);
         if (!state_->active) {
             return;
         }
         available = state_->available;
+        if (available && brightness > 0) {
+            screen_leakage = HasScreenLeakage(state_->config);
+            const auto lux =
+                    screen_leakage ? std::nullopt
+                                   : CalculateLux(state_->config, raw_channels, brightness, false);
+            if (lux.has_value()) {
+                fusion_light_event.u.scalar = *lux;
+            }
+        }
     }
-    if (!available) {
+    if (!available || (brightness > 0 && !screen_leakage)) {
         enqueueReady(std::move(fusion_light_event));
         return;
     }

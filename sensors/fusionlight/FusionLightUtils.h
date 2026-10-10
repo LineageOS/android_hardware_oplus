@@ -60,6 +60,7 @@ struct ViewSegment {
 
 struct FusionConfig {
     int32_t sensor_module_id = 0;
+    int32_t ir_ratio_formula = 0;
     double low_light_accuracy = 0.0;
 
     bool fusion_rgb_supported = false;
