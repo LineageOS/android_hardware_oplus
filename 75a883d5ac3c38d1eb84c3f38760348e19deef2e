@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "265bbb76_b9af0eb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-10T20:08:18Z",
+      "side": 1,
+      "message": "waiting for infiniti confirmation, but probably fine also.",
+      "revId": "75a883d5ac3c38d1eb84c3f38760348e19deef2e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
