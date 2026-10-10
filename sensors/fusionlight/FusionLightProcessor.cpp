@@ -73,6 +73,18 @@ int FindViewSegment(const FusionConfig& config, int32_t brightness) {
     return brightness <= config.segment_brightness[1] ? 1 : 0;
 }
 
+// V2.1 selects the first IR brightness range whose upper bound covers the
+// brightness, ignoring lower bounds. Unmatched brightness falls back to the
+// first range.
+int FindUpperRange(const std::vector<ValueRange>& ranges, double value) {
+    for (int level = 0; level < ranges.size(); ++level) {
+        if (value <= ranges[level].max) {
+            return level;
+        }
+    }
+    return 0;
+}
+
 // Stock compares IR ratios and lux in fixed point with 1e-7 resolution.
 int64_t ToFixedPoint(double value) {
     constexpr double kLimit = 9.2e18;
@@ -126,15 +138,31 @@ bool HasAbsoluteIrRatio(int32_t sensor_module_id) {
 }
 
 double IrRatio(const FusionConfig& config, const Channels& channels) {
-    if (ToFixedPoint(channels[3]) <= 0) {
+    const bool has_clear = ToFixedPoint(channels[3]) > 0;
+    if (config.ir_ratio_formula == 2) {
+        if (!has_clear) {
+            return 1.0;
+        }
+        return std::max(1.0 - (channels[0] * 0.4379 + channels[1] * 0.243 + channels[2] * 0.2435) /
+                                        channels[3],
+                        0.0);
+    }
+    if (!has_clear) {
         return 0.0;
     }
     double ratio = (channels[0] + channels[1] + channels[2] - channels[3]) / channels[3] * 0.5;
-    // Stock folds negative view model ratios back for these sensor modules.
-    if (!config.screenshot_v2_1_supported && HasAbsoluteIrRatio(config.sensor_module_id)) {
+    // Stock folds negative ratios back for these sensor modules.
+    if (HasAbsoluteIrRatio(config.sensor_module_id)) {
         ratio = std::abs(ratio);
     }
     return std::max(ratio, 0.0);
+}
+
+// Black-frame profiles, and V2.1 profiles without a leakage model, report lux
+// from the raw channels without screen captures.
+bool UsesScreenCapture(const FusionConfig& config) {
+    return !config.black_frame_supported &&
+           (!config.screenshot_v2_1_supported || !config.leakage.empty());
 }
 
 double EvaluatePolynomial(const Polynomial& polynomial, double x) {
@@ -159,7 +187,7 @@ std::optional<double> CalculateLux(const FusionConfig& config, const Channels& c
             table = &config.channel_count_coefficients[band];
         } else if (config.screenshot_v2_1_supported) {
             table = &config.lux_coefficients[band];
-            level = FindRange(config.ir_brightness, brightness);
+            level = FindUpperRange(config.ir_brightness, brightness);
         } else {
             const auto& segment = config.segments[FindViewSegment(config, brightness)];
             table = &segment.lux_coefficients[band];
@@ -174,8 +202,7 @@ std::optional<double> CalculateLux(const FusionConfig& config, const Channels& c
     if (!std::isfinite(lux)) {
         return std::nullopt;
     }
-    if (!config.screenshot_v2_1_supported &&
-        ToFixedPoint(lux) < ToFixedPoint(config.low_light_accuracy)) {
+    if (ToFixedPoint(lux) < ToFixedPoint(config.low_light_accuracy)) {
         lux = 0.0;
     }
     return std::max(lux, 0.0);
@@ -448,7 +475,9 @@ bool FusionLightProcessor::initializeLocked() {
 
     std::vector<Channels> calibration;
     std::vector<ViewCalibration> view_calibration;
-    if (config->screenshot_v2_1_supported) {
+    if (!UsesScreenCapture(*config)) {
+        LOG(INFO) << "FusionLight profile does not use screen captures";
+    } else if (config->screenshot_v2_1_supported) {
         calibration = LoadCalibration(*config);
     } else {
         view_calibration = LoadViewCalibration(*config);
@@ -554,19 +583,33 @@ void FusionLightProcessor::process(const Event& event, int32_t fusion_light_hand
             return;
         }
     }
-    const int32_t brightness = event.u.data[3];
+    int32_t brightness = event.u.data[3];
+    // Stock treats brightness below 2 as screen off.
+    if (brightness < 2) {
+        brightness = 0;
+    }
     // Bit 1 of the event flags reports DC dimming.
     const bool dc_mode = static_cast<int32_t>(event.u.data[2]) & 0x2;
 
     bool available;
+    bool screen_capture = false;
     {
         std::lock_guard lock(state_->mutex);
         if (!state_->active) {
             return;
         }
         available = state_->available;
+        if (available && brightness > 0) {
+            screen_capture = UsesScreenCapture(state_->config);
+            const auto lux =
+                    screen_capture ? std::nullopt
+                                   : CalculateLux(state_->config, raw_channels, brightness, false);
+            if (lux.has_value()) {
+                fusion_light_event.u.scalar = *lux;
+            }
+        }
     }
-    if (!available) {
+    if (!available || (brightness > 0 && !screen_capture)) {
         enqueueReady(std::move(fusion_light_event));
         return;
     }
