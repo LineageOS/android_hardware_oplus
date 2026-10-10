@@ -27,6 +27,9 @@ using ChannelLimits = Eigen::Matrix<int, kChannelCount, 1>;
 using Polynomial = Eigen::Vector4d;
 using LeakageModel = Eigen::Matrix<double, kLeakageTermCount, 1>;
 using RatioModel = Eigen::Matrix<double, kRatioTermCount, 1>;
+using GreyScale = Eigen::Vector3d;
+// Rows are sensor channels, columns are the R/G/B/W screen views.
+using ViewCalibration = Eigen::Matrix4d;
 
 struct ValueRange {
     double min = 0.0;
@@ -45,12 +48,26 @@ struct CwbConfig {
     std::vector<int32_t> weights;
 };
 
+// Pre-V2.1 model for one FusionLightBrightnesses segment.
+struct ViewSegment {
+    std::vector<ValueRange> ir_brightness;
+    std::array<std::vector<Channels>, kIrBandCount> lux_coefficients;
+    // Indexed by sensor channel, then by R/G/B/W screen view.
+    std::array<Channels, kChannelCount> golden;
+    std::array<GreyScale, kChannelCount> grey_scale;
+    std::array<std::array<Polynomial, kChannelCount>, kChannelCount> leakage;
+};
+
 struct FusionConfig {
+    int32_t sensor_module_id = 0;
+    double low_light_accuracy = 0.0;
+
     bool fusion_rgb_supported = false;
     bool cwb_supported = false;
     bool screenshot_v2_1_supported = false;
     bool screen_off_lux_supported = false;
     bool channel_count_policy_supported = false;
+    bool fod_linearity_segment_supported = false;
 
     CwbConfig cwb;
 
@@ -67,10 +84,16 @@ struct FusionConfig {
     std::array<std::vector<Channels>, kIrBandCount> screen_off_coefficients;
     std::vector<ChannelLimits> channel_thresholds;
     std::vector<double> c_zero_thresholds;
+
+    std::vector<int32_t> segment_brightness;
+    std::vector<ViewSegment> segments;
+    std::vector<std::array<Polynomial, kChannelCount>> fod_linearity;
+    Channels fod_linearity_constant = Channels::Zero();
 };
 
 std::optional<FusionConfig> LoadConfig(const std::string& sensor_name);
 std::vector<Channels> LoadCalibration(const FusionConfig& config);
+std::vector<ViewCalibration> LoadViewCalibration(const FusionConfig& config);
 
 template <typename Interface>
 std::shared_ptr<Interface> GetService() {
