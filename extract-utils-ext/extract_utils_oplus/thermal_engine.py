@@ -5,6 +5,9 @@
 
 from __future__ import annotations
 
+import base64
+import binascii
+import hashlib
 import json
 import os
 import struct
@@ -28,6 +31,7 @@ HORAE_CONFIG = f'system_ext/{HORAE_CONFIG_DIR}/horae.conf'
 HORAE_TARGET_CONFIG = 'odm/etc/horae/horae_target.conf'
 
 HORAE_KEY = '00010aae69ca90b74e9ffa45e316d752'
+THERMAL_CONTROL_KEY = hashlib.sha256(b'thermal').hexdigest()[:16].encode()
 
 # Size of the threshold array in thermal-engine-v2 monitor settings.
 MAX_THRESHOLDS = 12
@@ -156,8 +160,42 @@ def parse_status_model(value: Any) -> Optional[StatusModel]:
     return model
 
 
+def decrypt_control_config(data: bytes) -> bytes:
+    # base64(<u8 IV length><IV><AES-GCM ciphertext><16 byte tag>)
+    data = base64.b64decode(b''.join(data.split()), validate=True)
+    iv_len = data[0]
+    if iv_len != 12:
+        raise ValueError(f'Unsupported IV length {iv_len}')
+
+    iv = data[1 : 1 + iv_len]
+    ciphertext = data[1 + iv_len : -16]
+
+    # GCM with a 96-bit IV is CTR starting at <IV><u32 BE 2>, the tag is left
+    # unchecked.
+    return run_cmd_bytes(
+        [
+            'openssl',
+            'enc',
+            '-d',
+            '-aes-128-ctr',
+            '-K',
+            THERMAL_CONTROL_KEY.hex(),
+            '-iv',
+            (iv + struct.pack('>I', 2)).hex(),
+        ],
+        data=ciphertext,
+    )
+
+
 def read_control_config(control_config_path: str) -> ControlConfig:
-    root = ET.parse(control_config_path).getroot()
+    with open(control_config_path, 'rb') as f:
+        data = f.read()
+
+    # Like stock, try decrypting first and parse the file as is otherwise.
+    with suppress(binascii.Error):
+        data = decrypt_control_config(data)
+
+    root = ET.fromstring(data)
     if root.tag != 'sys_thermal_control_list':
         raise ValueError(f'Failed to parse {control_config_path}')
 
