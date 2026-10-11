@@ -359,6 +359,7 @@ def find_extracted_file(module: ExtractUtilsModule, file_dst: str) -> str:
 def add_generated_thermal_engine_config(
     module: ExtractUtilsModule,
     project_name: Optional[str] = None,
+    horae_target_config: str = HORAE_TARGET_CONFIG,
 ) -> GeneratedProprietaryFile:
     """
     Generate /vendor/etc/thermal-engine.conf out of the stock
@@ -367,9 +368,10 @@ def add_generated_thermal_engine_config(
 
     The stock config is replaced by a blob fixup, its inputs are extracted
     for it and removed afterwards. An encrypted sys_thermal_control_config.xml
-    is decrypted by a blob fixup too. horae_target.conf has to be extracted by
-    the module beforehand. project_name selects the horae_target.conf entry,
-    the first one with shell sensors is used if it's missing.
+    is decrypted by a blob fixup too. horae_target_config is the extracted
+    destination path of the target Horae config and has to be extracted by
+    the module beforehand. project_name selects its entry, the first one
+    with shell sensors is used if it's missing.
     """
 
     def fix_file_list(file_list: FileList):
@@ -391,7 +393,7 @@ def add_generated_thermal_engine_config(
         config = generate_thermal_engine_config(
             find_extracted_file(module, THERMAL_CONTROL_CONFIG),
             find_extracted_file(module, HORAE_CONFIG),
-            find_extracted_file(module, HORAE_TARGET_CONFIG),
+            find_extracted_file(module, horae_target_config),
             project_name,
         ).strip()
 
