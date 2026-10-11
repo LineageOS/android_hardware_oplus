@@ -6,6 +6,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="org.lineageos.settings.esimswitcher">
 
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SECURE_ELEMENT_PRIVILEGED_OPERATION" />
 

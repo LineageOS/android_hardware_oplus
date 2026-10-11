@@ -9,6 +9,8 @@ import android.content.Context
 import android.os.ServiceManager
 import android.os.SystemProperties
 import android.se.omapi.SEService
+import android.telephony.TelephonyManager
+import android.telephony.UiccSlotMapping
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor
@@ -32,18 +34,21 @@ class EsimController(private val context: Context) {
             return
         }
 
+        val slotMapping = getSwitchableSlotMapping()
         oplusEsimService?.setUimPower(0)
 
         if (hasSN220Chipset) {
-            specialSetEsimGpio(if (gpioState == 0) 1 else 0)
+            specialSetEsimGpio(state, slotMapping)
             /* oplusEsimService?.setUimPower(1) done via SEService.OnConnectedListener */
         } else {
-            oplusEsimService?.setEsimGpio(if (gpioState == 0) 1 else 0)
+            updateSimType(state, slotMapping)
+            oplusEsimService?.setEsimGpio(state)
             oplusEsimService?.setUimPower(1)
+            restoreSimSlotMapping(slotMapping)
         }
     }
 
-    private fun specialSetEsimGpio(state: Int) {
+    private fun specialSetEsimGpio(state: Int, slotMapping: List<UiccSlotMapping>?) {
         var seService: SEService? = null
 
         val listener =
@@ -58,8 +63,10 @@ class EsimController(private val context: Context) {
                         val session = reader?.openSession()
                         val channel = session?.openLogicalChannel(null)
 
+                        updateSimType(state, slotMapping)
                         oplusEsimService?.setEsimGpio(state)
                         oplusEsimService?.setUimPower(1)
+                        restoreSimSlotMapping(slotMapping)
 
                         channel?.close()
                         session?.close()
@@ -79,6 +86,72 @@ class EsimController(private val context: Context) {
             seService = SEService(context, Dispatchers.IO.asExecutor(), listener)
         } catch (e: Exception) {
             Log.e(TAG, "Failed to start SEService", e)
+        }
+    }
+
+    private fun getSwitchableSlotMapping(): List<UiccSlotMapping>? {
+        try {
+            val slot =
+                context.resources
+                    .getIntArray(com.android.internal.R.array.non_removable_euicc_slots)
+                    .singleOrNull() ?: return null
+            val telephony = context.getSystemService(TelephonyManager::class.java)
+            val slotInfo = telephony.uiccSlotsInfo?.getOrNull(slot) ?: return null
+            val supportedTypes = slotInfo.supportedSimTypes
+            if (
+                TelephonyManager.SIM_TYPE_PHYSICAL !in supportedTypes ||
+                    TelephonyManager.SIM_TYPE_EMBEDDED !in supportedTypes
+            ) {
+                Log.d(TAG, "Slot $slot does not advertise SIM type switching")
+                return null
+            }
+            val current = telephony.simSlotMapping.toList()
+            check(current.any { it.physicalSlotIndex == slot }) { "eSIM slot is not mapped" }
+            return current
+        } catch (e: RuntimeException) {
+            Log.e(TAG, "Failed to read SIM slot mapping", e)
+            return null
+        }
+    }
+
+    private fun updateSimType(state: Int, slotMapping: List<UiccSlotMapping>?) {
+        if (slotMapping == null) return
+        try {
+            val slot =
+                context.resources
+                    .getIntArray(com.android.internal.R.array.non_removable_euicc_slots)
+                    .single()
+            val simType =
+                if (state == 1) TelephonyManager.SIM_TYPE_EMBEDDED
+                else TelephonyManager.SIM_TYPE_PHYSICAL
+            val updated =
+                slotMapping.map {
+                    if (it.physicalSlotIndex == slot) {
+                        UiccSlotMapping(
+                            it.portIndex,
+                            it.physicalSlotIndex,
+                            it.logicalSlotIndex,
+                            simType,
+                        )
+                    } else it
+                }
+            context.getSystemService(TelephonyManager::class.java).setSimSlotMapping(updated)
+        } catch (e: RuntimeException) {
+            Log.e(TAG, "Failed to update eSIM slot type", e)
+        }
+    }
+
+    private fun restoreSimSlotMapping(slotMapping: List<UiccSlotMapping>?) {
+        if (slotMapping == null) return
+        try {
+            // A separate mapping request restores port activation after the SIM type change.
+            val mapping =
+                slotMapping.map {
+                    UiccSlotMapping(it.portIndex, it.physicalSlotIndex, it.logicalSlotIndex)
+                }
+            context.getSystemService(TelephonyManager::class.java).setSimSlotMapping(mapping)
+        } catch (e: RuntimeException) {
+            Log.e(TAG, "Failed to restore SIM slot mapping", e)
         }
     }
 
