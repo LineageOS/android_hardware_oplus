@@ -212,9 +212,9 @@ def read_control_config(control_config_path: str) -> ControlConfig:
                         level.get('maxGpuFreq')
                     )
 
-    policy = root
-    for tag in ['thermalPolicyConfigItem', 'globalPolicy', 'globalPolicy']:
-        policy = policy.find(tag) if policy is not None else None
+    policy = root.find('thermalPolicyConfigItem/globalPolicy/globalPolicy')
+    if policy is None:
+        policy = root.find('thermalPolicyConfigItem/default/common_config')
 
     for gear in policy.iterfind('gear_config') if policy is not None else []:
         config.gears[parse_int(gear.get('tempGear'))] = (
@@ -223,7 +223,9 @@ def read_control_config(control_config_path: str) -> ControlConfig:
         )
 
     if not config.gears:
-        raise ValueError(f'No globalPolicy in {control_config_path}')
+        raise ValueError(
+            f'No global or default thermal policy in {control_config_path}'
+        )
 
     return config._replace(clusters=clusters)
 
