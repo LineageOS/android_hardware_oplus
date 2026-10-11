@@ -7,6 +7,14 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.dolby.dvs</name>
+        <version>1.0</version>
+        <interface>
+            <name>IDvs</name>
+            <instance>dvs-hal-service</instance>
+        </interface>
+    </hal>
     <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.appradioaidl</name>
         <version>1</version>
