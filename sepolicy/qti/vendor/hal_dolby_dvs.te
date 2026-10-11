@@ -1,0 +1,2 @@
+binder_call(vendor_hal_dolby_dvs_client, vendor_hal_dolby_dvs_server)
+binder_call(vendor_hal_dolby_dvs_server, vendor_hal_dolby_dvs_client)

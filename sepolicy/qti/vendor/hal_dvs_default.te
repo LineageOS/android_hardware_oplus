@@ -1,0 +1,21 @@
+type hal_dvs_default, domain;
+binder_use(hal_dvs_default)
+hwbinder_use(hal_dvs_default)
+
+hal_server_domain(hal_dvs_default, vendor_hal_dolby_dvs)
+
+type hal_dvs_default_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_dvs_default)
+
+hal_client_domain(hal_dvs_default, hal_allocator)
+hal_client_domain(hal_dvs_default, hal_graphics_allocator)
+
+hal_attribute_hwservice(vendor_hal_dolby_dvs, hal_dvs_hwservice)
+
+binder_call(hal_dvs_default, system_server)
+
+allow hal_dvs_default fwk_sensor_hwservice:hwservice_manager find;
+allow hal_dvs_default sysfs_leds:dir search;
+allow hal_dvs_default sysfs_leds:file { getattr open read };
+
+set_prop(hal_dvs_default, vendor_dolby_vision_prop)
