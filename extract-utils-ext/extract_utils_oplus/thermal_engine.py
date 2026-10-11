@@ -188,14 +188,7 @@ def decrypt_control_config(data: bytes) -> bytes:
 
 
 def read_control_config(control_config_path: str) -> ControlConfig:
-    with open(control_config_path, 'rb') as f:
-        data = f.read()
-
-    # Like stock, try decrypting first and parse the file as is otherwise.
-    with suppress(binascii.Error):
-        data = decrypt_control_config(data)
-
-    root = ET.fromstring(data)
+    root = ET.parse(control_config_path).getroot()
     if root.tag != 'sys_thermal_control_list':
         raise ValueError(f'Failed to parse {control_config_path}')
 
@@ -373,8 +366,9 @@ def add_generated_thermal_engine_config(
     sensors, tripping on horae's thermal_status_model thresholds.
 
     The stock config is replaced by a blob fixup, its inputs are extracted
-    for it and removed afterwards. horae_target.conf has to be extracted by the
-    module beforehand. project_name selects the horae_target.conf entry,
+    for it and removed afterwards. An encrypted sys_thermal_control_config.xml
+    is decrypted by a blob fixup too. horae_target.conf has to be extracted by
+    the module beforehand. project_name selects the horae_target.conf entry,
     the first one with shell sensors is used if it's missing.
     """
 
@@ -405,11 +399,31 @@ def add_generated_thermal_engine_config(
             f.write(config)
             f.write('\n')
 
-    # Run any device fixups on top of the generated config
-    fixup = blob_fixup().call(generate_fn, need_tmp_dir=False)
-    if THERMAL_ENGINE_CONFIG in module.blob_fixups:
-        fixup.merge(module.blob_fixups[THERMAL_ENGINE_CONFIG])
-    module.blob_fixups[THERMAL_ENGINE_CONFIG] = fixup
+    def decrypt_fn(
+        ctx: BlobFixupCtx,
+        file: File,
+        file_path: str,
+        *args: Any,
+        **kwargs: Any,
+    ):
+        with open(file_path, 'rb') as f:
+            data = f.read()
+
+        # Like stock, try decrypting first and keep the file as is otherwise.
+        with suppress(binascii.Error):
+            data = decrypt_control_config(data)
+            with open(file_path, 'wb') as f:
+                f.write(data)
+
+    # Run any device fixups on top of the generated and decrypted files
+    for file_dst, fn in [
+        (THERMAL_CONTROL_CONFIG, decrypt_fn),
+        (THERMAL_ENGINE_CONFIG, generate_fn),
+    ]:
+        fixup = blob_fixup().call(fn, need_tmp_dir=False)
+        if file_dst in module.blob_fixups:
+            fixup.merge(module.blob_fixups[file_dst])
+        module.blob_fixups[file_dst] = fixup
 
     # Only the generated list partition gets extracted for it, odm and vendor
     # are covered by the module already.
