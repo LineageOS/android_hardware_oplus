@@ -5,8 +5,6 @@ type hal_dolby_dvs_aidl_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(hal_dolby_dvs_aidl)
 
 binder_call(hal_dolby_dvs_aidl, system_server)
-binder_call(vendor_hal_dolby_dvs_client, vendor_hal_dolby_dvs_server)
-binder_call(vendor_hal_dolby_dvs_server, vendor_hal_dolby_dvs_client)
 
 hal_server_domain(hal_dolby_dvs_aidl, vendor_hal_dolby_dvs)
 

@@ -39,6 +39,7 @@
 /(odm|vendor/odm)/bin/hw/vendor\.pixelworks\.hardware\.feature-service                 u:object_r:hal_feature_irisfeature_default_exec:s0
 
 # Dolby Vision
+/(odm|vendor/odm)/bin/hw/dvs-hal-service     u:object_r:hal_dvs_default_exec:s0
 /(odm|vendor/odm)/bin/hw/dvs-aidl-service    u:object_r:hal_dolby_dvs_aidl_exec:s0
 
 # Engineering
