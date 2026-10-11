@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2337461_707bf45b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-10-11T23:12:01Z",
+      "side": 1,
+      "message": "I was hitting this on salami:\n\n\u003e ValueError: No globalPolicy in /mnt/android-in/source/lineage-24.0/vendor/oneplus/salami/proprietary/odm/etc/temperature_profile/sys_thermal_control_config.xml",
+      "revId": "1278cdd5cbdf8eb5f892d50f5286720277a2decd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
