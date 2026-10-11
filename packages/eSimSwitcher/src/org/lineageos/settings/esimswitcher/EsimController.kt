@@ -28,6 +28,14 @@ class EsimController(private val context: Context) {
     fun currentGpioState() = oplusEsimService?.esimGpio ?: 0
 
     fun toggleEsimState(state: Int, onComplete: (Boolean) -> Unit) {
+        switchEsimState(state, false, onComplete)
+    }
+
+    private fun switchEsimState(
+        state: Int,
+        force: Boolean,
+        onComplete: (Boolean) -> Unit,
+    ) {
         val complete: (Boolean) -> Unit = { success ->
             context.mainExecutor.execute { onComplete(success) }
         }
@@ -36,7 +44,7 @@ class EsimController(private val context: Context) {
             val gpioState = currentGpioState()
             Log.d(TAG, "Current eSIM status = $gpioState")
 
-            if (state == gpioState) {
+            if (!force && state == gpioState) {
                 Log.d(TAG, "No need to change eSIM state")
                 complete(true)
                 return
@@ -114,7 +122,41 @@ class EsimController(private val context: Context) {
         }
     }
 
-    private fun updateModemEsimState(state: Int) {
+    fun restoreEsimState(onComplete: (Boolean) -> Unit) {
+        try {
+            val service = checkNotNull(oplusEsimService) { "eSIM service is unavailable" }
+            val state = service.esimGpio
+            check(state == 0 || state == 1) { "Invalid eSIM GPIO state: $state" }
+            if (state == 0) {
+                onComplete(true)
+                return
+            }
+            val radio =
+                ISubsysRadio.Stub.asInterface(
+                    ServiceManager.checkService("${ISubsysRadio.DESCRIPTOR}/slot1")
+                )
+            check(radio != null && radio.interfaceVersion >= 5) {
+                "Vendor modem eSIM status API is unavailable"
+            }
+            Log.i(TAG, "Reinitializing selected eSIM at boot")
+            // GPIO may already select eSIM even though the modem failed to initialize it.
+            switchEsimState(state, true) { success ->
+                if (!success) {
+                    try {
+                        service.setUimPower(1)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Failed to restore UIM power after boot recovery", e)
+                    }
+                }
+                onComplete(success)
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to restore eSIM at boot", e)
+            onComplete(false)
+        }
+    }
+
+    private fun updateModemEsimState(state: Int): Boolean {
         try {
             val radio =
                 ISubsysRadio.Stub.asInterface(
@@ -122,14 +164,16 @@ class EsimController(private val context: Context) {
                 )
             if (radio == null || radio.interfaceVersion < 5) {
                 Log.w(TAG, "Vendor modem eSIM status API is unavailable")
-                return
+                return false
             }
             val serial = modemRequestSerial.incrementAndGet()
             // Stock sends this asynchronous feature update before changing the GPIO.
             radio.setEsimStatus(serial, state)
             Log.i(TAG, "Submitted modem eSIM status: state=$state serial=$serial")
+            return true
         } catch (e: Exception) {
             Log.e(TAG, "Failed to submit modem eSIM status", e)
+            return false
         }
     }
 
