@@ -12,9 +12,11 @@ import android.se.omapi.SEService
 import android.telephony.TelephonyManager
 import android.telephony.UiccSlotMapping
 import android.util.Log
+import java.util.concurrent.atomic.AtomicInteger
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor
 import vendor.oplus.hardware.esim.IOplusEsim
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ISubsysRadio
 
 class EsimController(private val context: Context) {
     private val hasSN220Chipset = SystemProperties.get(NFC_CONFIG_FILE_NAME_PROP).contains("SN220")
@@ -47,6 +49,7 @@ class EsimController(private val context: Context) {
                 specialSetEsimGpio(state, complete, slotMapping)
                 /* oplusEsimService?.setUimPower(1) done via SEService.OnConnectedListener */
             } else {
+                updateModemEsimState(state)
                 updateSimType(state, slotMapping)
                 oplusEsimService?.setEsimGpio(state)
                 oplusEsimService?.setUimPower(1)
@@ -79,6 +82,7 @@ class EsimController(private val context: Context) {
                         val session = reader?.openSession()
                         val channel = session?.openLogicalChannel(null)
 
+                        updateModemEsimState(state)
                         updateSimType(state, slotMapping)
                         oplusEsimService?.setEsimGpio(state)
                         oplusEsimService?.setUimPower(1)
@@ -105,6 +109,25 @@ class EsimController(private val context: Context) {
         } catch (e: Exception) {
             Log.e(TAG, "Failed to start SEService", e)
             onComplete(false)
+        }
+    }
+
+    private fun updateModemEsimState(state: Int) {
+        try {
+            val radio =
+                ISubsysRadio.Stub.asInterface(
+                    ServiceManager.checkService("${ISubsysRadio.DESCRIPTOR}/slot1")
+                )
+            if (radio == null || radio.interfaceVersion < 5) {
+                Log.w(TAG, "Vendor modem eSIM status API is unavailable")
+                return
+            }
+            val serial = modemRequestSerial.incrementAndGet()
+            // Stock sends this asynchronous feature update before changing the GPIO.
+            radio.setEsimStatus(serial, state)
+            Log.i(TAG, "Submitted modem eSIM status: state=$state serial=$serial")
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to submit modem eSIM status", e)
         }
     }
 
@@ -176,6 +199,8 @@ class EsimController(private val context: Context) {
 
     companion object {
         private const val TAG = "OplusEsimController"
+
+        private val modemRequestSerial = AtomicInteger(0x45530000)
 
         private const val NFC_CONFIG_FILE_NAME_PROP = "persist.vendor.nfc.config_file_name"
     }
