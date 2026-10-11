@@ -22,6 +22,7 @@ android_app {
         "androidx.preference_preference",
         "org.lineageos.settings.resources",
         "vendor.oplus.hardware.esim-V1-java",
+        "vendor.oplus.hardware.subsys_radio-V5-java",
     ],
 
     optimize: {
