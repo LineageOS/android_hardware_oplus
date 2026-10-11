@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2025 The LineageOS Project
+ * SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -10,11 +10,21 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.UserHandle
 import android.util.Log
+import java.util.concurrent.atomic.AtomicBoolean
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.asExecutor
 
 class BootCompletedReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-        Log.d(TAG, "Received boot completed intent")
+        if (
+            intent.action != Intent.ACTION_LOCKED_BOOT_COMPLETED &&
+                intent.action != Intent.ACTION_BOOT_COMPLETED
+        )
+            return
+        if (context.userId != UserHandle.USER_SYSTEM) return
+        Log.d(TAG, "Received ${intent.action}")
 
         val hasNonRemovableEuicc =
             context.resources
@@ -22,6 +32,23 @@ class BootCompletedReceiver : BroadcastReceiver() {
                 .isNotEmpty()
 
         setComponentEnabled(context, EsimSettingsActivity::class.java.name, hasNonRemovableEuicc)
+        // Keep normal boot as a fallback, without repeating successful locked-boot recovery.
+        if (!hasNonRemovableEuicc || !recoveryStarted.compareAndSet(false, true)) return
+
+        val pendingResult = goAsync()
+        Dispatchers.IO.asExecutor().execute {
+            try {
+                EsimController(context.applicationContext).restoreEsimState { success ->
+                    Log.i(TAG, "Boot eSIM recovery completed: success=$success")
+                    if (!success) recoveryStarted.set(false)
+                    pendingResult.finish()
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "Boot eSIM recovery failed", e)
+                recoveryStarted.set(false)
+                pendingResult.finish()
+            }
+        }
     }
 
     private fun setComponentEnabled(context: Context, component: String, enabled: Boolean) {
@@ -41,5 +68,6 @@ class BootCompletedReceiver : BroadcastReceiver() {
 
     companion object {
         private const val TAG = "OplusEsimBootReceiver"
+        private val recoveryStarted = AtomicBoolean(false)
     }
 }
