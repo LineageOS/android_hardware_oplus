@@ -1,4 +1,12 @@
 <compatibility-matrix version="4.0" type="framework">
+    <hal format="hidl" optional="true">
+        <name>android.hardware.media.c2</name>
+        <version>1.0</version>
+        <interface>
+            <name>IComponentStore</name>
+            <instance>dolby</instance>
+        </interface>
+    </hal>
     <hal format="aidl" optional="true">
         <name>vendor.dolby.dvs</name>
         <version>1</version>

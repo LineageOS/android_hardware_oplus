@@ -1,3 +1,4 @@
 hal_client_domain(mediacodec, vendor_hal_dolby_dvs)
 
+set_prop(mediacodec, vendor_dolby_vision_prop)
 set_prop(mediacodec, vendor_video_prop)
