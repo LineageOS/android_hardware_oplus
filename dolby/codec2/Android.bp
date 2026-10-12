@@ -1,0 +1,28 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "dolbycodec2",
+    device_specific: true,
+    relative_install_path: "hw",
+    compile_multilib: "64",
+    init_rc: ["vendor.dolby.media.c2@1.0-service.rc"],
+    vintf_fragments: ["vendor.dolby.media.c2@1.0-service.xml"],
+    srcs: ["service.cpp"],
+    shared_libs: [
+        "android.hardware.media.c2@1.0",
+        "libbase",
+        "libbinder",
+        "libcodec2_hidl@1.0",
+        "libdl",
+        "libhidlbase",
+        "libutils",
+    ],
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+    ],
+}
