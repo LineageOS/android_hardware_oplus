@@ -34,6 +34,24 @@
       "parentUuid": "0b56694a_562e88e5",
       "revId": "a48e915c33069b0591b1609d01c9deb85d8b3a29",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8801f566_be9bbc64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-10-12T08:17:09Z",
+      "side": 1,
+      "message": "Yes, fine by me. Can you ask your LLM to put generic ones here? If I remember correctly, the one that is here now is from salami.",
+      "parentUuid": "349e0c9c_3a3c851b",
+      "revId": "a48e915c33069b0591b1609d01c9deb85d8b3a29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
