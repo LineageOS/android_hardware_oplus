@@ -52,6 +52,24 @@
       "parentUuid": "349e0c9c_3a3c851b",
       "revId": "a48e915c33069b0591b1609d01c9deb85d8b3a29",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7125d001_6969f853",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2026-10-12T15:08:51Z",
+      "side": 1,
+      "message": "Switched to generic illustrations. I also added the OnePlus logo to the generic device layout.",
+      "parentUuid": "8801f566_be9bbc64",
+      "revId": "a48e915c33069b0591b1609d01c9deb85d8b3a29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
