@@ -70,6 +70,24 @@
       "parentUuid": "8801f566_be9bbc64",
       "revId": "a48e915c33069b0591b1609d01c9deb85d8b3a29",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "658f1778_d144eeb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2026-10-12T16:22:15Z",
+      "side": 1,
+      "message": "Realised this is shared with non oneplus devices, so i dropped the oneplus logo",
+      "parentUuid": "7125d001_6969f853",
+      "revId": "a48e915c33069b0591b1609d01c9deb85d8b3a29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
