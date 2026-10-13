@@ -4,6 +4,7 @@
  */
 
 #include <aidl/android/hardware/power/BnPower.h>
+#include <aidl/vendor/oplus/hardware/charger/ICharger.h>
 #include <aidl/vendor/oplus/hardware/touch/IOplusTouch.h>
 
 #include <android-base/logging.h>
@@ -12,6 +13,7 @@
 #include <OplusTouchConstants.h>
 
 using aidl::android::hardware::power::Mode;
+using aidl::vendor::oplus::hardware::charger::ICharger;
 using aidl::vendor::oplus::hardware::touch::IOplusTouch;
 
 #ifdef LIBPERFMGR_EXT
@@ -64,6 +66,16 @@ bool setDeviceSpecificMode(Mode type, bool enabled) {
             return true;
         }
 #endif
+        case Mode::INTERACTIVE: {
+            const std::string instance = std::string() + ICharger::descriptor + "/default";
+            std::shared_ptr<ICharger> charger = ICharger::fromBinder(
+                    ndk::SpAIBinder(AServiceManager_checkService(instance.c_str())));
+            if (charger) {
+                int aidl_return = 0;
+                charger->notifyScreenStatus(enabled, &aidl_return);
+            }
+            return false;
+        }
         default:
             return false;
     }
