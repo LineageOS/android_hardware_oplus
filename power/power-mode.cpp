@@ -22,9 +22,11 @@ namespace aidl::android::hardware::power::impl {
 
 bool isDeviceSpecificModeSupported(Mode type, bool* _aidl_return) {
     switch (type) {
+#ifndef TAP_TO_WAKE_NODE
         case Mode::DOUBLE_TAP_TO_WAKE:
             *_aidl_return = true;
             return true;
+#endif
         default:
             return false;
     }
@@ -32,6 +34,7 @@ bool isDeviceSpecificModeSupported(Mode type, bool* _aidl_return) {
 
 bool setDeviceSpecificMode(Mode type, bool enabled) {
     switch (type) {
+#ifndef TAP_TO_WAKE_NODE
         case Mode::DOUBLE_TAP_TO_WAKE: {
             std::string tmp;
             int contents = 0;
@@ -60,6 +63,7 @@ bool setDeviceSpecificMode(Mode type, bool enabled) {
                                            std::to_string(contents), &aidl_return);
             return true;
         }
+#endif
         default:
             return false;
     }
