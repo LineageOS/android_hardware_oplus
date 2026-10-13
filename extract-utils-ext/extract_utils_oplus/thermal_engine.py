@@ -235,8 +235,19 @@ def build_levels(control: ControlConfig, model: StatusModel) -> List[Level]:
     cpu_limits = [NO_LIMIT] * control.clusters
     gpu_limit = NO_LIMIT
 
+    first_gpu_temp = next(
+        (
+            up
+            for up, status in zip(model.up, model.status)
+            if status in control.gears
+            and control.gpu_levels.get(control.gears[status][1], -1) >= 0
+        ),
+        35,
+    )
+    min_shell_temp_c = max(35, first_gpu_temp)
+
     for up, down, status in zip(model.up, model.down, model.status):
-        if up < 35 or status not in control.gears:
+        if up < min_shell_temp_c or status not in control.gears:
             continue
 
         cpu_level, gpu_level = control.gears[status]
