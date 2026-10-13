@@ -13,6 +13,9 @@ cc_library_static {
     cppflags: select(soong_config_variable("power_libperfmgr", "mode_extension_lib"), {
         any: ["-DLIBPERFMGR_EXT"],
         default: [],
+    }) + select(soong_config_variable("qtipower", "tap_to_wake_node"), {
+        any: ["-DTAP_TO_WAKE_NODE"],
+        default: [],
     }),
     header_libs: [
         "vendor.oplus.hardware.touch-headers",
