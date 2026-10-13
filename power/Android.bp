@@ -24,6 +24,7 @@ cc_library_static {
         "libbase",
     ],
     whole_static_libs: [
+        "vendor.oplus.hardware.charger-V1-ndk",
         "vendor.oplus.hardware.touch-V2-ndk",
     ],
 }
