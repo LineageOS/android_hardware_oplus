@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
@@ -10,6 +10,7 @@
     <string name="esim_toggle_summary">Download and activate an operator profile to use a virtual SIM card</string>
 
     <string name="esim_toggle_dialog">SIM 2 will be disabled if you enable eSIM. Enable it anyway?</string>
+    <string name="esim_toggle_failed">Couldn’t complete the eSIM change. Check your SIM settings and try again.</string>
     <string name="esim_toggle_dialog_cancel">Cancel</string>
     <string name="esim_toggle_dialog_ok">Enable</string>
 </resources>
