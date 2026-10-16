@@ -29,9 +29,16 @@ class EsimSettingsFragment :
         switcher?.onPreferenceChangeListener = this
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                controller.switching.collect { switching ->
-                    switcher?.isEnabled = !switching
-                    if (!switching) switcher?.isChecked = controller.currentGpioState() == 1
+                controller.pendingState.collect { state ->
+                    switcher?.isEnabled = state == null
+                    switcher?.setSummary(
+                        when (state) {
+                            1 -> R.string.esim_toggle_enabling
+                            0 -> R.string.esim_toggle_disabling
+                            else -> R.string.esim_toggle_summary
+                        }
+                    )
+                    if (state == null) switcher?.isChecked = controller.currentGpioState() == 1
                 }
             }
         }
@@ -47,18 +54,17 @@ class EsimSettingsFragment :
                 }
                 .setPositiveButton(R.string.esim_toggle_dialog_ok) { dialog, _ ->
                     dialog.dismiss()
-                    toggleEsimState(preference, true)
+                    toggleEsimState(true)
                 }
                 .show()
             return false
         } else {
-            toggleEsimState(preference, false)
+            toggleEsimState(false)
             return false
         }
     }
 
-    private fun toggleEsimState(preference: Preference, enable: Boolean) {
-        preference.isEnabled = false
+    private fun toggleEsimState(enable: Boolean) {
         val context = requireContext().applicationContext
         controller.toggleEsimState(if (enable) 1 else 0) { success ->
             if (!success) {

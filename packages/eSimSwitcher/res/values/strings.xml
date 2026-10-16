@@ -9,6 +9,11 @@
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">Download and activate an operator profile to use a virtual SIM card</string>
 
+    <!-- Summary shown while the eSIM hardware and profiles are being enabled. -->
+    <string name="esim_toggle_enabling">Enabling eSIM…</string>
+    <!-- Summary shown while the eSIM hardware and profiles are being disabled. -->
+    <string name="esim_toggle_disabling">Disabling eSIM…</string>
+
     <string name="esim_toggle_dialog">SIM 2 will be disabled if you enable eSIM. Enable it anyway?</string>
     <string name="esim_toggle_failed">Couldn’t complete the eSIM change. Check your SIM settings and try again.</string>
     <string name="esim_toggle_dialog_cancel">Cancel</string>
