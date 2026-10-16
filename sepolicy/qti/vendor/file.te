@@ -21,6 +21,8 @@ type vendor_proc_engineer, fs_type, proc_type;
 
 # Face unlock
 type face_picture_file, file_type, data_file_type;
+type vendor_face_data_file, file_type, data_file_type;
+type vendor_face_resources_file, vendor_file_type, file_type;
 
 # Fingerprint
 type vendor_persist_fingerprint_file, file_type;
