@@ -1,0 +1,36 @@
+type hal_oneplus_face, domain;
+binder_use(hal_oneplus_face)
+
+type hal_oneplus_face_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_oneplus_face)
+
+hal_client_domain(hal_oneplus_face, hal_graphics_allocator)
+hal_server_domain(hal_oneplus_face, hal_face)
+
+binder_call(cameraserver, hal_oneplus_face)
+binder_call(hal_oneplus_face, cameraserver)
+
+allow hal_oneplus_face self:process execmem;
+
+allow hal_oneplus_face fwk_camera_service:service_manager find;
+
+allow hal_oneplus_face gpu_device:chr_file rw_file_perms;
+allow hal_oneplus_face ion_device:chr_file rw_file_perms;
+allow hal_oneplus_face tee_device:chr_file rw_file_perms;
+
+allow hal_oneplus_face vendor_data_qsee_file:dir rw_dir_perms;
+allow hal_oneplus_face vendor_data_qsee_file:file create_file_perms;
+
+allow hal_oneplus_face vendor_face_data_file:dir rw_dir_perms;
+allow hal_oneplus_face vendor_face_data_file:file create_file_perms;
+
+allow hal_oneplus_face vendor_face_resources_file:dir r_dir_perms;
+allow hal_oneplus_face vendor_face_resources_file:file { r_file_perms map execute };
+
+type hal_oneplus_face_tmpfs, file_type;
+tmpfs_domain(hal_oneplus_face)
+allow hal_oneplus_face hal_oneplus_face_tmpfs:file open;
+
+r_dir_file(hal_oneplus_face, vendor_sysfs_kgsl)
+
+get_prop(hal_oneplus_face, camera_config_prop)
