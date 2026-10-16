@@ -43,6 +43,28 @@ class EsimController(context: Context) {
 
     fun currentGpioState() = oplusEsimService?.esimGpio ?: 0
 
+    data class EnableImpact(val physicalSlotIndex: Int, val disablesAllPhysicalSims: Boolean)
+
+    fun getEnableImpact(): EnableImpact? {
+        try {
+            val slot =
+                context.resources
+                    .getIntArray(com.android.internal.R.array.non_removable_euicc_slots)
+                    .singleOrNull() ?: return null
+            if (!hasSN220Chipset || getSwitchableSlotMapping() == null) {
+                return EnableImpact(slot, false)
+            }
+            val profiles = getProfilesToRestore()
+            checkProfileCapacity(profiles)
+            val modems = context.getSystemService(TelephonyManager::class.java).activeModemCount
+            if (profiles.size > 1 && profiles.size < modems) return null
+            return EnableImpact(slot, profiles.size > 1)
+        } catch (e: RuntimeException) {
+            Log.w(TAG, "Unable to determine eSIM enable impact", e)
+            return null
+        }
+    }
+
     private fun checkProfileCapacity(profiles: List<SavedProfile>) {
         if (profiles.size <= 1) return
         check(context.packageManager.hasSystemFeature(PackageManager.FEATURE_TELEPHONY_EUICC_MEP)) {
