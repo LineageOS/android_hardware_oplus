@@ -7,9 +7,13 @@ package org.lineageos.settings.esimswitcher
 
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.preference.Preference
 import androidx.preference.SwitchPreferenceCompat
 import com.android.settingslib.widget.SettingsBasePreferenceFragment
+import kotlinx.coroutines.launch
 
 class EsimSettingsFragment :
     SettingsBasePreferenceFragment(), Preference.OnPreferenceChangeListener {
@@ -22,6 +26,14 @@ class EsimSettingsFragment :
         val switcher = findPreference<SwitchPreferenceCompat>(ESIM_TOGGLE_KEY)
         switcher?.isChecked = controller.currentGpioState() == 1
         switcher?.onPreferenceChangeListener = this
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                controller.switching.collect { switching ->
+                    switcher?.isEnabled = !switching
+                    if (!switching) switcher?.isChecked = controller.currentGpioState() == 1
+                }
+            }
+        }
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
@@ -46,12 +58,7 @@ class EsimSettingsFragment :
 
     private fun toggleEsimState(preference: Preference, enable: Boolean) {
         preference.isEnabled = false
-        controller.toggleEsimState(if (enable) 1 else 0) { success ->
-            if (success) {
-                (preference as? SwitchPreferenceCompat)?.isChecked = enable
-            }
-            preference.isEnabled = true
-        }
+        controller.toggleEsimState(if (enable) 1 else 0) {}
     }
 
     companion object {
