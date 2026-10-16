@@ -5,30 +5,50 @@
 
 package org.lineageos.settings.esimswitcher
 
+import android.app.PendingIntent
+import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.ServiceManager
 import android.os.SystemProperties
 import android.se.omapi.SEService
+import android.telephony.SubscriptionManager
 import android.telephony.TelephonyManager
 import android.telephony.UiccSlotMapping
+import android.telephony.euicc.EuiccManager
 import android.util.Log
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.Semaphore
+import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicInteger
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import vendor.oplus.hardware.esim.IOplusEsim
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ISubsysRadio
 
-class EsimController(private val context: Context) {
+class EsimController(context: Context) {
+    private val context = context.applicationContext
     private val hasSN220Chipset = SystemProperties.get(NFC_CONFIG_FILE_NAME_PROP).contains("SN220")
 
     private val oplusEsimService by lazy {
         IOplusEsim.Stub.asInterface(ServiceManager.getService("${IOplusEsim.DESCRIPTOR}/default"))
     }
 
+    val switching: StateFlow<Boolean>
+        get() = switchInProgress
+
     fun currentGpioState() = oplusEsimService?.esimGpio ?: 0
 
     fun toggleEsimState(state: Int, onComplete: (Boolean) -> Unit) {
+        if (!switchInProgress.compareAndSet(false, true)) {
+            context.mainExecutor.execute { onComplete(false) }
+            return
+        }
         val complete: (Boolean) -> Unit = { success ->
+            switchInProgress.value = false
             context.mainExecutor.execute { onComplete(success) }
         }
         try {
@@ -43,11 +63,10 @@ class EsimController(private val context: Context) {
             }
 
             val slotMapping = if (hasSN220Chipset) getSwitchableSlotMapping() else null
-            oplusEsimService?.setUimPower(0)
+            if (slotMapping == null) oplusEsimService?.setUimPower(0)
 
             if (hasSN220Chipset) {
                 specialSetEsimGpio(state, slotMapping, complete)
-                /* oplusEsimService?.setUimPower(1) done via SEService.OnConnectedListener */
             } else {
                 updateModemFeature(state)
                 oplusEsimService?.setEsimGpio(state)
@@ -65,52 +84,200 @@ class EsimController(private val context: Context) {
         slotMapping: List<UiccSlotMapping>?,
         onComplete: (Boolean) -> Unit,
     ) {
-        var seService: SEService? = null
+        Dispatchers.IO.asExecutor().execute {
+            var service: SEService? = null
+            var success = false
+            try {
+                if (state == 0 && slotMapping != null) preparePhysicalSimMode(slotMapping)
+                val connected = CountDownLatch(1)
+                service = SEService(context, Dispatchers.IO.asExecutor()) { connected.countDown() }
+                check(connected.await(3, TimeUnit.SECONDS)) { "SEService connection timed out" }
+                val reader = service.readers.firstOrNull { it.name == "eSE1" }
+                val session = reader?.openSession()
+                val channel = session?.openLogicalChannel(null)
 
-        val listener =
-            object : SEService.OnConnectedListener {
-                override fun onConnected() {
-                    Log.d(TAG, "SEService connected")
+                updateModemFeature(state)
+                oplusEsimService?.setEsimGpio(state)
+                updateSimType(state, slotMapping)
 
-                    val service = seService
-                    if (service == null) {
-                        onComplete(false)
-                        return
+                channel?.close()
+                session?.close()
+                if (slotMapping != null) awaitSimState(state, slotMapping)
+                success = currentGpioState() == state
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to switch eSIM state", e)
+            } finally {
+                try {
+                    if (slotMapping == null) oplusEsimService?.setUimPower(1)
+                } catch (e: Exception) {
+                    Log.e(TAG, "Failed to restore UIM power", e)
+                    success = false
+                }
+                try {
+                    service?.shutdown()
+                } catch (e: Exception) {
+                    Log.e(TAG, "Failed to shutdown SEService", e)
+                }
+                onComplete(success)
+            }
+        }
+    }
+
+    private fun awaitSimState(state: Int, mapping: List<UiccSlotMapping>) {
+        val telephony = context.getSystemService(TelephonyManager::class.java)
+        val slot =
+            context.resources
+                .getIntArray(com.android.internal.R.array.non_removable_euicc_slots)
+                .single()
+        val type =
+            if (state == 1) TelephonyManager.SIM_TYPE_EMBEDDED
+            else TelephonyManager.SIM_TYPE_PHYSICAL
+        val ports =
+            mapping
+                .map { UiccSlotMapping(it.portIndex, it.physicalSlotIndex, it.logicalSlotIndex) }
+                .toSet()
+        fun ready(): Boolean {
+            val slots = telephony.uiccSlotsInfo ?: return false
+            return mapping.all {
+                slots.getOrNull(it.physicalSlotIndex)?.simType ==
+                    if (it.physicalSlotIndex == slot) type else it.simType
+            } &&
+                telephony.simSlotMapping
+                    .map {
+                        UiccSlotMapping(it.portIndex, it.physicalSlotIndex, it.logicalSlotIndex)
                     }
-                    var success = false
-
-                    try {
-                        val reader = service.readers.firstOrNull { it.name == "eSE1" }
-                        val session = reader?.openSession()
-                        val channel = session?.openLogicalChannel(null)
-
-                        updateModemFeature(state)
-                        updateSimType(state, slotMapping)
-                        oplusEsimService?.setEsimGpio(state)
-                        oplusEsimService?.setUimPower(1)
-                        restoreSimSlotMapping(slotMapping)
-
-                        channel?.close()
-                        session?.close()
-                        success = currentGpioState() == state
-                    } catch (e: Exception) {
-                        Log.e(TAG, "Failed to open eSE session", e)
-                    } finally {
-                        try {
-                            service.shutdown()
-                        } catch (e: Exception) {
-                            Log.e(TAG, "Failed to shutdown SEService", e)
-                        }
-                        onComplete(success)
-                    }
+                    .toSet() == ports &&
+                telephony.uiccCardsInfo.any {
+                    it.physicalSlotIndex == slot && it.isEuicc && (state != 1 || it.cardId >= 0)
+                } == (state == 1)
+        }
+        val changed = Semaphore(0)
+        val receiver =
+            object : BroadcastReceiver() {
+                override fun onReceive(context: Context, intent: Intent) {
+                    changed.release()
                 }
             }
-
+        context.registerReceiver(
+            receiver,
+            IntentFilter(TelephonyManager.ACTION_SIM_SLOT_STATUS_CHANGED).apply {
+                addAction(TelephonyManager.ACTION_SIM_CARD_STATE_CHANGED)
+                addAction(TelephonyManager.ACTION_SIM_APPLICATION_STATE_CHANGED)
+            },
+            android.Manifest.permission.READ_PRIVILEGED_PHONE_STATE,
+            null,
+            Context.RECEIVER_EXPORTED,
+        )
         try {
-            seService = SEService(context, Dispatchers.IO.asExecutor(), listener)
-        } catch (e: Exception) {
-            Log.e(TAG, "Failed to start SEService", e)
-            onComplete(false)
+            val deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(10)
+            while (!ready()) {
+                val remaining = deadline - System.nanoTime()
+                if (remaining <= 0) break
+                // Card and mapping queries can settle after their broadcasts are delivered.
+                changed.tryAcquire(
+                    minOf(remaining, TimeUnit.MILLISECONDS.toNanos(100)),
+                    TimeUnit.NANOSECONDS,
+                )
+            }
+            check(ready()) { "SIM type and port mapping did not settle" }
+        } finally {
+            context.unregisterReceiver(receiver)
+        }
+    }
+
+    private fun preparePhysicalSimMode(slotMapping: List<UiccSlotMapping>) {
+        val telephony = context.getSystemService(TelephonyManager::class.java)
+        val slot =
+            context.resources
+                .getIntArray(com.android.internal.R.array.non_removable_euicc_slots)
+                .single()
+        val card =
+            telephony.uiccCardsInfo.firstOrNull { it.physicalSlotIndex == slot && it.isEuicc }
+        val subscriptions =
+            context
+                .getSystemService(SubscriptionManager::class.java)
+                .activeSubscriptionInfoList
+                .orEmpty()
+                .filter { it.isEmbedded }
+        check(card != null || subscriptions.isEmpty()) { "eUICC card information is unavailable" }
+        val activeProfiles = subscriptions.filter { it.cardId == card?.cardId }
+        for (subscription in activeProfiles) {
+            switchProfile(
+                subscription.cardId,
+                SubscriptionManager.INVALID_SUBSCRIPTION_ID,
+                subscription.portIndex,
+            )
+        }
+        val mapping =
+            slotMapping.map {
+                UiccSlotMapping(it.portIndex, it.physicalSlotIndex, it.logicalSlotIndex)
+            }
+        setSlotMapping(mapping)
+    }
+
+    private fun setSlotMapping(mapping: List<UiccSlotMapping>) {
+        val telephony = context.getSystemService(TelephonyManager::class.java)
+        fun mappingMatches() =
+            telephony.simSlotMapping
+                .map { UiccSlotMapping(it.portIndex, it.physicalSlotIndex, it.logicalSlotIndex) }
+                .toSet() == mapping.toSet()
+        if (mappingMatches()) return
+        val changed = Semaphore(0)
+        val receiver =
+            object : BroadcastReceiver() {
+                override fun onReceive(context: Context, intent: Intent) {
+                    changed.release()
+                }
+            }
+        context.registerReceiver(
+            receiver,
+            IntentFilter(TelephonyManager.ACTION_SIM_SLOT_STATUS_CHANGED),
+            android.Manifest.permission.READ_PRIVILEGED_PHONE_STATE,
+            null,
+            Context.RECEIVER_EXPORTED,
+        )
+        try {
+            telephony.setSimSlotMapping(mapping)
+            val deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(10)
+            while (!mappingMatches()) {
+                val remaining = deadline - System.nanoTime()
+                check(remaining > 0) { "Physical SIM mapping did not settle" }
+                changed.tryAcquire(remaining, TimeUnit.NANOSECONDS)
+            }
+        } finally {
+            context.unregisterReceiver(receiver)
+        }
+    }
+
+    private fun switchProfile(cardId: Int, subscriptionId: Int, portIndex: Int) {
+        val euicc = context.getSystemService(EuiccManager::class.java).createForCardId(cardId)
+        val action = "${context.packageName}.SWITCH_PROFILE.${modemRequestSerial.incrementAndGet()}"
+        val finished = CountDownLatch(1)
+        var result = EuiccManager.EMBEDDED_SUBSCRIPTION_RESULT_ERROR
+        val receiver =
+            object : BroadcastReceiver() {
+                override fun onReceive(context: Context, intent: Intent) {
+                    result = resultCode
+                    finished.countDown()
+                }
+            }
+        context.registerReceiver(receiver, IntentFilter(action), Context.RECEIVER_NOT_EXPORTED)
+        val callback =
+            PendingIntent.getBroadcast(
+                context,
+                0,
+                Intent(action).setPackage(context.packageName),
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE,
+            )
+        try {
+            euicc.switchToSubscription(subscriptionId, portIndex, callback)
+            check(finished.await(30, TimeUnit.SECONDS)) { "Profile switch timed out" }
+            check(result == EuiccManager.EMBEDDED_SUBSCRIPTION_RESULT_OK) {
+                "Profile switch failed: $result"
+            }
+        } finally {
+            callback.cancel()
+            context.unregisterReceiver(receiver)
         }
     }
 
@@ -121,7 +288,8 @@ class EsimController(private val context: Context) {
                     .getIntArray(com.android.internal.R.array.non_removable_euicc_slots)
                     .singleOrNull() ?: return null
             val telephony = context.getSystemService(TelephonyManager::class.java)
-            val slotInfo = telephony.uiccSlotsInfo?.getOrNull(slot) ?: return null
+            val slots = checkNotNull(telephony.uiccSlotsInfo) { "SIM slots are unavailable" }
+            val slotInfo = checkNotNull(slots.getOrNull(slot)) { "eSIM slot is unavailable" }
             val supportedTypes = slotInfo.supportedSimTypes
             if (
                 TelephonyManager.SIM_TYPE_PHYSICAL !in supportedTypes ||
@@ -130,12 +298,12 @@ class EsimController(private val context: Context) {
                 Log.d(TAG, "Slot $slot does not advertise SIM type switching")
                 return null
             }
-            val current = telephony.simSlotMapping.toList()
-            check(current.any { it.physicalSlotIndex == slot }) { "eSIM slot is not mapped" }
-            return current
+            // SIM-type requests must describe every physical slot, including inactive ones.
+            return slots.mapIndexed { index, info ->
+                UiccSlotMapping(0, index, index, checkNotNull(info).simType)
+            }
         } catch (e: RuntimeException) {
-            Log.e(TAG, "Failed to read SIM slot mapping", e)
-            return null
+            throw IllegalStateException("Failed to read SIM slot types", e)
         }
     }
 
@@ -181,26 +349,14 @@ class EsimController(private val context: Context) {
                 }
             context.getSystemService(TelephonyManager::class.java).setSimSlotMapping(updated)
         } catch (e: RuntimeException) {
-            Log.e(TAG, "Failed to update eSIM slot type", e)
-        }
-    }
-
-    private fun restoreSimSlotMapping(slotMapping: List<UiccSlotMapping>?) {
-        if (slotMapping == null) return
-        try {
-            // A separate mapping request restores port activation after the SIM type change.
-            val mapping =
-                slotMapping.map {
-                    UiccSlotMapping(it.portIndex, it.physicalSlotIndex, it.logicalSlotIndex)
-                }
-            context.getSystemService(TelephonyManager::class.java).setSimSlotMapping(mapping)
-        } catch (e: RuntimeException) {
-            Log.e(TAG, "Failed to restore SIM slot mapping", e)
+            throw IllegalStateException("Failed to update eSIM slot type", e)
         }
     }
 
     companion object {
         private const val TAG = "OplusEsimController"
+
+        private val switchInProgress = MutableStateFlow(false)
 
         private val modemRequestSerial = AtomicInteger(0x45530000)
 
