@@ -6,6 +6,7 @@
 package org.lineageos.settings.esimswitcher
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -58,7 +59,12 @@ class EsimSettingsFragment :
 
     private fun toggleEsimState(preference: Preference, enable: Boolean) {
         preference.isEnabled = false
-        controller.toggleEsimState(if (enable) 1 else 0) {}
+        val context = requireContext().applicationContext
+        controller.toggleEsimState(if (enable) 1 else 0) { success ->
+            if (!success) {
+                Toast.makeText(context, R.string.esim_toggle_failed, Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     companion object {
