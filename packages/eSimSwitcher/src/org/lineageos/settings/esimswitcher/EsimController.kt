@@ -38,8 +38,8 @@ class EsimController(context: Context) {
         IOplusEsim.Stub.asInterface(ServiceManager.getService("${IOplusEsim.DESCRIPTOR}/default"))
     }
 
-    val switching: StateFlow<Boolean>
-        get() = switchInProgress
+    val pendingState: StateFlow<Int?>
+        get() = requestedState
 
     fun currentGpioState() = oplusEsimService?.esimGpio ?: 0
 
@@ -62,12 +62,12 @@ class EsimController(context: Context) {
     }
 
     fun toggleEsimState(state: Int, onComplete: (Boolean) -> Unit) {
-        if (!switchInProgress.compareAndSet(false, true)) {
+        if (!requestedState.compareAndSet(null, state)) {
             context.mainExecutor.execute { onComplete(false) }
             return
         }
         val complete: (Boolean) -> Unit = { success ->
-            switchInProgress.value = false
+            requestedState.value = null
             context.mainExecutor.execute { onComplete(success) }
         }
         try {
@@ -517,7 +517,7 @@ class EsimController(context: Context) {
         private const val PROFILE_PREFERENCES = "esim_profiles"
         private const val SAVED_PROFILES = "profiles"
 
-        private val switchInProgress = MutableStateFlow(false)
+        private val requestedState = MutableStateFlow<Int?>(null)
 
         private val modemRequestSerial = AtomicInteger(0x45530000)
 
