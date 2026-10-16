@@ -14,8 +14,11 @@
     <!-- Summary shown while the eSIM hardware and profiles are being disabled. -->
     <string name="esim_toggle_disabling">Disabling eSIM…</string>
 
-    <string name="esim_toggle_dialog">SIM 2 will be disabled if you enable eSIM. Enable it anyway?</string>
-    <string name="esim_toggle_failed">Couldn’t complete the eSIM change. Check your SIM settings and try again.</string>
+    <!-- %1$d is the one-based physical SIM slot number. -->
+    <string name="esim_enable_warning_single">Enabling eSIM will disable SIM %1$d. Continue?</string>
+    <string name="esim_enable_warning_multiple">Enabling these eSIMs will disable all physical SIMs. Continue?</string>
+    <string name="esim_enable_warning_unknown">Enabling eSIM may disable physical SIMs. Continue?</string>
+    <string name="esim_switch_failed">Couldn’t switch SIMs. Try again.</string>
     <string name="esim_toggle_dialog_cancel">Cancel</string>
     <string name="esim_toggle_dialog_ok">Enable</string>
 </resources>
