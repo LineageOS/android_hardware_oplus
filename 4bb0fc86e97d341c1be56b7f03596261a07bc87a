@@ -39,6 +39,30 @@
       },
       "revId": "4bb0fc86e97d341c1be56b7f03596261a07bc87a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b64d36e4_5cb993d2",
+        "filename": "power/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-17T10:34:06Z",
+      "side": 1,
+      "message": "because V1 is the earliest that has the API we need.",
+      "parentUuid": "618fb4e1_b9f90825",
+      "range": {
+        "startLine": 27,
+        "startChar": 39,
+        "endLine": 27,
+        "endChar": 41
+      },
+      "revId": "4bb0fc86e97d341c1be56b7f03596261a07bc87a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
