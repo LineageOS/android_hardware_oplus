@@ -1,0 +1,2 @@
+# CNSS
+vendor.vold.serialno    u:object_r:vendor_cnss_daemon_prop:s0 exact string
