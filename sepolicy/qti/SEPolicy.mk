@@ -10,6 +10,10 @@ BOARD_VENDOR_SEPOLICY_DIRS += \
     hardware/oplus/sepolicy/qti/vendor \
     hardware/oplus/sepolicy/qti/vendor/$(SEPOLICY_PLATFORM)
 
+ifeq ($(TARGET_DEVICE),avicii)
+BOARD_VENDOR_SEPOLICY_DIRS += hardware/oplus/sepolicy/qti/vendor/legacy-um/avicii
+endif
+
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
     hardware/oplus/sepolicy/qti/private \
     hardware/oplus/sepolicy/qti/private/$(SEPOLICY_PLATFORM)
