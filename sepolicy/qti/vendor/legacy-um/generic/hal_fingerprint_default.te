@@ -1,0 +1,2 @@
+r_dir_file(hal_fingerprint_default, vendor_sysfs_battery_supply)
+dontaudit hal_fingerprint_default vendor_hal_commondcs_hwservice:hwservice_manager find;
