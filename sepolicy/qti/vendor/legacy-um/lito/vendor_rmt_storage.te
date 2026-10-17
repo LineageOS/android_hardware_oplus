@@ -1,0 +1,2 @@
+dontaudit vendor_rmt_storage default_prop:file read;
+get_prop(vendor_rmt_storage, vendor_audio_debug_prop)
