@@ -1,0 +1,2 @@
+dontaudit hal_camera_default system_prop:file read;
+allow hal_camera_default cgroup:file r_file_perms;
