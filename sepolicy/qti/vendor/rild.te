@@ -10,3 +10,4 @@ r_dir_file(rild, vendor_proc_engineer)
 
 get_prop(rild, boot_status_prop)
 set_prop(rild, vendor_nw_exported_system_prop)
+get_prop(rild, system_oplus_radio_prop)
