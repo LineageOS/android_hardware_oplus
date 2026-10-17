@@ -1,0 +1,1 @@
+allow hal_power_default vendor_hal_vnddisplayconfig_service:service_manager find;
