@@ -47,6 +47,8 @@ persist.vendor.fingerprint.sensor_type             u:object_r:system_fingerprint
 persist.sys.oplus.gps.    u:object_r:exported_system_prop:s0
 
 # Logging
+persist.sys.dump                         u:object_r:exported_system_prop:s0 exact
+persist.sys.oplus.wifi.fulldump.enable    u:object_r:exported_system_prop:s0 exact
 aec.custom.debug.               u:object_r:exported_system_prop:s0
 persist.sys.assert.panic        u:object_r:exported_system_prop:s0
 persist.sys.camera.log.scene    u:object_r:exported_system_prop:s0
