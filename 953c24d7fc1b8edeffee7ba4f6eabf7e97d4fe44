@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da773f82_f9e29215",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 38330
+      },
+      "writtenOn": "2026-10-17T10:55:26Z",
+      "side": 1,
+      "message": "fallback directory avoids duplicating Lahaina’s definition, moving into Qualcomm generic policy could produce a cleaner structure, but requires a separate coordinated change",
+      "revId": "953c24d7fc1b8edeffee7ba4f6eabf7e97d4fe44",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
