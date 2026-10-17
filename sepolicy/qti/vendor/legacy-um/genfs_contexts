@@ -2,3 +2,6 @@
 genfscon sysfs /devices/platform/soc/880000.i2c/i2c-5/5-0028/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/984000.i2c/i2c-4/4-005d/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/990000.i2c/i2c-9/9-004b/wakeup u:object_r:sysfs_wakeup:s0
+
+# UIO
+genfscon sysfs /devices/platform/soc/0.qcom,oembackup_sharedmem/uio u:object_r:vendor_sysfs_uio_file:s0
