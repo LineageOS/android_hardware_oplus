@@ -1,0 +1,3 @@
+dontaudit rild cache_file:lnk_file read;
+dontaudit rild default_prop:file read;
+dontaudit rild system_data_root_file:dir write;
