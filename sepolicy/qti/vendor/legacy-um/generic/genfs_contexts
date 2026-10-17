@@ -1,0 +1,2 @@
+# UIO
+genfscon sysfs /devices/platform/soc/0.qcom,oembackup_sharedmem/uio u:object_r:vendor_sysfs_uio_file:s0
