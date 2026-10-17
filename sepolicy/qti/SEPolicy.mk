@@ -8,7 +8,9 @@ SEPOLICY_PLATFORM := $(subst device/qcom/sepolicy_vndr/,,$(SEPOLICY_PATH))
 
 BOARD_VENDOR_SEPOLICY_DIRS += \
     hardware/oplus/sepolicy/qti/vendor \
-    hardware/oplus/sepolicy/qti/vendor/$(SEPOLICY_PLATFORM)
+    hardware/oplus/sepolicy/qti/vendor/$(SEPOLICY_PLATFORM) \
+    $(wildcard hardware/oplus/sepolicy/qti/vendor/$(SEPOLICY_PLATFORM)/$(TARGET_BOARD_PLATFORM)) \
+    $(wildcard hardware/oplus/sepolicy/qti/vendor/$(SEPOLICY_PLATFORM)/$(TARGET_BOARD_PLATFORM)/$(TARGET_DEVICE))
 
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
     hardware/oplus/sepolicy/qti/private \
