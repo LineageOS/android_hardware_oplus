@@ -1,1 +1,2 @@
 get_prop(vendor_rmt_storage, vendor_audio_debug_prop)
+get_prop(vendor_rmt_storage, system_oplus_radio_prop)
