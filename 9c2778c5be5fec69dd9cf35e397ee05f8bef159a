@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e812d4c3_6a8f5228",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-19T19:54:35Z",
+      "side": 1,
+      "message": "would have expected you to use oplustouch and just make it also set it for SUB_DISPLAY_TP_IC_ID",
+      "revId": "9c2778c5be5fec69dd9cf35e397ee05f8bef159a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
