@@ -28,3 +28,5 @@ rw_dir_file(hal_oplus_charger_aidl, vendor_sysfs_usb_supply)
 rw_dir_file(hal_oplus_charger_aidl, vendor_proc_charger)
 rw_dir_file(hal_oplus_charger_aidl, vendor_proc_oplus_version)
 rw_dir_file(hal_oplus_charger_aidl, vendor_proc_wireless)
+
+get_prop(hal_oplus_charger_aidl, boot_status_prop)
