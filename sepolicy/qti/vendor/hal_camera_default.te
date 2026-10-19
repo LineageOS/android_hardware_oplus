@@ -18,6 +18,7 @@ allow hal_camera_default self:netlink_kobject_uevent_socket create_socket_perms_
 
 allow hal_camera_default system_server:binder call;
 
+allow hal_camera_default fwk_stats_service:service_manager find;
 allow hal_camera_default hal_oplus_olc_aidl_service:service_manager find;
 allow hal_camera_default osense_service:service_manager find;
 
