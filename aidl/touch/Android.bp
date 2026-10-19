@@ -1,5 +1,5 @@
 //
-// SPDX-FileCopyrightText: 2025 The LineageOS Project
+// SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
 // SPDX-License-Identifier: Apache-2.0
 //
 
@@ -48,6 +48,9 @@ cc_binary {
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "ENABLE_TG"), {
         false: ["-DENABLE_TG=false"],
         default: ["-DENABLE_TG=true"],
+    }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "GESTURE_ENABLE_INDEP_NODES"), {
+        any @ nodes: ["-DGESTURE_ENABLE_INDEP_NODES=\"" + nodes + "\""],
+        default: ["-DGESTURE_ENABLE_INDEP_NODES=\"/proc/touchpanel/double_tap_enable_indep\""],
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "HTPR_ENABLE_NODE"), {
         any @ node: ["-DHTPR_ENABLE_NODE=OplusTouchConstants::" + node],
         default: ["-DHTPR_ENABLE_NODE=OplusTouchConstants::GAME_SWITCH_ENABLE_NODE"],
