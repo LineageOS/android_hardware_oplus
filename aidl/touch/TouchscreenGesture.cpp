@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2025 The LineageOS Project
+ * SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -14,12 +14,6 @@
 using ::android::base::ReadFileToString;
 using ::android::base::Trim;
 using ::android::base::WriteStringToFile;
-
-namespace {
-
-constexpr const char* kGestureEnableIndepPath = "/proc/touchpanel/double_tap_enable_indep";
-
-}  // anonymous namespace
 
 namespace aidl {
 namespace vendor {
@@ -43,25 +37,16 @@ ndk::ScopedAStatus TouchscreenGesture::getSupportedGestures(std::vector<Gesture>
 }
 
 ndk::ScopedAStatus TouchscreenGesture::setGestureEnabled(const Gesture& gesture, bool enabled) {
-    int contents = 0;
-
-    if (std::string tmp; mOplusTouch) {
-        mOplusTouch->touchReadNodeFile(OplusTouchConstants::DEFAULT_TP_IC_ID,
-                                       OplusTouchConstants::DOUBLE_TAP_INDEP_NODE, &tmp);
-        contents = std::stoi(tmp, nullptr, 16);
-    } else if (ReadFileToString(kGestureEnableIndepPath, &tmp)) {
-        contents = std::stoi(Trim(tmp), nullptr, 16);
-    } else {
-        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
-    }
-
-    if (enabled) {
-        contents |= (1 << (gesture.keycode - kGestureStartKey));
-    } else {
-        contents &= ~(1 << (gesture.keycode - kGestureStartKey));
-    }
+    const auto updateMask = [&](int contents) {
+        const int bit = 1 << (gesture.keycode - kGestureStartKey);
+        return enabled ? contents | bit : contents & ~bit;
+    };
 
     if (mOplusTouch) {
+        std::string tmp;
+        mOplusTouch->touchReadNodeFile(OplusTouchConstants::DEFAULT_TP_IC_ID,
+                                       OplusTouchConstants::DOUBLE_TAP_INDEP_NODE, &tmp);
+        const int contents = updateMask(std::stoi(tmp, nullptr, 16));
         int aidl_return = 0;
         mOplusTouch->touchWriteNodeFile(OplusTouchConstants::DEFAULT_TP_IC_ID,
                                         OplusTouchConstants::DOUBLE_TAP_ENABLE_NODE, "1",
@@ -69,8 +54,19 @@ ndk::ScopedAStatus TouchscreenGesture::setGestureEnabled(const Gesture& gesture,
         mOplusTouch->touchWriteNodeFile(OplusTouchConstants::DEFAULT_TP_IC_ID,
                                         OplusTouchConstants::DOUBLE_TAP_INDEP_NODE,
                                         std::to_string(contents), &aidl_return);
-    } else if (!WriteStringToFile(std::to_string(contents), kGestureEnableIndepPath, true)) {
-        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+    } else {
+        for (const auto& node : ::android::base::Split(GESTURE_ENABLE_INDEP_NODES, " ")) {
+            if (node.empty()) continue;
+
+            std::string tmp;
+            if (!ReadFileToString(node, &tmp)) {
+                return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+            }
+            const int contents = updateMask(std::stoi(Trim(tmp), nullptr, 16));
+            if (!WriteStringToFile(std::to_string(contents), node, true)) {
+                return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+            }
+        }
     }
 
     return ndk::ScopedAStatus::ok();
