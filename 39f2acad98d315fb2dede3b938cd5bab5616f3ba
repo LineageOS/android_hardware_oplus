@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0367bb2_229be49a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-19T21:50:45Z",
+      "side": 1,
+      "message": "cat /sys/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a8c000.i2c/i2c-7/7-000e/name instead.",
+      "revId": "39f2acad98d315fb2dede3b938cd5bab5616f3ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
