@@ -54,6 +54,9 @@ cc_binary {
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "HTPR_ENABLE_VALUE"), {
         any @ value: ["-DHTPR_ENABLE_VALUE=\"" + value + "\""],
         default: ["-DHTPR_ENABLE_VALUE=\"1\""],
+    }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "GESTURE_ENABLE_INDEP_NODES"), {
+        any @ nodes: ["-DGESTURE_ENABLE_INDEP_NODES=\"" + nodes + "\""],
+        default: ["-DGESTURE_ENABLE_INDEP_NODES=\"/proc/touchpanel/double_tap_enable_indep\""],
     }) + select(soong_config_variable("OPLUS_LINEAGE_TOUCH_HAL", "USE_OPLUSTOUCH"), {
         true: ["-DUSE_OPLUSTOUCH=true"],
         default: ["-DUSE_OPLUSTOUCH=false"],
