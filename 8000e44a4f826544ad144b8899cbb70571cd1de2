@@ -34,6 +34,24 @@
       "parentUuid": "33038835_0d8ca6be",
       "revId": "8000e44a4f826544ad144b8899cbb70571cd1de2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f2658c9_e027aa16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35436
+      },
+      "writtenOn": "2026-10-20T20:42:06Z",
+      "side": 1,
+      "message": "most of it should work like stock as stock uses lisivibrator for those and we added code to handle it.",
+      "parentUuid": "5ccec275_7f3f9db6",
+      "revId": "8000e44a4f826544ad144b8899cbb70571cd1de2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
