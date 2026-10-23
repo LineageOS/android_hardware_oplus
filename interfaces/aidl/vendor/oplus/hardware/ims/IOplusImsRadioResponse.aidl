@@ -5,10 +5,8 @@
 
 package vendor.oplus.hardware.ims;
 
-import vendor.oplus.hardware.ims.OplusImsRadioResponseInfo;
-
 @VintfStability
 interface IOplusImsRadioResponse {
-    oneway void queryVopsStatusResponse(in OplusImsRadioResponseInfo info, int result, boolean isVopsEnabled);
-    oneway void sendOemCommandResponse(in OplusImsRadioResponseInfo info, int result);
+    oneway void queryVopsStatusResponse(int serial, int result, boolean isVopsEnabled);
+    oneway void sendOemCommandResponse(int serial, int result);
 }
