@@ -23,8 +23,8 @@
 package vendor.oplus.hardware.pogo_keyboard;
 @VintfStability
 interface IPogoKeyboard {
+  void kb_close(int fd);
+  void kb_getfeature(int fd, int cmd, in byte[] request, out byte[] response);
   int kb_open();
-  int kb_close(int fd);
-  int kb_getfeature(int fd, int cmd, in byte[] request, out byte[] response);
   int kb_setfeature(int fd, in byte[] data, int cmd);
 }
