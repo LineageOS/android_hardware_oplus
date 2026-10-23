@@ -16,6 +16,6 @@ cc_binary {
     shared_libs: [
         "libbase",
         "libbinder_ndk",
-        "vendor.oplus.hardware.performance-V1-ndk",
+        "vendor.oplus.hardware.performance-V3-ndk",
     ],
 }
