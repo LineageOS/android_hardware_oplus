@@ -23,8 +23,8 @@
 package vendor.oplus.hardware.cammidasservice;
 @VintfStability
 interface IMIDASService {
-  void setPowerFactor(in vendor.oplus.hardware.cammidasservice.PowerFactor powerFactor);
+  vendor.oplus.hardware.cammidasservice.ExplorerInfo[] getExplorerInfo();
   vendor.oplus.hardware.cammidasservice.PowerFactor[] getPowerFactor();
   void setExplorerInfo(in vendor.oplus.hardware.cammidasservice.ExplorerInfo explorerInfo);
-  vendor.oplus.hardware.cammidasservice.ExplorerInfo[] getExplorerInfo();
+  void setPowerFactor(in vendor.oplus.hardware.cammidasservice.PowerFactor powerFactor);
 }
