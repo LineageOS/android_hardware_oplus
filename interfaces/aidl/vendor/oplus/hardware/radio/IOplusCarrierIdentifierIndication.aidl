@@ -9,5 +9,5 @@ import vendor.oplus.hardware.radio.CarrierIdentifier;
 
 @VintfStability
 interface IOplusCarrierIdentifierIndication {
-    void carrierIdentifierIndication(in CarrierIdentifier carrierIdentifier);
+    oneway void carrierIdentifierIndication(in CarrierIdentifier carrierIdentifier);
 }
