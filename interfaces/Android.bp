@@ -807,8 +807,39 @@ aidl_interface {
     ],
 }
 
+soong_config_module_type {
+    name: "oplus_subsys_radio_aidl_defaults",
+    module_type: "aidl_interface_defaults",
+    config_namespace: "oplus",
+    bool_variables: ["subsys_radio_v1_uses_subsys_v5"],
+    properties: ["versions_with_info"],
+}
+
+oplus_subsys_radio_aidl_defaults {
+    name: "oplus_subsys_radio_v1_defaults",
+    soong_config_variables: {
+        subsys_radio_v1_uses_subsys_v5: {
+            versions_with_info: [
+                {
+                    version: "1",
+                    imports: ["vendor.oplus.hardware.subsys-V5"],
+                },
+            ],
+            conditions_default: {
+                versions_with_info: [
+                    {
+                        version: "1",
+                        imports: ["vendor.oplus.hardware.subsys-V1"],
+                    },
+                ],
+            },
+        },
+    },
+}
+
 aidl_interface {
     name: "vendor.oplus.hardware.subsys_radio",
+    defaults: ["oplus_subsys_radio_v1_defaults"],
     system_ext_specific: true,
     odm_available: true,
     local_include_dir: "aidl",
@@ -828,10 +859,6 @@ aidl_interface {
         "vendor.oplus.hardware.subsys-V5",
     ],
     versions_with_info: [
-        {
-            version: "1",
-            imports: ["vendor.oplus.hardware.subsys-V1"],
-        },
         {
             version: "2",
             imports: ["vendor.oplus.hardware.subsys-V1"],
