@@ -108,7 +108,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.charger</name>
-        <version>1-11</version>
+        <version>1-12</version>
         <interface>
             <name>ICharger</name>
             <instance>default</instance>
@@ -222,7 +222,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.performance</name>
-        <version>1-4</version>
+        <version>1-5</version>
         <interface>
             <name>IPerformance</name>
             <instance>default</instance>
@@ -238,7 +238,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.radio</name>
-        <version>1-2</version>
+        <version>1-4</version>
         <interface>
             <name>IRadioStable</name>
             <instance>OplusRadio0</instance>
