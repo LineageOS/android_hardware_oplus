@@ -22,6 +22,8 @@ allow hal_oplus_charger_aidl oplus_charger_device:chr_file rw_file_perms;
 allow hal_oplus_charger_aidl block_device:dir search;
 allow hal_oplus_charger_aidl vendor_reserve_partition:blk_file rw_file_perms;
 
+dontaudit hal_oplus_charger_aidl system_data_root_file:dir write;
+
 rw_dir_file(hal_oplus_charger_aidl, vendor_sysfs_battery_supply)
 rw_dir_file(hal_oplus_charger_aidl, vendor_sysfs_charger)
 rw_dir_file(hal_oplus_charger_aidl, vendor_sysfs_usb_supply)
