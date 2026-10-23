@@ -62,4 +62,7 @@ interface IOplusRadioResponse {
   oneway void setRegionlockSettingDataResponse(in vendor.oplus.hardware.radio.OplusRadioResponseInfo info, int result);
   oneway void setSimlockOfflineLockResponse(in vendor.oplus.hardware.radio.OplusRadioResponseInfo info);
   oneway void getSimlockOfflineLockResponse(in vendor.oplus.hardware.radio.OplusRadioResponseInfo info, in int[] retryCount);
+  oneway void setLlmModeResponse(in vendor.oplus.hardware.radio.OplusRadioResponseInfo info);
+  oneway void setUaiReqResponse(in vendor.oplus.hardware.radio.OplusRadioResponseInfo info);
+  oneway void setSystemStatusResponse(in vendor.oplus.hardware.radio.OplusRadioResponseInfo info);
 }
