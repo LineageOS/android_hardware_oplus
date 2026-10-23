@@ -23,5 +23,5 @@
 package vendor.oplus.hardware.radio;
 @VintfStability
 interface IOplusCarrierIdentifierIndication {
-  void carrierIdentifierIndication(in vendor.oplus.hardware.radio.CarrierIdentifier carrierIdentifier);
+  oneway void carrierIdentifierIndication(in vendor.oplus.hardware.radio.CarrierIdentifier carrierIdentifier);
 }
