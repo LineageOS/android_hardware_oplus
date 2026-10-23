@@ -23,7 +23,7 @@
 package vendor.oplus.hardware.ims;
 @VintfStability
 interface IOplusImsRadio {
-  oneway void setCallback(vendor.oplus.hardware.ims.IOplusImsRadioResponse responseCallback, vendor.oplus.hardware.ims.IOplusImsRadioIndication indicationCallback);
   oneway void queryVopsStatus(int serial);
   oneway void sendOemCommand(int serial, int commandId, String data);
+  oneway void setCallback(vendor.oplus.hardware.ims.IOplusImsRadioResponse responseCallback, vendor.oplus.hardware.ims.IOplusImsRadioIndication indicationCallback);
 }

@@ -10,7 +10,7 @@ import vendor.oplus.hardware.ims.IOplusImsRadioResponse;
 
 @VintfStability
 interface IOplusImsRadio {
-    oneway void setCallback(IOplusImsRadioResponse responseCallback, IOplusImsRadioIndication indicationCallback);
     oneway void queryVopsStatus(int serial);
     oneway void sendOemCommand(int serial, int commandId, String data);
+    oneway void setCallback(IOplusImsRadioResponse responseCallback, IOplusImsRadioIndication indicationCallback);
 }
