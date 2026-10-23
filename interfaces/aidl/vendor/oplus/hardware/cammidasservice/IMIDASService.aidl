@@ -10,8 +10,8 @@ import vendor.oplus.hardware.cammidasservice.ExplorerInfo;
 
 @VintfStability
 interface IMIDASService {
-    void setPowerFactor(in PowerFactor powerFactor);
+    ExplorerInfo[] getExplorerInfo();
     PowerFactor[] getPowerFactor();
     void setExplorerInfo(in ExplorerInfo explorerInfo);
-    ExplorerInfo[] getExplorerInfo();
+    void setPowerFactor(in PowerFactor powerFactor);
 }
