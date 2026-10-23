@@ -5,6 +5,7 @@
 
 package vendor.oplus.hardware.performance;
 
+import vendor.oplus.hardware.performance.MmWatermarkScale;
 import vendor.oplus.hardware.performance.OsvelteVersionRet;
 import vendor.oplus.hardware.performance.ProcMemStatRet;
 import vendor.oplus.hardware.performance.ProcReqHal;
@@ -184,4 +185,7 @@ interface IPerformance {
     int setWakeSeedThread(in String tid, boolean identify_type, boolean inUid);
     TaskWakeInfo getWakeThreadsAffinityOrdered(in String handle, int size);
     oneway void setExtSchedProp(in String pid, in String prop);
+    String readMMParameters(MmWatermarkScale cmd);
+    int writeMMParameters(MmWatermarkScale cmd, in String val);
+    int writeHoraeQmi(in String buffer);
 }
