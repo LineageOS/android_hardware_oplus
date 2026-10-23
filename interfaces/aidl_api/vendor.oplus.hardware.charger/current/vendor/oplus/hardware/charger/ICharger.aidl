@@ -153,4 +153,8 @@ interface ICharger {
   String getChgConfig(vendor.oplus.hardware.charger.ChgFuncFlag flag, String extra, int callname);
   int setUsbEyeDiagram(int model, String eyeDiagram, boolean isDefaultEyeDiagram);
   String getUsbCurrentEyeDiagram(int model);
+  String queryRgcpHboostInfo();
+  String setCV(int cv_value, int flag);
+  String getDeepSleepClustersSleepWake();
+  String getPowerbankInfo(String type, int call_name);
 }
