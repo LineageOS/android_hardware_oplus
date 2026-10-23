@@ -870,6 +870,35 @@ aidl_interface {
 }
 
 aidl_interface {
+    name: "vendor.oplus.hardware.subsys_radio-compat",
+    system_ext_specific: true,
+    odm_available: true,
+    local_include_dir: "aidl-compat",
+    srcs: ["aidl-compat/vendor/oplus/hardware/subsys_interface/subsys_radio/*.aidl"],
+    stability: "vintf",
+    owner: "oplus",
+
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            enabled: true,
+        },
+    },
+    imports: [
+        "vendor.oplus.hardware.subsys-V5",
+    ],
+    versions_with_info: [
+        {
+            version: "1",
+            imports: ["vendor.oplus.hardware.subsys-V5"],
+        },
+    ],
+    frozen: true,
+}
+
+aidl_interface {
     name: "vendor.oplus.hardware.touch",
     system_ext_specific: true,
     vendor_available: true,
