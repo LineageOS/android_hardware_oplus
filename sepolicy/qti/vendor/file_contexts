@@ -198,6 +198,7 @@
 /data/vendor/touch(/.*)?                                                   u:object_r:vendor_persist_oplus_touch_file:s0
 /data/vendor/touchconfig(/.*)?                                             u:object_r:vendor_persist_oplus_touch_file:s0
 /dev/hbp_core(/.*)?                                                        u:object_r:oplus_touchdaemon_device:s0
+/dev/hbp_report0                                                           u:object_r:oplus_touchdaemon_device:s0
 /dev/hbp0                                                                  u:object_r:oplus_touchdaemon_device:s0
 /dev/hbp1                                                                  u:object_r:oplus_touchdaemon_device:s0
 /dev/socket/hidl2touchdaemon_client                                        u:object_r:oplus_touchdaemon_socket:s0
