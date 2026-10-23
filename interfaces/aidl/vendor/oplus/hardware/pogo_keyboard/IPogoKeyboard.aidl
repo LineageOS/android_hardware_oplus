@@ -8,15 +8,9 @@ package vendor.oplus.hardware.pogo_keyboard;
 @VintfStability
 interface IPogoKeyboard {
     /**
-     * Open POGO keyboard UART device
-     * returns file descriptor or handle (>0)
-     */
-    int kb_open();
-
-    /**
      * Close POGO keyboard device
      */
-    int kb_close(int fd);
+    void kb_close(int fd);
 
     /**
      * Send a command and receive response (UART transaction)
@@ -25,15 +19,19 @@ interface IPogoKeyboard {
      * @param cmd       protocol command ID (mapped inside libpogo_keyboard.so)
      * @param request   raw request payload (already framed or partially framed)
      * @param response  raw response buffer from MCU
-     *
-     * @return status code (0 = success)
      */
-    int kb_getfeature(
+    void kb_getfeature(
         int fd,
         int cmd,
         in byte[] request,
         out byte[] response
     );
+
+    /**
+     * Open POGO keyboard UART device
+     * returns file descriptor or handle (>0)
+     */
+    int kb_open();
 
     /**
      * Send a command without response or with short ACK
