@@ -195,4 +195,7 @@ interface IPerformance {
   int setWakeSeedThread(in String tid, boolean identify_type, boolean inUid);
   vendor.oplus.hardware.performance.TaskWakeInfo getWakeThreadsAffinityOrdered(in String handle, int size);
   oneway void setExtSchedProp(in String pid, in String prop);
+  String readMMParameters(vendor.oplus.hardware.performance.MmWatermarkScale cmd);
+  int writeMMParameters(vendor.oplus.hardware.performance.MmWatermarkScale cmd, in String val);
+  int writeHoraeQmi(in String buffer);
 }
