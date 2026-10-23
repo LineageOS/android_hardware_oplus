@@ -1,0 +1,14 @@
+/*
+ * SPDX-FileCopyrightText: 2026 The LineageOS Project
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+package vendor.oplus.hardware.subsys_interface.subsys_radio;
+
+@VintfStability
+parcelable ModemWifiQosInfo {
+    int qosType = 0;
+    int qosTypeEnable = 0;
+    int measureTime = 0;
+    int[] qosValue;
+}
