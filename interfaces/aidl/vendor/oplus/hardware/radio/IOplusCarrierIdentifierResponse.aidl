@@ -9,6 +9,6 @@ import vendor.oplus.hardware.radio.OplusRadioResponseInfo;
 
 @VintfStability
 interface IOplusCarrierIdentifierResponse {
-    void setCallbackResponse(int clientId);
-    void setCarrierIdentifierIndEnableResponse(in OplusRadioResponseInfo info);
+    oneway void setCallbackResponse(int clientId);
+    oneway void setCarrierIdentifierIndEnableResponse(in OplusRadioResponseInfo info);
 }
