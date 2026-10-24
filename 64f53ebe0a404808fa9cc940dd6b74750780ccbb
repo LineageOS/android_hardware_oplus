@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dda1c33b_a7b2070c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-24T18:50:22Z",
+      "side": 1,
+      "message": "i don\u0027t think this is worth risking modifying oplusreserve1 ourselves...",
+      "revId": "64f53ebe0a404808fa9cc940dd6b74750780ccbb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
