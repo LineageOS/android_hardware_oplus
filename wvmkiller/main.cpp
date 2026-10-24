@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024-2025 The LineageOS Project
+ * Copyright (C) 2024-2026 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ const char APP_PACKAGE_NAME[] = "org.lineageos.wvmkiller";
 const uint8_t WIDEVINE_UUID[] = {0xED, 0xEF, 0x8B, 0xA9, 0x79, 0xD6, 0x4A, 0xCE,
                                  0xA3, 0xC8, 0x27, 0xDC, 0xD5, 0x1D, 0x21, 0xED};
 
-std::string systemIdAidl() {
+bool disableL1Aidl() {
     using aidl::android::hardware::drm::IDrmFactory;
     using aidl::android::hardware::drm::IDrmPlugin;
     using aidl::android::hardware::drm::Uuid;
@@ -35,7 +35,7 @@ std::string systemIdAidl() {
     auto instance = std::format("{}/widevine", IDrmFactory::descriptor);
 
     if (!AServiceManager_isDeclared(instance.c_str())) {
-        return "";
+        return false;
     }
 
     auto drmFactory =
@@ -48,13 +48,16 @@ std::string systemIdAidl() {
     std::shared_ptr<IDrmPlugin> drmPlugin;
     CHECK(drmFactory->createDrmPlugin(uuid, APP_PACKAGE_NAME, &drmPlugin).isOk());
 
+    std::string provisioningModel;
+    CHECK(drmPlugin->getPropertyString("provisioningModel", &provisioningModel).isOk());
+
     std::string systemId;
     CHECK(drmPlugin->getPropertyString("systemId", &systemId).isOk());
 
-    return systemId;
+    return provisioningModel != "BootCertificateChain" && systemId.size() > 5;
 }
 
-std::string systemIdHidl() {
+bool disableL1Hidl() {
     using android::hardware::hidl_array;
     using android::hardware::hidl_string;
     using android::hardware::drm::V1_0::IDrmFactory;
@@ -79,11 +82,11 @@ std::string systemIdHidl() {
                                  callback);
     }
 
-    return systemId;
+    return systemId.size() > 5;
 }
 
 int main() {
-    if (systemIdAidl().size() > 5 || systemIdHidl().size() > 5) {
+    if (disableL1Aidl() || disableL1Hidl()) {
         SetProperty("vendor.wvm.disable_l1", "1");
     }
 
