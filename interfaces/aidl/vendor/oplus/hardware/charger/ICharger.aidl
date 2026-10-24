@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2025 The LineageOS Project
+ * SPDX-FileCopyrightText: The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -140,4 +140,8 @@ interface ICharger {
     String getChgConfig(ChgFuncFlag flag, String extra, int callname);
     int setUsbEyeDiagram(int model, String eyeDiagram, boolean isDefaultEyeDiagram);
     String getUsbCurrentEyeDiagram(int model);
+    String queryRgcpHboostInfo();
+    String setCV(int cv_value, int flag);
+    String getDeepSleepClustersSleepWake();
+    String getPowerbankInfo(String type, int call_name);
 }

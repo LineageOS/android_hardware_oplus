@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2025 The LineageOS Project
+ * SPDX-FileCopyrightText: The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 ///////////////////////////////////////////////////////////////////////////////
@@ -65,4 +65,10 @@ enum ChgFuncFlag {
   SET_WLSPEN_DISCHG_SOC = 39,
   GET_VDM_INFO = 40,
   SET_PENCIL_TX_CHARGE_DISABLE = 41,
+  SET_BS_BLIND_CFG = 42,
+  GET_BS_BLIND_CFG = 43,
+  GET_POWERBANK_STATUS = 44,
+  GET_WLS_POWERBANK_INFO = 45,
+  GET_WLS_POWERBANK_STATUS = 46,
+  GET_POWERBANK_INFO = 47,
 }
