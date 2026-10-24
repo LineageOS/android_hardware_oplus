@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024-2025 The LineageOS Project
+ * Copyright (C) 2024-2026 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,14 +20,21 @@
 #include <android/binder_manager.h>
 #include <android/hardware/drm/1.0/IDrmFactory.h>
 
+#include <thread>
+
 using android::sp;
 using android::base::SetProperty;
+using std::chrono_literals::operator""s;
 
 const char APP_PACKAGE_NAME[] = "org.lineageos.wvmkiller";
 const uint8_t WIDEVINE_UUID[] = {0xED, 0xEF, 0x8B, 0xA9, 0x79, 0xD6, 0x4A, 0xCE,
                                  0xA3, 0xC8, 0x27, 0xDC, 0xD5, 0x1D, 0x21, 0xED};
 
-std::string systemIdAidl() {
+// How long to wait for rkpd to provision a provisioning 4.0 device (5 minutes).
+const auto PROV40_POLL_INTERVAL = 10s;
+const int PROV40_POLL_ATTEMPTS = 30;
+
+std::string propertyAidl(const std::string& name) {
     using aidl::android::hardware::drm::IDrmFactory;
     using aidl::android::hardware::drm::IDrmPlugin;
     using aidl::android::hardware::drm::Uuid;
@@ -48,10 +55,12 @@ std::string systemIdAidl() {
     std::shared_ptr<IDrmPlugin> drmPlugin;
     CHECK(drmFactory->createDrmPlugin(uuid, APP_PACKAGE_NAME, &drmPlugin).isOk());
 
-    std::string systemId;
-    CHECK(drmPlugin->getPropertyString("systemId", &systemId).isOk());
+    std::string value;
+    if (!drmPlugin->getPropertyString(name, &value).isOk()) {
+        return "";
+    }
 
-    return systemId;
+    return value;
 }
 
 std::string systemIdHidl() {
@@ -82,10 +91,29 @@ std::string systemIdHidl() {
     return systemId;
 }
 
+bool isUnprovisioned() {
+    return propertyAidl("systemId").size() > 5 || systemIdHidl().size() > 5;
+}
+
 int main() {
-    if (systemIdAidl().size() > 5 || systemIdHidl().size() > 5) {
-        SetProperty("vendor.wvm.disable_l1", "1");
+    if (!isUnprovisioned()) {
+        return 0;
     }
+
+    // Provisioning 4.0 devices report a placeholder system ID until rkpd fetches their
+    // certificate after boot, which it only does while L1 is enabled.
+    if (propertyAidl("provisioningModel") == "BootCertificateChain") {
+        for (int i = 0; i < PROV40_POLL_ATTEMPTS; i++) {
+            std::this_thread::sleep_for(PROV40_POLL_INTERVAL);
+            if (!isUnprovisioned()) {
+                LOG(INFO) << "Widevine L1 got provisioned, keeping it enabled";
+                return 0;
+            }
+        }
+        LOG(INFO) << "Widevine L1 is still not provisioned, disabling it";
+    }
+
+    SetProperty("vendor.wvm.disable_l1", "1");
 
     return 0;
 }
