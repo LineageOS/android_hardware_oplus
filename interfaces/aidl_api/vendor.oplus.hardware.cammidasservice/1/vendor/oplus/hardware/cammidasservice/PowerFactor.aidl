@@ -30,7 +30,7 @@ parcelable PowerFactor {
   double startTime;
   double duration;
   boolean isLaserOpen;
-  double[2] flashTime;
+  double[] flashTime;
   boolean isOISEnable;
-  double[3] motorTime;
+  double[] motorTime;
 }
