@@ -16,6 +16,23 @@
       "message": "i don\u0027t think this is worth risking modifying oplusreserve1 ourselves...",
       "revId": "64f53ebe0a404808fa9cc940dd6b74750780ccbb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f62c03f_42bd465e",
+        "filename": "offlinecharger/main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-10-24T18:50:41Z",
+      "side": 1,
+      "message": "These comments could be trimmed to one-liners for a cleaner overall code imo",
+      "revId": "64f53ebe0a404808fa9cc940dd6b74750780ccbb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
