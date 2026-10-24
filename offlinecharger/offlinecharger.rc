@@ -1,0 +1,8 @@
+service vendor.offlinecharger /vendor/bin/offlinecharger ${sys.shutdown.requested:-none}
+    user root
+    group root
+    disabled
+    oneshot
+
+on shutdown
+    exec_start vendor.offlinecharger
