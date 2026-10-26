@@ -70,6 +70,24 @@
       "parentUuid": "75dfb8c3_36284926",
       "revId": "dbccbfd6046a2f4e5d66754aef2f4b60e19d0e20",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d3b1386_1e8495c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-10-26T19:55:29Z",
+      "side": 1,
+      "message": "That looks less bad.",
+      "parentUuid": "189caa31_a29f307c",
+      "revId": "dbccbfd6046a2f4e5d66754aef2f4b60e19d0e20",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
