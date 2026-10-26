@@ -52,6 +52,24 @@
       "parentUuid": "5df130c4_3cb3a5a9",
       "revId": "dbccbfd6046a2f4e5d66754aef2f4b60e19d0e20",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "189caa31_a29f307c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2026-10-26T19:48:19Z",
+      "side": 1,
+      "message": "Maybe use a separate compat module I42da3e8e3bc63772b349e5d643db7e0c5b4b9f46. `getDiagPktVersionMismatchDb` changes from 22 in V9 to 20 in COS17, so this isn\u0027t a compatible V10 update",
+      "parentUuid": "75dfb8c3_36284926",
+      "revId": "dbccbfd6046a2f4e5d66754aef2f4b60e19d0e20",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
