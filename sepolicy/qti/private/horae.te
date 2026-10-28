@@ -15,3 +15,7 @@ allow horae horae_service:service_manager find;
 allow horae osense_service:service_manager find;
 allow horae surfaceflinger_service:service_manager find;
 allow horae thermal_service:service_manager find;
+
+# Allow dumpstate to collect service diagnostics.
+allow horae dumpstate:fd use;
+allow horae dumpstate:fifo_file write;
