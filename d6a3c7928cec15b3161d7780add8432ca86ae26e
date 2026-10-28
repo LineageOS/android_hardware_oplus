@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbf7cb11_d50dae38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-28T07:00:13Z",
+      "side": 1,
+      "message": "move them back to normal genfs_contexts? they don\u0027t seem to be labeled in any qcom sepolicy.",
+      "revId": "d6a3c7928cec15b3161d7780add8432ca86ae26e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
