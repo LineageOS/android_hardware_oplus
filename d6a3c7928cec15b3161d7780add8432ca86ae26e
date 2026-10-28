@@ -33,6 +33,23 @@
       "message": "also write commit msg that matches I51a7e1854370b3a9efe16d7f59d24ad6a3bb328b so it\u0027s clear what you\u0027re labeling.",
       "revId": "d6a3c7928cec15b3161d7780add8432ca86ae26e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c5597bf_5ede315f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-28T07:03:34Z",
+      "side": 1,
+      "message": "also you can move /devices/platform/soc/990000.i2c/i2c-9/9-004b/wakeup back to normal genfs_contexts, idk why it\u0027s here when not a single qcom sepolicy has it.",
+      "revId": "d6a3c7928cec15b3161d7780add8432ca86ae26e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
