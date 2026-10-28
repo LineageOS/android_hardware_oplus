@@ -18,9 +18,11 @@ import android.os.VibrationAttributes
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.provider.Settings
+import android.util.Log
 import android.view.KeyEvent
 import com.android.internal.os.DeviceKeyHandler
 import java.io.File
+import java.io.IOException
 import java.util.concurrent.Executors
 
 class KeyHandler(private val context: Context) : DeviceKeyHandler {
@@ -86,7 +88,15 @@ class KeyHandler(private val context: Context) : DeviceKeyHandler {
     }
 
     private fun populateKeyState(firstRun: Boolean) {
-        when (File("/proc/tristatekey/tri_state").readText().trim()) {
+        val state =
+            try {
+                File("/proc/tristatekey/tri_state").readText().trim()
+            } catch (e: IOException) {
+                Log.e(TAG, "Failed to read alert slider state", e)
+                return
+            }
+
+        when (state) {
             "1" -> handleMode(POSITION_TOP, firstRun)
             "2" -> handleMode(POSITION_MIDDLE, firstRun)
             "3" -> handleMode(POSITION_BOTTOM, firstRun)
