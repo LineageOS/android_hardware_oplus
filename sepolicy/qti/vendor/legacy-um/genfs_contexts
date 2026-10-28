@@ -1,2 +1,0 @@
-# Wakeup (https://lkml.org/lkml/2019/8/6/1275)
-genfscon sysfs /devices/platform/soc/990000.i2c/i2c-9/9-004b/wakeup u:object_r:sysfs_wakeup:s0
