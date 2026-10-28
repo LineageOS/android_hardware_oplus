@@ -10,6 +10,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.pm.PackageManager
 import android.hardware.camera2.CameraCharacteristics
 import android.hardware.camera2.CameraManager
 import android.media.AudioManager
@@ -18,9 +19,11 @@ import android.os.VibrationAttributes
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.provider.Settings
+import android.util.Log
 import android.view.KeyEvent
 import com.android.internal.os.DeviceKeyHandler
 import java.io.File
+import java.io.IOException
 import java.util.concurrent.Executors
 
 class KeyHandler(private val context: Context) : DeviceKeyHandler {
@@ -86,11 +89,36 @@ class KeyHandler(private val context: Context) : DeviceKeyHandler {
     }
 
     private fun populateKeyState(firstRun: Boolean) {
-        when (File("/proc/tristatekey/tri_state").readText().trim()) {
+        val state =
+            try {
+                File("/proc/tristatekey/tri_state").readText().trim()
+            } catch (e: IOException) {
+                Log.e(TAG, "Failed to read alert slider state, disabling", e)
+                setAppEnabled(false)
+                return
+            }
+
+        if (firstRun) {
+            setAppEnabled(true)
+        }
+
+        when (state) {
             "1" -> handleMode(POSITION_TOP, firstRun)
             "2" -> handleMode(POSITION_MIDDLE, firstRun)
             "3" -> handleMode(POSITION_BOTTOM, firstRun)
         }
+    }
+
+    private fun setAppEnabled(enabled: Boolean) {
+        context.packageManager.setApplicationEnabledSetting(
+            packageContext.packageName,
+            if (enabled) {
+                PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
+            } else {
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+            },
+            0,
+        )
     }
 
     private fun vibrateIfNeeded(mode: Int) {
