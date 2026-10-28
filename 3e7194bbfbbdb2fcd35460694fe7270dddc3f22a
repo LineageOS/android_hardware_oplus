@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d1cb482_23dcc7a9",
+        "filename": "packages/KeyHandler/src/org/lineageos/settings/device/KeyHandler.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-10-28T11:30:22Z",
+      "side": 1,
+      "message": "Also disable the app completely, if this is the case.",
+      "range": {
+        "startLine": 95,
+        "startChar": 16,
+        "endLine": 96,
+        "endChar": 22
+      },
+      "revId": "3e7194bbfbbdb2fcd35460694fe7270dddc3f22a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
