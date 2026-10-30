@@ -22,8 +22,10 @@ android_app {
         "androidx.preference_preference",
         "org.lineageos.settings.resources",
         "vendor.oplus.hardware.esim-V1-java",
-        "vendor.oplus.hardware.subsys_radio-V5-java",
-    ],
+    ] + select(soong_config_variable("oplus_esim_switcher", "subsys_radio_compat"), {
+        true: ["vendor.oplus.hardware.subsys_radio-compat-V1-java"],
+        default: ["vendor.oplus.hardware.subsys_radio-V5-java"],
+    }),
 
     optimize: {
         optimize: true,
