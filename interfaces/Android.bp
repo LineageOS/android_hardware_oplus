@@ -1029,3 +1029,14 @@ cc_library_shared {
     defaults: ["vendor.oplus.hardware.ndk_platform_shim_defaults"],
     whole_static_libs: ["vendor.oplus.hardware.sendextcamcmd-V1-ndk"],
 }
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.subsys_radio-V1-ndk_compat",
+    stem: "vendor.oplus.hardware.subsys_radio-V1-ndk",
+    soc_specific: true,
+    shared_libs: [
+        "libbinder_ndk",
+        "vendor.oplus.hardware.subsys-V5-ndk",
+    ],
+    whole_static_libs: ["vendor.oplus.hardware.subsys_radio-compat-V1-ndk"],
+}
