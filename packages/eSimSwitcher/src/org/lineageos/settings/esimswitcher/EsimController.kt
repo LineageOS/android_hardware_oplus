@@ -472,7 +472,7 @@ class EsimController(context: Context) {
                 ISubsysRadio.Stub.asInterface(
                     ServiceManager.checkService("${ISubsysRadio.DESCRIPTOR}/slot1")
                 )
-            if (radio == null || radio.interfaceVersion < 5) {
+            if (radio == null || radio.interfaceVersion < ISubsysRadio.VERSION) {
                 Log.w(TAG, "Vendor modem eSIM status API is unavailable")
                 return
             }
