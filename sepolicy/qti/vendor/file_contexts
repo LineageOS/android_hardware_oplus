@@ -3,6 +3,7 @@
 
 # Audio Amplifier
 /dev/aw882xx_smartpa    u:object_r:oplus_awsmartpa_device:s0
+/dev/tfa98xx            u:object_r:oplus_tfasmartpa_device:s0
 
 # Camera
 /data/vendor/camera_update(/.*)?                                                u:object_r:vendor_camera_update_data_file:s0
