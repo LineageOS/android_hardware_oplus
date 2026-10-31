@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca333f6f_b5f3ef42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-10-31T23:42:43Z",
+      "side": 1,
+      "message": "without this, iceland refuses to boot and hangs up on bootanimations forever after COS17 blob imports",
+      "revId": "d8162c5f5a9b28cd5579ace0a893a48aed975cbf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
