@@ -1,6 +1,7 @@
 allow hal_audio_default mnt_vendor_file:file r_file_perms;
 
 allow hal_audio_default oplus_awsmartpa_device:chr_file rw_file_perms;
+allow hal_audio_default oplus_tfasmartpa_device:chr_file rw_file_perms;
 allow hal_audio_default ultrasound_device:chr_file rw_file_perms;
 
 allow hal_audio_default vendor_proc_mm_fb:file rw_file_perms;
