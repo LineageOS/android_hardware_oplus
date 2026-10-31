@@ -1,5 +1,6 @@
 # Audio Amplifier
 type oplus_awsmartpa_device, dev_type;
+type oplus_tfasmartpa_device, dev_type;
 
 # Camera
 type vendor_camera_turbo_device, dev_type;
