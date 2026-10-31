@@ -12,3 +12,4 @@ allow nvram_qmi nvram:unix_stream_socket connectto;
 allow nvram_qmi nvram_socket:sock_file w_file_perms;
 
 set_prop(nvram_qmi, vendor_nw_exported_system_prop)
+set_prop(nvram_qmi, vendor_radio_prop)
