@@ -34,6 +34,8 @@ allow hal_oplus_face tee_device:chr_file rw_file_perms;
 allow hal_oplus_face face_picture_file:dir create_dir_perms;
 allow hal_oplus_face face_picture_file:file create_file_perms;
 
+allow hal_oplus_face self:process execmem;
+
 get_prop(hal_oplus_face, camera_config_prop)
 get_prop(hal_oplus_face, system_oplus_project_prop)
 set_prop(hal_oplus_face, vendor_face_prop)
