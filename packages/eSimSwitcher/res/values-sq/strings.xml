@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">Cilësimet eSIM</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">Shkarkoni dhe aktivizoni një profil operatori për të përdorur një kartë SIM virtuale</string>
-    <string name="esim_toggle_dialog">SIM 2 do të çaktivizohet nëse aktivizoni eSIM. A do ta aktivizoni gjithsesi?</string>
     <string name="esim_toggle_dialog_cancel">Anullo</string>
-    <string name="esim_toggle_dialog_ok">Aktivizo</string>
 </resources>

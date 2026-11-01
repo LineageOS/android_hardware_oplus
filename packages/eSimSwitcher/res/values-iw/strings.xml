@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">הגדרות eSIM</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">יש להוריד ולהפעיל את פרופיל ההפעלה כדי להשתמש בסים וירטואלי</string>
-    <string name="esim_toggle_dialog">סים 2 יושבת אם יופעל eSIM. להפעיל בכל זאת?</string>
+    <string name="esim_toggle_enabling">מפעיל eSIM</string>
+    <string name="esim_toggle_disabling">משבית eSIM…</string>
+    <string name="esim_enable_warning_single">הפעלת eSIM תשבית את SIM %1$d. להמשיך?</string>
+    <string name="esim_enable_warning_multiple">הפעלת כרטיסי eSIM אלה תשבית את כל כרטיסי ה-SIM הפיזיים. להמשיך?</string>
+    <string name="esim_enable_warning_unknown">הפעלת eSIM עלולה להשבית כרטיסי SIM פיזיים. להמשיך?</string>
+    <string name="esim_switch_failed">לא ניתן להחליף כרטיסי SIM. יש לנסות שוב.</string>
     <string name="esim_toggle_dialog_cancel">ביטול</string>
-    <string name="esim_toggle_dialog_ok">הפעלה</string>
+    <string name="esim_toggle_dialog_continue">אישור</string>
 </resources>

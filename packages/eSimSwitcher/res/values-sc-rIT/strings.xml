@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">Cunfiguratziones eSIM</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">Iscàrriga e ativa unu profilu de operadore pro impreare un\'ischeda SIM virtuale</string>
-    <string name="esim_toggle_dialog">Sa SIM 2 at a èssere disativada si ativas s\'eSIM. Dda boles abilitare su pròpiu?</string>
     <string name="esim_toggle_dialog_cancel">Annulla</string>
-    <string name="esim_toggle_dialog_ok">Abilita</string>
 </resources>

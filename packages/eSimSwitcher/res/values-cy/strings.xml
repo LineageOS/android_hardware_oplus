@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">Gosodiadau eSIM</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">Lawrlwytha ac actifadu proffil gweithredwr i ddefnyddio cerdyn SIM rhithiol</string>
-    <string name="esim_toggle_dialog">Caiff SIM 2 ei analluogi os wyd yn galluogi eSIM. Parhau i\'w alluogi?</string>
     <string name="esim_toggle_dialog_cancel">Diddymu</string>
-    <string name="esim_toggle_dialog_ok">Galluogi</string>
 </resources>

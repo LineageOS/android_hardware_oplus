@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">eSIM تەڭشىكى</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">مەۋھۇم SIM كارتىنى ئىشلىتىش ئۈچۈن مەشغۇلاتچىنىڭ تەرجىمىھالىنى چۈشۈرۈپ ۋە ئاكتىپلايدۇ</string>
-    <string name="esim_toggle_dialog">ئەگەر eSIM نى قوزغاتسىڭىز SIM 2 چەكلىنىدۇ. ئۇنى قوزغىتىۋېرەمسىز؟</string>
+    <string name="esim_toggle_enabling">eSIM نى قوزغىتىۋاتىدۇ…</string>
+    <string name="esim_toggle_disabling">eSIM نى چەكلەۋاتىدۇ…</string>
+    <string name="esim_enable_warning_single">eSIM قوزغىتىلسا SIM %1$d چەكلىنىدۇ. داۋاملاشتۇرامدۇ؟</string>
+    <string name="esim_enable_warning_multiple">بۇ eSIM قوزغىتىلسا بارلىق فىزىكىلىق SIM چەكلىنىدۇ. داۋاملاشتۇرامدۇ؟</string>
+    <string name="esim_enable_warning_unknown">بۇ eSIM قوزغىتىلسا فىزىكىلىق SIM چەكلىنىشى مۇمكىن. داۋاملاشتۇرامدۇ؟</string>
+    <string name="esim_switch_failed">SIM نى ئالماشتۇرغىلى بولمىدى، قايتا سىناڭ.</string>
     <string name="esim_toggle_dialog_cancel">ۋاز كەچ</string>
-    <string name="esim_toggle_dialog_ok">قوزغات</string>
+    <string name="esim_toggle_dialog_continue">جەزملە</string>
 </resources>

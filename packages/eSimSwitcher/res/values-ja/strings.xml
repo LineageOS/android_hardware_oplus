@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">eSIM 設定</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">仮想 SIM カードを使用するには、オペレータプロファイルをダウンロードして有効化してください</string>
-    <string name="esim_toggle_dialog">eSIM を有効にすると SIM2 は無効になります。それでも有効にしますか？</string>
+    <string name="esim_toggle_enabling">eSIM を有効化中…</string>
+    <string name="esim_toggle_disabling">eSIM を無効化中…</string>
+    <string name="esim_enable_warning_single">eSIM を有効にすると SIM %1$d が無効になります。続行しますか？</string>
+    <string name="esim_enable_warning_multiple">これらの eSIM を有効にすると、すべての物理 SIM が無効になります。続行しますか？</string>
+    <string name="esim_enable_warning_unknown">eSIM を有効にすると物理 SIM が無効になる可能性があります。続行しますか？</string>
+    <string name="esim_switch_failed">SIM を切り替えられませんでした。もう一度やり直してください。</string>
     <string name="esim_toggle_dialog_cancel">キャンセル</string>
-    <string name="esim_toggle_dialog_ok">有効化</string>
+    <string name="esim_toggle_dialog_continue">OK</string>
 </resources>

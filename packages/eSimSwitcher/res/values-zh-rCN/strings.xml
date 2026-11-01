@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">eSIM 设置</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">下载并激活运营商配置文件以使用虚拟 SIM 卡</string>
-    <string name="esim_toggle_dialog">启用 eSIM 后，SIM 2 将被禁用。是否仍然启用 eSIM ？</string>
+    <string name="esim_toggle_enabling">正在启用 eSIM …</string>
+    <string name="esim_toggle_disabling">正在禁用 eSIM …</string>
+    <string name="esim_enable_warning_single">启用 eSIM 将会禁用 SIM 卡 %1$d 。是否继续？</string>
+    <string name="esim_enable_warning_multiple">启用这些 eSIM 将会禁用所有的物理 SIM 卡。是否继续？</string>
+    <string name="esim_enable_warning_unknown">启用 eSIM 可能会禁用物理 SIM 卡。是否继续？</string>
+    <string name="esim_switch_failed">无法切换 SIM 卡。请重试。</string>
     <string name="esim_toggle_dialog_cancel">取消</string>
-    <string name="esim_toggle_dialog_ok">启用</string>
+    <string name="esim_toggle_dialog_continue">确定</string>
 </resources>

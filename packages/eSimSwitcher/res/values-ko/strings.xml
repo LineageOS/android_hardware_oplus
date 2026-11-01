@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">eSIM 설정</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">통신 사업자 프로필을 다운로드 및 활성화하여 가상 SIM 카드 사용</string>
-    <string name="esim_toggle_dialog">eSIM을 활성화하면 SIM 2가 비활성화됩니다. 계속하시겠습니까?</string>
     <string name="esim_toggle_dialog_cancel">취소</string>
-    <string name="esim_toggle_dialog_ok">활성화</string>
 </resources>

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">eSIM அமைப்புகள்</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">மெய்நிகர் செருகட்டையைப் பயன்படுத்தத் தொலைத்தொடர்பு விவரக்குறிப்பைப் பதிவிறக்கிச் செயற்படுத்துக</string>
-    <string name="esim_toggle_dialog">eSIM-ஐச் செயற்படுத்தினால், SIM 2 முடக்கப்படும். இருப்பினும் செயற்படுத்தவா?</string>
     <string name="esim_toggle_dialog_cancel">விலக்குக</string>
-    <string name="esim_toggle_dialog_ok">இயக்குக</string>
 </resources>

@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">Socruithe eSIM</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">Íoslódáil agus gníomhaigh próifíl oibreora chun cárta SIM fíorúil a úsáid</string>
-    <string name="esim_toggle_dialog">Díchumasófar SIM 2 má chumasóidh tú eSIM. Ar mhaith leat é a chumasú ar aon nós?</string>
+    <string name="esim_toggle_enabling">Ag cumasú eSIM…</string>
+    <string name="esim_toggle_disabling">Ag díchumasú eSIM…</string>
+    <string name="esim_enable_warning_single">Má chuirtear an eSIM i ngníomh, díchumasófar SIM %1$d. Ar mhaith leat leanúint ar aghaidh?</string>
+    <string name="esim_enable_warning_multiple">Má chuirtear na eSIManna seo i ngníomh, díchumasófar gach cárta SIM fisiciúil. Ar mhaith leat leanúint ar aghaidh?</string>
+    <string name="esim_enable_warning_unknown">D’fhéadfadh sé go ndíchumasófaí SIManna fisiciúla má chumasaítear eSIM. An mian leat leanúint ar aghaidh?</string>
+    <string name="esim_switch_failed">Níorbh fhéidir cártaí SIM a athrú. Bain triail as arís.</string>
     <string name="esim_toggle_dialog_cancel">Cealaigh</string>
-    <string name="esim_toggle_dialog_ok">Cumasaigh</string>
+    <string name="esim_toggle_dialog_continue">Ceart go leor</string>
 </resources>

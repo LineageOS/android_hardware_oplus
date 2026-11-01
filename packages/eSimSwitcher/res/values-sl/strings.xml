@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">Nastavitve eSIM</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">Prenesi in omogoči profil operaterja za uporabo navidezne kartice SIM</string>
-    <string name="esim_toggle_dialog">SIM 2 bo onemogočen, če omogočite eSIM. Omogoči vseeno?</string>
+    <string name="esim_toggle_enabling">Omogočanje eSIM …</string>
+    <string name="esim_toggle_disabling">Onemogočanje eSIM …</string>
+    <string name="esim_enable_warning_single">Omogočenje eSIM bo onemogočilo SIM %1$d. Nadaljuj?</string>
+    <string name="esim_enable_warning_multiple">Omogočenje teh eSIM-ov bo onemogočilo vse fizične SIM-e. Nadaljuj?</string>
+    <string name="esim_enable_warning_unknown">Omogočenje eSIM lahko onemogoči fizične SIM-e. Nadaljuj?</string>
+    <string name="esim_switch_failed">Preklop SIM-ov ni uspel. Poskusite znova.</string>
     <string name="esim_toggle_dialog_cancel">Prekliči</string>
-    <string name="esim_toggle_dialog_ok">Omogoči</string>
+    <string name="esim_toggle_dialog_continue">V redu</string>
 </resources>

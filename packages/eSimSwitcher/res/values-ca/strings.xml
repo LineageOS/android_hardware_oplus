@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">Configuració eSIM</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">Baixa i activa un perfil d\'operador per utilitzar una targeta SIM virtual</string>
-    <string name="esim_toggle_dialog">La SIM 2 es desactivarà si activeu l\'eSIM. Voleu habilitar-la igualment?</string>
+    <string name="esim_toggle_enabling">S\'està activant l\'eSIM…</string>
+    <string name="esim_toggle_disabling">S\'està desactivant l\'eSIM…</string>
+    <string name="esim_enable_warning_single">Activar l\'eSIM desactivarà la SIM %1$d. Voleu continuar?</string>
+    <string name="esim_enable_warning_multiple">L\'activació d\'aquestes eSIM desactivarà totes les SIM físiques. Voleu continuar?</string>
+    <string name="esim_enable_warning_unknown">Activar l\'eSIM pot desactivar les targetes SIM físiques. Voleu continuar?</string>
+    <string name="esim_switch_failed">No s\'han pogut canviar les targetes SIM. Torneu-ho a provar.</string>
     <string name="esim_toggle_dialog_cancel">Cancel·la</string>
-    <string name="esim_toggle_dialog_ok">Habilita</string>
+    <string name="esim_toggle_dialog_continue">D\'acord</string>
 </resources>

@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">ڕێکخستنەکانی eSIM</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">داگرتن و چالاککردنی پڕۆفایلی دابینکەر بۆ بەکارهێنانی سیمکارتی گریمانەیی</string>
-    <string name="esim_toggle_dialog">ئەگەر eSIM چالاک بکەیت، SIM 2 ناچالاک دەبێت. هەر چالاکی دەکەیت؟</string>
+    <string name="esim_toggle_enabling">چالاککردنی eSIM…</string>
+    <string name="esim_toggle_disabling">ناچالاککردنی eSIM…</string>
+    <string name="esim_enable_warning_single">چالاککردنی eSIM دەبێتە هۆی ناچالاککردنی سیمکارتی %1$d. بەردەوام بیت؟</string>
+    <string name="esim_enable_warning_multiple">چالاککردنی ئەم eSIMانە دەبێتە هۆی ناچالاککردنی هەموو سیمکارتە فیزیکییەکان. بەردەوام بیت؟</string>
+    <string name="esim_enable_warning_unknown">چالاککردنی eSIM لەوانەیە سیمکارتە فیزیکییەکان ناچالاک بکات. بەردەوام بیت؟</string>
+    <string name="esim_switch_failed">نەتوانرا سیمکارتەکان بگۆڕدرێن. دووبارە هەوڵ بدەرەوە.</string>
     <string name="esim_toggle_dialog_cancel">پاشگەزبوونەوە</string>
-    <string name="esim_toggle_dialog_ok">چالاککردن</string>
+    <string name="esim_toggle_dialog_continue">باشە</string>
 </resources>

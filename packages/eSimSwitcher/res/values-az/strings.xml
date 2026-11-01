@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">eSIM ayarları</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">Virtual SIM kart istifadə etmək üçün operator profilini endirib aktivləşdirin</string>
-    <string name="esim_toggle_dialog">eSIM-i fəallaşdırsanız, SIM 2 sıradan çıxarılacaq. Yenə də fəallaşdırılsın?</string>
+    <string name="esim_toggle_enabling">eSIM fəallaşdırılır…</string>
+    <string name="esim_toggle_disabling">eSIM sıradan çıxarılır…</string>
+    <string name="esim_enable_warning_single">eSIM-i fəallaşdırsanız, SIM %1$d sıradan çıxarılacaq. Davam edilsin?</string>
+    <string name="esim_enable_warning_multiple">Bu eSIM-ləri fəallaşdırsanız, bütün fiziki SIM-lər sıradan çıxarılacaq. Davam edilsin?</string>
+    <string name="esim_enable_warning_unknown">eSIM-i fəallaşdırsanız, fiziki SIM-lər sıradan çıxarıla bilər. Davam edilsin?</string>
+    <string name="esim_switch_failed">SIM-lər dəyişdirilə bilmədi. Yenidən sınayın.</string>
     <string name="esim_toggle_dialog_cancel">İmtina</string>
-    <string name="esim_toggle_dialog_ok">Fəallaşdır</string>
+    <string name="esim_toggle_dialog_continue">Oldu</string>
 </resources>

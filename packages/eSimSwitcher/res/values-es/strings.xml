@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">Configuración de eSIM</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">Descarga y activa un perfil de operador para usar una tarjeta SIM virtual.</string>
-    <string name="esim_toggle_dialog">La SIM 2 se desactivará si activas la eSIM. ¿Quieres activarla de todas formas?</string>
+    <string name="esim_toggle_enabling">Activando eSIM…</string>
+    <string name="esim_toggle_disabling">Desactivando eSIM…</string>
+    <string name="esim_enable_warning_multiple">Al activar estas eSIM se desactivarán todas las tarjetas SIM físicas. ¿Continuar?</string>
+    <string name="esim_enable_warning_unknown">Activar la eSIM puede deshabilitar las tarjetas SIM físicas. ¿Continuar?</string>
     <string name="esim_toggle_dialog_cancel">Cancelar</string>
-    <string name="esim_toggle_dialog_ok">Activar</string>
+    <string name="esim_toggle_dialog_continue">Aceptar</string>
 </resources>

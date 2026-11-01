@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">Definições do eSIM</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">Transferir e ativar um perfil de operador para usar um cartão SIM virtual</string>
-    <string name="esim_toggle_dialog">O SIM 2 será desativado se ativar o eSIM. Ativar mesmo assim?</string>
+    <string name="esim_toggle_enabling">A ativar eSIM…</string>
+    <string name="esim_toggle_disabling">A desativar eSIM…</string>
+    <string name="esim_enable_warning_single">A ativação do eSIM desativará o SIM %1$d. Continuar?</string>
+    <string name="esim_enable_warning_multiple">Ativar eSIM desativará todos os cartões SIM físicos. Continuar?</string>
+    <string name="esim_enable_warning_unknown">Ativar eSIM desativará todos os cartões SIM físicos. Continuar?</string>
+    <string name="esim_switch_failed">Não foi possível alternar os SIM. Tente novamente.</string>
     <string name="esim_toggle_dialog_cancel">Cancelar</string>
-    <string name="esim_toggle_dialog_ok">Ativar</string>
+    <string name="esim_toggle_dialog_continue">OK</string>
 </resources>

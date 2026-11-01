@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">eSIM-beállítások</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">A virtuális SIM használatához töltse le és aktiválja a kapott profilt</string>
-    <string name="esim_toggle_dialog">A 2.SIM letiltásra kerül, ha engedélyezi az eSIM-et. Engedélyezi?</string>
+    <string name="esim_toggle_enabling">eSIM bekapcsolása...</string>
+    <string name="esim_toggle_disabling">eSIM kikapcsolása...</string>
+    <string name="esim_enable_warning_single">Az eSIM bekapcsolása letiltja a SIM%1$d-t. Folytatja?</string>
+    <string name="esim_enable_warning_multiple">Ennek az eSIM-nek a bekapcsolása letiltja a fizikai SIM-eket. Folytatja?</string>
+    <string name="esim_enable_warning_unknown">Ennek az eSIM-nek a bekapcsolása lehetséges hogy letiltja a fizikai SIM-eket. Folytatja?</string>
+    <string name="esim_switch_failed">SIM-ek váltása meghiúsult. Próbálja újra.</string>
     <string name="esim_toggle_dialog_cancel">Mégsem</string>
-    <string name="esim_toggle_dialog_ok">Engedélyezés</string>
+    <string name="esim_toggle_dialog_continue">OK</string>
 </resources>

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="esim_settings_title">Paramètres eSIM</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">Télécharger et activer un profil d\'opérateur pour utiliser une carte SIM virtuelle</string>
-    <string name="esim_toggle_dialog">La carte SIM 2 sera désactivée si vous activez l\'eSIM. L\'activer quand même ?</string>
     <string name="esim_toggle_dialog_cancel">Annuler</string>
-    <string name="esim_toggle_dialog_ok">Activer</string>
 </resources>
