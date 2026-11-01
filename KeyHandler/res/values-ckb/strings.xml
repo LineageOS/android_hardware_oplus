@@ -14,7 +14,7 @@
     <string name="alert_slider_mode_normal">ئاسایی</string>
     <string name="alert_slider_mode_vibration">لەرینەوە</string>
     <string name="alert_slider_mode_dnd_priority_only">تەنها لەپێشینەکان</string>
-    <string name="alert_slider_mode_dnd_total_silence">بێدەنگی ڕەها</string>
+    <string name="alert_slider_mode_dnd_total_silence">بێدەنگیی تەواو</string>
     <string name="alert_slider_mode_dnd_alarms_only">تەنها زەنگەکان</string>
     <string name="alert_slider_mute_media_title">کپکردنی میدیا</string>
     <string name="alert_slider_mute_media_summary">کپکردنی دەنگی میدیا کاتێک دەچێتە سەر دۆخی بێدەنگ</string>
