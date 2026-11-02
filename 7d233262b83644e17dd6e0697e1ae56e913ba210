@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ddbf5a2_8427e2fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-11-02T09:35:31Z",
+      "side": 1,
+      "message": "The entire chain is fine on sm8750 (still with OOS 16 blobs).",
+      "revId": "7d233262b83644e17dd6e0697e1ae56e913ba210",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
