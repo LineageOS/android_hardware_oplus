@@ -8,6 +8,7 @@ cc_library_static {
     defaults: ["android.hardware.power-ndk_shared"],
     vendor: true,
     srcs: [
+        "charger-cool-down.cpp",
         "power-mode.cpp",
     ],
     cppflags: select(soong_config_variable("power_libperfmgr", "mode_extension_lib"), {
