@@ -1,0 +1,7 @@
+type memc_app, domain, coredomain;
+
+app_domain(memc_app)
+hal_client_domain(memc_app, vendor_hal_display_iris)
+hal_client_domain(memc_app, vendor_hal_qspmhal)
+
+allow memc_app app_api_service:service_manager find;
