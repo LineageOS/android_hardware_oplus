@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="memc_title">Video motion enhancement</string>
+    <string name="memc_summary">MEMC-based video frame interpolation technology makes animation more fluid.</string>
+    <string name="memc_supported_apps">Supported apps</string>
+    <string name="memc_effect">Optimization effect</string>
+    <string name="memc_effect_60">Boost to 60 fps</string>
+    <string name="memc_effect_120">Boost to 120 fps</string>
+    <string name="memc_effect_120_summary">Smoother display but higher power consumption</string>
+    <string name="memc_apps_empty">Apps appear here after video motion enhancement turns on while playing a video in them.</string>
+    <string name="memc_starting">Turning on Motion graphics smoothing</string>
+    <string name="memc_starting_120">Turning on Hyper motion smoothing</string>
+    <string name="memc_footer">Works while playing videos in full screen landscape. Battery usage will be increased.</string>
+</resources>

@@ -1,4 +1,5 @@
 vendor_hal_attribute(cameraMDM)
+vendor_hal_attribute(display_iris)
 vendor_hal_attribute(dolby_dvs)
 vendor_hal_attribute(feature_iris)
 vendor_hal_attribute(fingerprintpay)

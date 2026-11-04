@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.android.settingslib.widget.TopIntroPreference
+        android:key="memc_intro"
+        android:title="@string/memc_summary" />
+
+    <com.android.settingslib.widget.MainSwitchPreference
+        android:defaultValue="false"
+        android:key="memc_enabled"
+        android:persistent="false"
+        android:title="@string/memc_title" />
+
+    <ListPreference
+        android:entries="@array/memc_effect_entries"
+        android:entryValues="@array/memc_effect_values"
+        android:key="memc_mode"
+        android:persistent="false"
+        android:title="@string/memc_effect" />
+
+    <Preference
+        android:key="memc_apps"
+        android:title="@string/memc_supported_apps">
+        <intent
+            android:targetClass="org.lineageos.settings.memc.MemcAppsActivity"
+            android:targetPackage="org.lineageos.settings.memc" />
+    </Preference>
+
+    <com.android.settingslib.widget.FooterPreference
+        android:key="memc_footer"
+        android:selectable="false"
+        android:title="@string/memc_footer" />
+
+</PreferenceScreen>
