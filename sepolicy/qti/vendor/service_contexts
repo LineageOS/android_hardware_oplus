@@ -23,7 +23,8 @@ vendor.oplus.hardware.displaycolorfeature.IDisplayColorFeature/default   u:objec
 vendor.oplus.hardware.displaypanelfeature.IDisplayPanelFeature/default   u:object_r:hal_oplus_displaypanel_aidl_service:s0
 
 # Display (Pixelworks)
-vendor.pixelworks.hardware.display.IIris/default    u:object_r:hal_display_iris_aidl_service:s0
+vendor.pixelworks.hardware.display.IIris/default           u:object_r:hal_display_iris_aidl_service:s0
+vendor.pixelworks.hardware.feature.IIrisFeature/default    u:object_r:hal_feature_iris_aidl_service:s0
 
 # Dolby Vision
 vendor.dolby.dvs.IDvs/default    u:object_r:hal_dolby_dvs_aidl_service:s0
