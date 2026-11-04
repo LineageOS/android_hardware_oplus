@@ -1,4 +1,16 @@
 type hal_feature_irisfeature_default, domain;
+binder_use(hal_feature_irisfeature_default)
 
 type hal_feature_irisfeature_default_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(hal_feature_irisfeature_default)
+
+hal_server_domain(hal_feature_irisfeature_default, vendor_hal_feature_iris)
+
+binder_call(vendor_hal_feature_iris_client, vendor_hal_feature_iris_server)
+
+hal_attribute_service(vendor_hal_feature_iris, hal_feature_iris_aidl_service)
+
+allow hal_feature_irisfeature_default graphics_device:chr_file rw_file_perms;
+allow hal_feature_irisfeature_default vendor_sysfs_graphics:file r_file_perms;
+
+get_prop(hal_feature_irisfeature_default, vendor_display_prop)
