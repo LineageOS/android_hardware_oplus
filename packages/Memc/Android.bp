@@ -1,0 +1,31 @@
+//
+// SPDX-FileCopyrightText: 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_app {
+    name: "OplusMemc",
+    defaults: ["SettingsLibDefaults"],
+
+    srcs: ["src/**/*.kt"],
+
+    certificate: "platform",
+    platform_apis: true,
+    system_ext_specific: true,
+    privileged: true,
+    privapp_allowlist: "org.lineageos.settings.memc.xml",
+
+    static_libs: [
+        "androidx.preference_preference",
+        "org.lineageos.settings.resources",
+    ] + select(soong_config_variable("oplus_memc", "enabled"), {
+        true: ["//hardware/pixelworks/interfaces:vendor.pixelworks.hardware.display-V2-java"],
+        default: [],
+    }),
+
+    optimize: {
+        optimize: true,
+        proguard_flags_files: ["proguard.flags"],
+        shrink_resources: true,
+    },
+}
