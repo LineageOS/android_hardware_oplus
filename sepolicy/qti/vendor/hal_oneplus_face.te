@@ -13,6 +13,7 @@ binder_call(hal_oneplus_face, cameraserver)
 allow hal_oneplus_face self:process execmem;
 
 allow hal_oneplus_face fwk_camera_service:service_manager find;
+allow hal_oneplus_face surfaceflinger:fd use;
 
 allow hal_oneplus_face gpu_device:chr_file rw_file_perms;
 allow hal_oneplus_face ion_device:chr_file rw_file_perms;
