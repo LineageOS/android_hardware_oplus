@@ -14,6 +14,7 @@ allow hal_fingerprint_default osense_service:service_manager find;
 
 allow hal_fingerprint_default hal_oplus_olc_aidl_service:service_manager find;
 
+allow hal_fingerprint_default vendor_hal_commondcs_hwservice:hwservice_manager find;
 allow hal_fingerprint_default vendor_hal_orms_hwservice:hwservice_manager find;
 allow hal_fingerprint_default vendor_hal_osense_hwservice:hwservice_manager find;
 
