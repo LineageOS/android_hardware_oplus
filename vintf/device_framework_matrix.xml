@@ -114,6 +114,14 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.oplus.hardware.commondcs</name>
+        <version>1.0</version>
+        <interface>
+            <name>ICommonDcsHalService</name>
+            <instance>commondcsservice</instance>
+        </interface>
+    </hal>
     <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.commondcs</name>
         <version>1</version>
