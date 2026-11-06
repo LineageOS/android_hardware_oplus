@@ -5,7 +5,6 @@
 
 package vendor.oplus.hardware.performance;
 
-import vendor.oplus.hardware.performance.MmWatermarkScale;
 import vendor.oplus.hardware.performance.OsvelteVersionRet;
 import vendor.oplus.hardware.performance.ProcMemStatRet;
 import vendor.oplus.hardware.performance.ProcReqHal;
