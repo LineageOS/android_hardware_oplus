@@ -34,6 +34,23 @@
       "parentUuid": "601978df_42815f3e",
       "revId": "714a59a78c174c6ef16e914131a01377f167ef85",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "404c75c8_0efaf66c",
+        "filename": "packages/Memc/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-11-10T19:40:58Z",
+      "side": 1,
+      "message": "Why?",
+      "revId": "714a59a78c174c6ef16e914131a01377f167ef85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
