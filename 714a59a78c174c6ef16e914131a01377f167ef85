@@ -16,6 +16,24 @@
       "message": "Is this really necessary? Isn\u0027t it a meme feature?",
       "revId": "714a59a78c174c6ef16e914131a01377f167ef85",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "825b134b_2fced376",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2026-11-10T18:41:54Z",
+      "side": 1,
+      "message": "Pixelworks X7 support it and works great on supported devices\nhttps://community.oneplus.com/thread/1504908040774615047",
+      "parentUuid": "601978df_42815f3e",
+      "revId": "714a59a78c174c6ef16e914131a01377f167ef85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
