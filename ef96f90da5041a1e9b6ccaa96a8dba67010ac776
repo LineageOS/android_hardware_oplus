@@ -34,6 +34,24 @@
       "parentUuid": "09795f99_287b2183",
       "revId": "ef96f90da5041a1e9b6ccaa96a8dba67010ac776",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1268c7e_7e6dd003",
+        "filename": "packages/Memc/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2026-11-11T10:10:19Z",
+      "side": 1,
+      "message": "yep, hardware/pixelworks/interfaces only gets synced on devices with a Pixelworks service, so without the select every other oplus device would fail to build because of the missing dep.",
+      "parentUuid": "dbe97d2c_54b9f43c",
+      "revId": "ef96f90da5041a1e9b6ccaa96a8dba67010ac776",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
