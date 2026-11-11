@@ -16,6 +16,24 @@
       "message": "Why?",
       "revId": "ef96f90da5041a1e9b6ccaa96a8dba67010ac776",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe97d2c_54b9f43c",
+        "filename": "packages/Memc/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-11-11T10:02:57Z",
+      "side": 1,
+      "message": "to not break build on devices not syncing this repo i guess?",
+      "parentUuid": "09795f99_287b2183",
+      "revId": "ef96f90da5041a1e9b6ccaa96a8dba67010ac776",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
