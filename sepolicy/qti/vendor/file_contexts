@@ -117,6 +117,7 @@
 
 # OSENSE
 /vendor/bin/hw/vendor\.oplus\.hardware\.osense\.client-service    u:object_r:hal_oplus_osense_aidl_exec:s0
+/vendor/bin/hw/vendor\.oplus\.hardware\.osense\.client@1\.0-service    u:object_r:hal_oplus_osense_default_exec:s0
 
 # Partitions
 /dev/block/platform/soc/1d84000\.ufshc/by-name/engineering_cdt_[ab]    u:object_r:vendor_custom_ab_block_device:s0
