@@ -1,0 +1,10 @@
+package vendor.oplus.hardware.osense.client@1.0;
+
+interface IOsenseHalReporter {
+    checkAccessPermission(string identity) generates (int32_t result);
+    oneway osenseSetSceneAction(string identity, OsenseHalSaRequest request);
+    oneway osenseClrSceneAction(string identity, int64_t request);
+    oneway osenseSetNotification(string identity, OsenseHalNotifyRequest request);
+    oneway osenseSetCtrlData(string identity, OsenseControlInfo ctrldata);
+    oneway osenseResetCtrlData(string identity);
+};

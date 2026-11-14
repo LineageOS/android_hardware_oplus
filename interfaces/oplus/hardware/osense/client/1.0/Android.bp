@@ -1,0 +1,13 @@
+hidl_interface {
+    name: "vendor.oplus.hardware.osense.client@1.0",
+    root: "vendor.oplus",
+    system_ext_specific: true,
+    srcs: [
+        "IOsenseHalReporter.hal",
+        "types.hal",
+    ],
+    interfaces: [
+        "android.hidl.base@1.0",
+    ],
+    gen_java: false,
+}

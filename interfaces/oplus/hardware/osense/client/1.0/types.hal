@@ -1,0 +1,48 @@
+package vendor.oplus.hardware.osense.client@1.0;
+
+struct OsenseHalSaRequest {
+    string scene;
+    string action;
+    int32_t timeout;
+    int64_t request;
+};
+
+struct OsenseHalNotifyRequest {
+    int32_t msg_src;
+    int32_t msg_type;
+    int32_t param1;
+    int32_t param2;
+    int32_t param3;
+    string param4;
+};
+
+struct OsenseDataRange {
+    int32_t max;
+    int32_t min;
+};
+
+struct OsenseCpuControlData {
+    OsenseDataRange core;
+    OsenseDataRange freq;
+    int32_t control_type;
+};
+
+struct OsenseGpuControlData {
+    OsenseDataRange core;
+    OsenseDataRange freq;
+    int32_t control_type;
+};
+
+struct OsenseCpuMIGData {
+    int32_t migUp;
+    int32_t migDown;
+};
+
+struct OsenseControlInfo {
+    int32_t cpu_cluster_num;
+    int32_t gpu_cluster_num;
+    vec<OsenseCpuControlData> cpuParam1;
+    vec<OsenseGpuControlData> param1;
+    vec<OsenseCpuMIGData> cpu_mig_data;
+    int32_t control_mask;
+};
