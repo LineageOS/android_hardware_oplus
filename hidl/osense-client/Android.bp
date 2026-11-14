@@ -1,0 +1,18 @@
+cc_binary {
+    name: "vendor.oplus.hardware.osense.client@1.0-service",
+    defaults: ["hidl_defaults"],
+    vendor: true,
+    relative_install_path: "hw",
+    init_rc: ["vendor.oplus.hardware.osense.client@1.0-service.rc"],
+    vintf_fragments: ["vendor.oplus.hardware.osense.client@1.0-service.xml"],
+    srcs: [
+        "OsenseHalReporter.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libutils",
+        "vendor.oplus.hardware.osense.client@1.0",
+    ],
+}
