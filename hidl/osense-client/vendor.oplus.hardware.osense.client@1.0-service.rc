@@ -1,0 +1,4 @@
+service vendor.osense-client-hidl /vendor/bin/hw/vendor.oplus.hardware.osense.client@1.0-service
+    class hal
+    user system
+    group system

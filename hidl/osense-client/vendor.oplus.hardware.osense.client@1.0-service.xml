@@ -1,0 +1,11 @@
+<manifest version="1.0" type="device">
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.osense.client</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IOsenseHalReporter</name>
+            <instance>OsenseHalReporter</instance>
+        </interface>
+    </hal>
+</manifest>
