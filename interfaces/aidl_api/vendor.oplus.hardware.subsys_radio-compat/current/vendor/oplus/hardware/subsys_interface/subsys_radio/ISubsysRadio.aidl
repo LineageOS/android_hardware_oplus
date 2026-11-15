@@ -350,4 +350,6 @@ interface ISubsysRadio {
   oneway void manualModemCrash(int serial, in vendor.oplus.hardware.subsys_interface.subsys_radio.ModemCrashInfo info);
   oneway void setTauConfig(int serial, in vendor.oplus.hardware.subsys_interface.subsys_radio.TauConfigInfo config);
   oneway void setNetworkClusterCfg(int serial, in vendor.oplus.hardware.subsys_interface.subsys_radio.NetworkClusterCfg cfg);
+  oneway void getPhoneSn(int serial);
+  oneway void getHstState(int serial);
 }

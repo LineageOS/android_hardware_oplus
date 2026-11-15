@@ -894,6 +894,10 @@ aidl_interface {
             version: "1",
             imports: ["vendor.oplus.hardware.subsys-V5"],
         },
+        {
+            version: "2",
+            imports: ["vendor.oplus.hardware.subsys-V5"],
+        },
     ],
     frozen: true,
 }
@@ -1039,4 +1043,15 @@ cc_library_shared {
         "vendor.oplus.hardware.subsys-V5-ndk",
     ],
     whole_static_libs: ["vendor.oplus.hardware.subsys_radio-compat-V1-ndk"],
+}
+
+cc_library_shared {
+    name: "vendor.oplus.hardware.subsys_radio-V2-ndk_compat",
+    stem: "vendor.oplus.hardware.subsys_radio-V2-ndk",
+    soc_specific: true,
+    shared_libs: [
+        "libbinder_ndk",
+        "vendor.oplus.hardware.subsys-V5-ndk",
+    ],
+    whole_static_libs: ["vendor.oplus.hardware.subsys_radio-compat-V2-ndk"],
 }

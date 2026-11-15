@@ -34,6 +34,7 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.SimlockInfoType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SimlockStateType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SmartNetworkSelectInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.UnitTestResults;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.VideoTransferQualityInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.VodataEventInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.VonrBackoffInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.VonrRollbackInfo;
@@ -97,4 +98,7 @@ interface ISubsysRadioIndication {
     oneway void radioSdfAutoFilterInfoInd(int filterId, in SdfAddFilterInfo filterInfo, int status);
     oneway void radioGameLatencyPredictionResultInd(SubsysIndicationType type, in GameLatencyPredictionResultInfo gameLatencyPredictionResultInfo);
     oneway void radioUnitTestResultInd(SubsysIndicationType type, in UnitTestResults results);
+    oneway void radioVideoTransferQualityInd(SubsysIndicationType type, in VideoTransferQualityInfo videoTransferQualityInfo);
+    oneway void radioPdcRefreshInd(SubsysIndicationType type, int pdcRefreshEvent);
+    oneway void radioMbnFileDiscoveryEventInd(SubsysIndicationType type, int remoteDiscoveryEvent);
 }
