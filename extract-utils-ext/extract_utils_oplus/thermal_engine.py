@@ -14,7 +14,7 @@ import struct
 import xml.etree.ElementTree as ET
 from contextlib import suppress
 from os import path
-from typing import Any, Dict, List, NamedTuple, Optional, Tuple
+from typing import Any, NamedTuple
 
 from extract_utils.file import File, FileArgs, FileList
 from extract_utils.fixups_blob import BlobFixupCtx, blob_fixup
@@ -41,23 +41,23 @@ SAMPLING_MS = 1000
 
 
 class StatusModel(NamedTuple):
-    up: List[int]
-    down: List[int]
-    status: List[int]
+    up: list[int]
+    down: list[int]
+    status: list[int]
 
 
 class ControlConfig(NamedTuple):
-    cpu_levels: Dict[int, List[int]]
-    gpu_levels: Dict[int, int]
+    cpu_levels: dict[int, list[int]]
+    gpu_levels: dict[int, int]
     # tempGear -> (cpu level, gpu level)
-    gears: Dict[int, Tuple[int, int]]
+    gears: dict[int, tuple[int, int]]
     clusters: int
 
 
 class Level(NamedTuple):
     temp: int
     clr: int
-    limits: List[int]
+    limits: list[int]
 
 
 def get_member(value: Any, *keys: str) -> Any:
@@ -68,14 +68,14 @@ def get_member(value: Any, *keys: str) -> Any:
     return value
 
 
-def parse_int(value: Optional[str], default: int = -1) -> int:
+def parse_int(value: str | None, default: int = -1) -> int:
     try:
         return int(value)  # type: ignore[arg-type]
     except (TypeError, ValueError):
         return default
 
 
-def read_horae_config(horae_config_path: str) -> Dict[str, Any]:
+def read_horae_config(horae_config_path: str) -> dict[str, Any]:
     with open(horae_config_path, 'rb') as f:
         data = f.read()
 
@@ -104,12 +104,12 @@ def read_horae_config(horae_config_path: str) -> Dict[str, Any]:
 
     root = json.loads(plain[4 : 4 + length])
     if not isinstance(root, dict):
-        raise ValueError(f'Failed to parse {horae_config_path}')
+        raise TypeError(f'Failed to parse {horae_config_path}')
 
     return root
 
 
-def select_project(root: Dict[str, Any], project: Optional[str]):
+def select_project(root: dict[str, Any], project: str | None):
     if project and isinstance(root.get(project), dict):
         return root[project]
 
@@ -123,7 +123,7 @@ def select_project(root: Dict[str, Any], project: Optional[str]):
     return root
 
 
-def get_shell_sensors(project: Dict[str, Any]) -> List[str]:
+def get_shell_sensors(project: dict[str, Any]) -> list[str]:
     models = (
         get_member(project, 'shell_temp_fitting_model', 'default', 'temp_model')
         or {}
@@ -140,7 +140,7 @@ def get_shell_sensors(project: Dict[str, Any]) -> List[str]:
     )
 
 
-def parse_status_model(value: Any) -> Optional[StatusModel]:
+def parse_status_model(value: Any) -> StatusModel | None:
     if not isinstance(value, dict):
         return None
 
@@ -230,8 +230,8 @@ def read_control_config(control_config_path: str) -> ControlConfig:
     return config._replace(clusters=clusters)
 
 
-def build_levels(control: ControlConfig, model: StatusModel) -> List[Level]:
-    levels: List[Level] = []
+def build_levels(control: ControlConfig, model: StatusModel) -> list[Level]:
+    levels: list[Level] = []
     cpu_limits = [NO_LIMIT] * control.clusters
     gpu_limit = NO_LIMIT
 
@@ -261,7 +261,7 @@ def build_levels(control: ControlConfig, model: StatusModel) -> List[Level]:
     return levels
 
 
-def format_values(key: str, values: List[Any]) -> str:
+def format_values(key: str, values: list[Any]) -> str:
     return ' '.join([key, *map(str, values)])
 
 
@@ -273,7 +273,7 @@ def generate_thermal_engine_config(
     control_config_path: str,
     horae_config_path: str,
     horae_target_config_path: str,
-    project_name: Optional[str] = None,
+    project_name: str | None = None,
 ) -> str:
     control = read_control_config(control_config_path)
     horae = read_horae_config(horae_target_config_path)
@@ -360,7 +360,7 @@ def find_extracted_file(module: ExtractUtilsModule, file_dst: str) -> str:
 
 def add_generated_thermal_engine_config(
     module: ExtractUtilsModule,
-    project_name: Optional[str] = None,
+    project_name: str | None = None,
     horae_target_config: str = HORAE_TARGET_CONFIG,
 ) -> GeneratedProprietaryFile:
     """
