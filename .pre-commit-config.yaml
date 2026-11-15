@@ -18,3 +18,9 @@ repos:
     hooks:
       - id: pretty-format-kotlin
         args: [--autofix, --ktfmt, --ktfmt-style=kotlinlang]
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.5
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
