@@ -7,5 +7,12 @@
     <string name="esim_settings_title">Impostazioni eSIM</string>
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">Scarica e attiva un profilo operatore per utilizzare una SIM virtuale</string>
+    <string name="esim_toggle_enabling">Attivazione eSIM…</string>
+    <string name="esim_toggle_disabling">Disattivazione eSIM…</string>
+    <string name="esim_enable_warning_single">Abilitare la eSIM disabiliterà la SIM %1$d. Continuare?</string>
+    <string name="esim_enable_warning_multiple">Abilitare queste eSIM disabiliterà tutte le SIM fisiche. Continuare?</string>
+    <string name="esim_enable_warning_unknown">Abilitare la eSIM potrebbe disabilitare le SIM fisiche. Continuare?</string>
+    <string name="esim_switch_failed">Impossibile cambiare SIM. Riprova.</string>
     <string name="esim_toggle_dialog_cancel">Annulla</string>
+    <string name="esim_toggle_dialog_continue">Ok</string>
 </resources>

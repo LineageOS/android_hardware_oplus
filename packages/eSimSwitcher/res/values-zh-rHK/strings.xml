@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="esim_toggle_summary">下載並啟用電訊商設定檔，以使用 eSIM。</string>
+    <string name="esim_toggle_enabling">正在啟用 eSIM…</string>
+    <string name="esim_toggle_disabling">正在停用 eSIM...</string>
+    <string name="esim_enable_warning_single">啟用 eSIM 將會停用 SIM %1$d。是否繼續？</string>
+    <string name="esim_enable_warning_multiple">啟用這些 eSIM 將會停用所有實體 SIM 卡。是否繼續？</string>
+    <string name="esim_enable_warning_unknown">啟用 eSIM 可能會停用所有實體 SIM 卡。是否繼續？</string>
+    <string name="esim_switch_failed">無法切換 SIM 卡。 請重試。</string>
+    <string name="esim_toggle_dialog_cancel">取消</string>
+    <string name="esim_toggle_dialog_continue">確定</string>
+</resources>

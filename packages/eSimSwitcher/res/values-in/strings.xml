@@ -8,4 +8,5 @@
     <string name="esim_toggle_title">eSIM</string>
     <string name="esim_toggle_summary">Unduh dan aktifkan profil operator untuk menggunakan kartu SIM virtual</string>
     <string name="esim_toggle_dialog_cancel">Batal</string>
+    <string name="esim_toggle_dialog_continue">OKE</string>
 </resources>
