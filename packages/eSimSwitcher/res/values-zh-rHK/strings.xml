@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: 2025 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="esim_toggle_summary">下載並啟用電訊商設定檔，以使用 eSIM。</string>
+    <string name="esim_toggle_dialog_cancel">取消</string>
+</resources>
