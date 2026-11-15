@@ -371,4 +371,6 @@ interface ISubsysRadioResponse {
     oneway void manualModemCrashResponse(in SubsysResponseInfo info, int result);
     oneway void setTauConfigResponse(in SubsysResponseInfo info);
     oneway void setNetworkClusterCfgResponse(in SubsysResponseInfo info);
+    oneway void getPhoneSnResponse(in SubsysResponseInfo info, String phoneSn);
+    oneway void getHstStateResponse(in SubsysResponseInfo info, int hstState);
 }

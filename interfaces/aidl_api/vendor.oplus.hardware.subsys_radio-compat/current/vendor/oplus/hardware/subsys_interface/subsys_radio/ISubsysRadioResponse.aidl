@@ -348,4 +348,6 @@ interface ISubsysRadioResponse {
   oneway void manualModemCrashResponse(in vendor.oplus.hardware.subsys_interface.subsys.SubsysResponseInfo info, int result);
   oneway void setTauConfigResponse(in vendor.oplus.hardware.subsys_interface.subsys.SubsysResponseInfo info);
   oneway void setNetworkClusterCfgResponse(in vendor.oplus.hardware.subsys_interface.subsys.SubsysResponseInfo info);
+  oneway void getPhoneSnResponse(in vendor.oplus.hardware.subsys_interface.subsys.SubsysResponseInfo info, String phoneSn);
+  oneway void getHstStateResponse(in vendor.oplus.hardware.subsys_interface.subsys.SubsysResponseInfo info, int hstState);
 }

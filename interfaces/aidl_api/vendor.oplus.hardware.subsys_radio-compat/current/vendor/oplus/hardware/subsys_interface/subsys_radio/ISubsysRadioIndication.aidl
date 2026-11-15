@@ -80,4 +80,7 @@ interface ISubsysRadioIndication {
   oneway void radioSdfAutoFilterInfoInd(int filterId, in vendor.oplus.hardware.subsys_interface.subsys_radio.SdfAddFilterInfo filterInfo, int status);
   oneway void radioGameLatencyPredictionResultInd(vendor.oplus.hardware.subsys_interface.subsys.SubsysIndicationType type, in vendor.oplus.hardware.subsys_interface.subsys_radio.GameLatencyPredictionResultInfo gameLatencyPredictionResultInfo);
   oneway void radioUnitTestResultInd(vendor.oplus.hardware.subsys_interface.subsys.SubsysIndicationType type, in vendor.oplus.hardware.subsys_interface.subsys_radio.UnitTestResults results);
+  oneway void radioVideoTransferQualityInd(vendor.oplus.hardware.subsys_interface.subsys.SubsysIndicationType type, in vendor.oplus.hardware.subsys_interface.subsys_radio.VideoTransferQualityInfo videoTransferQualityInfo);
+  oneway void radioPdcRefreshInd(vendor.oplus.hardware.subsys_interface.subsys.SubsysIndicationType type, int pdcRefreshEvent);
+  oneway void radioMbnFileDiscoveryEventInd(vendor.oplus.hardware.subsys_interface.subsys.SubsysIndicationType type, int remoteDiscoveryEvent);
 }

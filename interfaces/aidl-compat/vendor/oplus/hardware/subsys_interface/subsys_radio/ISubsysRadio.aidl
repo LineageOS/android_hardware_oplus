@@ -393,4 +393,6 @@ interface ISubsysRadio {
     oneway void manualModemCrash(int serial, in ModemCrashInfo info);
     oneway void setTauConfig(int serial, in TauConfigInfo config);
     oneway void setNetworkClusterCfg(int serial, in NetworkClusterCfg cfg);
+    oneway void getPhoneSn(int serial);
+    oneway void getHstState(int serial);
 }
