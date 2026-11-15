@@ -499,6 +499,32 @@ aidl_interface {
 }
 
 aidl_interface {
+    name: "vendor.oplus.hardware.olck_ca",
+    system_ext_specific: true,
+    odm_available: true,
+    local_include_dir: "aidl",
+    srcs: ["aidl/vendor/oplus/hardware/olck_ca/*.aidl"],
+    stability: "vintf",
+    owner: "oplus",
+
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            enabled: true,
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+    frozen: true,
+}
+
+aidl_interface {
     name: "vendor.oplus.hardware.oplusSensor",
     system_ext_specific: true,
     vendor_available: true,
