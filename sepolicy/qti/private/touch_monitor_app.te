@@ -1,0 +1,7 @@
+type touch_monitor_app, domain, coredomain;
+
+app_domain(touch_monitor_app)
+
+hal_client_domain(touch_monitor_app, vendor_hal_oplus_touch)
+
+allow touch_monitor_app app_api_service:service_manager find;

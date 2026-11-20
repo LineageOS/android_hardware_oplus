@@ -1,0 +1,23 @@
+//
+// SPDX-FileCopyrightText: 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_app {
+    name: "OplusTouchMonitor",
+
+    srcs: ["src/**/*.kt"],
+
+    static_libs: [
+        "vendor.oplus.hardware.touch-V2-java",
+    ],
+
+    certificate: "platform",
+    platform_apis: true,
+    privileged: true,
+    system_ext_specific: true,
+
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
+}
