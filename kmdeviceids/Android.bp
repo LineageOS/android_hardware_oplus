@@ -1,0 +1,28 @@
+//
+// SPDX-FileCopyrightText: 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libminkdescriptor",
+    vendor: true,
+}
+
+cc_library_shared {
+    name: "libmodem_device_ids",
+    vendor: true,
+}
+
+cc_binary {
+    name: "kmdeviceids",
+    vendor: true,
+    init_rc: ["kmdeviceids.rc"],
+    srcs: ["main.cpp"],
+    shared_libs: [
+        "libbase",
+        "libcppbor",
+        "liblog",
+        "libminkdescriptor",
+        "libmodem_device_ids",
+    ],
+}
