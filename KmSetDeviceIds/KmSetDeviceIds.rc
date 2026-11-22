@@ -1,0 +1,9 @@
+on property:sys.boot_completed=1
+    start vendor.KmSetDeviceIds
+
+service vendor.KmSetDeviceIds /vendor/bin/KmSetDeviceIds ${ro.serialno}
+    class late_start
+    user system
+    group system
+    oneshot
+    disabled
