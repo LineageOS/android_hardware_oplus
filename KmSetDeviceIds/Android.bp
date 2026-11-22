@@ -1,0 +1,39 @@
+//
+// SPDX-FileCopyrightText: 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libminkdescriptor",
+    vendor: true,
+}
+
+cc_library_shared {
+    name: "libqmi_cci",
+    vendor: true,
+}
+
+cc_library_shared {
+    name: "libqmiservices",
+    vendor: true,
+}
+
+cc_binary {
+    name: "KmSetDeviceIds",
+    vendor: true,
+    init_rc: ["KmSetDeviceIds.rc"],
+    srcs: [
+        "DeviceInfo.cpp",
+        "KMHal.cpp",
+        "ModemIds.cpp",
+        "main.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libcppbor",
+        "liblog",
+        "libminkdescriptor",
+        "libqmi_cci",
+        "libqmiservices",
+    ],
+}
