@@ -1,0 +1,8 @@
+type vendor_kmsetdeviceids, domain;
+type vendor_kmsetdeviceids_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(vendor_kmsetdeviceids)
+
+allow vendor_kmsetdeviceids self:qipcrtr_socket create_socket_perms_no_ioctl;
+
+allow vendor_kmsetdeviceids tee_device:chr_file rw_file_perms;
