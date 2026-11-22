@@ -85,6 +85,9 @@
 /dev/oplus_consumer_ir                                 u:object_r:oplus_consumer_ir_device:s0
 /vendor/bin/hw/android\.hardware\.ir-service\.oplus    u:object_r:hal_ir_default_exec:s0
 
+# KeyMint
+/vendor/bin/KmSetDeviceIds    u:object_r:vendor_kmsetdeviceids_exec:s0
+
 # Logo
 /dev/block/platform/soc/1d84000\.ufshc/by-name/logo_[ab]    u:object_r:vendor_custom_ab_block_device:s0
 /dev/block/platform/soc/1d84000\.ufshc/by-name/LOGO_[ab]    u:object_r:vendor_custom_ab_block_device:s0
