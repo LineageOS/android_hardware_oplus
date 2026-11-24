@@ -22,6 +22,30 @@
       },
       "revId": "1e7d2897d7a6795c209162339cc0584308f1c319",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c6b5aea_1866d1fa",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 34964
+      },
+      "writtenOn": "2026-11-24T09:20:34Z",
+      "side": 1,
+      "message": "kindly add them as well",
+      "parentUuid": "c748dc6c_ce2dac7d",
+      "range": {
+        "startLine": 110,
+        "startChar": 76,
+        "endLine": 110,
+        "endChar": 89
+      },
+      "revId": "1e7d2897d7a6795c209162339cc0584308f1c319",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
