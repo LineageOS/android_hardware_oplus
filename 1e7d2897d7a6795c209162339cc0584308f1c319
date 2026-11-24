@@ -46,6 +46,30 @@
       },
       "revId": "1e7d2897d7a6795c209162339cc0584308f1c319",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93c4a3e6_40f8fa4a",
+        "filename": "sepolicy/qti/vendor/genfs_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2026-11-24T09:30:39Z",
+      "side": 1,
+      "message": "That\u0027s without https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8650-devicetrees/+/514945 from the same topic. The haptics controller has no alias on cliffs, so its bus number depends on probe order (i2c-6 on avalon today). That change pins it to i2c3, so the nodes show up as i2c-3/3-005a and i2c-3/3-006b, which is what this change labels. Could you test with both picked?",
+      "parentUuid": "8c6b5aea_1866d1fa",
+      "range": {
+        "startLine": 110,
+        "startChar": 76,
+        "endLine": 110,
+        "endChar": 89
+      },
+      "revId": "1e7d2897d7a6795c209162339cc0584308f1c319",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
