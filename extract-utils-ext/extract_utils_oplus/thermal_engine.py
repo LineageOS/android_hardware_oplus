@@ -30,6 +30,7 @@ THERMAL_CONTROL_CONFIG = (
 HORAE_CONFIG_DIR = 'etc/horae'
 HORAE_CONFIG = f'system_ext/{HORAE_CONFIG_DIR}/horae.conf'
 HORAE_TARGET_CONFIG = 'odm/etc/horae/horae_target.conf'
+SYSTEMUI_PACKAGE = 'com.android.systemui'
 
 HORAE_KEY = '00010aae69ca90b74e9ffa45e316d752'
 THERMAL_CONTROL_KEY = hashlib.sha256(b'thermal').hexdigest()[:16].encode()
@@ -190,6 +191,44 @@ def decrypt_control_config(data: bytes) -> bytes:
     )
 
 
+def find_package_policy(root: ET.Element, package: str) -> ET.Element | None:
+    # Specific policies are named after the packages they apply to.
+    for policy in root.iterfind('thermalPolicyConfigItem/specific/*'):
+        if package in policy.tag.split('-'):
+            return policy
+
+    return None
+
+
+def apply_package_policy(
+    gears: dict[int, tuple[int, int]], policy: ET.Element
+) -> None:
+    overrides = {
+        parse_int(gear.get('tempGear')): gear
+        for gear in policy.iterfind('gear_config')
+    }
+    cpu_gears = [t for t, gear in overrides.items() if gear.get('cpu')]
+    if not cpu_gears:
+        return
+
+    last_cpu_gear = max(cpu_gears)
+    cpu_level = -1
+    for temp_gear in sorted(gears):
+        if temp_gear > last_cpu_gear:
+            break
+
+        cpu, gpu = gears[temp_gear]
+        gear = overrides.get(temp_gear)
+        if gear is None:
+            cpu = cpu_level
+        else:
+            if gear.get('cpu'):
+                cpu = cpu_level = parse_int(gear.get('cpu'))
+            gpu = parse_int(gear.get('gpu'), gpu)
+
+        gears[temp_gear] = (cpu, gpu)
+
+
 def read_control_config(control_config_path: str) -> ControlConfig:
     root = ET.parse(control_config_path).getroot()
     if root.tag != 'sys_thermal_control_list':
@@ -234,6 +273,12 @@ def read_control_config(control_config_path: str) -> ControlConfig:
         raise ValueError(
             f'No global or default thermal policy in {control_config_path}'
         )
+
+    # thermal-engine can't follow the foreground app like Horae does, so
+    # limit everything like stock limits SystemUI.
+    systemui_policy = find_package_policy(root, SYSTEMUI_PACKAGE)
+    if systemui_policy is not None:
+        apply_package_policy(config.gears, systemui_policy)
 
     return config._replace(clusters=clusters)
 
@@ -447,7 +492,8 @@ def add_generated_thermal_engine_config(
     is decrypted by a blob fixup too. horae_target_config is the extracted
     destination path of the target Horae config and has to be extracted by
     the module beforehand. project_name selects its entry, the first one
-    with shell sensors is used if it's missing.
+    with shell sensors is used if it's missing. The gears of the stock
+    SystemUI policy take precedence over the global ones.
     """
 
     def fix_file_list(file_list: FileList):
