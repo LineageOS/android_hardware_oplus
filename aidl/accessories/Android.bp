@@ -1,0 +1,24 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "vendor.lineage.accessories-service.oplus",
+    defaults: ["vendor.lineage.accessories-support-ndk-defaults"],
+    vintf_fragments: ["vendor.lineage.accessories-service.oplus.xml"],
+    init_rc: ["vendor.lineage.accessories-service.oplus.rc"],
+    vendor: true,
+    relative_install_path: "hw",
+    srcs: [
+        "OplusAccessories.cpp",
+        "OplusPen.cpp",
+        "UeventListener.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "libcutils",
+    ],
+}
