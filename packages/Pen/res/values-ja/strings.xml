@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-    SPDX-FileCopyrightText: 2025 The LineageOS Project
-    SPDX-License-Identifier: Apache-2.0
--->
-<resources>
-    <string name="pen_attached">ペンを装着しました</string>
-    <string name="tap_to_connect">タップして接続</string>
-</resources>
